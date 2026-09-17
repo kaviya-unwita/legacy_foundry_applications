@@ -1,15 +1,15 @@
 import { useEffect, useMemo, useState } from 'react'
 import {
-  Activity, ArrowLeft, BarChart3, BookOpen, Boxes, CalendarDays, Check,
-  ChevronDown, ChevronRight, ClipboardList, Database, Download, Factory,
-  FileText, Gauge, Home, Image, LayoutGrid, Menu, MoreHorizontal, Package,
-  PanelLeftClose, PanelLeftOpen, Printer, RotateCcw, Save, Search, Settings,
-  ShieldCheck, Trash2, Users, Wrench, X,
+  Activity, ArrowLeft, BarChart3, BookOpen, Boxes, Check, ChevronRight, ClipboardList, Database,
+  Factory, FileText, FolderOpen, Gauge, Hash, Home, Image, Info, LayoutGrid, Lock, Menu, Package,
+  PanelLeftClose, PanelLeftOpen, Printer, RotateCcw, Save, Search, Settings, ShieldCheck, Trash2,
+  TriangleAlert, Users, Wrench, X,
 } from 'lucide-react'
-import { inputKind, isLikelyField, parseCatalogue, screenshotUrl } from './catalog'
+import { actionKind, buildModel, findMenuLevel, flattenMenu, parseCatalogue, screenshotUrl } from './catalog'
 
 const ICONS = [Factory, Users, ClipboardList, Gauge, Activity, LayoutGrid, Wrench, BarChart3, Package, FileText, Boxes, ShieldCheck, Database, Settings]
 
+// Main-screen button names as shown in the legacy gateway screenshot (LEG-060).
 const LEGACY_MODULES = [
   ['Customer Master', 'CUSTOMER'], ['Product Master', 'PRODUCT'], ['Marketing Master', 'MARKETING'], ['Order Master', 'ORDERS'],
   ['Production Master', 'PRODUCTION'], ['Lab Master', 'LAB'], ['Subcontract Master', 'SUBCONTRACT'], ['Quality Master', 'QUALITY'],
@@ -17,222 +17,279 @@ const LEGACY_MODULES = [
   ['System Master', 'SYSTEM'], ['Stores Master', 'STORES'], ['Maintanence', 'MAINTENANCE'], ['Calibration', 'CALIBRATION'],
 ]
 const MODULE_LABELS = Object.fromEntries(LEGACY_MODULES)
-const LEGACY_MENU_IDS = {
-  'Customer Master': 'LEG-006', 'Product Master': 'LEG-106', 'Marketing Master': 'LEG-075', 'Order Master': 'LEG-098',
-  'Production Master': 'LEG-117', 'Lab Master': 'LEG-058', 'Subcontract Master': 'LEG-191', 'Quality Master': 'LEG-133',
-  'Sales Mater': 'LEG-149', 'Onscreen Master': 'LEG-087', 'Enquiry Master': 'LEG-040', 'Heat Status Master': 'LEG-042',
-  'System Master': 'LEG-207', 'Stores Master': 'LEG-151', 'Maintanence': 'LEG-064', Calibration: 'LEG-005',
-}
-const MENU_TARGETS = {
-  'Stores Master|MASTER': 'LEG-164', 'Stores Master|PURCHASE': 'LEG-176', 'Stores Master|RECEIPT': 'LEG-182',
-  'Stores Master|ISSUES': 'LEG-156', 'Stores Master|MATERIAL REJECTIONS': 'LEG-171', 'Stores Master|STOCK REPORTS': 'LEG-183',
-  'Customer Master|COMPANY': 'LEG-009', 'Customer Master|CUSTOMER': 'LEG-010', 'Customer Master|PRODUCTMASTER': 'LEG-032',
-  'Customer Master|GRADE': 'LEG-022', 'Customer Master|SUBCONTRACT / VENDOR': 'LEG-034', 'Customer Master|TAX': 'LEG-035',
-  'Customer Master|SPECIAL / QUALITY REQUIREMENTS': 'LEG-033', 'Customer Master|pc RATE MASTER': 'LEG-031',
-  'Customer Master|KG RATE MASTER': 'LEG-029', 'Customer Master|CASTING PROCESS MASTER': 'LEG-008',
-  'Customer Master|BILL OF MATERIAL': 'LEG-007', 'Customer Master|EMPLOYEE MASTER': 'LEG-014',
-  'Customer Master|USER RIGHT': 'LEG-037', 'Customer Master|MENUMASTER': 'LEG-030',
-  'Calibration|EQUIPMENT MASTER': 'LEG-004', 'Calibration|EQUIPMENT ENTRY': 'LEG-003',
-  'Calibration|CALIBRATION ENTRY': 'LEG-001', 'Calibration|CALIBRATION REPORT': 'LEG-002',
-  'Heat Status Master|HEATS DETAILS': 'LEG-041', 'Heat Status Master|PRODUCT DET': 'LEG-041',
-  'Maintanence|EHISTORY': 'LEG-066', 'Onscreen Master|ORDER VIEW': 'LEG-083',
-  'Order Master|O.A. REPORTS': 'LEG-090', 'Product Master|DRAWING VIEW': 'LEG-099',
-  'Stores Master|REPORTS': 'LEG-163', 'Stores Master|P.o. ENTRY': 'LEG-174',
-  'Stores Master|P.o. DETAILS EDIT': 'LEG-172',
-}
-const moduleLabel = (module) => MODULE_LABELS[module] || module.toUpperCase()
-const navWords = (value) => value.toLowerCase().replace(/acceptance/g, 'accept').replace(/despatch/g, 'dispatch').replace(/[^a-z0-9]+/g, ' ').split(' ').filter(word => word.length > 1 && !['master','entry','view','edit','report','reports','details','the','and'].includes(word))
-function legacyScreenLabel(screen, screens) {
-  for (const candidate of screens.filter(item => /navigation|menu/i.test(item.type) && item.module === screen.module)) {
-    for (const option of candidate.options) {
-      if (resolveLegacyOption(screen.module, option, screens)?.id === screen.id) return option
-    }
-  }
-  return screen.title.toUpperCase()
-}
+const moduleLabel = (module) => MODULE_LABELS[module] || String(module).toUpperCase()
+const readStore = (key, fallback) => { try { return JSON.parse(localStorage.getItem(key)) ?? fallback } catch { return fallback } }
+const writeStore = (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)) } catch { /* storage unavailable */ } }
+const removeStore = (key) => { try { localStorage.removeItem(key) } catch { /* storage unavailable */ } }
 
-function resolveLegacyOption(module, option, screens) {
-  const fixed = MENU_TARGETS[`${module}|${option}`]
-  if (fixed) return screens.find(screen => screen.id === fixed)
-  const wanted = navWords(option)
-  const candidates = screens.filter(screen => screen.module === module && !/navigation|menu/i.test(screen.type))
-  return candidates.map(screen => {
-    const words = navWords(screen.title)
-    const overlap = wanted.filter(word => words.some(candidate => candidate === word || candidate.startsWith(word) || word.startsWith(candidate))).length
-    return { screen, score: overlap / Math.max(wanted.length, words.length, 1) }
-  }).sort((a, b) => b.score - a.score)[0]?.screen
-}
-function useCatalogue() {
-  const [data, setData] = useState({ screens: [], modules: [] })
-  const [error, setError] = useState('')
+function useLegacyModel() {
+  const [state, setState] = useState({ model: null, error: '' })
   useEffect(() => {
-    fetch('/data/SSA_Foundry_Legacy_Application_Screen_Catalog.md')
-      .then((response) => {
-        if (!response.ok) throw new Error(`Catalogue could not be loaded (${response.status})`)
-        return response.text()
-      })
-      .then((text) => setData(parseCatalogue(text)))
-      .catch((reason) => setError(reason.message))
+    const load = (url, kind) => fetch(url).then((response) => {
+      if (!response.ok) throw new Error(`${url} could not be loaded (${response.status})`)
+      return kind === 'json' ? response.json() : response.text()
+    })
+    Promise.all([load('/data/SSA_Foundry_Legacy_Application_Screen_Catalog.md', 'text'), load('/data/legacy_source.json', 'json')])
+      .then(([markdown, source]) => setState({ model: buildModel(parseCatalogue(markdown), source), error: '' }))
+      .catch((reason) => setState({ model: null, error: reason.message }))
   }, [])
-  return { ...data, error }
+  return state
 }
 
-function Field({ screenId, label, required, value, onChange, onLookup }) {
-  const kind = inputKind(label)
-  const common = {
-    id: `${screenId}-${label}`,
-    value: value ?? '',
-    required,
-    placeholder: `Enter ${label.toLowerCase()}`,
-    onChange: (event) => onChange(label, event.target.value),
-    onKeyDown: (event) => {
-      if (event.key === 'F9') { event.preventDefault(); onLookup(label) }
-    },
-  }
+function Field({ field, value, onChange, onLookup, lookupAvailable }) {
+  const id = `field-${field.label}`
+  const type = ['date', 'number', 'password'].includes(field.type) ? field.type : 'text'
+  const step = type === 'number' ? (field.scale ? String(10 ** -field.scale) : '1') : undefined
+  const hint = [
+    field.column && `${field.column} ${field.columnType ?? ''}`.trim(),
+    field.requiredEvidence && `Required: ${field.requiredEvidence}`,
+    ...(field.validationMessages ?? []).map((message) => `Legacy message: ${message}`),
+    `Evidence: ${(field.evidence ?? []).join('; ')}`,
+  ].filter(Boolean).join('\n')
   return (
-    <label className="field">
-      <span>{label}{required && <b className="required"> *</b>}</span>
+    <label className="field" htmlFor={id} title={hint}>
+      <span>{field.label}{field.required && <b className="required"> *</b>}</span>
       <div className="input-wrap">
-        {kind === 'textarea' ? <textarea {...common} rows="3" /> : <input {...common} type={kind} />}
-        {kind === 'text' && <button type="button" className="lookup" title="Lookup (F9)" onClick={() => onLookup(label)}>F9</button>}
+        <input id={id} type={type} step={step} value={value ?? ''} required={field.required} maxLength={field.maxLength ?? undefined}
+          onChange={(event) => onChange(field.label, event.target.value)}
+          onKeyDown={(event) => { if (event.key === 'F9' && lookupAvailable) { event.preventDefault(); onLookup(field.label) } }} />
+        {type === 'text' && lookupAvailable && <button type="button" className="lookup" title="Legacy list of values (F9)" onClick={() => onLookup(field.label)}>F9</button>}
       </div>
     </label>
   )
 }
 
-function LookupModal({ field, onClose, onSelect }) {
-  const rows = ['SSA-001 · Primary record', 'SSA-002 · Approved record', 'SSA-003 · Active record', 'SSA-004 · Reference record']
+function LookupModal({ field, lovs, onClose }) {
   return (
     <div className="modal-backdrop" onMouseDown={onClose}>
-      <section className="modal" onMouseDown={(e) => e.stopPropagation()}>
-        <header><div><small>F9 REFERENCE LOOKUP</small><h3>Select {field}</h3></div><button onClick={onClose}><X size={20}/></button></header>
-        <div className="modal-search"><Search size={17}/><input autoFocus placeholder={`Search ${field}…`} /></div>
-        <div className="lookup-list">{rows.map((row) => <button key={row} onClick={() => onSelect(row.split(' · ')[0])}><span>{row}</span><ChevronRight size={17}/></button>)}</div>
+      <section className="modal" onMouseDown={(event) => event.stopPropagation()}>
+        <header><div><small>F9 · LEGACY LISTS OF VALUES IN THIS FORM</small><h3>{field}</h3></div><button onClick={onClose} aria-label="Close"><X size={20}/></button></header>
+        <p className="modal-note">These are the list definitions compiled into the legacy form. No database is connected, so no rows are shown. The compiled form does not record which item each list is attached to.</p>
+        <div className="lov-list">{lovs.map((lov, index) => (
+          <article key={index}>
+            <strong>{lov.table}</strong>
+            <small>Columns: {lov.columns.join(', ')}{lov.dynamic ? ' · built dynamically in a trigger' : ''}</small>
+            <code>{lov.sql}</code>
+          </article>
+        ))}</div>
       </section>
     </div>
   )
 }
 
-function HomePage({ screens, modules, onOpenModule, onOpenScreen }) {
-  const fieldCount = screens.reduce((total, screen) => total + screen.fields.length, 0)
-  const reports = screens.filter((screen) => /report|print/i.test(screen.type)).length
+function HomePage({ model, modules, onOpenModule, onOpenScreen }) {
+  const screens = Object.values(model.screens)
+  const fieldCount = screens.reduce((total, screen) => total + screen.fields.filter((field) => field.kind === 'field').length, 0)
+  const unverified = screens.filter((screen) => screen.sourceStatus !== 'present').length
+  const screenshots = screens.reduce((total, screen) => total + screen.legIds.length, 0)
   return (
     <main className="content dashboard">
       <section className="hero">
-        <div><span className="eyebrow">SSA CASTINGS · FOUNDRY OPERATIONS</span><h1>Good morning, Operator</h1><p>All legacy functions, reorganized for faster and clearer daily work.</p></div>
+        <div><span className="eyebrow">SSA CASTINGS · FOUNDRY OPERATIONS</span><h1>Foundry legacy replica</h1><p>Menus, screens and fields follow the legacy Oracle Forms application and its live menu table.</p></div>
         <div className="hero-mark"><Factory/><span>FOUNDRY<br/>CONTROL</span></div>
       </section>
       <section className="stats">
-        <article><span className="stat-icon teal"><LayoutGrid/></span><div><strong>{screens.length}</strong><p>Legacy screens</p></div></article>
-        <article><span className="stat-icon gold"><Database/></span><div><strong>{fieldCount.toLocaleString()}</strong><p>Captured labels</p></div></article>
-        <article><span className="stat-icon blue"><FileText/></span><div><strong>{reports}</strong><p>Reports & prints</p></div></article>
-        <article><span className="stat-icon green"><Check/></span><div><strong>100%</strong><p>Screenshot coverage</p></div></article>
+        <article><span className="stat-icon teal"><LayoutGrid/></span><div><strong>{screens.length}</strong><p>Legacy forms ({screenshots} screenshots)</p></div></article>
+        <article><span className="stat-icon gold"><Database/></span><div><strong>{fieldCount.toLocaleString()}</strong><p>Source-backed fields</p></div></article>
+        <article><span className="stat-icon blue"><FileText/></span><div><strong>{screens.filter((screen) => screen.reports.length).length}</strong><p>Forms with legacy reports</p></div></article>
+        <article><span className="stat-icon green"><TriangleAlert/></span><div><strong>{unverified}</strong><p>Forms not fully verified</p></div></article>
       </section>
       <div className="section-title"><div><span>OPERATIONS</span><h2>Application modules</h2></div><small>{modules.length} MODULES</small></div>
       <section className="module-grid">
         {modules.map((module, index) => {
           const Icon = ICONS[index % ICONS.length]
-          const count = screens.filter((screen) => screen.module === module).length
-          return <button className="module-card" key={module} onClick={() => onOpenModule(module)}><span className="module-icon"><Icon/></span><div><h3>{moduleLabel(module)}</h3><p>{count} screens and functions</p></div><ChevronRight/></button>
+          const count = screens.filter((screen) => screen.module === module.module).length
+          return <button className="module-card" key={module.module} onClick={() => onOpenModule(module.module)}><span className="module-icon"><Icon/></span><div><h3>{moduleLabel(module.module)}</h3><p>{count} legacy forms</p></div><ChevronRight/></button>
         })}
       </section>
-      <section className="recent-panel"><div className="section-title"><div><span>QUICK ACCESS</span><h2>Common screens</h2></div></div><div className="recent-list">{screens.filter(s => /entry|master/i.test(s.type)).slice(0, 6).map(screen => <button key={screen.id} onClick={() => onOpenScreen(screen.id)}><strong>{screen.title}</strong><small>{moduleLabel(screen.module)}</small><ChevronRight size={17}/></button>)}</div></section>
+      <section className="recent-panel"><div className="section-title"><div><span>QUICK ACCESS</span><h2>Entry screens</h2></div></div><div className="recent-list">{screens.filter((screen) => screen.writesData && screen.sourceStatus === 'present').slice(0, 6).map((screen) => <button key={screen.id} onClick={() => onOpenScreen(screen.id)}><span>{screen.formName}</span><strong>{screen.menuLabel}</strong><small>{moduleLabel(screen.module)}</small><ChevronRight size={17}/></button>)}</div></section>
     </main>
   )
 }
 
-function ModulePage({ module, screens, menuId, onOpenScreen, onOpenMenu, onBack }) {
-  const menu = screens.find(screen => screen.id === (menuId || LEGACY_MENU_IDS[module]))
-  const options = menu?.options ?? []
+export function MenuPage({ module, path, model, onOpenScreen, onOpenPath, onBack }) {
+  const { options, node } = findMenuLevel(module, path)
+  const [showLegacy, setShowLegacy] = useState(false)
+  const menuLegId = node ? node.menuLegId : module.menuLegId
+  const legacyShot = menuLegId ? model.menuShots[menuLegId] : null
   return (
     <main className="content">
-      <button className="back-link" onClick={menuId ? () => onOpenMenu(null) : onBack}><ArrowLeft size={17}/> {menuId ? moduleLabel(module) : 'Dashboard'}</button>
-      <div className="page-heading"><div><span className="eyebrow">LEGACY APPLICATION MODULE</span><h1>{moduleLabel(module)}</h1><p>Select a function using the names and hierarchy from the legacy application.</p></div><div className="count-badge">{options.length}<small>OPTIONS</small></div></div>
+      <div className="screen-toolbar">
+        <button className="back-link" onClick={path.length ? () => onOpenPath(path.slice(0, -1)) : onBack}><ArrowLeft size={17}/> {path.length ? moduleLabel(module.module) : 'Dashboard'}</button>
+        {legacyShot && <div><button className={showLegacy ? 'tool active' : 'tool'} onClick={() => setShowLegacy(!showLegacy)}><Image size={17}/> Legacy reference</button></div>}
+      </div>
+      <div className="page-heading"><div><span className="eyebrow">LEGACY MENU · MENUMASTER</span><h1>{node ? node.label : moduleLabel(module.module)}</h1><p>Options, order and labels come from the live legacy menu table.</p></div><div className="count-badge">{options.length}<small>OPTIONS</small></div></div>
+      {showLegacy && legacyShot && <section className="legacy-reference"><div className="panel-title"><div><span>SOURCE EVIDENCE</span><h3>Legacy menu screenshot</h3></div><small>{legacyShot.id}</small></div><img src={screenshotUrl(legacyShot.screenshot)} alt="Legacy menu" /></section>}
       <section className="option-grid">{options.map((option, index) => {
-        const target = resolveLegacyOption(module, option, screens)
-        return <button key={`${option}-${index}`} onClick={() => target && (/navigation|menu/i.test(target.type) ? onOpenMenu(target.id) : onOpenScreen(target.id, option))}><span>{String(index + 1).padStart(2, '0')}</span><strong>{option}</strong><ChevronRight size={19}/></button>
+        const isMenu = option.children?.length > 0
+        const screen = option.screenId ? model.screens[option.screenId] : null
+        const disabled = !isMenu && !screen
+        const reason = option.formName ? `legacy form ${option.formName} ${option.formInSource ? 'is in SSA_MSS' : 'is not in SSA_MSS'}` : 'no legacy form'
+        return (
+          <button key={option.code} disabled={disabled} title={disabled ? `No screenshot was captured for this option (${reason})` : option.formName ?? option.label}
+            onClick={() => (isMenu ? onOpenPath([...path, option.code]) : onOpenScreen(option.screenId))}>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <strong>{option.label}{disabled && <small className="option-note">Not captured · {option.formName ?? 'no form'}</small>}</strong>
+            {isMenu ? <FolderOpen size={18}/> : <ChevronRight size={19}/>}
+          </button>
+        )
       })}</section>
     </main>
   )
 }
 
-function DataPreview({ screen }) {
-  const columns = screen.fields.filter(isLikelyField).slice(0, 5)
-  if (!columns.length) return null
-  return <section className="data-preview"><div className="panel-title"><div><span>LOCAL MOCK DATA</span><h3>Recent records</h3></div><button><Download size={16}/> Export</button></div><div className="table-scroll"><table><thead><tr>{columns.map(c => <th key={c}>{c}</th>)}<th>Status</th></tr></thead><tbody>{[1,2,3].map(i => <tr key={i}>{columns.map((c,j) => <td key={c}>{j === 0 ? `SSA-${String(i).padStart(3,'0')}` : '—'}</td>)}<td><span className="status">ACTIVE</span></td></tr>)}</tbody></table></div></section>
-}
-
-function ScreenPage({ screen, displayName, onBack, onNavigate }) {
-  const storageKey = `ssa-foundry:${screen.id}`
-  const [values, setValues] = useState(() => { try { return JSON.parse(localStorage.getItem(storageKey)) || {} } catch { return {} } })
+export function ScreenPage({ screen, onBack }) {
+  const storageKey = `ssa-foundry:form:${screen.storageKey}`
+  const [values, setValues] = useState(() => readStore(storageKey, {}))
   const [notice, setNotice] = useState('')
   const [lookup, setLookup] = useState('')
   const [showLegacy, setShowLegacy] = useState(false)
-  const fields = screen.fields.filter(isLikelyField)
-  const isMenu = /navigation|menu/i.test(screen.type)
-  const isReport = /report|print/i.test(screen.type)
+  const [activeTab, setActiveTab] = useState(screen.tabs[0].legId)
+  const multiTab = screen.tabs.length > 1
+  const unassigned = screen.fields.filter((field) => !screen.legIds.includes(field.tab))
+  const tabs = multiTab && unassigned.length ? [...screen.tabs, { legId: '__other', title: 'Other legacy fields' }] : screen.tabs
+  const visibleFields = !multiTab ? screen.fields : activeTab === '__other' ? unassigned : screen.fields.filter((field) => field.tab === activeTab)
+  const tab = screen.tabs.find((item) => item.legId === activeTab) ?? screen.tabs[0]
+  const verified = screen.sourceStatus !== 'missing'
+  const canSave = screen.writesData || !verified
+  const readOnly = verified && !screen.writesData
+  const docCode = screen.controlCodes[0]
 
+  const notify = (message) => { setNotice(message); window.setTimeout(() => setNotice(''), 4200) }
   const update = (label, value) => setValues((current) => ({ ...current, [label]: value }))
-  const notify = (message) => { setNotice(message); window.setTimeout(() => setNotice(''), 2400) }
-  const act = (action) => {
-    const name = action.toLowerCase()
-    if (/save|entry|approve/.test(name)) { localStorage.setItem(storageKey, JSON.stringify(values)); notify('Record saved locally') }
-    else if (/clear|new|reset/.test(name)) { setValues({}); notify('Form cleared') }
-    else if (/delete/.test(name)) { localStorage.removeItem(storageKey); setValues({}); notify('Local record deleted') }
-    else if (/print|report/.test(name)) window.print()
-    else if (/exit|back/.test(name)) onBack()
-    else notify(`${action} action completed with mock data`)
+  const act = (label) => {
+    const kind = actionKind(label)
+    if (kind === 'exit') return onBack()
+    if (kind === 'clear') { setValues({}); return notify('Form cleared') }
+    if (kind === 'save') {
+      if (!canSave) return notify('This legacy form does not write data')
+      const next = { ...values }
+      const numbered = docCode && !next.__documentNo
+      if (numbered) {
+        const counterKey = `ssa-foundry:control:${docCode}`
+        const last = Number(readStore(counterKey, 0)) + 1
+        writeStore(counterKey, last)
+        next.__documentNo = String(last).padStart(4, '0')
+      }
+      setValues(next)
+      writeStore(storageKey, next)
+      return notify(numbered ? `Saved locally · document no. ${next.__documentNo} (legacy CONTROL code ${docCode})` : 'Saved locally (no database connected)')
+    }
+    if (kind === 'delete') {
+      removeStore(storageKey)
+      setValues({})
+      const keys = screen.deletes.map((item) => `${item.table} by ${item.keys.join(', ') || 'company/unit'}`).join('; ')
+      return notify(`Local draft deleted. The legacy form deletes the record from ${keys || 'its tables'}.`)
+    }
+    if (kind === 'report') {
+      const reports = screen.reports.map((report) => report.name).join(', ')
+      return notify(reports ? `Legacy report(s): ${reports}. Oracle Reports are not connected in this replica.` : `'${label}' runs a legacy report that is not connected in this replica.`)
+    }
+    return notify(`'${label}' is a legacy action that is not implemented in this replica.`)
   }
+  const buttons = screen.buttons.length ? screen.buttons : (canSave ? ['Save', 'Clear', 'Exit'] : ['Exit'])
+  const actionIcon = (label) => ({ save: <Save/>, clear: <RotateCcw/>, delete: <Trash2/>, report: <Printer/>, exit: <ArrowLeft/> }[actionKind(label)] ?? <Info/>)
 
   return (
     <main className="content screen-page">
-      {notice && <div className="toast"><Check size={17}/>{notice}</div>}
-      <div className="screen-toolbar"><button className="back-link" onClick={onBack}><ArrowLeft size={17}/> {screen.module}</button><div><button className={showLegacy ? 'tool active' : 'tool'} onClick={() => setShowLegacy(!showLegacy)}><Image size={17}/> Legacy reference</button><button className="tool"><MoreHorizontal size={18}/></button></div></div>
-      <header className="form-heading"><div><div className="form-meta"><small>{screen.type}</small>{screen.subgroup !== 'None' && <small>{screen.subgroup}</small>}</div><h1>{displayName}</h1><p>{screen.purpose}</p></div><span className="module-tag">{moduleLabel(screen.module)}</span></header>
+      {notice && <div className="toast" role="status"><Check size={17}/>{notice}</div>}
+      <div className="screen-toolbar"><button className="back-link" onClick={onBack}><ArrowLeft size={17}/> {moduleLabel(screen.module)}</button><div><button className={showLegacy ? 'tool active' : 'tool'} onClick={() => setShowLegacy(!showLegacy)}><Image size={17}/> Legacy reference</button></div></div>
+      <header className="form-heading">
+        <div>
+          <div className="form-meta"><small>{screen.formName}{screen.formFile ? ` · ${screen.formFile}` : ''}</small><small>Menu {screen.menuCode}</small><small>{screen.legIds.join(', ')}</small></div>
+          <h1>{screen.menuLabel}</h1>
+          <p>{readOnly ? 'The legacy form is read-only (it writes no tables).' : screen.writeTables.length ? `Legacy writes: ${screen.writeTables.join(', ')}` : tab.purpose}</p>
+        </div>
+        <span className="module-tag">{moduleLabel(screen.module)}</span>
+      </header>
 
-      {showLegacy && <section className="legacy-reference"><div className="panel-title"><div><span>SOURCE EVIDENCE</span><h3>Legacy screenshot</h3></div><small>{screen.resolution}</small></div>{screen.screenshot ? <img src={screenshotUrl(screen.screenshot)} alt={`Legacy ${screen.title}`} /> : <p>No screenshot path recorded.</p>}</section>}
+      {screen.sourceStatus === 'fallback' && <div className="banner warn"><TriangleAlert size={17}/><div><strong>Based on an older legacy form.</strong> The live menu runs <code>{screen.formName}</code>, which is not in SSA_MSS. Fields come from <code>{screen.formFile}</code> and must be confirmed on the live system.</div></div>}
+      {screen.sourceStatus === 'missing' && <div className="banner danger"><TriangleAlert size={17}/><div><strong>Unverified screen.</strong> The legacy form <code>{screen.formName}</code> is not in SSA_MSS. These fields are screenshot text only; their types and required rules are unknown.</div></div>}
 
-      {isMenu ? <section className="option-grid">{screen.options.map((option, i) => <button key={option} onClick={() => { const match = window.__SSA_SCREENS?.find(s => s.module === screen.module && s.title.toLowerCase().includes(option.toLowerCase().split('/')[0].trim())); if(match) onNavigate(match.id); else notify(`${option} is represented within this module`) }}><span>{String(i+1).padStart(2,'0')}</span><strong>{option}</strong><ChevronRight size={19}/></button>)}</section> : (
-        <>
-          <section className="form-panel">
-            <div className="panel-title"><div><span>{isReport ? 'REPORT PARAMETERS' : 'ENTRY DETAILS'}</span><h3>{isReport ? 'Define report criteria' : 'Record information'}</h3></div><small>F9 OPENS LOOKUP</small></div>
-            {fields.length ? <div className="form-grid">{fields.map((field) => <Field key={field} screenId={screen.id} label={field} required={screen.requiredFields.includes(field)} value={values[field]} onChange={update} onLookup={setLookup}/>)}</div> : <div className="empty"><BookOpen/><h3>No editable labels identified</h3><p>Use the legacy reference and validate this screen during the business walkthrough.</p></div>}
-            <div className="required-note"><span>*</span> Required markers are shown only when confirmed by legacy metadata.</div>
-          </section>
-          <div className="action-bar">{screen.actions.length ? screen.actions.map((action, index) => <button key={`${action}-${index}`} className={index === 0 ? 'primary-action' : ''} onClick={() => act(action)}>{/delete/i.test(action) ? <Trash2/> : /print|report/i.test(action) ? <Printer/> : /clear|reset/i.test(action) ? <RotateCcw/> : <Save/>}{action}</button>) : <button className="primary-action" onClick={() => act('Save draft')}><Save/>Save local draft</button>}</div>
-          <DataPreview screen={screen}/>
-        </>
-      )}
-      {lookup && <LookupModal field={lookup} onClose={() => setLookup('')} onSelect={(value) => { update(lookup, value); setLookup('') }}/>} 
+      {showLegacy && <section className="legacy-reference"><div className="panel-title"><div><span>SOURCE EVIDENCE</span><h3>Legacy screenshot · {tab.title}</h3></div><small>{tab.resolution}</small></div><img src={screenshotUrl(tab.screenshot)} alt={`Legacy ${tab.title}`} /></section>}
+
+      {multiTab && <nav className="form-tabs" aria-label="Legacy form pages">{tabs.map((item) => <button key={item.legId} className={item.legId === activeTab ? 'active' : ''} onClick={() => setActiveTab(item.legId)}>{item.title}</button>)}</nav>}
+
+      <section className="form-panel">
+        <div className="panel-title"><div><span>{readOnly ? 'QUERY / DISPLAY' : 'ENTRY DETAILS'}</span><h3>{readOnly ? 'Legacy display fields' : 'Record information'}</h3></div><small>{screen.lovs.length ? 'F9 SHOWS LEGACY LISTS' : 'NO F9 LISTS IN LEGACY FORM'}</small></div>
+        {docCode && !readOnly && <div className="doc-number"><Hash size={15}/><span>Document no.</span><strong>{values.__documentNo ?? 'Generated on save'}</strong><small>legacy CONTROL code {screen.controlCodes.join(', ')}</small></div>}
+        {visibleFields.length
+          ? <div className="form-grid">{visibleFields.map((field, index) => field.kind === 'heading'
+            ? <h4 className="field-heading" key={`${field.label}-${index}`}>{field.label}</h4>
+            : <Field key={`${field.label}-${index}`} field={field} value={values[field.label]} onChange={update} onLookup={setLookup} lookupAvailable={screen.lovs.length > 0}/>)}</div>
+          : <div className="empty"><BookOpen/><h3>No source-backed fields on this page</h3><p>Use the legacy reference and validate this screen during the business walkthrough.</p></div>}
+        <div className="required-note"><span>*</span> Required only where this form writes a NOT NULL column. Hover over a field to see its legacy evidence.{readOnly && <> <Lock size={11}/> Values typed here are query criteria and are not saved.</>}</div>
+        {screen.otherLegacyText.length > 0 && <details className="other-text"><summary>Other text in the legacy form ({screen.otherLegacyText.length}), not shown as fields</summary><p>{screen.otherLegacyText.join(' · ')}</p></details>}
+      </section>
+      <div className="action-bar">{buttons.map((label, index) => {
+        const kind = actionKind(label)
+        return <button key={`${label}-${index}`} disabled={kind === 'save' && !canSave} className={kind === 'save' ? 'primary-action' : ''} onClick={() => act(label)}>{actionIcon(label)}{label}</button>
+      })}</div>
+      {lookup && <LookupModal field={lookup} lovs={screen.lovs} onClose={() => setLookup('')}/>}
     </main>
   )
 }
 
 export default function App() {
-  const { screens, modules, error } = useCatalogue()
+  const { model, error } = useLegacyModel()
   const [route, setRoute] = useState({ type: 'home' })
   const [query, setQuery] = useState('')
   const [collapsed, setCollapsed] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const selectedScreen = screens.find((screen) => screen.id === route.id)
-  const navigationModules = LEGACY_MODULES.map(([module]) => module).filter(module => screens.some(screen => screen.module === module))
-  const moduleScreens = screens.filter((screen) => screen.module === route.module)
-  const results = useMemo(() => query.trim() ? screens.filter((screen) => `${screen.id} ${screen.title} ${screen.module} ${screen.fields.join(' ')}`.toLowerCase().includes(query.toLowerCase())).slice(0, 12) : [], [query, screens])
-  useEffect(() => { window.__SSA_SCREENS = screens }, [screens])
+
+  const modules = useMemo(() => (model ? LEGACY_MODULES.map(([name]) => model.modules.find((module) => module.module === name)).filter(Boolean) : []), [model])
+  const results = useMemo(() => {
+    const text = query.trim().toLowerCase()
+    if (!model || !text) return []
+    const screenHits = Object.values(model.screens)
+      .filter((screen) => `${screen.legIds.join(' ')} ${screen.menuLabel} ${screen.formName} ${screen.module} ${screen.fields.map((field) => field.label).join(' ')}`.toLowerCase().includes(text))
+      .map((screen) => ({ key: screen.id, title: screen.menuLabel, detail: `${moduleLabel(screen.module)} · ${screen.formName} · ${screen.fields.filter((field) => field.kind === 'field').length} fields`, route: { type: 'screen', id: screen.id } }))
+    const menuHits = Object.entries(model.legIndex)
+      .filter(([legId, entry]) => entry.kind === 'menu' && entry.module && legId.toLowerCase().includes(text))
+      .map(([legId, entry]) => ({ key: legId, title: `${legId} · legacy menu`, detail: moduleLabel(entry.module), route: { type: 'module', module: entry.module, path: entry.path } }))
+    return [...screenHits, ...menuHits].slice(0, 14)
+  }, [query, model])
 
   const go = (next) => { setRoute(next); setQuery(''); setMobileOpen(false); window.scrollTo(0, 0) }
   if (error) return <div className="fatal"><Factory/><h1>Unable to open SSA Foundry</h1><p>{error}</p></div>
 
+  const selectedScreen = model && route.type === 'screen' ? model.screens[route.id] : null
+  const selectedModule = model && route.type === 'module' ? model.modules.find((module) => module.module === route.module) : null
+  const activeModule = route.module ?? selectedScreen?.module
+
   return (
     <div className={`app ${collapsed ? 'nav-collapsed' : ''}`}>
       <aside className={mobileOpen ? 'sidebar mobile-open' : 'sidebar'}>
-        <div className="brand"><span><Factory/></span>{!collapsed && <div><strong>SSA</strong><small>FOUNDRY ERP</small></div>}<button className="mobile-close" onClick={() => setMobileOpen(false)}><X/></button></div>
-        <nav><button className={route.type === 'home' ? 'active' : ''} onClick={() => go({type:'home'})}><Home/><span>Overview</span></button><p>MODULES</p>{navigationModules.map((module, index) => { const Icon=ICONS[index%ICONS.length]; return <button key={module} className={route.module === module ? 'active' : ''} title={moduleLabel(module)} onClick={() => go({type:'module',module})}><Icon/><span>{moduleLabel(module)}</span><small>{screens.filter(s=>s.module===module).length}</small></button>})}</nav>
-        <div className="sidebar-foot"><div className="avatar">KO</div>{!collapsed && <div><strong>Kaviya Operator</strong><small>System administrator</small></div>}<Settings size={18}/></div>
+        <div className="brand"><span><Factory/></span>{!collapsed && <div><strong>SSA</strong><small>FOUNDRY ERP</small></div>}<button className="mobile-close" onClick={() => setMobileOpen(false)} aria-label="Close menu"><X/></button></div>
+        <nav>
+          <button className={route.type === 'home' ? 'active' : ''} onClick={() => go({ type: 'home' })}><Home/><span>Overview</span></button>
+          <p>MODULES</p>
+          {modules.map((module, index) => {
+            const Icon = ICONS[index % ICONS.length]
+            const count = new Set(flattenMenu(module.options).map(({ option }) => option.screenId).filter(Boolean)).size
+            return <button key={module.module} className={activeModule === module.module ? 'active' : ''} title={moduleLabel(module.module)} onClick={() => go({ type: 'module', module: module.module, path: [] })}><Icon/><span>{moduleLabel(module.module)}</span><small>{count}</small></button>
+          })}
+        </nav>
+        <div className="sidebar-foot"><div className="avatar"><Lock size={14}/></div>{!collapsed && <div><strong>Local replica session</strong><small>No database or user rights connected</small></div>}</div>
       </aside>
       <section className="workspace">
-        <header className="topbar"><div><button className="mobile-menu" onClick={() => setMobileOpen(true)}><Menu/></button><button className="collapse" onClick={() => setCollapsed(!collapsed)}>{collapsed ? <PanelLeftOpen/> : <PanelLeftClose/>}</button><div className="global-search"><Search/><input value={query} onChange={(e)=>setQuery(e.target.value)} placeholder="Search all screens, modules and fields…"/><kbd>⌘ K</kbd>{results.length > 0 && <div className="search-results">{results.map(screen=><button key={screen.id} onClick={()=>go({type:'screen',id:screen.id,module:screen.module,label:legacyScreenLabel(screen,screens)})}><div><strong>{screen.title}</strong><small>{moduleLabel(screen.module)} · {screen.fields.length} fields</small></div><ChevronRight/></button>)}</div>}</div></div><div className="top-actions"><button><CalendarDays/></button><button><Activity/></button><div className="plant"><span></span><div><strong>SSA Plant 01</strong><small>Operations online</small></div><ChevronDown/></div></div></header>
-        {!screens.length ? <div className="loading"><Factory/><p>Loading 208 legacy screens…</p></div> : route.type === 'home' ? <HomePage screens={screens} modules={navigationModules} onOpenModule={(module)=>go({type:'module',module})} onOpenScreen={(id)=>{const s=screens.find(x=>x.id===id);go({type:'screen',id,module:s.module})}}/> : route.type === 'module' ? <ModulePage module={route.module} screens={moduleScreens} menuId={route.menuId} onOpenScreen={(id,label)=>go({type:'screen',id,module:route.module,label})} onOpenMenu={(menuId)=>go({type:'module',module:route.module,menuId})} onBack={()=>go({type:'home'})}/> : selectedScreen ? <ScreenPage screen={selectedScreen} displayName={route.label || legacyScreenLabel(selectedScreen, screens)} onNavigate={(id)=>{const s=screens.find(x=>x.id===id);go({type:'screen',id,module:s.module})}} onBack={()=>go({type:'module',module:selectedScreen.module})}/> : null}
+        <header className="topbar">
+          <div>
+            <button className="mobile-menu" onClick={() => setMobileOpen(true)} aria-label="Open menu"><Menu/></button>
+            <button className="collapse" onClick={() => setCollapsed(!collapsed)} aria-label="Toggle sidebar">{collapsed ? <PanelLeftOpen/> : <PanelLeftClose/>}</button>
+            <div className="global-search"><Search/><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search forms, LEG ids, menu labels and fields…"/>
+              {results.length > 0 && <div className="search-results">{results.map((result) => <button key={result.key} onClick={() => go(result.route)}><div><strong>{result.title}</strong><small>{result.detail}</small></div><ChevronRight/></button>)}</div>}
+            </div>
+          </div>
+          <div className="top-actions"><div className="plant"><span></span><div><strong>Company / unit not set</strong><small>Legacy scopes data by COMPCODE / UNITCODE</small></div></div></div>
+        </header>
+        {!model ? <div className="loading"><Factory/><p>Loading legacy menus and forms…</p></div>
+          : route.type === 'home' ? <HomePage model={model} modules={modules} onOpenModule={(module) => go({ type: 'module', module, path: [] })} onOpenScreen={(id) => go({ type: 'screen', id })}/>
+          : selectedModule ? <MenuPage key={`${selectedModule.module}/${(route.path ?? []).join('/')}`} module={selectedModule} path={route.path ?? []} model={model}
+            onOpenScreen={(id) => go({ type: 'screen', id, from: { module: selectedModule.module, path: route.path ?? [] } })}
+            onOpenPath={(path) => go({ type: 'module', module: selectedModule.module, path })} onBack={() => go({ type: 'home' })}/>
+          : selectedScreen ? <ScreenPage key={selectedScreen.id} screen={selectedScreen} onBack={() => go(route.from ? { type: 'module', ...route.from } : { type: 'module', module: selectedScreen.module, path: [] })}/>
+          : null}
       </section>
     </div>
   )
