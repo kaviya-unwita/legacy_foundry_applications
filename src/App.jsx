@@ -103,7 +103,7 @@ function HomePage({ model, modules, onOpenModule, onOpenScreen }) {
     <main className="content dashboard">
       <section className="hero">
         {isYes
-          ? <div><span className="eyebrow">YES’s Foundry · LEGACY ERP</span><h1>YES’s Foundry replica</h1><p>Screens follow the supplied YES’s screenshots and discovery workbook. They are not yet verified against the YES’s legacy source.</p></div>
+          ? <div><span className="eyebrow">YES’S FOUNDRY · LEGACY ERP</span><h1>YES’s Foundry replica</h1><p>Screens follow the supplied YES’s screenshots and discovery workbook. They are not yet verified against the YES’s legacy source.</p></div>
           : <div><span className="eyebrow">SUN’S FOUNDRY · FOUNDRY OPERATIONS</span><h1>Foundry legacy replica</h1><p>Menus, screens and fields follow the legacy Oracle Forms application and its live menu table.</p></div>}
         <div className="hero-mark"><Factory/><span>FOUNDRY<br/>CONTROL</span></div>
       </section>
@@ -290,7 +290,7 @@ export default function App() {
   return (
     <div className={`app ${collapsed ? 'nav-collapsed' : ''}`}>
       <aside className={mobileOpen ? 'sidebar mobile-open' : 'sidebar'}>
-        <div className="brand"><span><Factory/></span>{!collapsed && <div><strong>{isYes ? 'YES’S' : 'SUN’s'}</strong><small>{isYes ? 'LEGACY ERP' : 'FOUNDRY ERP'}</small></div>}<button className="mobile-close" onClick={() => setMobileOpen(false)} aria-label="Close menu"><X/></button></div>
+        <div className="brand"><span><Factory/></span>{!collapsed && <div><strong>{isYes ? 'YES’s' : 'SUN’s'}</strong><small>{isYes ? 'LEGACY ERP' : 'FOUNDRY ERP'}</small></div>}<button className="mobile-close" onClick={() => setMobileOpen(false)} aria-label="Close menu"><X/></button></div>
         <nav>
           <button className={route.type === 'home' ? 'active' : ''} onClick={() => go({ type: 'home' })}><Home/><span>Overview</span></button>
           <p>MODULES</p>
