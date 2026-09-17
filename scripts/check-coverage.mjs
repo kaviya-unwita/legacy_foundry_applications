@@ -49,7 +49,7 @@ for (const { module, option } of menuTargets) {
 const reachable = new Set(menuTargets.map(({ option }) => option.screenId).filter(Boolean))
 for (const id of screenIds) if (!reachable.has(id)) fail(`Screen ${id} is not reachable from any legacy menu`)
 
-const TYPES = new Set(['text', 'number', 'date', 'password'])
+const TYPES = new Set(['text', 'number', 'date', 'password', 'select'])
 let fieldCount = 0
 let requiredCount = 0
 for (const screen of Object.values(model.screens)) {
@@ -59,6 +59,7 @@ for (const screen of Object.values(model.screens)) {
     if (field.kind === 'heading') continue
     fieldCount += 1
     if (!TYPES.has(field.type)) fail(`${screen.id} field "${field.label}" has invalid type ${field.type}`)
+    if (field.type === 'select' && !(field.options?.length >= 2)) fail(`${screen.id} field "${field.label}" is a list without legacy values`)
     if (!field.evidence?.length) fail(`${screen.id} field "${field.label}" has no evidence`)
     if (field.required) {
       requiredCount += 1

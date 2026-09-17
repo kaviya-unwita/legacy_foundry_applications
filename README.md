@@ -33,6 +33,8 @@ npm.cmd run build
   - F9 lists, buttons, report names, tables written, delete keys and `CONTROL` document-number codes: the compiled form.
 - **`public/data/SSA_Foundry_Legacy_Application_Screen_Catalog.md`** (screenshot OCR) supplies the screenshots and purpose text. It is the field source only for the 6 screens whose legacy form is not available. Those screens show an **Unverified** banner.
 - **Older forms:** screens analysed from an older form, because the live menu target is missing, show an **older legacy form** banner.
+- **Legacy item records:** fields are matched to the item records decoded from each compiled `.fmx`. Each record holds the item name, its own prompt, maximum length, format mask, value list, canvas position, database-item flag and button labels. Matched fields take their exact length, value list (shown as a dropdown), column binding and screen position from the item. Items with their own legacy prompt that were missing are added in canvas order, and buttons use the exact legacy labels.
+- **Required flag:** the compiled forms' own *Required* property is a binary flag that could not be identified without a reference, and no Oracle Forms tools are available to convert the `.fmb` sources. Required stars therefore still come only from NOT NULL columns that the item actually writes.
 - **Tabs:** screenshots that are pages of one legacy form, such as Customer 1–4 and Grade 1–6, are one screen with tabs and one saved record.
 - **Required stars:** shown only where the form writes a NOT NULL column. Hover over a field to see its column, type and evidence.
 - **F9:** shows the list-of-values definitions compiled into the legacy form. No rows are shown, because no database is connected.
