@@ -1,0 +1,5885 @@
+[
+  {
+    "id": "VEY-001",
+    "title": "Company Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Company Master.",
+    "screenshot": "Screenshot 2026-09-16 132242.png",
+    "fields": [
+      "Company Code",
+      "Company Name",
+      "Short Name",
+      "Factory Addr1",
+      "Address2",
+      "Address3",
+      "Address4",
+      "City",
+      "State",
+      "Pincode",
+      "State Code",
+      "GST No",
+      "TAN No",
+      "Cstax No Date",
+      "Stax No Date",
+      "Ecc No",
+      "Contactperson1",
+      "CIN No",
+      "IEC No & Dt",
+      "CEC No & Dt",
+      "Bank",
+      "Import & Export Code",
+      "REX No.",
+      "Pan Card No",
+      "Phone",
+      "Fax",
+      "Email",
+      "Email2",
+      "Admn Adr1",
+      "Admn Adr2",
+      "Admn Adr3",
+      "Admn Adr4",
+      "Admn City",
+      "Admn Pincode",
+      "Admn Phone",
+      "Admn Fax",
+      "Range",
+      "Division",
+      "QD.Effect Date"
+    ],
+    "actions": [
+      "Foundry Type",
+      "Save",
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters",
+    "sections": [
+      "General"
+    ],
+    "fieldMetadata": [
+      {
+        "name": "Company Code",
+        "section": "General",
+        "controlType": "Text / code",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Company Name",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Short Name",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Factory Addr1",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Address2",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Address3",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Address4",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "City",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "State",
+        "section": "General",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Pincode",
+        "section": "General",
+        "controlType": "Text / numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "State Code",
+        "section": "General",
+        "controlType": "Text / code",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "GST No",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "TAN No",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Cstax No Date",
+        "section": "General",
+        "controlType": "Date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Stax No Date",
+        "section": "General",
+        "controlType": "Date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Ecc No",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Contactperson1",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "CIN No",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "IEC No & Dt",
+        "section": "General",
+        "controlType": "Text / date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "CEC No & Dt",
+        "section": "General",
+        "controlType": "Text / date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Bank",
+        "section": "General",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Import & Export Code",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "REX No.",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Pan Card No",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Phone",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Fax",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Email",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Email2",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Admn Adr1",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Admn Adr2",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Admn Adr3",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Admn Adr4",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Admn City",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Admn Pincode",
+        "section": "General",
+        "controlType": "Text / numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Admn Phone",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Admn Fax",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Range",
+        "section": "General",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Division",
+        "section": "General",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "QD.Effect Date",
+        "section": "General",
+        "controlType": "Date",
+        "mandatory": "Unknown"
+      }
+    ],
+    "source": "Discovery workbook + screenshot"
+  },
+  {
+    "id": "VEY-002",
+    "title": "Company Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Company Master.",
+    "screenshot": "Screenshot 2026-09-16 132258.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Company Code 01",
+      "Company Name",
+      "Bank South India Bank",
+      "Short Name VSF",
+      "Factory Addr1",
+      "Address4",
+      "Fax",
+      "City Coimbatore, INDIA",
+      "State",
+      "Email2",
+      "Pincode",
+      "State Code33",
+      "GST No",
+      "Cstax No Date",
+      "Stax No Date",
+      "Admn City",
+      "Admn Pincode",
+      "Contactperson1 A. SHANMUGAM",
+      "Admn Fax",
+      "Foundy Type",
+      "Range",
+      "Division"
+    ],
+    "actions": [
+      "Save",
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-003",
+    "title": "Company Unit Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Company Unit Master.",
+    "screenshot": "Screenshot 2026-09-16 132447.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Company Code/I",
+      "Code",
+      "Unit Name",
+      "Short"
+    ],
+    "actions": [
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-004",
+    "title": "Customer Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Customer Master - General.",
+    "screenshot": "Screenshot 2026-09-16 132552.png",
+    "fields": [
+      "Code",
+      "Name",
+      "Short Name",
+      "Billing / Delivery Address 1",
+      "Billing / Delivery Address 2",
+      "Billing / Delivery Address 3",
+      "Billing / Delivery Address 4",
+      "Billing / Delivery City",
+      "Billing / Delivery Pin",
+      "Billing / Delivery Country",
+      "Shipment Address 1",
+      "Shipment Address 2",
+      "Shipment Address 3",
+      "Shipment Address 4",
+      "Shipment City",
+      "Shipment Pin",
+      "Shipment Country",
+      "Buyer Contact Person",
+      "Buyer Email",
+      "Buyer Attention",
+      "Buyer Mobile",
+      "Contact Person",
+      "Contact Phone",
+      "Contact Email",
+      "Contact Fax",
+      "Tin No",
+      "CST No",
+      "ECC No",
+      "License No",
+      "Account Code",
+      "Vendor Code",
+      "Active / Inactive",
+      "Heat Ref No",
+      "RT NO Prefix",
+      "MP NO Prefix",
+      "DP NO Prefix",
+      "UT NO Prefix",
+      "Plant",
+      "TCS Tax – Ccode",
+      "TCS Tax – Dat",
+      "TCS Tax – Tcs",
+      "Sale Type",
+      "Location",
+      "Division",
+      "Range",
+      "Tax",
+      "S.T.Form",
+      "Payment Terms",
+      "Credit Days",
+      "Destination",
+      "Transporter",
+      "Doc Through",
+      "Delivery",
+      "Packing",
+      "Dispatch Mode",
+      "Insurance",
+      "Inspection",
+      "Freight",
+      "Testing",
+      "Currency",
+      "Registration No",
+      "Customer Group",
+      "Customer Group For Drawing List",
+      "GST No",
+      "PAN No",
+      "Customer Type",
+      "O.A Instruction",
+      "Previous Customer Name"
+    ],
+    "actions": [
+      "Delete",
+      "Save",
+      "Web Customer",
+      "Report",
+      "Customer Details",
+      "Clear",
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters",
+    "sections": [
+      "General"
+    ],
+    "fieldMetadata": [
+      {
+        "name": "Code",
+        "section": "General",
+        "controlType": "Text / code",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Name",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Short Name",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Billing / Delivery Address 1",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Billing / Delivery Address 2",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Billing / Delivery Address 3",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Billing / Delivery Address 4",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Billing / Delivery City",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Billing / Delivery Pin",
+        "section": "General",
+        "controlType": "Text / numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Billing / Delivery Country",
+        "section": "General",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Shipment Address 1",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Shipment Address 2",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Shipment Address 3",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Shipment Address 4",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Shipment City",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Shipment Pin",
+        "section": "General",
+        "controlType": "Text / numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Shipment Country",
+        "section": "General",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Buyer Contact Person",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Buyer Email",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Buyer Attention",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Buyer Mobile",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Contact Person",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Contact Phone",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Contact Email",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Contact Fax",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Tin No",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "CST No",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "ECC No",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "License No",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Account Code",
+        "section": "General",
+        "controlType": "Text / code",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Vendor Code",
+        "section": "General",
+        "controlType": "Text / code",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Active / Inactive",
+        "section": "General",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Heat Ref No",
+        "section": "General",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "RT NO Prefix",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "MP NO Prefix",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "DP NO Prefix",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "UT NO Prefix",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Plant",
+        "section": "General",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "TCS Tax – Ccode",
+        "section": "General",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "TCS Tax – Dat",
+        "section": "General",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "TCS Tax – Tcs",
+        "section": "General",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Sale Type",
+        "section": "General",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Location",
+        "section": "General",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Division",
+        "section": "General",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Range",
+        "section": "General",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Tax",
+        "section": "General",
+        "controlType": "Dropdown / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "S.T.Form",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Payment Terms",
+        "section": "General",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Credit Days",
+        "section": "General",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Destination",
+        "section": "General",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Transporter",
+        "section": "General",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Doc Through",
+        "section": "General",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Delivery",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Packing",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Dispatch Mode",
+        "section": "General",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Insurance",
+        "section": "General",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Inspection",
+        "section": "General",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Freight",
+        "section": "General",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Testing",
+        "section": "General",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Currency",
+        "section": "General",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Registration No",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Customer Group",
+        "section": "General",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Customer Group For Drawing List",
+        "section": "General",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "GST No",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "PAN No",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Customer Type",
+        "section": "General",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "O.A Instruction",
+        "section": "General",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Previous Customer Name",
+        "section": "General",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      }
+    ],
+    "source": "Discovery workbook + screenshot"
+  },
+  {
+    "id": "VEY-005",
+    "title": "Customer Master - Export",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Customer Master - Export.",
+    "screenshot": "Screenshot 2026-09-16 132717.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "CustomerMaster",
+      "Code",
+      "MTON",
+      "Name",
+      "Name Change",
+      "esp Name",
+      "MPNOPretax",
+      "Remark1",
+      "TCS TAX",
+      "Ccode",
+      "Rates Te",
+      "Fax",
+      "Bankens Detals",
+      "Sse Type",
+      "ECC No",
+      "Accourt Code",
+      "Vendr Code",
+      "Active/hactive",
+      "Heat Re No",
+      "Customer Detals",
+      "Web Customer"
+    ],
+    "actions": [
+      "Save",
+      "Clear",
+      "Delete"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-006",
+    "title": "Customer Master - MTOM",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Customer Master - MTOM.",
+    "screenshot": "Screenshot 2026-09-16 132808.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "CustomerMaster",
+      "Code",
+      "Name Change",
+      "Name",
+      "TON",
+      "Edate",
+      "Addres1",
+      "Miton",
+      "MPNO Pretax",
+      "DP NO Pretax",
+      "TCSTAX",
+      "Ccode",
+      "Fax",
+      "Sale Type",
+      "ECCNo",
+      "Accourt Code",
+      "Vendar Code",
+      "Acive/hactive",
+      "Web Customer",
+      "Customer Detals"
+    ],
+    "actions": [
+      "Delete",
+      "Save",
+      "Clear"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-007",
+    "title": "Product Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Product Master.",
+    "screenshot": "Screenshot 2026-09-16 153830.png",
+    "fields": [
+      "Product",
+      "Same As",
+      "Creation Date",
+      "Furnace Track",
+      "Pattern Code",
+      "Core Code",
+      "Customer",
+      "Name",
+      "Cast.Drg.No",
+      "Part/Model No",
+      "Drg. Avlbl",
+      "Classrate",
+      "Status",
+      "Patm. Avlbl",
+      "Ref.Code",
+      "Patn.Mounted",
+      "Mounted By",
+      "ValveType",
+      "Component",
+      "Size",
+      "Class",
+      "End",
+      "Method Card No / Date",
+      "Simulation Report No / Date",
+      "In Active",
+      "Improvement",
+      "Improvement Remarks",
+      "Internal Hold",
+      "Customer Hold",
+      "Pattern – Material",
+      "Pattern – Qty",
+      "Pattern – Unit",
+      "Pattern – Owned By",
+      "Core – Material",
+      "Core – Qty",
+      "Core – Unit",
+      "Core – Owned By",
+      "Section Thickness",
+      "Min Wall Thickness",
+      "Max Wall Thickness",
+      "Sprue Size in Dia",
+      "Patn Loose Pcs",
+      "Core Loose Pcs",
+      "Pcs Per Box",
+      "Core Per Pcs",
+      "Top Size",
+      "Bot Size",
+      "Pattern Store/Location",
+      "Core Box Store / location",
+      "Random RT Qty",
+      "Random Dim.Qty",
+      "Hand Mold",
+      "Sleeve Req",
+      "Pattern Supplied By",
+      "End Customer",
+      "Cust. Hold",
+      "Receipt No",
+      "Receipt Dt",
+      "DC No",
+      "DC Dt",
+      "Weight – Grade",
+      "Weight – Part No",
+      "Weight – Finish Wt.",
+      "Weight – Actual Wt.",
+      "Weight – Liquid Wt.",
+      "Weight – Prof M/c Wt.",
+      "Weight – Full M/c Wt.",
+      "Weight – Yield",
+      "Weight – Aprox.",
+      "Weight – Aprox Finish WT",
+      "Weight – Aprox Liquid WT",
+      "CustomerRem",
+      "Rem"
+    ],
+    "actions": [
+      "Pattern – History",
+      "Core – History",
+      "IBR",
+      "Delete",
+      "Sleeve",
+      "Save",
+      "Report",
+      "Clear",
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters",
+    "sections": [
+      "Main screen"
+    ],
+    "fieldMetadata": [
+      {
+        "name": "Product",
+        "section": "Main screen",
+        "controlType": "Text / code",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Same As",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Creation Date",
+        "section": "Main screen",
+        "controlType": "Date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Furnace Track",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Pattern Code",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Core Code",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Customer",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Name",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Cast.Drg.No",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Part/Model No",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Drg. Avlbl",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Classrate",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Status",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Patm. Avlbl",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Ref.Code",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Patn.Mounted",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Mounted By",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "ValveType",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Component",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Size",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Class",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "End",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Method Card No / Date",
+        "section": "Main screen",
+        "controlType": "Text / date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Simulation Report No / Date",
+        "section": "Main screen",
+        "controlType": "Text / date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "In Active",
+        "section": "Main screen",
+        "controlType": "Checkbox",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Improvement",
+        "section": "Main screen",
+        "controlType": "Checkbox",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Improvement Remarks",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Internal Hold",
+        "section": "Main screen",
+        "controlType": "Text / status",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Customer Hold",
+        "section": "Main screen",
+        "controlType": "Text / status",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Pattern – Material",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Pattern – Qty",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Pattern – Unit",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Pattern – Owned By",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Core – Material",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Core – Qty",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Core – Unit",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Core – Owned By",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Section Thickness",
+        "section": "Main screen",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Min Wall Thickness",
+        "section": "Main screen",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Max Wall Thickness",
+        "section": "Main screen",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Sprue Size in Dia",
+        "section": "Main screen",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Patn Loose Pcs",
+        "section": "Main screen",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Core Loose Pcs",
+        "section": "Main screen",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Pcs Per Box",
+        "section": "Main screen",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Core Per Pcs",
+        "section": "Main screen",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Top Size",
+        "section": "Main screen",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Bot Size",
+        "section": "Main screen",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Pattern Store/Location",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Core Box Store / location",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Random RT Qty",
+        "section": "Main screen",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Random Dim.Qty",
+        "section": "Main screen",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Hand Mold",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Sleeve Req",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Pattern Supplied By",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "End Customer",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Internal Hold",
+        "section": "Main screen",
+        "controlType": "Text / status",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Cust. Hold",
+        "section": "Main screen",
+        "controlType": "Text / status",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Receipt No",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Receipt Dt",
+        "section": "Main screen",
+        "controlType": "Date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "DC No",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "DC Dt",
+        "section": "Main screen",
+        "controlType": "Date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Weight – Grade",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Weight – Part No",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Weight – Finish Wt.",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Weight – Actual Wt.",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Weight – Liquid Wt.",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Weight – Prof M/c Wt.",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Weight – Full M/c Wt.",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Weight – Yield",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Weight – Aprox.",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Weight – Aprox Finish WT",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Weight – Aprox Liquid WT",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "CustomerRem",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Rem",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      }
+    ],
+    "source": "Discovery workbook + screenshot"
+  },
+  {
+    "id": "VEY-008",
+    "title": "Grade Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Grade Master - Grade and Heat Details.",
+    "screenshot": "Screenshot 2026-09-16 153945.png",
+    "fields": [
+      "Grade",
+      "Standard",
+      "Active",
+      "TC Grade",
+      "Grade Group",
+      "Retn Rate",
+      "Scrap Group",
+      "Foundry Return Code",
+      "Base Line Rate",
+      "Tap Time",
+      "Alloy Type",
+      "Mech Properties – YS",
+      "Mech Properties – YS1",
+      "Mech Properties – TS",
+      "Mech Properties – Elgn 1",
+      "Mech Properties – Elgn 2",
+      "Mech Properties – Redn",
+      "Mech Properties – Hard",
+      "Mech Properties – Hard HRB",
+      "Cutting Type",
+      "M/c Grade",
+      "Heat Treatment Required",
+      "Fett Before Heat Treatment",
+      "No of Heat Cycles",
+      "Heat Treatment Cycle 1",
+      "Heat Treatment Cycle Details 1",
+      "Heat Treatment Cycle 2",
+      "Heat Treatment Cycle Details 2",
+      "Heat Treatment Cycle 3",
+      "Heat Treatment Cycle Details 3",
+      "Heat Treatment Cycle 4",
+      "Heat Treatment Cycle Details 4",
+      "NABL Test – Chem.Standard",
+      "NABL Test – Tensile.Standard",
+      "NABL Test – Bend.Standard",
+      "NABL Test – Hardness.Standard",
+      "NABL Test – Chem.Remarks",
+      "NABL Test – Tensil.Remarks",
+      "NABL Test – Impact.Standard",
+      "Copy From – Grade",
+      "Copy From – Standard",
+      "Chemical Composition – Code",
+      "Chemical Composition – Element",
+      "Chemical Composition – Min",
+      "Chemical Composition – Max",
+      "Chemical Composition – Text Min",
+      "Chemical Composition – Text Max",
+      "Value Conversion – Title",
+      "Value Conversion – Operate",
+      "Value Conversion – Method",
+      "Scrap Master – Code",
+      "Scrap Master – Name",
+      "Grade Group Master – Code",
+      "Grade Group Master – Grade"
+    ],
+    "actions": [
+      "Copy From",
+      "Delete",
+      "Save",
+      "Report",
+      "Clear",
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters",
+    "sections": [
+      "Grade and Heat Details",
+      "Chemical Properties",
+      "Value Conversion Master",
+      "Grade Group & Scrap"
+    ],
+    "fieldMetadata": [
+      {
+        "name": "Grade",
+        "section": "Grade and Heat Details",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Standard",
+        "section": "Grade and Heat Details",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Active",
+        "section": "Grade and Heat Details",
+        "controlType": "Checkbox",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "TC Grade",
+        "section": "Grade and Heat Details",
+        "controlType": "Grid / text area",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Grade Group",
+        "section": "Grade and Heat Details",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Retn Rate",
+        "section": "Grade and Heat Details",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Scrap Group",
+        "section": "Grade and Heat Details",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Foundry Return Code",
+        "section": "Grade and Heat Details",
+        "controlType": "Text / code",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Base Line Rate",
+        "section": "Grade and Heat Details",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Tap Time",
+        "section": "Grade and Heat Details",
+        "controlType": "Text / numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Alloy Type",
+        "section": "Grade and Heat Details",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Mech Properties – YS",
+        "section": "Grade and Heat Details",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Mech Properties – YS1",
+        "section": "Grade and Heat Details",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Mech Properties – TS",
+        "section": "Grade and Heat Details",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Mech Properties – Elgn 1",
+        "section": "Grade and Heat Details",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Mech Properties – Elgn 2",
+        "section": "Grade and Heat Details",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Mech Properties – Redn",
+        "section": "Grade and Heat Details",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Mech Properties – Hard",
+        "section": "Grade and Heat Details",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Mech Properties – Hard HRB",
+        "section": "Grade and Heat Details",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Cutting Type",
+        "section": "Grade and Heat Details",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "M/c Grade",
+        "section": "Grade and Heat Details",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Heat Treatment Required",
+        "section": "Grade and Heat Details",
+        "controlType": "Checkbox",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Fett Before Heat Treatment",
+        "section": "Grade and Heat Details",
+        "controlType": "Checkbox",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "No of Heat Cycles",
+        "section": "Grade and Heat Details",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Heat Treatment Cycle 1",
+        "section": "Grade and Heat Details",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Heat Treatment Cycle Details 1",
+        "section": "Grade and Heat Details",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Heat Treatment Cycle 2",
+        "section": "Grade and Heat Details",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Heat Treatment Cycle Details 2",
+        "section": "Grade and Heat Details",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Heat Treatment Cycle 3",
+        "section": "Grade and Heat Details",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Heat Treatment Cycle Details 3",
+        "section": "Grade and Heat Details",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Heat Treatment Cycle 4",
+        "section": "Grade and Heat Details",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Heat Treatment Cycle Details 4",
+        "section": "Grade and Heat Details",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "NABL Test – Chem.Standard",
+        "section": "Grade and Heat Details",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "NABL Test – Tensile.Standard",
+        "section": "Grade and Heat Details",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "NABL Test – Bend.Standard",
+        "section": "Grade and Heat Details",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "NABL Test – Hardness.Standard",
+        "section": "Grade and Heat Details",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "NABL Test – Chem.Remarks",
+        "section": "Grade and Heat Details",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "NABL Test – Tensil.Remarks",
+        "section": "Grade and Heat Details",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "NABL Test – Impact.Standard",
+        "section": "Grade and Heat Details",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Copy From – Grade",
+        "section": "Grade and Heat Details",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Copy From – Standard",
+        "section": "Grade and Heat Details",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Grade",
+        "section": "Chemical Properties",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Standard",
+        "section": "Chemical Properties",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Chemical Composition – Code",
+        "section": "Chemical Properties",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Chemical Composition – Element",
+        "section": "Chemical Properties",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Chemical Composition – Min",
+        "section": "Chemical Properties",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Chemical Composition – Max",
+        "section": "Chemical Properties",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Chemical Composition – Text Min",
+        "section": "Chemical Properties",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Chemical Composition – Text Max",
+        "section": "Chemical Properties",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Value Conversion – Title",
+        "section": "Value Conversion Master",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Value Conversion – Operate",
+        "section": "Value Conversion Master",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Value Conversion – Method",
+        "section": "Value Conversion Master",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Scrap Master – Code",
+        "section": "Grade Group & Scrap",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Scrap Master – Name",
+        "section": "Grade Group & Scrap",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Grade Group Master – Code",
+        "section": "Grade Group & Scrap",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Grade Group Master – Grade",
+        "section": "Grade Group & Scrap",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      }
+    ],
+    "source": "Discovery workbook + screenshot",
+    "screenshots": [
+      "Screenshot 2026-09-16 153945.png",
+      "Screenshot 2026-09-16 154134.png",
+      "Screenshot 2026-09-16 154438.png",
+      "Screenshot 2026-09-16 154641.png"
+    ]
+  },
+  {
+    "id": "VEY-009",
+    "title": "Grade Master - Chemical Properties",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Grade Master - Chemical Properties.",
+    "screenshot": "Screenshot 2026-09-16 154116.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "GradeMaster",
+      "Grade and Heat Details",
+      "TC-Remarks",
+      "Value Comvertion Master",
+      "GradeGroup&Skrap",
+      "Grade",
+      "TC Grade",
+      "Standard",
+      "Grade Group",
+      "Retn Rate",
+      "Scrap Group Ms Scrap",
+      "Foundry Return Code",
+      "Base Line Rate",
+      "Alloy Type",
+      "NABL Test",
+      "Cutting Type",
+      "Chem.Standard",
+      "Chem.Remarks",
+      "Tensile.Standard",
+      "TensilRemarks",
+      "Heat Treatment RequiredP",
+      "Fetl Before Heat Treatment",
+      "Bend.Standard",
+      "Inpact.Standard",
+      "Noof Heat Cydes",
+      "Hardness.Standard",
+      "HeattreatmentCycleDetials",
+      "HeatreatmentCycleDetials"
+    ],
+    "actions": [
+      "Copy From",
+      "Delete",
+      "Save",
+      "Clear"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-010",
+    "title": "Grade Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Grade Master - Chemical Master.",
+    "screenshot": "Screenshot 2026-09-16 154134.png",
+    "fields": [
+      "Grade",
+      "Standard",
+      "Chemical Composition – Code",
+      "Chemical Composition – Element",
+      "Chemical Composition – Min",
+      "Chemical Composition – Max",
+      "Chemical Composition – Text Min",
+      "Chemical Composition – Text Max"
+    ],
+    "actions": [
+      "Delete",
+      "Save",
+      "Report",
+      "Clear",
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters",
+    "sections": [
+      "Chemical Properties"
+    ],
+    "fieldMetadata": [
+      {
+        "name": "Grade",
+        "section": "Chemical Properties",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Standard",
+        "section": "Chemical Properties",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Chemical Composition – Code",
+        "section": "Chemical Properties",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Chemical Composition – Element",
+        "section": "Chemical Properties",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Chemical Composition – Min",
+        "section": "Chemical Properties",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Chemical Composition – Max",
+        "section": "Chemical Properties",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Chemical Composition – Text Min",
+        "section": "Chemical Properties",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Chemical Composition – Text Max",
+        "section": "Chemical Properties",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      }
+    ],
+    "source": "Discovery workbook + screenshot",
+    "consolidatedInto": "VEY-008"
+  },
+  {
+    "id": "VEY-011",
+    "title": "Grade Master - TC Remarks",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Grade Master - TC Remarks.",
+    "screenshot": "Screenshot 2026-09-16 154157.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Grade Master",
+      "TC-Remarks",
+      "Grde and Heat Details",
+      "Value Corvertion Master",
+      "GradeGroup&Scrap",
+      "Code Name",
+      "TUNGSTEN"
+    ],
+    "actions": [
+      "Delete",
+      "Save"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-012",
+    "title": "Grade Master - Remarks",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Grade Master - Remarks.",
+    "screenshot": "Screenshot 2026-09-16 154252.png",
+    "fields": [
+      "/EEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Grade Master",
+      "Grade and Heat Detailks",
+      "Value Corvertion Master",
+      "GradeGroup&Scrap",
+      "Remarks",
+      "%Ni + 2 [%Mo ] = % [% Required = 13 to 18]",
+      "A.ManimaranAsstManager-InspectionTUV India Pvt Ltd"
+    ],
+    "actions": [
+      "Delete",
+      "Save",
+      "Clear"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-013",
+    "title": "Grade Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Grade Master - Value Conversion Master.",
+    "screenshot": "Screenshot 2026-09-16 154438.png",
+    "fields": [
+      "Value Conversion – Title",
+      "Value Conversion – Operate",
+      "Value Conversion – Method"
+    ],
+    "actions": [
+      "Delete",
+      "Save",
+      "Report",
+      "Clear",
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters",
+    "sections": [
+      "Value Conversion Master"
+    ],
+    "fieldMetadata": [
+      {
+        "name": "Value Conversion – Title",
+        "section": "Value Conversion Master",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Value Conversion – Operate",
+        "section": "Value Conversion Master",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Value Conversion – Method",
+        "section": "Value Conversion Master",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      }
+    ],
+    "source": "Discovery workbook + screenshot",
+    "consolidatedInto": "VEY-008"
+  },
+  {
+    "id": "VEY-014",
+    "title": "Grade Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Grade Master - Grade Group and Scrap.",
+    "screenshot": "Screenshot 2026-09-16 154641.png",
+    "fields": [
+      "Scrap Master – Code",
+      "Scrap Master – Name",
+      "Grade Group Master – Code",
+      "Grade Group Master – Grade"
+    ],
+    "actions": [
+      "Delete",
+      "Save",
+      "Report",
+      "Clear",
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters",
+    "sections": [
+      "Grade Group & Scrap"
+    ],
+    "fieldMetadata": [
+      {
+        "name": "Scrap Master – Code",
+        "section": "Grade Group & Scrap",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Scrap Master – Name",
+        "section": "Grade Group & Scrap",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Grade Group Master – Code",
+        "section": "Grade Group & Scrap",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Grade Group Master – Grade",
+        "section": "Grade Group & Scrap",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      }
+    ],
+    "source": "Discovery workbook + screenshot",
+    "consolidatedInto": "VEY-008"
+  },
+  {
+    "id": "VEY-015",
+    "title": "Tax Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Tax Master - Tax and Casting Types.",
+    "screenshot": "Screenshot 2026-09-16 154828.png",
+    "fields": [
+      "Cast Type",
+      "Cast Type Description",
+      "Tax Code",
+      "Tax Description",
+      "IGST",
+      "SGST",
+      "CGST",
+      "Tax",
+      "Surcharge"
+    ],
+    "actions": [
+      "Save",
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters",
+    "sections": [
+      "Tax Master"
+    ],
+    "fieldMetadata": [
+      {
+        "name": "Cast Type",
+        "section": "Tax Master",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Cast Type Description",
+        "section": "Tax Master",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Tax Code",
+        "section": "Tax Master",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Tax Description",
+        "section": "Tax Master",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "IGST",
+        "section": "Tax Master",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "SGST",
+        "section": "Tax Master",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "CGST",
+        "section": "Tax Master",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Tax",
+        "section": "Tax Master",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Surcharge",
+        "section": "Tax Master",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      }
+    ],
+    "source": "Discovery workbook + screenshot"
+  },
+  {
+    "id": "VEY-016",
+    "title": "Tax Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Tax Master.",
+    "screenshot": "Screenshot 2026-09-16 154902.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Date i.",
+      "Tax&Casting Types",
+      "Taxtype",
+      "Tax Code",
+      "Description",
+      "Short",
+      "Code",
+      "A.Code",
+      "TNGST",
+      "TNGST 4%SALES",
+      "VAT 4% AGAINST CT3 WITH TAX",
+      "casting type",
+      "ALLOYSTEELCASTING",
+      "NON ALLOY STEEL CASTINGS"
+    ],
+    "actions": [
+      "NEW",
+      "Report Desc",
+      "EXPORT",
+      "EXPORT SALES",
+      "Save",
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-017",
+    "title": "Product Master List",
+    "module": "Foundry Application",
+    "type": "Report/list",
+    "purpose": "Represents the supplied Veeyes legacy screen for Product Master List.",
+    "screenshot": "Screenshot 2026-09-16 155641.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "ProductMaster",
+      "VaveType",
+      "Component",
+      "Status",
+      "Rel.Code",
+      "In Active",
+      "Class",
+      "Code",
+      "Samecode",
+      "Name",
+      "INTEGRAL TEST BLOCK (70MM)",
+      "GATEDTESTBLOCK(75MM)",
+      "GATEDTESTBLOCK(95M)",
+      "History",
+      "Unit",
+      "ImgrovementRemarks",
+      "GATEDTESTBLOCK(70MM)",
+      "Internal Hold",
+      "GATEDTESTBLOCK (65MM)",
+      "Customer Hold",
+      "Store/Location",
+      "INTEGRALTESTBLOCK(10OMM)",
+      "Store /location",
+      "Intermal Hold",
+      "Cust Hold",
+      "Grade",
+      "Part No",
+      "CustomerRem"
+    ],
+    "actions": [
+      "Find",
+      "Delete"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-018",
+    "title": "Product Master - Details",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Product Master - Details.",
+    "screenshot": "Screenshot 2026-09-16 161357.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Product Master",
+      "Customer HA",
+      "VaveType",
+      "CLASSRATE.",
+      "Status",
+      "Component",
+      "Pat/Model No",
+      "Ref.Code",
+      "Creation Date",
+      "Size",
+      "In Active",
+      "Furnace Track",
+      "Paflem Code",
+      "Core Code",
+      "UethodCardNo/Date",
+      "SimufatonReport No/Date_NIl",
+      "Pattern",
+      "Hstory",
+      "Unit",
+      "History",
+      "CUSTOMER",
+      "Internal Hold",
+      "Customer Hold",
+      "Pattern StoreLocatonA",
+      "Core Box Store locatonA",
+      "Intermal Hold",
+      "Cust Hold",
+      "EndCutomer",
+      "Grade",
+      "Part No",
+      "CustomerRem"
+    ],
+    "actions": [
+      "Delete",
+      "Clear"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-019",
+    "title": "Product Master - Internal Hold",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Product Master - Internal Hold.",
+    "screenshot": "Screenshot 2026-09-16 162323.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Product Master",
+      "PRODUCTMAOINTHOLD",
+      "ValveType",
+      "Status",
+      "Component",
+      "Internal Hold",
+      "Creation Date",
+      "Ref.Code",
+      "Size",
+      "Furnace Track",
+      "Class",
+      "Paflem Code",
+      "Reason",
+      "Hoid Date",
+      "Descripton",
+      "Core Code",
+      "Remarks",
+      "History",
+      "ImprovementRemarks",
+      "Release",
+      "CUSTOMER",
+      "Hold Date",
+      "Date",
+      "Customer Hold",
+      "Hold",
+      "CustomerRem"
+    ],
+    "actions": [
+      "Delete",
+      "Clear"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-020",
+    "title": "Part Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Part Master.",
+    "screenshot": "Screenshot 2026-09-16 162400.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Date",
+      "Product",
+      "Grade",
+      "Partnumber",
+      "PO Description",
+      "Active"
+    ],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-021",
+    "title": "Special Requirements",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Special Requirements.",
+    "screenshot": "Screenshot 2026-09-16 162634.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Special Requirments",
+      "Heat",
+      "Code",
+      "Name",
+      "Short",
+      "CUSTOMERORDER",
+      "AVERAGE GRAIN SIZE",
+      "INTEGRAL TEST BLOCK",
+      "32 INSPECTION CHARGES",
+      "CASTINGS SHOULD BE FREE FROM DEFECTS"
+    ],
+    "actions": [
+      "Delete",
+      "Save",
+      "Clear"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-022",
+    "title": "Department Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Department Master.",
+    "screenshot": "Screenshot 2026-09-16 162739.png",
+    "fields": [
+      "/EEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Department",
+      "Furnace",
+      "Code",
+      "PartMaster",
+      "Contractor's Process",
+      "Spl Grade Instruction",
+      "HEAT TREATMENT",
+      "PATTERN SHOP",
+      "RT Type Master",
+      "WEIGHTBETWEEN",
+      "Sub Process",
+      "Heattreatment,type"
+    ],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-023",
+    "title": "Crucible / Heat Treatment Furnace",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Crucible / Heat Treatment Furnace.",
+    "screenshot": "Screenshot 2026-09-16 162856.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Furnace",
+      "Department",
+      "Date",
+      "Type",
+      "Capacity",
+      "Code",
+      "Name",
+      "PartMaster",
+      "Contractor's Process",
+      "Spl Grade Instruction",
+      "RT Type Master",
+      "WEIGHTBETWEEN",
+      "Sub Process",
+      "Hettreatment_type"
+    ],
+    "actions": [
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-024",
+    "title": "Rejection Reasons",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Rejection Reasons.",
+    "screenshot": "Screenshot 2026-09-16 162919.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Department",
+      "Code",
+      "Short",
+      "Currency",
+      "Part aMaster",
+      "Short Poured",
+      "Contractor's Process",
+      "Spl Grade Instruction",
+      "RT Type Master",
+      "WEIGHTBETWEEN",
+      "Sub Process",
+      "Heattreatment_typ"
+    ],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-025",
+    "title": "Currency Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Currency Master.",
+    "screenshot": "Screenshot 2026-09-16 162931.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Department",
+      "Code",
+      "Cuency Name",
+      "Symbol",
+      "Currency",
+      "PantaMger",
+      "Contractor's Process",
+      "Spl Grade Instruction",
+      "RT Type Master",
+      "WEIGHTBETWEEN",
+      "Sub Process",
+      "Heattreatment_ty"
+    ],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-026",
+    "title": "Part Number / IBR Drawing Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Part Number / IBR Drawing Master.",
+    "screenshot": "Screenshot 2026-09-16 162942.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-?)",
+      "Part Number / IBR Drg Master",
+      "Furnace",
+      "Department",
+      "Name",
+      "Grade",
+      "Product",
+      "Partnumber",
+      "Currency",
+      "Part=Master",
+      "Contractor's Process",
+      "Spl Grade Instruction",
+      "RT Type Master",
+      "WEIGHTBETWEEN",
+      "Sub Process",
+      "Heattreatment_type"
+    ],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-027",
+    "title": "General Masters",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for General Masters.",
+    "screenshot": "Screenshot 2026-09-16 162959.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Department",
+      "Currency",
+      "Date",
+      "Amount",
+      "Part sMaster",
+      "Contractor'sProcess",
+      "Spl Grede Instruction",
+      "RT Type Master",
+      "WEIGHTBETWEEN",
+      "Sub Process",
+      "Heattreatment_type"
+    ],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-028",
+    "title": "Contractor's Process Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Contractor Process Master.",
+    "screenshot": "Screenshot 2026-09-16 163020.png",
+    "fields": [
+      "Process – Code",
+      "Process – Name",
+      "Process – Rate",
+      "Mould Rate",
+      "Core Rate",
+      "Closing Rate"
+    ],
+    "actions": [
+      "Furnace",
+      "Department",
+      "Rejection",
+      "Currency",
+      "Part # Master",
+      "Annexure Limit",
+      "Contractor's Process",
+      "DC",
+      "Spl Grade Instruction",
+      "TDC Master",
+      "RT Type Master",
+      "RT Sqr Inch Master",
+      "Casting P.O. Supplier",
+      "WEIGHTBETWEEN",
+      "Sub Process",
+      "Heatreatment_type",
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters",
+    "sections": [
+      "Mould, Core and Process Rates"
+    ],
+    "fieldMetadata": [
+      {
+        "name": "Process – Code",
+        "section": "Mould, Core and Process Rates",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Process – Name",
+        "section": "Mould, Core and Process Rates",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Process – Rate",
+        "section": "Mould, Core and Process Rates",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Mould Rate",
+        "section": "Mould, Core and Process Rates",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Core Rate",
+        "section": "Mould, Core and Process Rates",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Closing Rate",
+        "section": "Mould, Core and Process Rates",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      }
+    ],
+    "source": "Discovery workbook + screenshot"
+  },
+  {
+    "id": "VEY-029",
+    "title": "General Masters",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for General Masters.",
+    "screenshot": "Screenshot 2026-09-16 163035.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Furnace",
+      "Department",
+      "Currency",
+      "Parts Master",
+      "Contractor'sProcess",
+      "Spl Grade Instruction",
+      "RT TypeMaster",
+      "WEIGHTBETWEEN",
+      "Sub Process",
+      "Heattreatment,type"
+    ],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-030",
+    "title": "Grade Wise Special Instructions",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Grade Wise Special Instructions.",
+    "screenshot": "Screenshot 2026-09-16 163047.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Grade Wise Special Instruction's",
+      "Department",
+      "Grade",
+      "Currency",
+      "Contractor's Process",
+      "Spl Grade Instruction",
+      "RT Type Master",
+      "WEIGHTBETWEEN",
+      "Sub Process",
+      "Heattreatmenttype"
+    ],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-031",
+    "title": "TDC Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for TDC Master.",
+    "screenshot": "Screenshot 2026-09-16 163057.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Department",
+      "F9Edtor",
+      "Grade",
+      "Customer",
+      "Specification",
+      "Remarks",
+      "Currency",
+      "Part Master",
+      "Contractor's Process",
+      "Spl Grade Instruction",
+      "RT Type Master",
+      "WEIGHTBETWEEN",
+      "Sub Process",
+      "Heattreatment,type"
+    ],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-032",
+    "title": "RT Type",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for RT Type.",
+    "screenshot": "Screenshot 2026-09-16 163109.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Furnace",
+      "Department",
+      "Code",
+      "Name",
+      "Currency",
+      "Part Master",
+      "Contractor's Process",
+      "Spl Grade Instruction",
+      "RT Type Master",
+      "WEIGHTBETWEEN",
+      "Sub Process",
+      "Heattreatment,type"
+    ],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-033",
+    "title": "Square Inch Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Square Inch Master.",
+    "screenshot": "Screenshot 2026-09-16 163122.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Furnace",
+      "Department",
+      "Product",
+      "Currency",
+      "Part = Master",
+      "Contractor's Process",
+      "Spl Grade Instruction",
+      "RT Type Master",
+      "Sub Process",
+      "Heattreatment,type"
+    ],
+    "actions": [
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-034",
+    "title": "Urgent Items Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Urgent Items Master.",
+    "screenshot": "Screenshot 2026-09-16 163212.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Furnace",
+      "Code",
+      "Name",
+      "Department",
+      "Currency",
+      "Part Master",
+      "Contractor'sProcess",
+      "Spl Grade Instructien",
+      "RT TypeMaster",
+      "TEST BAR",
+      "WEIGHTBETWEEN",
+      "Sub Process",
+      "Heattreatment,type"
+    ],
+    "actions": [
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-035",
+    "title": "Weight Between Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Weight Between Master.",
+    "screenshot": "Screenshot 2026-09-16 163229.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "WEIGHTBETWEENMASTER",
+      "Furnace",
+      "Department",
+      "Code",
+      "Name",
+      "PartMaster",
+      "Contractor's Process",
+      "Spl Grade Instruction",
+      "RT Type Master",
+      "WEIGHTBETWEEN",
+      "SubProcess",
+      "Heattreatment,ype"
+    ],
+    "actions": [
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-036",
+    "title": "Sub Process Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Sub Process Master.",
+    "screenshot": "Screenshot 2026-09-16 163251.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "SUB Process Master",
+      "Furnace",
+      "Department",
+      "Process",
+      "SUB Process",
+      "Name",
+      "Subcode",
+      "Subname",
+      "Currency",
+      "PartMaster",
+      "Contractor's Process",
+      "UPTOCLOSING",
+      "Spl Grade Instruction",
+      "DYEPENATRATE TEST",
+      "RT TypeMaster",
+      "WEIGHTBETWEEN",
+      "Heattreatment_type"
+    ],
+    "actions": [
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-037",
+    "title": "Heat Treatment Type",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Heat Treatment Type.",
+    "screenshot": "Screenshot 2026-09-16 163307.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Heatteartment Type",
+      "Furnace",
+      "Department",
+      "Code",
+      "Descrpton",
+      "Currency",
+      "Part = Master",
+      "Contractor's Process",
+      "Spl Grade Instructien",
+      "RT Type Master",
+      "WEIGHTBETWEEN",
+      "Sub Process",
+      "Heattreatment_type"
+    ],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-038",
+    "title": "Customer Drawing Master List",
+    "module": "Foundry Application",
+    "type": "Report/list",
+    "purpose": "Represents the supplied Veeyes legacy screen for Customer Drawing Master List.",
+    "screenshot": "Screenshot 2026-09-16 163330.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Date",
+      "Contractor's Process",
+      "Code",
+      "Spl Grade Instruction",
+      "RTType Master",
+      "WEIGHTBETWEEN",
+      "Sub Process",
+      "Heattreatment_type",
+      "Releasenote",
+      "RT Type (Lead Time)"
+    ],
+    "actions": [
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-039",
+    "title": "Machined Type (Lead Time)",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Machined Type (Lead Time).",
+    "screenshot": "Screenshot 2026-09-16 163349.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Contractor's Process",
+      "Type",
+      "Active",
+      "Code",
+      "Spl Grade Instruction",
+      "RT Type Master",
+      "WEIGHTBETWEEN",
+      "Sub Process",
+      "Heattreatment_type",
+      "Releasenote",
+      "RT Type (Lead Time)"
+    ],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-040",
+    "title": "Radiography Type (Lead Time)",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Radiography Type (Lead Time).",
+    "screenshot": "Screenshot 2026-09-16 163405.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Contractor's Process",
+      "Code",
+      "Type",
+      "Active",
+      "Spl Grade Instruction",
+      "RT TypeMaster",
+      "WEIGHTBETWEEN",
+      "Sub Process",
+      "Hettreatment_type",
+      "Releasenote",
+      "RT Type (Lead Time)"
+    ],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-041",
+    "title": "Priority Master (Lead Time)",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Priority Master (Lead Time).",
+    "screenshot": "Screenshot 2026-09-16 163421.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Date i-",
+      "Contractor's Process",
+      "Code",
+      "Active",
+      "Type",
+      "Spl Grade Instruction",
+      "Etn.StandardLeadTime",
+      "RT Type Master",
+      "B-StandardLeadTime",
+      "WEIGHTBETWEEN",
+      "Sub Process",
+      "Heattreatment_type",
+      "Releasenote",
+      "RT Type (Lead Time)"
+    ],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-042",
+    "title": "Piece Rate Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Piece Rate Master - Entry.",
+    "screenshot": "Screenshot 2026-09-16 163504.png",
+    "fields": [
+      "Product",
+      "Grade",
+      "Part No",
+      "Revising Date",
+      "PO.No",
+      "Rate Specification",
+      "Std Wt.",
+      "Kg Rate",
+      "Basic Rate",
+      "Copy To – Product",
+      "Copy To – Grade",
+      "Copy To – Part No",
+      "Copy To – Revising Date",
+      "Copy To – PO.No",
+      "Copy To – Rate Spec",
+      "Additional Charges – Scode",
+      "Additional Charges – Special",
+      "Additional Charges – Rate",
+      "Additional Charges – Uom",
+      "Additional Charges – Value",
+      "Final Pc Rate",
+      "Product Description",
+      "Drawing",
+      "Stand Wt",
+      "Pc Rate",
+      "Remark",
+      "Revised Date",
+      "History"
+    ],
+    "actions": [
+      "Copy",
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters",
+    "sections": [
+      "Pc Rate Entry",
+      "Pc Rate Details"
+    ],
+    "fieldMetadata": [
+      {
+        "name": "Product",
+        "section": "Pc Rate Entry",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Grade",
+        "section": "Pc Rate Entry",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Part No",
+        "section": "Pc Rate Entry",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Revising Date",
+        "section": "Pc Rate Entry",
+        "controlType": "Date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "PO.No",
+        "section": "Pc Rate Entry",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Rate Specification",
+        "section": "Pc Rate Entry",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Std Wt.",
+        "section": "Pc Rate Entry",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Kg Rate",
+        "section": "Pc Rate Entry",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Basic Rate",
+        "section": "Pc Rate Entry",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Copy To – Product",
+        "section": "Pc Rate Entry",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Copy To – Grade",
+        "section": "Pc Rate Entry",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Copy To – Part No",
+        "section": "Pc Rate Entry",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Copy To – Revising Date",
+        "section": "Pc Rate Entry",
+        "controlType": "Date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Copy To – PO.No",
+        "section": "Pc Rate Entry",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Copy To – Rate Spec",
+        "section": "Pc Rate Entry",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Additional Charges – Scode",
+        "section": "Pc Rate Entry",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Additional Charges – Special",
+        "section": "Pc Rate Entry",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Additional Charges – Rate",
+        "section": "Pc Rate Entry",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Additional Charges – Uom",
+        "section": "Pc Rate Entry",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Additional Charges – Value",
+        "section": "Pc Rate Entry",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Final Pc Rate",
+        "section": "Pc Rate Entry",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Product",
+        "section": "Pc Rate Details",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Product Description",
+        "section": "Pc Rate Details",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Drawing",
+        "section": "Pc Rate Details",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Grade",
+        "section": "Pc Rate Details",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Stand Wt",
+        "section": "Pc Rate Details",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Kg Rate",
+        "section": "Pc Rate Details",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Pc Rate",
+        "section": "Pc Rate Details",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Remark",
+        "section": "Pc Rate Details",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Revised Date",
+        "section": "Pc Rate Details",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "History",
+        "section": "Pc Rate Details",
+        "controlType": "Checkbox",
+        "mandatory": "Unknown"
+      }
+    ],
+    "source": "Discovery workbook + screenshot",
+    "screenshots": [
+      "Screenshot 2026-09-16 163504.png",
+      "Screenshot 2026-09-16 163525.png"
+    ]
+  },
+  {
+    "id": "VEY-043",
+    "title": "Piece Rate Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Piece Rate Master - Details.",
+    "screenshot": "Screenshot 2026-09-16 163525.png",
+    "fields": [
+      "Product",
+      "Product Description",
+      "Drawing",
+      "Grade",
+      "Stand Wt",
+      "Kg Rate",
+      "Pc Rate",
+      "Remark",
+      "Revised Date",
+      "History"
+    ],
+    "actions": [
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters",
+    "sections": [
+      "Pc Rate Details"
+    ],
+    "fieldMetadata": [
+      {
+        "name": "Product",
+        "section": "Pc Rate Details",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Product Description",
+        "section": "Pc Rate Details",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Drawing",
+        "section": "Pc Rate Details",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Grade",
+        "section": "Pc Rate Details",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Stand Wt",
+        "section": "Pc Rate Details",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Kg Rate",
+        "section": "Pc Rate Details",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Pc Rate",
+        "section": "Pc Rate Details",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Remark",
+        "section": "Pc Rate Details",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Revised Date",
+        "section": "Pc Rate Details",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "History",
+        "section": "Pc Rate Details",
+        "controlType": "Checkbox",
+        "mandatory": "Unknown"
+      }
+    ],
+    "source": "Discovery workbook + screenshot",
+    "consolidatedInto": "VEY-042"
+  },
+  {
+    "id": "VEY-044",
+    "title": "KG Rate Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for KG Rate Master.",
+    "screenshot": "Screenshot 2026-09-16 163554.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "KGRateMaster",
+      "Customer",
+      "Weight wise KG Rate",
+      "Code",
+      "Name",
+      "Grade",
+      "RevDate",
+      "To WtKg",
+      "AMPOARABIAINDUSTRIALCOMPANY",
+      "Rate",
+      "AMPOARABIAINDUSTRIAL COMPANY",
+      "CELEROSFLOWTECHNOLOGY-HOUSTON",
+      "Customer Wise Special Charges RevDate",
+      "Rate/lk",
+      "Scode",
+      "Beta_Rate",
+      "EMERSONAUTOMATION SOLUTIONS FINAL CONTROLITALIASR",
+      "EMERSON PROCESS MANAGEMENT (CHENNAI) PVT LTD.(FCV)",
+      "EMERSONPROCESSMANAGEMENT (INDIA)PRIVATELIMITED-M",
+      "EMERSON PROCESS MANAGEMENT (NILAI SITE)-MALAYSIA",
+      "EMERSONPROCESSMANAGEMENTSAS-FRANCE"
+    ],
+    "actions": [
+      "Save",
+      "Clear",
+      "Delete"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-045",
+    "title": "Casting Process Entry",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Casting Process Entry.",
+    "screenshot": "Screenshot 2026-09-16 163833.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Weight",
+      "Code",
+      "Name",
+      "atory",
+      "Part Qty",
+      "Short",
+      "Rate",
+      "HEATTREATMENT",
+      "MAGNETICPARTICLETEST",
+      "ULTRASONIC TESTING",
+      "DYE PENATRATE TEST",
+      "Please do not change name &code without consulting Mss"
+    ],
+    "actions": [
+      "Save",
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-046",
+    "title": "Bill Of Material Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Bill of Material Master.",
+    "screenshot": "Screenshot 2026-09-16 164814.png",
+    "fields": [
+      "Grade",
+      "Material Name",
+      "Unit",
+      "Quantity",
+      "Qty Per"
+    ],
+    "actions": [
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters",
+    "sections": [
+      "Grade-specific BOM"
+    ],
+    "fieldMetadata": [
+      {
+        "name": "Grade",
+        "section": "Grade-specific BOM",
+        "controlType": "List / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Material Name",
+        "section": "Grade-specific BOM",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Unit",
+        "section": "Grade-specific BOM",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Quantity",
+        "section": "Grade-specific BOM",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Qty Per",
+        "section": "Grade-specific BOM",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      }
+    ],
+    "source": "Discovery workbook + screenshot"
+  },
+  {
+    "id": "VEY-047",
+    "title": "Responsible Person",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Responsible Person.",
+    "screenshot": "Screenshot 2026-09-16 165025.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Code",
+      "Name",
+      "Password",
+      "Designation",
+      "DIRECTOR",
+      "Signature",
+      "ACCOUNTMANAGER",
+      "RPARTIBAN",
+      "Update/ Save"
+    ],
+    "actions": [
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-048",
+    "title": "Product Master List (With Details)",
+    "module": "Foundry Application",
+    "type": "Report/list",
+    "purpose": "Represents the supplied Veeyes legacy screen for Product Master List (With Details).",
+    "screenshot": "Screenshot 2026-09-16 165044.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "ProductMasterList(WithDetails)",
+      "CCode",
+      "Product",
+      "Cating Drawing",
+      "Pallermn Code",
+      "Core Code",
+      "Pattern Code",
+      "Product Code",
+      "Same as Code",
+      "Description",
+      "Grade",
+      "Partnumber",
+      "ActualWeight",
+      "Fnish weight",
+      "Uouid Weight",
+      "proof MC Weight",
+      "Fuly MC Weight",
+      "IBR Drawing No",
+      "Status"
+    ],
+    "actions": [
+      "Delete",
+      "Save",
+      "Clear"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-049",
+    "title": "Product Master List - Pouring",
+    "module": "Foundry Application",
+    "type": "Report/list",
+    "purpose": "Represents the supplied Veeyes legacy screen for Product Master List - Pouring.",
+    "screenshot": "Screenshot 2026-09-16 165152.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "ProductMasterList(WithDetails)",
+      "PouredDt FromPour",
+      "Cating Drawing",
+      "CCode",
+      "Product",
+      "Pour Date",
+      "Pattern Code",
+      "Core Code",
+      "Product Code",
+      "Same as Code",
+      "Description",
+      "CastDrawing No",
+      "P MC Drawing No",
+      "FMCDrawingNo",
+      "Grade",
+      "Partnumber",
+      "Finish weight",
+      "Actual Weight",
+      "Uouid Weight",
+      "proof MC Weight",
+      "Fuly MC Weight",
+      "IBR Drawing No",
+      "Status"
+    ],
+    "actions": [
+      "Delete",
+      "Save",
+      "Clear"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-050",
+    "title": "Product Master List - Traceability",
+    "module": "Foundry Application",
+    "type": "Report/list",
+    "purpose": "Represents the supplied Veeyes legacy screen for Product Master List - Traceability.",
+    "screenshot": "Screenshot 2026-09-16 165209.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "ProductMasterList(withDetails)",
+      "CCode",
+      "Product",
+      "FromPour",
+      "Pattern Code",
+      "Core Code",
+      "Product Code",
+      "Same as Code",
+      "Description",
+      "CastDrawing No",
+      "P MC Drawing No",
+      "FMCDrawingNo",
+      "Grade",
+      "Partnumber",
+      "Fnish weight",
+      "Actual Weight",
+      "Uouid Weight",
+      "proof MC Weight",
+      "Fuly MC Weight",
+      "IBR Drawing No",
+      "Status"
+    ],
+    "actions": [
+      "Delete",
+      "Save",
+      "Clear"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-051",
+    "title": "Product Master List - Status",
+    "module": "Foundry Application",
+    "type": "Report/list",
+    "purpose": "Represents the supplied Veeyes legacy screen for Product Master List - Status.",
+    "screenshot": "Screenshot 2026-09-16 165222.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "ProductMasterList(withDetails)",
+      "Nodi Days",
+      "Paton",
+      "CCode",
+      "Product",
+      "FromPour",
+      "Patern Code",
+      "Core Code",
+      "Product Code",
+      "Same as Code",
+      "Description",
+      "CastDrawing No",
+      "PMC Drawing No",
+      "FMC Drawing No",
+      "Grade",
+      "Partnumber",
+      "Fnish weight",
+      "Actual Weight",
+      "Lauid Weight",
+      "FulyMC Weight",
+      "IBRDrawing No",
+      "Status"
+    ],
+    "actions": [
+      "Save",
+      "Delete"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-052",
+    "title": "TDC Master Entry",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for TDC Master Entry.",
+    "screenshot": "Screenshot 2026-09-16 165251.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Tdc Date",
+      "Entry Date",
+      "Revision",
+      "Grade",
+      "Customer",
+      "Code",
+      "Description",
+      "Reg Type",
+      "Remarks (PressF1for Motepad)",
+      "Remarks",
+      "Customer Wise Report",
+      "To Date",
+      "From Date"
+    ],
+    "actions": [
+      "Report",
+      "Clear",
+      "Delete"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-053",
+    "title": "Square Inch Master - RT",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Square Inch Master - RT.",
+    "screenshot": "Screenshot 2026-09-16 165336.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Product Niane",
+      "Coverage"
+    ],
+    "actions": [
+      "View",
+      "Copy",
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-054",
+    "title": "Lead Time Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Lead Time Master.",
+    "screenshot": "Screenshot 2026-09-16 165411.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Customer",
+      "Rtype",
+      "Mtype",
+      "Process",
+      "Ccode",
+      "Date",
+      "Aley Type",
+      "Days",
+      "End.Customer",
+      "Alloy",
+      "Machined Type",
+      "HEATTREATMENT",
+      "Effective Date",
+      "ALLOY STEEL CASTING",
+      "B-Standard Lead Tme",
+      "ALLOY STEEL CASTNG",
+      "Customer B",
+      "End Customer"
+    ],
+    "actions": [
+      "Copy To",
+      "Save",
+      "Clear",
+      "Delete"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-055",
+    "title": "Incentive Weight Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Incentive Weight Master.",
+    "screenshot": "Screenshot 2026-09-16 165516.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "IncentiveWeightMaster",
+      "Process",
+      "AddingRate",
+      "Edate",
+      "Scode",
+      "Contractor",
+      "Alloy",
+      "Rate",
+      "Code",
+      "Weight Description",
+      "Incentive Rate Details",
+      "Description"
+    ],
+    "actions": [
+      "Delete",
+      "Clear",
+      "Save"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-056",
+    "title": "Subprocess Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Subprocess Master.",
+    "screenshot": "Screenshot 2026-09-16 165529.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "SubprocessMaster",
+      "Process",
+      "SUB Process",
+      "Name",
+      "sub Code",
+      "Sub Name",
+      "FINAL INSPECTION",
+      "DYEPENATRATE TEST"
+    ],
+    "actions": [
+      "Save",
+      "Clear",
+      "Delete"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-057",
+    "title": "Contractor Rate Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Contractor Rate Master.",
+    "screenshot": "Screenshot 2026-09-16 165551.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-?)",
+      "ContractorRateMaster",
+      "Alloy",
+      "Contractor",
+      "Castng Process",
+      "Product",
+      "Customer",
+      "Product Description",
+      "Unit",
+      "Pouring/Despatoh",
+      "Effect Date",
+      "Weight Bebveen",
+      "Sub Process",
+      "Rate",
+      "Process",
+      "Scode",
+      "Grade",
+      "Insentive Weight Master",
+      "Syb Process Master"
+    ],
+    "actions": [
+      "Clear",
+      "Delete"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-058",
+    "title": "RT Repair Reason Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for RT Repair Reason Master.",
+    "screenshot": "Screenshot 2026-09-16 165608.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "RTRepaireReasonMaster",
+      "Name",
+      "Code",
+      "Short",
+      "Active"
+    ],
+    "actions": [
+      "Save",
+      "Clear",
+      "Delete"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-059",
+    "title": "RT Location Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for RT Location Master.",
+    "screenshot": "Screenshot 2026-09-16 165627.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "RTLocationMaster",
+      "Product",
+      "Coverage",
+      "Location"
+    ],
+    "actions": [
+      "New",
+      "Copy",
+      "Delete",
+      "Save",
+      "Clear"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-060",
+    "title": "Hold Reason Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Hold Reason Master.",
+    "screenshot": "Screenshot 2026-09-16 165648.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "HoldReasonMaster",
+      "Code",
+      "Name",
+      "Status",
+      "Active",
+      "METHOOTO BEMODIFIEO",
+      "CUSTOMER COMPLAINT",
+      "DRAWING NOT AMAILABLE",
+      "PATTERNNOT AAILABLE",
+      "REV.DRG.RECD.PATTTOCORRECT",
+      "RESAMPLETOBERELEASE",
+      "DIMENSION TO BE CHECK",
+      "inactive",
+      "THISCODEFORPARTNOVARIATIONPURPOSEONLY",
+      "PATTERNTO BE CHECKAS PER DRAWING",
+      "LETTERINGTOBECHECKWITHDRAWING",
+      "Outlook (classic)"
+    ],
+    "actions": [
+      "NEW PATTERN",
+      "Delete",
+      "Save"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-061",
+    "title": "Hold Release",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Hold Release.",
+    "screenshot": "Screenshot 2026-09-16 165727.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "HOLDRELEASE",
+      "Hold Type",
+      "Product",
+      "Description",
+      "Hold Date",
+      "Reason",
+      "Hold Remaris",
+      "Release Remarks",
+      "Release Date",
+      "Customer Hold",
+      "PATTERN NOT AVALABLE",
+      "UNDERINSPECTION",
+      "Intermal Hold",
+      "Intemal Hold",
+      "UNDER INSPECTION WORK",
+      "Hold Remarks",
+      "ReleaseRemarks",
+      "HOLD EXPIRED",
+      "REV.DRG.RECD.PATT TO CORRECT REV.3 DRG.RECD",
+      "PATTERNNOTAVAILABLE",
+      "FromDate",
+      "ToDate"
+    ],
+    "actions": [
+      "NEW PATTERN",
+      "Delete",
+      "Save"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-062",
+    "title": "Hold Release List",
+    "module": "Foundry Application",
+    "type": "Report/list",
+    "purpose": "Represents the supplied Veeyes legacy screen for Hold Release List.",
+    "screenshot": "Screenshot 2026-09-16 165810.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "HOLDRELEASE",
+      "Hold Type",
+      "Product",
+      "Description",
+      "Hold Date",
+      "Reason",
+      "Hold Remarks",
+      "Release Remarks",
+      "Release Date",
+      "OADespatch Hold",
+      "GATED BLOCK WEIGHT",
+      "OA Despatch Hold",
+      "DA Desp Hold",
+      "Release Remariks",
+      "Intermal Hold",
+      "Intemal Hold",
+      "Customer Hold",
+      "HOLDEXPIRED",
+      "REV.DRG.RECD.PATTTOCORRECTREV.3DRG.RECD",
+      "HOLD EXPIRED",
+      "PATTERNNOTAVAILABLE",
+      "To Date",
+      "FromDate"
+    ],
+    "actions": [
+      "Save",
+      "Clear",
+      "Delete"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-063",
+    "title": "Casting Dimension Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Casting Dimension Master.",
+    "screenshot": "Screenshot 2026-09-16 165838.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Product",
+      "Name",
+      "Drawing",
+      "Tolerancendhes",
+      "Tolerance MM"
+    ],
+    "actions": [
+      "Save",
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-064",
+    "title": "End Customer Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for End Customer Master.",
+    "screenshot": "Screenshot 2026-09-16 165855.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "ENDCUSTOMER",
+      "Customer",
+      "ErdCustomer.Code",
+      "Name",
+      "Address1",
+      "Address2",
+      "Address3",
+      "City",
+      "Pincode",
+      "State",
+      "Contact person",
+      "Phone No"
+    ],
+    "actions": [
+      "Delete",
+      "Save"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-065",
+    "title": "Delivery Customer Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Delivery Customer Master.",
+    "screenshot": "Screenshot 2026-09-16 165914.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "DeliveryCustomerMaster",
+      "Name",
+      "DelveryCustomer Code",
+      "Active",
+      "Address",
+      "Address2",
+      "Address3",
+      "City",
+      "Pincode",
+      "State",
+      "Contact person",
+      "Phone No"
+    ],
+    "actions": [
+      "Copy",
+      "Delete",
+      "Clear",
+      "Save"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-066",
+    "title": "Pattern Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Pattern Master.",
+    "screenshot": "Screenshot 2026-09-16 165938.png",
+    "fields": [
+      "Code",
+      "Internal/Customer",
+      "Date",
+      "Part Description",
+      "Casting Drg No 1",
+      "Casting Drg No 2",
+      "Casting Drg No 3",
+      "Casting Drg No 4",
+      "Casting Drg No 5",
+      "Casting Drg No 6",
+      "Remarks for Drawing",
+      "Customer",
+      "Customer Group",
+      "End Customer",
+      "In Active",
+      "Manufactured By",
+      "Owner",
+      "Material",
+      "Qty",
+      "Unit",
+      "Loose Piece Materials – Slno",
+      "Loose Piece Materials – Material",
+      "Loose Piece Materials – Qty",
+      "Loose Piece Materials – Uom",
+      "Random RT",
+      "Random Dim",
+      "Patn Insp",
+      "Pattern Location – Plant",
+      "Pattern Location – Location",
+      "Pattern Location – Rack",
+      "Pattern Location – Division",
+      "Loose Piece Location – Plant",
+      "Loose Piece Location – Location",
+      "Loose Piece Location – Rack",
+      "Loose Piece Location – Division",
+      "Mounted",
+      "Recd Date",
+      "Pattern 3D Model",
+      "DC No",
+      "Casting 3D Model",
+      "DC Date",
+      "Box Size (mm) – Length",
+      "Box Size (mm) – Breadth",
+      "Box Size (mm) – Height",
+      "Pattern Available",
+      "Pattern Weight",
+      "Remarks",
+      "Product List – Product Code",
+      "Product List – Product Name",
+      "Product List – Casting Drawing",
+      "Product List – Active",
+      "Product List – Status",
+      "Internal Hold",
+      "Customer Hold"
+    ],
+    "actions": [
+      "Image",
+      "Internal-Hold",
+      "Customer-Hold",
+      "Instruction/Check List",
+      "Template",
+      "Pattern Image",
+      "Delete",
+      "Save",
+      "Report",
+      "Clear",
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters",
+    "sections": [
+      "Main screen"
+    ],
+    "fieldMetadata": [
+      {
+        "name": "Code",
+        "section": "Main screen",
+        "controlType": "Text / code",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Internal/Customer",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Date",
+        "section": "Main screen",
+        "controlType": "Date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Part Description",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Casting Drg No 1",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Casting Drg No 2",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Casting Drg No 3",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Casting Drg No 4",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Casting Drg No 5",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Casting Drg No 6",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Remarks for Drawing",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Customer",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Customer Group",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "End Customer",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "In Active",
+        "section": "Main screen",
+        "controlType": "Checkbox",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Manufactured By",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Owner",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Material",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Qty",
+        "section": "Main screen",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Unit",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Loose Piece Materials – Slno",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Loose Piece Materials – Material",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Loose Piece Materials – Qty",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Loose Piece Materials – Uom",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Random RT",
+        "section": "Main screen",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Random Dim",
+        "section": "Main screen",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Patn Insp",
+        "section": "Main screen",
+        "controlType": "Text / indicator",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Pattern Location – Plant",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Pattern Location – Location",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Pattern Location – Rack",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Pattern Location – Division",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Loose Piece Location – Plant",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Loose Piece Location – Location",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Loose Piece Location – Rack",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Loose Piece Location – Division",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Mounted",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Recd Date",
+        "section": "Main screen",
+        "controlType": "Date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Pattern 3D Model",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "DC No",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Casting 3D Model",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "DC Date",
+        "section": "Main screen",
+        "controlType": "Date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Box Size (mm) – Length",
+        "section": "Main screen",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Box Size (mm) – Breadth",
+        "section": "Main screen",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Box Size (mm) – Height",
+        "section": "Main screen",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Pattern Available",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Pattern Weight",
+        "section": "Main screen",
+        "controlType": "Numeric",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Remarks",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Product List – Product Code",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Product List – Product Name",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Product List – Casting Drawing",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Product List – Active",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Product List – Status",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Internal Hold",
+        "section": "Main screen",
+        "controlType": "Text / status",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Customer Hold",
+        "section": "Main screen",
+        "controlType": "Text / status",
+        "mandatory": "Unknown"
+      }
+    ],
+    "source": "Discovery workbook + screenshot"
+  },
+  {
+    "id": "VEY-067",
+    "title": "Core Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Core Master.",
+    "screenshot": "Screenshot 2026-09-16 170223.png",
+    "fields": [
+      "Internal/Customer",
+      "Code",
+      "Date",
+      "Part Description",
+      "Casting Drg No & Revision 1",
+      "Casting Drg No & Revision 2",
+      "Casting Drg No & Revision 3",
+      "Casting Drg No & Revision 4",
+      "Casting Drg No & Revision 5",
+      "Casting Drg No & Revision 6",
+      "Remarks",
+      "Customer",
+      "End Customer",
+      "Owner",
+      "Manufactured By",
+      "Recd.Date",
+      "DC No.",
+      "DC Date",
+      "Core Box Material – Slno",
+      "Core Box Material – Material",
+      "Core Box Material – Qty",
+      "Core Box Material – Uom",
+      "Loose Piece Material – Slno",
+      "Loose Piece Material – Material",
+      "Loose Piece Material – Qty",
+      "Loose Piece Material – Uom",
+      "Core Location – Plant",
+      "Core Location – Location",
+      "Core Location – Rack",
+      "Core Location – Division",
+      "Loose Piece Location – Plant",
+      "Loose Piece Location – Location",
+      "Loose Piece Location – Rack",
+      "Loose Piece Location – Division",
+      "Product List – Product Code",
+      "Product List – Product Name",
+      "Product List – Casting Drawing",
+      "Product List – Active",
+      "Product List – Internal Hold",
+      "Product List – Customer Hold",
+      "Hold History – Date",
+      "Hold History – Reason",
+      "Hold History – Remark",
+      "Internal Hold",
+      "Customer Hold"
+    ],
+    "actions": [
+      "Hold History – Save",
+      "Delete",
+      "Save",
+      "Report",
+      "Clear",
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters",
+    "sections": [
+      "Main screen"
+    ],
+    "fieldMetadata": [
+      {
+        "name": "Internal/Customer",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Code",
+        "section": "Main screen",
+        "controlType": "Text / code",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Date",
+        "section": "Main screen",
+        "controlType": "Date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Part Description",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Casting Drg No & Revision 1",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Casting Drg No & Revision 2",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Casting Drg No & Revision 3",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Casting Drg No & Revision 4",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Casting Drg No & Revision 5",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Casting Drg No & Revision 6",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Remarks",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Customer",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "End Customer",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Owner",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Manufactured By",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Recd.Date",
+        "section": "Main screen",
+        "controlType": "Date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "DC No.",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "DC Date",
+        "section": "Main screen",
+        "controlType": "Date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Core Box Material – Slno",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Core Box Material – Material",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Core Box Material – Qty",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Core Box Material – Uom",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Loose Piece Material – Slno",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Loose Piece Material – Material",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Loose Piece Material – Qty",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Loose Piece Material – Uom",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Core Location – Plant",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Core Location – Location",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Core Location – Rack",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Core Location – Division",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Loose Piece Location – Plant",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Loose Piece Location – Location",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Loose Piece Location – Rack",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Loose Piece Location – Division",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Product List – Product Code",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Product List – Product Name",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Product List – Casting Drawing",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Product List – Active",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Product List – Internal Hold",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Product List – Customer Hold",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Hold History – Date",
+        "section": "Main screen",
+        "controlType": "Text / date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Hold History – Reason",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Hold History – Remark",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Internal Hold",
+        "section": "Main screen",
+        "controlType": "Text / status",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Customer Hold",
+        "section": "Main screen",
+        "controlType": "Text / status",
+        "mandatory": "Unknown"
+      }
+    ],
+    "source": "Discovery workbook + screenshot"
+  },
+  {
+    "id": "VEY-068",
+    "title": "Checklist Master",
+    "module": "Foundry Application",
+    "type": "Report/list",
+    "purpose": "Represents the supplied Veeyes legacy screen for Checklist Master.",
+    "screenshot": "Screenshot 2026-09-16 170238.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Customer",
+      "End Customer",
+      "EndCustomer",
+      "Product",
+      "grade",
+      "PartNurber",
+      "Rev Date",
+      "In Active",
+      "AdditonalRemarisComments",
+      "Date",
+      "DespCustOff"
+    ],
+    "actions": [
+      "Copy",
+      "Delete",
+      "Report",
+      "Clear",
+      "Save"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-069",
+    "title": "Department Employee Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Department Employee Master.",
+    "screenshot": "Screenshot 2026-09-16 170309.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "DepartmentEmployeeMaster",
+      "Department Master",
+      "Department Wise EmployeeMaster",
+      "EmployeeMaster",
+      "Code",
+      "Employee",
+      "Name",
+      "R.PARTIBAN"
+    ],
+    "actions": [
+      "Delete",
+      "Save",
+      "Clear"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-070",
+    "title": "Work Instruction Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Work Instruction Master.",
+    "screenshot": "Screenshot 2026-09-16 170321.png",
+    "fields": [
+      "Code",
+      "Workinst",
+      "Type",
+      "Edate",
+      "In Active",
+      "In Active Date",
+      "Work Instruction List – Code",
+      "Work Instruction List – WORK Instruction",
+      "Work Instruction List – Type",
+      "Work Instruction List – In Active",
+      "Work Instruction List – In Active Date",
+      "Work Instruction List – Effective Date"
+    ],
+    "actions": [
+      "Delete",
+      "Save",
+      "Report",
+      "Clear",
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters",
+    "sections": [
+      "Main screen"
+    ],
+    "fieldMetadata": [
+      {
+        "name": "Code",
+        "section": "Main screen",
+        "controlType": "Text / code",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Workinst",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Type",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Edate",
+        "section": "Main screen",
+        "controlType": "Date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "In Active",
+        "section": "Main screen",
+        "controlType": "Checkbox",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "In Active Date",
+        "section": "Main screen",
+        "controlType": "Date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Work Instruction List – Code",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Work Instruction List – WORK Instruction",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Work Instruction List – Type",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Work Instruction List – In Active",
+        "section": "Main screen",
+        "controlType": "Grid checkbox",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Work Instruction List – In Active Date",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Work Instruction List – Effective Date",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      }
+    ],
+    "source": "Discovery workbook + screenshot"
+  },
+  {
+    "id": "VEY-071",
+    "title": "NDE - Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for NDE Master - General.",
+    "screenshot": "Screenshot 2026-09-16 170333.png",
+    "fields": [
+      "Customer",
+      "Test",
+      "End Customer",
+      "Procedure – Slno",
+      "Procedure – Procedure",
+      "Procedure – Acceptance Standard",
+      "Procedure – Non Active"
+    ],
+    "actions": [
+      "Save",
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters",
+    "sections": [
+      "Main screen"
+    ],
+    "fieldMetadata": [
+      {
+        "name": "Customer",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Test",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "End Customer",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Procedure – Slno",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Procedure – Procedure",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Procedure – Acceptance Standard",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Procedure – Non Active",
+        "section": "Main screen",
+        "controlType": "Grid checkbox",
+        "mandatory": "Unknown"
+      }
+    ],
+    "source": "Discovery workbook + screenshot"
+  },
+  {
+    "id": "VEY-072",
+    "title": "NDE Master - Test Details",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for NDE Master - Test Details.",
+    "screenshot": "Screenshot 2026-09-16 170349.png",
+    "fields": [
+      "VEEYESALLOYSPRIVATELIMITED(PLANT-2)",
+      "Customer",
+      "Test",
+      "End Customer",
+      "Magnetic Partical Teat",
+      "Procedure"
+    ],
+    "actions": [
+      "Save"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters"
+  },
+  {
+    "id": "VEY-073",
+    "title": "Drawing Master Entry",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Drawing Master Entry.",
+    "screenshot": "Screenshot 2026-09-16 170415.png",
+    "fields": [
+      "Customer",
+      "End Customer",
+      "Dtype",
+      "Customer Group",
+      "Code",
+      "Received",
+      "Drawing No",
+      "Revision",
+      "Description",
+      "Revision date",
+      "Issues By",
+      "Issue Date",
+      "Main Drawing No",
+      "Layout",
+      "Master",
+      "Control",
+      "Absolute",
+      "Drawing List – Ccode",
+      "Drawing List – Cust Group",
+      "Drawing List – Type",
+      "Drawing List – Name",
+      "Drawing List – Drawing",
+      "Drawing List – Rev",
+      "Drawing List – Revdate",
+      "Drawing List – Received",
+      "Drawing List – Buyer",
+      "Drawing List – Iss. Date",
+      "Drawing List – Absolute"
+    ],
+    "actions": [
+      "Drw. Upload",
+      "Save",
+      "Clear",
+      "Drawing List – Drg. View",
+      "Drawing Issue Register",
+      "Report",
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters",
+    "sections": [
+      "Main screen"
+    ],
+    "fieldMetadata": [
+      {
+        "name": "Customer",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "End Customer",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Dtype",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Customer Group",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Code",
+        "section": "Main screen",
+        "controlType": "Text / code",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Received",
+        "section": "Main screen",
+        "controlType": "Date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Drawing No",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Revision",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Description",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Revision date",
+        "section": "Main screen",
+        "controlType": "Date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Issues By",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Issue Date",
+        "section": "Main screen",
+        "controlType": "Date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Main Drawing No",
+        "section": "Main screen",
+        "controlType": "Text / lookup",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Layout",
+        "section": "Main screen",
+        "controlType": "Checkbox",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Master",
+        "section": "Main screen",
+        "controlType": "Checkbox",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Control",
+        "section": "Main screen",
+        "controlType": "Checkbox",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Absolute",
+        "section": "Main screen",
+        "controlType": "Text / checkbox",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Drawing List – Ccode",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Drawing List – Cust Group",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Drawing List – Type",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Drawing List – Name",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Drawing List – Drawing",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Drawing List – Rev",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Drawing List – Revdate",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Drawing List – Received",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Drawing List – Buyer",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Drawing List – Iss. Date",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Drawing List – Absolute",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      }
+    ],
+    "source": "Discovery workbook + screenshot"
+  },
+  {
+    "id": "VEY-074",
+    "title": "Customer Specification Master",
+    "module": "Foundry Application",
+    "type": "Entry/master transaction",
+    "purpose": "Represents the supplied Veeyes legacy screen for Customer Specification Master.",
+    "screenshot": "Screenshot 2026-09-16 170510.png",
+    "fields": [
+      "Customer",
+      "End Customer",
+      "Code",
+      "Spcode",
+      "Sprev",
+      "Rev Date",
+      "Spec Details",
+      "Remarks",
+      "Grade",
+      "Received Date",
+      "Obsolete",
+      "Specification List – Code",
+      "Specification List – Spec Code",
+      "Specification List – Spec Rev",
+      "Specification List – Spec Rev Date",
+      "Specification List – Spec Details",
+      "Specification List – Remarks",
+      "Specification List – Grade",
+      "Specification List – Received Date",
+      "Specification List – Issued By",
+      "Specification List – Issued Date",
+      "Specification List – QA",
+      "Specification List – Felt",
+      "Specification List – NDT",
+      "Specification List – Obsolete"
+    ],
+    "actions": [
+      "Upload",
+      "Specification List – Upload",
+      "Specification List – Spl",
+      "Specification List – Rep",
+      "Delete",
+      "Report",
+      "Save",
+      "Clear",
+      "Exit"
+    ],
+    "options": [],
+    "requiredFields": [],
+    "submodule": "Masters",
+    "sections": [
+      "Main screen"
+    ],
+    "fieldMetadata": [
+      {
+        "name": "Customer",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "End Customer",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Code",
+        "section": "Main screen",
+        "controlType": "Text / code",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Spcode",
+        "section": "Main screen",
+        "controlType": "Text / code",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Sprev",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Rev Date",
+        "section": "Main screen",
+        "controlType": "Date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Spec Details",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Remarks",
+        "section": "Main screen",
+        "controlType": "Text",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Grade",
+        "section": "Main screen",
+        "controlType": "Dropdown",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Received Date",
+        "section": "Main screen",
+        "controlType": "Date",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Obsolete",
+        "section": "Main screen",
+        "controlType": "Checkbox",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Specification List – Code",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Specification List – Spec Code",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Specification List – Spec Rev",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Specification List – Spec Rev Date",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Specification List – Spec Details",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Specification List – Remarks",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Specification List – Grade",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Specification List – Received Date",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Specification List – Issued By",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Specification List – Issued Date",
+        "section": "Main screen",
+        "controlType": "Grid column",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Specification List – QA",
+        "section": "Main screen",
+        "controlType": "Grid checkbox",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Specification List – Felt",
+        "section": "Main screen",
+        "controlType": "Grid checkbox",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Specification List – NDT",
+        "section": "Main screen",
+        "controlType": "Grid checkbox",
+        "mandatory": "Unknown"
+      },
+      {
+        "name": "Specification List – Obsolete",
+        "section": "Main screen",
+        "controlType": "Grid date",
+        "mandatory": "Unknown"
+      }
+    ],
+    "source": "Discovery workbook + screenshot"
+  },
+  {
+    "id": "VEY-075",
+    "title": "Main Screen",
+    "module": "Main Screen",
+    "type": "Navigation/menu",
+    "purpose": "Represents the supplied Veeyes legacy screen for Main Screen.",
+    "screenshot": "Screenshot 2026-09-17 102133.png",
+    "fields": [],
+    "actions": [
+      "Exit"
+    ],
+    "options": [
+      "Foundry Application",
+      "Inventory Management",
+      "Customer Complaints",
+      "Calibration",
+      "Maintenance",
+      "Financial Accounts",
+      "Radiography",
+      "MAIL",
+      "Exit"
+    ],
+    "requiredFields": [],
+    "submodule": null
+  },
+  {
+    "id": "VEY-DOC-001",
+    "title": "Vendor/Subcontractor",
+    "module": "Foundry Application",
+    "submodule": "Masters",
+    "type": "Documented screen — screenshot not supplied",
+    "purpose": "Documented in Veeyes discovery workbook; detailed screen evidence not supplied.",
+    "screenshot": "",
+    "fields": [],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "sections": [],
+    "availability": "not-supplied",
+    "source": "Discovery workbook inventory"
+  },
+  {
+    "id": "VEY-DOC-002",
+    "title": "Spl Requirement",
+    "module": "Foundry Application",
+    "submodule": "Masters",
+    "type": "Documented screen — screenshot not supplied",
+    "purpose": "Documented in Veeyes discovery workbook; detailed screen evidence not supplied.",
+    "screenshot": "",
+    "fields": [],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "sections": [],
+    "availability": "not-supplied",
+    "source": "Discovery workbook inventory"
+  },
+  {
+    "id": "VEY-DOC-003",
+    "title": "Other Masters",
+    "module": "Foundry Application",
+    "submodule": "Masters",
+    "type": "Documented screen — screenshot not supplied",
+    "purpose": "Documented in Veeyes discovery workbook; detailed screen evidence not supplied.",
+    "screenshot": "",
+    "fields": [],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "sections": [],
+    "availability": "not-supplied",
+    "source": "Discovery workbook inventory"
+  },
+  {
+    "id": "VEY-DOC-004",
+    "title": "Rate Master",
+    "module": "Foundry Application",
+    "submodule": "Masters",
+    "type": "Documented screen — screenshot not supplied",
+    "purpose": "Documented in Veeyes discovery workbook; detailed screen evidence not supplied.",
+    "screenshot": "",
+    "fields": [],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "sections": [],
+    "availability": "not-supplied",
+    "source": "Discovery workbook inventory"
+  },
+  {
+    "id": "VEY-DOC-005",
+    "title": "Controlled Drawings",
+    "module": "Foundry Application",
+    "submodule": "Masters",
+    "type": "Documented screen — screenshot not supplied",
+    "purpose": "Documented in Veeyes discovery workbook; detailed screen evidence not supplied.",
+    "screenshot": "",
+    "fields": [],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "sections": [],
+    "availability": "not-supplied",
+    "source": "Discovery workbook inventory"
+  },
+  {
+    "id": "VEY-DOC-006",
+    "title": "Employee Master",
+    "module": "Foundry Application",
+    "submodule": "Masters",
+    "type": "Documented screen — screenshot not supplied",
+    "purpose": "Documented in Veeyes discovery workbook; detailed screen evidence not supplied.",
+    "screenshot": "",
+    "fields": [],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "sections": [],
+    "availability": "not-supplied",
+    "source": "Discovery workbook inventory"
+  },
+  {
+    "id": "VEY-DOC-007",
+    "title": "RT Sqr Inch Master",
+    "module": "Foundry Application",
+    "submodule": "Masters",
+    "type": "Documented screen — screenshot not supplied",
+    "purpose": "Documented in Veeyes discovery workbook; detailed screen evidence not supplied.",
+    "screenshot": "",
+    "fields": [],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "sections": [],
+    "availability": "not-supplied",
+    "source": "Discovery workbook inventory"
+  },
+  {
+    "id": "VEY-DOC-008",
+    "title": "Contract Wise Rate Master",
+    "module": "Foundry Application",
+    "submodule": "Masters",
+    "type": "Documented screen — screenshot not supplied",
+    "purpose": "Documented in Veeyes discovery workbook; detailed screen evidence not supplied.",
+    "screenshot": "",
+    "fields": [],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "sections": [],
+    "availability": "not-supplied",
+    "source": "Discovery workbook inventory"
+  },
+  {
+    "id": "VEY-DOC-009",
+    "title": "Delivery address of Subcontract (Customer)",
+    "module": "Foundry Application",
+    "submodule": "Masters",
+    "type": "Documented screen — screenshot not supplied",
+    "purpose": "Documented in Veeyes discovery workbook; detailed screen evidence not supplied.",
+    "screenshot": "",
+    "fields": [],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "sections": [],
+    "availability": "not-supplied",
+    "source": "Discovery workbook inventory"
+  },
+  {
+    "id": "VEY-DOC-010",
+    "title": "Quotation Terms and Conditions",
+    "module": "Foundry Application",
+    "submodule": "Masters",
+    "type": "Documented screen — screenshot not supplied",
+    "purpose": "Documented in Veeyes discovery workbook; detailed screen evidence not supplied.",
+    "screenshot": "",
+    "fields": [],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "sections": [],
+    "availability": "not-supplied",
+    "source": "Discovery workbook inventory"
+  },
+  {
+    "id": "VEY-DOC-011",
+    "title": "NABL Parameter Master",
+    "module": "Foundry Application",
+    "submodule": "Masters",
+    "type": "Documented screen — screenshot not supplied",
+    "purpose": "Documented in Veeyes discovery workbook; detailed screen evidence not supplied.",
+    "screenshot": "",
+    "fields": [],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "sections": [],
+    "availability": "not-supplied",
+    "source": "Discovery workbook inventory"
+  },
+  {
+    "id": "VEY-DOC-012",
+    "title": "Sample Reason Master",
+    "module": "Foundry Application",
+    "submodule": "Masters",
+    "type": "Documented screen — screenshot not supplied",
+    "purpose": "Documented in Veeyes discovery workbook; detailed screen evidence not supplied.",
+    "screenshot": "",
+    "fields": [],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "sections": [],
+    "availability": "not-supplied",
+    "source": "Discovery workbook inventory"
+  },
+  {
+    "id": "VEY-DOC-013",
+    "title": "Transporter",
+    "module": "Foundry Application",
+    "submodule": "Masters",
+    "type": "Documented screen — screenshot not supplied",
+    "purpose": "Documented in Veeyes discovery workbook; detailed screen evidence not supplied.",
+    "screenshot": "",
+    "fields": [],
+    "actions": [],
+    "options": [],
+    "requiredFields": [],
+    "sections": [],
+    "availability": "not-supplied",
+    "source": "Discovery workbook inventory"
+  }
+]

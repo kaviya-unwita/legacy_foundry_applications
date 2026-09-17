@@ -44,8 +44,8 @@ export function parseCatalogue(markdown) {
   return { screens, modules }
 }
 
-export function screenshotUrl(path) {
-  return `/legacy-screens/${path.split('\\').map(encodeURIComponent).join('/')}`
+export function screenshotUrl(path, basePath = '/legacy-screens') {
+  return `${basePath}/${path.split('\\').map(encodeURIComponent).join('/')}`
 }
 
 const NON_FIELD_TEXT = /^(window\d*|mis|save|exit|back|clear|report|entry|master|list|history|delete)$/i
@@ -116,7 +116,93 @@ export function buildModel(catalogue, source) {
     if (!legIndex[legId]) legIndex[legId] = { kind: 'menu', module: ocr[legId]?.module ?? null, path: [] }
     if (ocr[legId]?.screenshot) menuShots[legId] = { id: legId, screenshot: ocr[legId].screenshot }
   }
-  return { screens, modules: source.modules, legIndex, menuShots }
+  return { screens, modules: source.modules, legIndex, menuShots, screenshotBase: '/legacy-screens' }
+}
+
+// Veeyes ERP: main-screen modules and submodules as recorded in the Veeyes discovery workbook.
+export const VEEYES_HIERARCHY = {
+  'Foundry Application': ['Masters', 'Marketing Management', 'Order Processing', 'Production Planning', 'Quality Information', 'lab', 'Sales Information', 'Pattern', 'Subcontract', 'On Screen Queries', 'Enquiries', 'Heat History', 'System', 'Utilities', 'Export', 'Methods', 'Radiography - Foundry', 'Temporary Update screens'],
+  'Inventory Management': ['Masters', 'Purchase', 'Goods Receipt', 'Issues', 'General', 'Reports'],
+  'Customer Complaints': ['Entries & Reports'],
+  Calibration: ['Entries & Reports'],
+  Maintenance: ['Entries & Reports'],
+  'Financial Accounts': ['Masters', 'Vouchers', 'Ledgers', 'Postings', 'Reports', 'Ratio & Interest calc', 'Utility'],
+  Radiography: ['RT Masters', 'MIS Reports', 'Inventory stores', 'Radiography', 'System'],
+  NABL: ['Masters', 'Lab'],
+}
+
+function veeyesFieldType(controlType = '') {
+  const value = controlType.toLowerCase()
+  if (value.includes('checkbox')) return 'checkbox'
+  if (value.includes('date')) return 'date'
+  if (value === 'numeric' || value.includes('numeric')) return 'number'
+  return 'text'
+}
+
+/**
+ * Veeyes screens come from screenshots and the Veeyes discovery workbook only (no compiled legacy source here),
+ * so they are rendered as unverified: workbook control types, no required markers unless the workbook says so,
+ * no F9 data. Captures with the same title are pages of one screen.
+ */
+export function buildVeeyesModel(items) {
+  const usable = items.filter((item) => !item.consolidatedInto && item.module !== 'Main Screen')
+  const groups = new Map()
+  for (const item of usable) {
+    const key = `${item.module}|${item.submodule}|${item.title}`
+    if (!groups.has(key)) groups.set(key, [])
+    groups.get(key).push(item)
+  }
+
+  const screens = {}
+  for (const members of groups.values()) {
+    const first = members[0]
+    const supplied = members.some((item) => item.availability !== 'not-supplied')
+    const fields = members.flatMap((item) => {
+      const metadata = item.fieldMetadata?.length ? item.fieldMetadata : item.fields.map((name) => ({ name, section: null, controlType: '', mandatory: 'Unknown' }))
+      const sections = new Set(metadata.map((field) => field.section).filter(Boolean))
+      const rows = []
+      let section = null
+      for (const field of metadata) {
+        if (sections.size > 1 && field.section && field.section !== section) {
+          section = field.section
+          rows.push({ label: section, kind: 'heading', tab: item.id, evidence: ['Veeyes discovery workbook'] })
+        }
+        const required = String(field.mandatory).toLowerCase() === 'yes'
+        rows.push({
+          label: field.name, kind: 'field', type: veeyesFieldType(field.controlType), maxLength: null, required,
+          requiredEvidence: required ? 'Veeyes discovery workbook: mandatory' : null, controlType: field.controlType || null,
+          tab: item.id, evidence: [item.fieldMetadata?.length ? `Veeyes discovery workbook (${field.controlType || 'type not recorded'})` : 'screenshot OCR only (unverified)'],
+        })
+      }
+      return rows
+    })
+    screens[first.id] = {
+      id: first.id, legIds: members.map((item) => item.id), module: first.module, submodule: first.submodule,
+      menuCode: first.id, menuLabel: first.title, formName: null, formFile: null,
+      sourceStatus: supplied ? 'workbook' : 'not-supplied', storageKey: `veeyes:${first.id}`,
+      tabs: members.map((item, index) => ({
+        legId: item.id, title: members.length > 1 ? `${item.title} (${index + 1})` : item.title, purpose: item.purpose ?? '', resolution: '',
+        screenshots: item.screenshots?.length ? item.screenshots : item.screenshot ? [item.screenshot] : [],
+      })),
+      fields, otherLegacyText: [], buttons: [...new Set(members.flatMap((item) => item.actions))], lovs: [], reports: [],
+      writesData: /entry|master/i.test(first.type), writeTables: [], readTables: [], deletes: [], controlCodes: [], formatCodes: [],
+    }
+  }
+
+  const byMenu = (module, submodule) => Object.values(screens).filter((screen) => screen.module === module && screen.submodule === submodule)
+  const modules = Object.entries(VEEYES_HIERARCHY).map(([module, submodules]) => ({
+    module, menuLegId: 'VEY-075',
+    options: submodules.map((submodule, index) => ({
+      code: `${module}/${index}`, label: submodule, formName: null, screenId: null, menuLegId: null,
+      unavailableNote: 'No screens supplied',
+      children: byMenu(module, submodule).map((screen) => ({
+        code: screen.id, label: screen.menuLabel, formName: null, screenId: screen.id, children: [], menuLegId: null,
+      })),
+    })),
+  }))
+  const main = items.find((item) => item.module === 'Main Screen')
+  const menuShots = main?.screenshot ? { [main.id]: { id: main.id, screenshot: main.screenshot } } : {}
+  return { screens, modules, legIndex: {}, menuShots, screenshotBase: '/veeyes-screens' }
 }
 
 export function findMenuLevel(module, path) {
