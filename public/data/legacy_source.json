@@ -1,9 +1,9 @@
 {
  "generated": "2026-09-17",
  "sources": {
-  "forms": "SSA_MSS (.fmx strings)",
-  "schema": "SSA_MSS/Sat.DMP (CREATE TABLE, MENUMASTER, CONTROL, FORMAT)",
-  "mapping": "SSA_Foundry_Legacy_Source_Verified_Screen_Catalog.md"
+  "forms": "SUN legacy source (.fmx strings)",
+  "schema": "SUN legacy source/Sat.DMP (CREATE TABLE, MENUMASTER, CONTROL, FORMAT)",
+  "mapping": "SUN_Foundry_Legacy_Source_Verified_Screen_Catalog.md"
  },
  "modules": [
   {
@@ -39113,7 +39113,7 @@
      ]
     },
     {
-     "label": "SSA Comm.Date",
+     "label": "SUN’s Comm.Date",
      "kind": "field",
      "type": "date",
      "maxLength": null,

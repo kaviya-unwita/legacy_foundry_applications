@@ -1,12 +1,12 @@
-# SSA Foundry Legacy Application — Detailed Screen Catalogue
+# SUN’s Foundry Legacy Application — Detailed Screen Catalogue
 
 ## Document control
 
 | Item | Value |
 |---|---|
 | Document purpose | Current-application screen inventory and field-discovery reference |
-| Source | 208 screenshots supplied from the SSA Foundry legacy application |
-| Source folder | `C:\Users\Kaviya\Documents\Projects\Unwita\Phonenix\phoenix\screenshots_SSA_Foundry_app\screenshots` |
+| Source | 208 screenshots supplied from the SUN’s Foundry legacy application |
+| Source folder | `Supplied screenshot set (SUN’s Foundry)` |
 | Prepared date | 2026-09-17 |
 | Status | Working discovery document — requires business walkthrough validation |
 | Intended use | BRD gap analysis, phase-wise LLD preparation, field mapping, report inventory and migration discovery |
@@ -411,27 +411,27 @@ Customer, company, general reference, commercial, product, grade, tax, user-righ
 - IEC No
 - Bank
 - For Help/List <
-- CASTINGS INDIA PRIVATE LIMITED
-- PLOT NO. go-c. COSMAFAN FOUNDRY
-- CLUSTER PARK-I
-- ARASUR
-- COIMBATORE - 641407
-- AAKCS9336[XM001
-- 33AAKCS9336CIZC
-- KARTHIK_R
-- V_RAJENDRAN
+- SUN’S FOUNDRY PRIVATE LIMITED
+- [Address line 1]
+- [Address line 2]
+- [Address line 3]
+- [City] - 641407
+- [Tax registration no.]
+- [GSTIN]
+- [Contact person 1]
+- [Contact person 2]
 - Phone
 - Emaill
-- mkt@ssacastings.com
+- mkt@example.com
 - Emai12
 - Admn Adil
-- IO-C.VAIGAI STREET
+- [Admin address 1]
 - Admn Ad12
-- SRI KAMADHENU NAGAR
+- [Admin address 2]
 - Admn Ad13
-- AVARAMPALAYAM
+- [Admin address 3]
 - Admn Ad14
-- COIMBATORE
+- [City]
 - Admn Pincode
 - Admn Phone
 - Admn Fax
@@ -2639,7 +2639,7 @@ Top-level application navigation and logged-in user context.
 
 ### Visible submodules/options
 
-- S.S.A. CASTINGS INDIA PRIVATE LIMITED
+- SUN’S FOUNDRY PRIVATE LIMITED
 - CUSTOMER
 - PRODUCT
 - MARKETING
@@ -2656,7 +2656,7 @@ Top-level application navigation and logged-in user context.
 - STORES
 - MAINTENANCE
 - CALIBRATION
-- USER NAVIE : SURESHKUVIAR.S
+- USER NAME : [User]
 
 ### LEG-060 — mainscreen
 
@@ -2669,7 +2669,7 @@ Top-level application navigation and logged-in user context.
 
 #### Visible submodules/menu options
 
-- S.S.A. CASTINGS INDIA PRIVATE LIMITED
+- SUN’S FOUNDRY PRIVATE LIMITED
 - CUSTOMER
 - PRODUCT
 - MARKETING
@@ -2686,7 +2686,7 @@ Top-level application navigation and logged-in user context.
 - STORES
 - MAINTENANCE
 - CALIBRATION
-- USER NAVIE : SURESHKUVIAR.S
+- USER NAME : [User]
 
 #### Visible actions
 
@@ -3586,7 +3586,7 @@ Read-only operational enquiry screens for customers, products, orders, heats, ca
 #### Visible labels and candidate field names
 
 - HEAT DETAILS UIEW
-- S.R. CASTINGS INDIA PRIURTE LIMITED
+- SUN’S FOUNDRY PRIVATE LIMITED
 - Plan Pour Re Des cfialance Cast Wt Cast Wt L Wt
 - Only Stock
 - OA No
@@ -3761,7 +3761,7 @@ Order Acceptance/work order entry, amendment, printing, commitment, conversion, 
 #### Visible labels and candidate field names
 
 - TEMPLATE
-- SSA
+- SUN’s
 - 15-sep-2026
 - Customer
 - EXCEL CONVERSION
@@ -3884,7 +3884,7 @@ Order Acceptance/work order entry, amendment, printing, commitment, conversion, 
 - Destination
 - Contact Person
 - Grade
-- SSA
+- SUN’s
 - Approved
 - ComrmDate ComrmDate Remarks Special
 - Internal Hold
@@ -4829,7 +4829,7 @@ Monthly/daily planning, mould production, melting charge, pouring, contracts and
 #### Visible labels and candidate field names
 
 - HEAT DETAILS UIEW
-- S.R. CASTINGS INDIA PRIURTE LIMITED
+- SUN’S FOUNDRY PRIVATE LIMITED
 - Plan Pour Re Des cfialance Cast Wt Cast Wt L Wt
 - Only Stock
 - OA No

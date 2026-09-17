@@ -1,12 +1,12 @@
-# Veeyes ERP Legacy Application ? Detailed Screen Catalogue
+# YES’s Foundry Legacy Application ? Detailed Screen Catalogue
 
 ## Document control
 
 | Item | Value |
 |---|---|
 | Document purpose | Current-application screen inventory and field-discovery reference |
-| Source | 75 screenshots supplied from the Veeyes legacy ERP application |
-| Source folder | `C:\Users\Kaviya\Documents\Projects\Unwita\Phonenix\phoenix\Veeyes ERP Master Screen_Screenshots` |
+| Source | 75 screenshots supplied from the YES’s legacy ERP application |
+| Source folder | `Supplied screenshot set (YES’s Foundry)` |
 | Prepared date | 2026-09-17 |
 | Status | Working discovery document ? screenshot set is explicitly incomplete |
 | Intended use | UI replication, discovery, field validation, LLD preparation and gap analysis |
@@ -38,13 +38,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Company Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Company Master.
 - **Screenshot:** `Screenshot 2026-09-16 132242.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Company Code
 - Company Name
 - Bank South India Bank
@@ -55,7 +55,7 @@
 - Addresst
 - Fax
 - City
-- Coinbatore, INDIA
+- [City], INDIA
 - State
 - Email2
 - Pincode
@@ -81,13 +81,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Company Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Company Master.
 - **Screenshot:** `Screenshot 2026-09-16 132258.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Company Code 01
 - Company Name
 - Bank South India Bank
@@ -95,7 +95,7 @@
 - Factory Addr1
 - Address4
 - Fax
-- City Coimbatore, INDIA
+- City [City], INDIA
 - State
 - Email2
 - Pincode
@@ -124,13 +124,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Company Unit Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Company Unit Master.
 - **Screenshot:** `Screenshot 2026-09-16 132447.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Company Code/I
 - Code
 - Unit Name
@@ -148,13 +148,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Customer Master - General.
+- **Purpose:** Represents the supplied YES’s legacy screen for Customer Master - General.
 - **Screenshot:** `Screenshot 2026-09-16 132552.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Customer Master
 - Code
 - MTON
@@ -194,13 +194,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Customer Master - Export.
+- **Purpose:** Represents the supplied YES’s legacy screen for Customer Master - Export.
 - **Screenshot:** `Screenshot 2026-09-16 132717.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - CustomerMaster
 - Code
 - MTON
@@ -237,13 +237,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Customer Master - MTOM.
+- **Purpose:** Represents the supplied YES’s legacy screen for Customer Master - MTOM.
 - **Screenshot:** `Screenshot 2026-09-16 132808.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - CustomerMaster
 - Code
 - Name Change
@@ -279,13 +279,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Product Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Product Master.
 - **Screenshot:** `Screenshot 2026-09-16 153830.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - ProductMaster
 - PRODUCT
 - Customer
@@ -333,13 +333,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Grade Master - Grade and Heat Details.
+- **Purpose:** Represents the supplied YES’s legacy screen for Grade Master - Grade and Heat Details.
 - **Screenshot:** `Screenshot 2026-09-16 153945.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Grade Master
 - Grade and Heat Details
 - TC-Remarks
@@ -384,13 +384,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Grade Master - Chemical Properties.
+- **Purpose:** Represents the supplied YES’s legacy screen for Grade Master - Chemical Properties.
 - **Screenshot:** `Screenshot 2026-09-16 154116.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - GradeMaster
 - Grade and Heat Details
 - TC-Remarks
@@ -435,13 +435,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Grade Master - Chemical Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Grade Master - Chemical Master.
 - **Screenshot:** `Screenshot 2026-09-16 154134.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - GradeMaster
 - Grade and Heat Details
 - TC-Remarks
@@ -463,13 +463,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Grade Master - TC Remarks.
+- **Purpose:** Represents the supplied YES’s legacy screen for Grade Master - TC Remarks.
 - **Screenshot:** `Screenshot 2026-09-16 154157.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Grade Master
 - TC-Remarks
 - Grde and Heat Details
@@ -491,7 +491,7 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Grade Master - Remarks.
+- **Purpose:** Represents the supplied YES’s legacy screen for Grade Master - Remarks.
 - **Screenshot:** `Screenshot 2026-09-16 154252.png`
 - **Resolution:** 1189 ? legacy capture height
 
@@ -520,13 +520,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Grade Master - Value Conversion Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Grade Master - Value Conversion Master.
 - **Screenshot:** `Screenshot 2026-09-16 154438.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - GradeMaster
 - Grade and Heat Details
 - TC-Remarks
@@ -534,7 +534,7 @@
 - GredeGroup&Scrap
 - Value Convertion Master
 - Operate
-- Veeyes Alloys - Stores group
+- YES’s Foundry - Stores group
 - Naveen -Store - VSA Plant 1: CO2 liquid
 - old rate -11.50
 - 02 liquid old rate -20
@@ -553,7 +553,7 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Grade Master - Grade Group and Scrap.
+- **Purpose:** Represents the supplied YES’s legacy screen for Grade Master - Grade Group and Scrap.
 - **Screenshot:** `Screenshot 2026-09-16 154641.png`
 - **Resolution:** 1189 ? legacy capture height
 
@@ -586,13 +586,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Tax Master - Tax and Casting Types.
+- **Purpose:** Represents the supplied YES’s legacy screen for Tax Master - Tax and Casting Types.
 - **Screenshot:** `Screenshot 2026-09-16 154828.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Tax Master
 - Tax&CastingTypes
 - Taxmaster
@@ -619,13 +619,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Tax Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Tax Master.
 - **Screenshot:** `Screenshot 2026-09-16 154902.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Date i.
 - Tax&Casting Types
 - Taxtype
@@ -658,13 +658,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Report/list
-- **Purpose:** Represents the supplied Veeyes legacy screen for Product Master List.
+- **Purpose:** Represents the supplied YES’s legacy screen for Product Master List.
 - **Screenshot:** `Screenshot 2026-09-16 155641.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - ProductMaster
 - VaveType
 - Component
@@ -707,13 +707,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Product Master - Details.
+- **Purpose:** Represents the supplied YES’s legacy screen for Product Master - Details.
 - **Screenshot:** `Screenshot 2026-09-16 161357.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Product Master
 - Customer HA
 - VaveType
@@ -759,13 +759,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Product Master - Internal Hold.
+- **Purpose:** Represents the supplied YES’s legacy screen for Product Master - Internal Hold.
 - **Screenshot:** `Screenshot 2026-09-16 162323.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Product Master
 - PRODUCTMAOINTHOLD
 - ValveType
@@ -806,13 +806,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Part Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Part Master.
 - **Screenshot:** `Screenshot 2026-09-16 162400.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Date
 - Product
 - Grade
@@ -832,13 +832,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Special Requirements.
+- **Purpose:** Represents the supplied YES’s legacy screen for Special Requirements.
 - **Screenshot:** `Screenshot 2026-09-16 162634.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Special Requirments
 - Heat
 - Code
@@ -864,7 +864,7 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Department Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Department Master.
 - **Screenshot:** `Screenshot 2026-09-16 162739.png`
 - **Resolution:** 1189 ? legacy capture height
 
@@ -896,13 +896,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Crucible / Heat Treatment Furnace.
+- **Purpose:** Represents the supplied YES’s legacy screen for Crucible / Heat Treatment Furnace.
 - **Screenshot:** `Screenshot 2026-09-16 162856.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Furnace
 - Department
 - Date
@@ -930,13 +930,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Rejection Reasons.
+- **Purpose:** Represents the supplied YES’s legacy screen for Rejection Reasons.
 - **Screenshot:** `Screenshot 2026-09-16 162919.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Department
 - Code
 - Short
@@ -962,13 +962,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Currency Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Currency Master.
 - **Screenshot:** `Screenshot 2026-09-16 162931.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Department
 - Code
 - Cuency Name
@@ -994,13 +994,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Part Number / IBR Drawing Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Part Number / IBR Drawing Master.
 - **Screenshot:** `Screenshot 2026-09-16 162942.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-?)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-?)
 - Part Number / IBR Drg Master
 - Furnace
 - Department
@@ -1029,13 +1029,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for General Masters.
+- **Purpose:** Represents the supplied YES’s legacy screen for General Masters.
 - **Screenshot:** `Screenshot 2026-09-16 162959.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Department
 - Currency
 - Date
@@ -1060,13 +1060,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Contractor Process Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Contractor Process Master.
 - **Screenshot:** `Screenshot 2026-09-16 163020.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Cotractor'sProcessMaster
 - Furnace
 - Department
@@ -1101,13 +1101,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for General Masters.
+- **Purpose:** Represents the supplied YES’s legacy screen for General Masters.
 - **Screenshot:** `Screenshot 2026-09-16 163035.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Furnace
 - Department
 - Currency
@@ -1131,13 +1131,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Grade Wise Special Instructions.
+- **Purpose:** Represents the supplied YES’s legacy screen for Grade Wise Special Instructions.
 - **Screenshot:** `Screenshot 2026-09-16 163047.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Grade Wise Special Instruction's
 - Department
 - Grade
@@ -1161,13 +1161,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for TDC Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for TDC Master.
 - **Screenshot:** `Screenshot 2026-09-16 163057.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Department
 - F9Edtor
 - Grade
@@ -1195,13 +1195,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for RT Type.
+- **Purpose:** Represents the supplied YES’s legacy screen for RT Type.
 - **Screenshot:** `Screenshot 2026-09-16 163109.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Furnace
 - Department
 - Code
@@ -1227,13 +1227,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Square Inch Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Square Inch Master.
 - **Screenshot:** `Screenshot 2026-09-16 163122.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Furnace
 - Department
 - Product
@@ -1257,13 +1257,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Urgent Items Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Urgent Items Master.
 - **Screenshot:** `Screenshot 2026-09-16 163212.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Furnace
 - Code
 - Name
@@ -1290,13 +1290,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Weight Between Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Weight Between Master.
 - **Screenshot:** `Screenshot 2026-09-16 163229.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - WEIGHTBETWEENMASTER
 - Furnace
 - Department
@@ -1322,13 +1322,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Sub Process Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Sub Process Master.
 - **Screenshot:** `Screenshot 2026-09-16 163251.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - SUB Process Master
 - Furnace
 - Department
@@ -1359,13 +1359,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Heat Treatment Type.
+- **Purpose:** Represents the supplied YES’s legacy screen for Heat Treatment Type.
 - **Screenshot:** `Screenshot 2026-09-16 163307.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Heatteartment Type
 - Furnace
 - Department
@@ -1392,13 +1392,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Report/list
-- **Purpose:** Represents the supplied Veeyes legacy screen for Customer Drawing Master List.
+- **Purpose:** Represents the supplied YES’s legacy screen for Customer Drawing Master List.
 - **Screenshot:** `Screenshot 2026-09-16 163330.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Date
 - Contractor's Process
 - Code
@@ -1422,13 +1422,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Machined Type (Lead Time).
+- **Purpose:** Represents the supplied YES’s legacy screen for Machined Type (Lead Time).
 - **Screenshot:** `Screenshot 2026-09-16 163349.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Contractor's Process
 - Type
 - Active
@@ -1453,13 +1453,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Radiography Type (Lead Time).
+- **Purpose:** Represents the supplied YES’s legacy screen for Radiography Type (Lead Time).
 - **Screenshot:** `Screenshot 2026-09-16 163405.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Contractor's Process
 - Code
 - Type
@@ -1484,13 +1484,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Priority Master (Lead Time).
+- **Purpose:** Represents the supplied YES’s legacy screen for Priority Master (Lead Time).
 - **Screenshot:** `Screenshot 2026-09-16 163421.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Date i-
 - Contractor's Process
 - Code
@@ -1518,13 +1518,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Piece Rate Master - Entry.
+- **Purpose:** Represents the supplied YES’s legacy screen for Piece Rate Master - Entry.
 - **Screenshot:** `Screenshot 2026-09-16 163504.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - PieceRateMaster
 - Pc Rate Entry
 - Pc Rate Details
@@ -1556,13 +1556,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Piece Rate Master - Details.
+- **Purpose:** Represents the supplied YES’s legacy screen for Piece Rate Master - Details.
 - **Screenshot:** `Screenshot 2026-09-16 163525.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Piece Rate Master
 - Pe Rate EntryN
 - PcRate Details
@@ -1587,13 +1587,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for KG Rate Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for KG Rate Master.
 - **Screenshot:** `Screenshot 2026-09-16 163554.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - KGRateMaster
 - Customer
 - Weight wise KG Rate
@@ -1630,13 +1630,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Casting Process Entry.
+- **Purpose:** Represents the supplied YES’s legacy screen for Casting Process Entry.
 - **Screenshot:** `Screenshot 2026-09-16 163833.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Weight
 - Code
 - Name
@@ -1663,13 +1663,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Bill of Material Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Bill of Material Master.
 - **Screenshot:** `Screenshot 2026-09-16 164814.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Bill Of Material Master
 - Unit
 - Quantity
@@ -1688,13 +1688,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Responsible Person.
+- **Purpose:** Represents the supplied YES’s legacy screen for Responsible Person.
 - **Screenshot:** `Screenshot 2026-09-16 165025.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Code
 - Name
 - Password
@@ -1717,13 +1717,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Report/list
-- **Purpose:** Represents the supplied Veeyes legacy screen for Product Master List (With Details).
+- **Purpose:** Represents the supplied YES’s legacy screen for Product Master List (With Details).
 - **Screenshot:** `Screenshot 2026-09-16 165044.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - ProductMasterList(WithDetails)
 - CCode
 - Product
@@ -1758,13 +1758,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Report/list
-- **Purpose:** Represents the supplied Veeyes legacy screen for Product Master List - Pouring.
+- **Purpose:** Represents the supplied YES’s legacy screen for Product Master List - Pouring.
 - **Screenshot:** `Screenshot 2026-09-16 165152.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - ProductMasterList(WithDetails)
 - PouredDt FromPour
 - Cating Drawing
@@ -1803,13 +1803,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Report/list
-- **Purpose:** Represents the supplied Veeyes legacy screen for Product Master List - Traceability.
+- **Purpose:** Represents the supplied YES’s legacy screen for Product Master List - Traceability.
 - **Screenshot:** `Screenshot 2026-09-16 165209.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - ProductMasterList(withDetails)
 - CCode
 - Product
@@ -1846,13 +1846,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Report/list
-- **Purpose:** Represents the supplied Veeyes legacy screen for Product Master List - Status.
+- **Purpose:** Represents the supplied YES’s legacy screen for Product Master List - Status.
 - **Screenshot:** `Screenshot 2026-09-16 165222.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - ProductMasterList(withDetails)
 - Nodi Days
 - Paton
@@ -1889,13 +1889,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for TDC Master Entry.
+- **Purpose:** Represents the supplied YES’s legacy screen for TDC Master Entry.
 - **Screenshot:** `Screenshot 2026-09-16 165251.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Tdc Date
 - Entry Date
 - Revision
@@ -1924,13 +1924,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Square Inch Master - RT.
+- **Purpose:** Represents the supplied YES’s legacy screen for Square Inch Master - RT.
 - **Screenshot:** `Screenshot 2026-09-16 165336.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Product Niane
 - Coverage
 
@@ -1948,13 +1948,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Lead Time Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Lead Time Master.
 - **Screenshot:** `Screenshot 2026-09-16 165411.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Customer
 - Rtype
 - Mtype
@@ -1989,13 +1989,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Incentive Weight Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Incentive Weight Master.
 - **Screenshot:** `Screenshot 2026-09-16 165516.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - IncentiveWeightMaster
 - Process
 - AddingRate
@@ -2023,13 +2023,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Subprocess Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Subprocess Master.
 - **Screenshot:** `Screenshot 2026-09-16 165529.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - SubprocessMaster
 - Process
 - SUB Process
@@ -2053,13 +2053,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Contractor Rate Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Contractor Rate Master.
 - **Screenshot:** `Screenshot 2026-09-16 165551.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-?)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-?)
 - ContractorRateMaster
 - Alloy
 - Contractor
@@ -2092,13 +2092,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for RT Repair Reason Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for RT Repair Reason Master.
 - **Screenshot:** `Screenshot 2026-09-16 165608.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - RTRepaireReasonMaster
 - Name
 - Code
@@ -2119,13 +2119,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for RT Location Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for RT Location Master.
 - **Screenshot:** `Screenshot 2026-09-16 165627.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - RTLocationMaster
 - Product
 - Coverage
@@ -2147,13 +2147,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Hold Reason Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Hold Reason Master.
 - **Screenshot:** `Screenshot 2026-09-16 165648.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - HoldReasonMaster
 - Code
 - Name
@@ -2186,13 +2186,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Hold Release.
+- **Purpose:** Represents the supplied YES’s legacy screen for Hold Release.
 - **Screenshot:** `Screenshot 2026-09-16 165727.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - HOLDRELEASE
 - Hold Type
 - Product
@@ -2230,13 +2230,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Report/list
-- **Purpose:** Represents the supplied Veeyes legacy screen for Hold Release List.
+- **Purpose:** Represents the supplied YES’s legacy screen for Hold Release List.
 - **Screenshot:** `Screenshot 2026-09-16 165810.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - HOLDRELEASE
 - Hold Type
 - Product
@@ -2275,13 +2275,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Casting Dimension Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Casting Dimension Master.
 - **Screenshot:** `Screenshot 2026-09-16 165838.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Product
 - Name
 - Drawing
@@ -2301,13 +2301,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for End Customer Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for End Customer Master.
 - **Screenshot:** `Screenshot 2026-09-16 165855.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - ENDCUSTOMER
 - Customer
 - ErdCustomer.Code
@@ -2334,13 +2334,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Delivery Customer Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Delivery Customer Master.
 - **Screenshot:** `Screenshot 2026-09-16 165914.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - DeliveryCustomerMaster
 - Name
 - DelveryCustomer Code
@@ -2369,7 +2369,7 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Pattern Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Pattern Master.
 - **Screenshot:** `Screenshot 2026-09-16 165938.png`
 - **Resolution:** 1189 ? legacy capture height
 
@@ -2424,13 +2424,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Core Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Core Master.
 - **Screenshot:** `Screenshot 2026-09-16 170223.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - 日Code
 - Intermal/Customer
 - Product Code
@@ -2471,13 +2471,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Report/list
-- **Purpose:** Represents the supplied Veeyes legacy screen for Checklist Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Checklist Master.
 - **Screenshot:** `Screenshot 2026-09-16 170238.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Customer
 - End Customer
 - EndCustomer
@@ -2506,13 +2506,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Department Employee Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Department Employee Master.
 - **Screenshot:** `Screenshot 2026-09-16 170309.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - DepartmentEmployeeMaster
 - Department Master
 - Department Wise EmployeeMaster
@@ -2536,13 +2536,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Work Instruction Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Work Instruction Master.
 - **Screenshot:** `Screenshot 2026-09-16 170321.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - WorkInstructionMaster
 - Code
 - Type
@@ -2567,13 +2567,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for NDE Master - General.
+- **Purpose:** Represents the supplied YES’s legacy screen for NDE Master - General.
 - **Screenshot:** `Screenshot 2026-09-16 170333.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Test
 - Customer
 - End Custoner
@@ -2592,13 +2592,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for NDE Master - Test Details.
+- **Purpose:** Represents the supplied YES’s legacy screen for NDE Master - Test Details.
 - **Screenshot:** `Screenshot 2026-09-16 170349.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - Customer
 - Test
 - End Customer
@@ -2617,13 +2617,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Drawing Master Entry.
+- **Purpose:** Represents the supplied YES’s legacy screen for Drawing Master Entry.
 - **Screenshot:** `Screenshot 2026-09-16 170415.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - DrawingMasterEntry
 - Customer
 - End Customer
@@ -2651,13 +2651,13 @@
 
 - **Module:** Foundry Application
 - **Screen type:** Entry/master transaction
-- **Purpose:** Represents the supplied Veeyes legacy screen for Customer Specification Master.
+- **Purpose:** Represents the supplied YES’s legacy screen for Customer Specification Master.
 - **Screenshot:** `Screenshot 2026-09-16 170510.png`
 - **Resolution:** 1189 ? legacy capture height
 
 #### Visible labels and candidate field names
 
-- VEEYESALLOYSPRIVATELIMITED(PLANT-2)
+- YES’S FOUNDRY PRIVATE LIMITED(PLANT-2)
 - EndCustomer
 - Code
 - Spcode
@@ -2685,7 +2685,7 @@
 
 - **Module:** Main Screen
 - **Screen type:** Navigation/menu
-- **Purpose:** Represents the supplied Veeyes legacy screen for Main Screen.
+- **Purpose:** Represents the supplied YES’s legacy screen for Main Screen.
 - **Screenshot:** `Screenshot 2026-09-17 102133.png`
 - **Resolution:** 1189 ? legacy capture height
 
