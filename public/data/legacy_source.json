@@ -3174,24 +3174,18 @@
      "label": "Frequency",
      "kind": "field",
      "type": "text",
-     "maxLength": 50,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "CALB.FREQ",
-     "columnType": "VARCHAR2(50)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-004",
      "evidence": [
-      "screenshot",
-      "column CALB.FREQ VARCHAR2(50)",
-      "legacy item FREQ"
-     ],
-     "item": "FREQ",
-     "databaseItem": true,
-     "x": 280,
-     "y": 38
+      "screenshot"
+     ]
     },
     {
      "label": "Range",
@@ -3262,33 +3256,10 @@
      ]
     },
     {
-     "label": "INTERNAL",
-     "kind": "field",
-     "type": "text",
-     "item": "INTEX",
-     "maxLength": 10,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "CALB.INTEX",
-     "columnType": "VARCHAR2(50)",
-     "x": 494,
-     "y": 38,
-     "tab": null,
-     "evidence": [
-      "legacy item INTEX",
-      "label from prompt"
-     ]
-    },
-    {
      "label": "Int / Ext",
      "kind": "field",
      "type": "text",
-     "maxLength": 50,
+     "maxLength": 10,
      "precision": null,
      "scale": null,
      "required": false,
@@ -3299,8 +3270,13 @@
      "tab": "LEG-004",
      "evidence": [
       "screenshot",
-      "column CALB.INTEX VARCHAR2(50)"
-     ]
+      "column CALB.INTEX VARCHAR2(50)",
+      "legacy item INTEX"
+     ],
+     "item": "INTEX",
+     "databaseItem": true,
+     "x": 494,
+     "y": 38
     }
    ],
    "otherLegacyText": [
@@ -5105,17 +5081,18 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "CUSTOMER.NAME",
+     "columnType": "VARCHAR2(100)",
      "tab": "LEG-010",
      "evidence": [
       "screenshot",
-      "legacy item NAME2"
+      "column CUSTOMER.NAME VARCHAR2(100)",
+      "legacy item NAME"
      ],
-     "item": "NAME2",
+     "item": "NAME",
      "databaseItem": false,
-     "x": 47,
-     "y": 4
+     "x": 65,
+     "y": 50
     },
     {
      "label": "Short",
@@ -5143,24 +5120,18 @@
      "label": "Desp Name",
      "kind": "field",
      "type": "text",
-     "maxLength": 100,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "CUSTOMER.NAME",
-     "columnType": "VARCHAR2(100)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-010",
      "evidence": [
-      "screenshot",
-      "column CUSTOMER.NAME VARCHAR2(100)",
-      "legacy item NAME"
-     ],
-     "item": "NAME",
-     "databaseItem": false,
-     "x": 65,
-     "y": 50
+      "screenshot"
+     ]
     },
     {
      "label": "Address",
@@ -5217,7 +5188,7 @@
      "label": "ECC No",
      "kind": "field",
      "type": "text",
-     "maxLength": 50,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -5227,13 +5198,8 @@
      "columnType": null,
      "tab": "LEG-010",
      "evidence": [
-      "screenshot",
-      "legacy item ECC"
-     ],
-     "item": "ECC",
-     "databaseItem": false,
-     "x": 65,
-     "y": 219
+      "screenshot"
+     ]
     },
     {
      "label": "GST No",
@@ -5284,7 +5250,7 @@
      "label": "Tax",
      "kind": "field",
      "type": "text",
-     "maxLength": 100,
+     "maxLength": 3,
      "precision": null,
      "scale": null,
      "required": false,
@@ -5293,16 +5259,12 @@
       "Tax Code Not Found In Taxtype",
       "Tax Code Not found In Taxtype"
      ],
-     "column": null,
-     "columnType": null,
+     "column": "CUSTOMER.TAX",
+     "columnType": "VARCHAR2(3)",
      "tab": null,
      "evidence": [
-      "legacy item STAX"
-     ],
-     "item": "STAX",
-     "databaseItem": false,
-     "x": 65,
-     "y": 186
+      "column CUSTOMER.TAX VARCHAR2(3)"
+     ]
     },
     {
      "label": "City",
@@ -5314,17 +5276,18 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "CUSTOMER.CITY",
+     "columnType": "VARCHAR2(50)",
      "tab": "LEG-010",
      "evidence": [
       "screenshot",
-      "legacy item DCITY"
+      "column CUSTOMER.CITY VARCHAR2(50)",
+      "legacy item CITY"
      ],
-     "item": "DCITY",
+     "item": "CITY",
      "databaseItem": false,
-     "x": 388,
-     "y": 237
+     "x": 65,
+     "y": 156
     },
     {
      "label": "Location",
@@ -5466,22 +5429,23 @@
      "label": "Fax",
      "kind": "field",
      "type": "text",
-     "maxLength": 25,
+     "maxLength": 50,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "CUSTOMER.FAX",
+     "columnType": "VARCHAR2(50)",
      "tab": null,
      "evidence": [
-      "legacy item DFAX"
+      "column CUSTOMER.FAX VARCHAR2(50)",
+      "legacy item FAX"
      ],
-     "item": "DFAX",
+     "item": "FAX",
      "databaseItem": false,
-     "x": 388,
-     "y": 220
+     "x": 354,
+     "y": 100
     },
     {
      "label": "Web",
@@ -5589,19 +5553,18 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "CUSTOMER.INSURANCE",
-     "columnType": "VARCHAR2(10)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-011",
      "evidence": [
-      "screenshot",
-      "column CUSTOMER.INSURANCE VARCHAR2(10)"
+      "screenshot"
      ]
     },
     {
      "label": "Inspection",
      "kind": "field",
      "type": "text",
-     "maxLength": 10,
+     "maxLength": 30,
      "precision": null,
      "scale": null,
      "required": false,
@@ -5612,14 +5575,19 @@
      "tab": "LEG-011",
      "evidence": [
       "screenshot",
-      "column CUSTOMER.INSPECTION VARCHAR2(10)"
-     ]
+      "column CUSTOMER.INSPECTION VARCHAR2(10)",
+      "legacy item INSPECTION"
+     ],
+     "item": "INSPECTION",
+     "databaseItem": false,
+     "x": 386,
+     "y": 104
     },
     {
      "label": "Freight",
      "kind": "field",
      "type": "text",
-     "maxLength": null,
+     "maxLength": 30,
      "precision": null,
      "scale": null,
      "required": false,
@@ -5629,14 +5597,19 @@
      "columnType": null,
      "tab": "LEG-011",
      "evidence": [
-      "screenshot"
-     ]
+      "screenshot",
+      "legacy item FREIGHT"
+     ],
+     "item": "FREIGHT",
+     "databaseItem": false,
+     "x": 386,
+     "y": 123
     },
     {
      "label": "Testing",
      "kind": "field",
      "type": "text",
-     "maxLength": 10,
+     "maxLength": 30,
      "precision": null,
      "scale": null,
      "required": false,
@@ -5647,8 +5620,13 @@
      "tab": "LEG-011",
      "evidence": [
       "screenshot",
-      "column CUSTOMER.TESTING VARCHAR2(10)"
-     ]
+      "column CUSTOMER.TESTING VARCHAR2(10)",
+      "legacy item TESTING"
+     ],
+     "item": "TESTING",
+     "databaseItem": false,
+     "x": 386,
+     "y": 144
     },
     {
      "label": "Packing",
@@ -5722,24 +5700,18 @@
      "label": "Radiography Unit",
      "kind": "field",
      "type": "text",
-     "maxLength": 10,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "SPECIAL.RADIO",
-     "columnType": "CHAR(1)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-011",
      "evidence": [
-      "screenshot",
-      "column SPECIAL.RADIO CHAR(1)",
-      "legacy item RADIO"
-     ],
-     "item": "RADIO",
-     "databaseItem": false,
-     "x": 143,
-     "y": 196
+      "screenshot"
+     ]
     },
     {
      "label": "Bank Address",
@@ -5787,8 +5759,13 @@
      "tab": "LEG-011",
      "evidence": [
       "screenshot",
-      "column CUSTOMER.TRANSPORTER VARCHAR2(100)"
-     ]
+      "column CUSTOMER.TRANSPORTER VARCHAR2(100)",
+      "legacy item TRANSPORTER"
+     ],
+     "item": "TRANSPORTER",
+     "databaseItem": false,
+     "x": 95,
+     "y": 115
     },
     {
      "label": "Doc Through",
@@ -6144,12 +6121,11 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "RESPONSIBLE.CODE",
-     "columnType": "VARCHAR2(4)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-014",
      "evidence": [
-      "screenshot",
-      "column RESPONSIBLE.CODE VARCHAR2(4)"
+      "screenshot"
      ]
     }
    ],
@@ -6277,7 +6253,7 @@
      "label": "Department",
      "kind": "field",
      "type": "text",
-     "maxLength": 50,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -6287,13 +6263,8 @@
      "columnType": null,
      "tab": "LEG-015",
      "evidence": [
-      "screenshot",
-      "legacy item D"
-     ],
-     "item": "D",
-     "databaseItem": false,
-     "x": 301,
-     "y": 283
+      "screenshot"
+     ]
     },
     {
      "label": "SIEVE MASTER",
@@ -6330,7 +6301,7 @@
      "label": "Grade",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": 20,
      "precision": null,
      "scale": null,
      "required": false,
@@ -6338,17 +6309,13 @@
      "validationMessages": [
       "Grade Not Found in Grade Master"
      ],
-     "column": null,
-     "columnType": null,
+     "column": "CONTRACTWEIGHT.GRADE",
+     "columnType": "VARCHAR2(20)",
      "tab": "LEG-016",
      "evidence": [
       "screenshot",
-      "legacy item G"
-     ],
-     "item": "G",
-     "databaseItem": false,
-     "x": 229,
-     "y": 286
+      "column CONTRACTWEIGHT.GRADE VARCHAR2(20)"
+     ]
     },
     {
      "label": "Code",
@@ -6510,7 +6477,7 @@
      "label": "Product",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": 10,
      "precision": null,
      "scale": null,
      "required": false,
@@ -6519,17 +6486,13 @@
       "Brows product details...............................?",
       "Product Code Not Found In Master"
      ],
-     "column": null,
-     "columnType": null,
+     "column": "CONTRACTWEIGHT.PRODUCT",
+     "columnType": "VARCHAR2(10)",
      "tab": "LEG-016",
      "evidence": [
       "screenshot",
-      "legacy item P"
-     ],
-     "item": "P",
-     "databaseItem": false,
-     "x": 0,
-     "y": 284
+      "column CONTRACTWEIGHT.PRODUCT VARCHAR2(10)"
+     ]
     },
     {
      "label": "IBR Description.",
@@ -6906,17 +6869,13 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "CONTRACTWEIGHT.CCODE",
+     "columnType": "VARCHAR2(2)",
      "tab": "LEG-015",
      "evidence": [
       "screenshot",
-      "legacy item CCODE_"
-     ],
-     "item": "CCODE_",
-     "databaseItem": true,
-     "x": 4,
-     "y": 82
+      "column CONTRACTWEIGHT.CCODE VARCHAR2(2)"
+     ]
     },
     {
      "label": "TDC Date",
@@ -7496,30 +7455,18 @@
     {
      "label": "Impact",
      "kind": "field",
-     "type": "select",
+     "type": "text",
      "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "GRADMAST.IMP",
-     "columnType": "CHAR(1)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-022",
      "evidence": [
-      "screenshot",
-      "column GRADMAST.IMP CHAR(1)",
-      "legacy item IMP"
-     ],
-     "item": "IMP",
-     "databaseItem": false,
-     "x": 380,
-     "y": 13,
-     "options": [
-      "T",
-      "F",
-      "Y",
-      "N"
+      "screenshot"
      ]
     },
     {
@@ -7551,28 +7498,18 @@
     {
      "label": "No of Heat Cycles",
      "kind": "field",
-     "type": "select",
+     "type": "text",
      "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "GRADMAST.HEAT_CYCLES",
-     "columnType": "NUMBER(1,0)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-022",
      "evidence": [
-      "screenshot",
-      "column GRADMAST.HEAT_CYCLES NUMBER(1,0)",
-      "legacy item HEAT_CYCLES"
-     ],
-     "item": "HEAT_CYCLES",
-     "databaseItem": false,
-     "x": 298,
-     "y": 30,
-     "options": [
-      "Y",
-      "N"
+      "screenshot"
      ]
     },
     {
@@ -7932,23 +7869,19 @@
      "label": "Name",
      "kind": "field",
      "type": "text",
-     "maxLength": 500,
+     "maxLength": 75,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "CHEMICAL.NAME",
+     "columnType": "VARCHAR2(75)",
      "tab": "LEG-024",
      "evidence": [
       "screenshot",
-      "legacy item NAM"
-     ],
-     "item": "NAM",
-     "databaseItem": false,
-     "x": 85,
-     "y": 212
+      "column CHEMICAL.NAME VARCHAR2(75)"
+     ]
     },
     {
      "label": "Short",
@@ -8702,7 +8635,7 @@
      "label": "Grade With Suffix",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -8712,19 +8645,14 @@
      "columnType": null,
      "tab": "LEG-029",
      "evidence": [
-      "screenshot",
-      "legacy item G"
-     ],
-     "item": "G",
-     "databaseItem": false,
-     "x": 144,
-     "y": 251
+      "screenshot"
+     ]
     },
     {
      "label": "Customer",
      "kind": "field",
      "type": "text",
-     "maxLength": 2,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -8736,13 +8664,8 @@
      "columnType": null,
      "tab": "LEG-028",
      "evidence": [
-      "screenshot",
-      "legacy item C"
-     ],
-     "item": "C",
-     "databaseItem": false,
-     "x": 21,
-     "y": 74
+      "screenshot"
+     ]
     },
     {
      "label": "Date",
@@ -9210,12 +9133,12 @@
      "evidence": [
       "screenshot",
       "format mask (number)",
-      "legacy item P"
+      "legacy item PCRAT"
      ],
-     "item": "P",
+     "item": "PCRAT",
      "databaseItem": false,
-     "x": 2,
-     "y": 248
+     "x": 430,
+     "y": 281
     },
     {
      "label": "Remark",
@@ -9302,7 +9225,7 @@
      "label": "Std Wt.",
      "kind": "field",
      "type": "text",
-     "maxLength": 10,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -9312,13 +9235,8 @@
      "columnType": null,
      "tab": "LEG-031",
      "evidence": [
-      "screenshot",
-      "legacy item STWT"
-     ],
-     "item": "STWT",
-     "databaseItem": false,
-     "x": 319,
-     "y": 281
+      "screenshot"
+     ]
     }
    ],
    "otherLegacyText": [
@@ -10250,41 +10168,29 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "PRODUCTMASTER.RECEIPTDATE",
-     "columnType": "DATE",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "format mask (date)",
-      "column PRODUCTMASTER.RECEIPTDATE DATE",
-      "legacy item RECEIPTDATE"
-     ],
-     "item": "RECEIPTDATE",
-     "databaseItem": false,
-     "x": 537,
-     "y": 239
+      "format mask (date)"
+     ]
     },
     {
      "label": "Random RT Qty",
      "kind": "field",
-     "type": "number",
+     "type": "text",
      "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "PRODUCTMASTER.RANDOM_IQTY",
-     "columnType": "NUMBER",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-032",
      "evidence": [
-      "screenshot",
-      "column PRODUCTMASTER.RANDOM_IQTY NUMBER",
-      "legacy item RANDOM_IQTY"
-     ],
-     "item": "RANDOM_IQTY",
-     "databaseItem": false,
-     "x": 535,
-     "y": 311
+      "screenshot"
+     ]
     },
     {
      "label": "Insp Qty",
@@ -10307,24 +10213,24 @@
      "label": "Remarks",
      "kind": "field",
      "type": "text",
-     "maxLength": 100,
+     "maxLength": 500,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "SLEEVE.REMARK",
-     "columnType": "VARCHAR2(100)",
+     "column": "PRODUCTMASTER.REMARKS",
+     "columnType": "VARCHAR2(500)",
      "tab": "LEG-032",
      "evidence": [
       "screenshot",
-      "column SLEEVE.REMARK VARCHAR2(100)",
-      "legacy item REMARK"
+      "column PRODUCTMASTER.REMARKS VARCHAR2(500)",
+      "legacy item REMARKS"
      ],
-     "item": "REMARK",
-     "databaseItem": true,
-     "x": 277,
-     "y": 146
+     "item": "REMARKS",
+     "databaseItem": false,
+     "x": 295,
+     "y": 297
     },
     {
      "label": "IBR Name",
@@ -10423,17 +10329,18 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "COREMAT.QNTY",
+     "columnType": "NUMBER(4,0)",
      "tab": null,
      "evidence": [
       "format mask (number)",
-      "legacy item QTY"
+      "column COREMAT.QNTY NUMBER(4,0)",
+      "legacy item QNTY"
      ],
-     "item": "QTY",
+     "item": "QNTY",
      "databaseItem": true,
-     "x": 131,
-     "y": 115
+     "x": 374,
+     "y": 146
     },
     {
      "label": "Product",
@@ -10534,6 +10441,127 @@
      "tab": null,
      "evidence": [
       "legacy item PATCOND",
+      "label from prompt"
+     ]
+    },
+    {
+     "label": "Wt Aprx",
+     "kind": "field",
+     "type": "select",
+     "item": "BOXWT_APRX",
+     "maxLength": null,
+     "precision": null,
+     "scale": null,
+     "options": [
+      "Y",
+      "N"
+     ],
+     "formatMask": null,
+     "required": false,
+     "requiredEvidence": null,
+     "databaseItem": false,
+     "column": "PRODUCTMASTER.BOXWT_APRX",
+     "columnType": "CHAR(1)",
+     "x": 139,
+     "y": 195,
+     "tab": null,
+     "evidence": [
+      "legacy item BOXWT_APRX",
+      "label from prompt"
+     ]
+    },
+    {
+     "label": "Storage Location",
+     "kind": "field",
+     "type": "text",
+     "item": "LETTER",
+     "maxLength": 100,
+     "precision": null,
+     "scale": null,
+     "options": null,
+     "formatMask": null,
+     "required": false,
+     "requiredEvidence": null,
+     "databaseItem": false,
+     "column": "PRODUCTMASTER.LETTER",
+     "columnType": "VARCHAR2(100)",
+     "x": 503,
+     "y": 208,
+     "tab": null,
+     "evidence": [
+      "legacy item LETTER",
+      "label from prompt"
+     ]
+    },
+    {
+     "label": "Pattern Alm",
+     "kind": "field",
+     "type": "select",
+     "item": "PATN_ALUMN",
+     "maxLength": null,
+     "precision": null,
+     "scale": null,
+     "options": [
+      "Y",
+      "N"
+     ],
+     "formatMask": null,
+     "required": false,
+     "requiredEvidence": null,
+     "databaseItem": false,
+     "column": "PRODUCTMASTER.PATN_ALUMN",
+     "columnType": "CHAR(1)",
+     "x": 64,
+     "y": 230,
+     "tab": null,
+     "evidence": [
+      "legacy item PATN_ALUMN",
+      "label from prompt"
+     ]
+    },
+    {
+     "label": "Proof Wt For Despatch",
+     "kind": "field",
+     "type": "text",
+     "item": "PF_WT_DESP",
+     "maxLength": 1,
+     "precision": null,
+     "scale": null,
+     "options": null,
+     "formatMask": null,
+     "required": false,
+     "requiredEvidence": null,
+     "databaseItem": false,
+     "column": "PRODUCTMASTER.PF_WT_DESP",
+     "columnType": "CHAR(1)",
+     "x": 468,
+     "y": 230,
+     "tab": null,
+     "evidence": [
+      "legacy item PF_WT_DESP",
+      "label from prompt"
+     ]
+    },
+    {
+     "label": "Proof Machine Wt",
+     "kind": "field",
+     "type": "number",
+     "item": "PF_MACH_WT",
+     "maxLength": null,
+     "precision": 14,
+     "scale": null,
+     "options": null,
+     "formatMask": null,
+     "required": false,
+     "requiredEvidence": null,
+     "databaseItem": false,
+     "column": "PRODUCTMASTER.PF_MACH_WT",
+     "columnType": "NUMBER(11,3)",
+     "x": 304,
+     "y": 232,
+     "tab": null,
+     "evidence": [
+      "legacy item PF_MACH_WT",
       "label from prompt"
      ]
     },
@@ -10660,199 +10688,6 @@
      "y": 244
     },
     {
-     "label": "PRODUCT MASTER ENTRY",
-     "kind": "heading",
-     "tab": "LEG-032",
-     "evidence": [
-      "screenshot"
-     ]
-    },
-    {
-     "label": "Core",
-     "kind": "field",
-     "type": "text",
-     "maxLength": null,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": null,
-     "columnType": null,
-     "tab": "LEG-032",
-     "evidence": [
-      "screenshot"
-     ]
-    },
-    {
-     "label": "Pattern",
-     "kind": "field",
-     "type": "text",
-     "maxLength": 75,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": "PRODUCTMASTER.PATTERN",
-     "columnType": "VARCHAR2(75)",
-     "tab": null,
-     "evidence": [
-      "column PRODUCTMASTER.PATTERN VARCHAR2(75)"
-     ]
-    },
-    {
-     "label": "Sleeve Entry",
-     "kind": "heading",
-     "tab": "LEG-032",
-     "evidence": [
-      "screenshot"
-     ]
-    },
-    {
-     "label": "No Of Core",
-     "kind": "field",
-     "type": "text",
-     "maxLength": 30,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": null,
-     "columnType": null,
-     "tab": "LEG-032",
-     "evidence": [
-      "screenshot",
-      "legacy item NOCORE"
-     ],
-     "item": "NOCORE",
-     "databaseItem": false,
-     "x": 93,
-     "y": 90
-    },
-    {
-     "label": "Wt Aprx",
-     "kind": "field",
-     "type": "select",
-     "item": "BOXWT_APRX",
-     "maxLength": null,
-     "precision": null,
-     "scale": null,
-     "options": [
-      "Y",
-      "N"
-     ],
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": false,
-     "column": "PRODUCTMASTER.BOXWT_APRX",
-     "columnType": "CHAR(1)",
-     "x": 139,
-     "y": 195,
-     "tab": null,
-     "evidence": [
-      "legacy item BOXWT_APRX",
-      "label from prompt"
-     ]
-    },
-    {
-     "label": "Storage Location",
-     "kind": "field",
-     "type": "text",
-     "item": "LETTER",
-     "maxLength": 100,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": false,
-     "column": "PRODUCTMASTER.LETTER",
-     "columnType": "VARCHAR2(100)",
-     "x": 503,
-     "y": 208,
-     "tab": null,
-     "evidence": [
-      "legacy item LETTER",
-      "label from prompt"
-     ]
-    },
-    {
-     "label": "Pattern Alm",
-     "kind": "field",
-     "type": "select",
-     "item": "PATN_ALUMN",
-     "maxLength": null,
-     "precision": null,
-     "scale": null,
-     "options": [
-      "Y",
-      "N"
-     ],
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": false,
-     "column": "PRODUCTMASTER.PATN_ALUMN",
-     "columnType": "CHAR(1)",
-     "x": 64,
-     "y": 230,
-     "tab": null,
-     "evidence": [
-      "legacy item PATN_ALUMN",
-      "label from prompt"
-     ]
-    },
-    {
-     "label": "Proof Wt For Despatch",
-     "kind": "field",
-     "type": "text",
-     "item": "PF_WT_DESP",
-     "maxLength": 1,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": false,
-     "column": "PRODUCTMASTER.PF_WT_DESP",
-     "columnType": "CHAR(1)",
-     "x": 468,
-     "y": 230,
-     "tab": null,
-     "evidence": [
-      "legacy item PF_WT_DESP",
-      "label from prompt"
-     ]
-    },
-    {
-     "label": "Proof Machine Wt",
-     "kind": "field",
-     "type": "number",
-     "item": "PF_MACH_WT",
-     "maxLength": null,
-     "precision": 14,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": false,
-     "column": "PRODUCTMASTER.PF_MACH_WT",
-     "columnType": "NUMBER(11,3)",
-     "x": 304,
-     "y": 232,
-     "tab": null,
-     "evidence": [
-      "legacy item PF_MACH_WT",
-      "label from prompt"
-     ]
-    },
-    {
      "label": "Proof Machine Req",
      "kind": "field",
      "type": "select",
@@ -10922,6 +10757,73 @@
      "evidence": [
       "legacy item PATN_UNDER_DEV",
       "label from prompt"
+     ]
+    },
+    {
+     "label": "PRODUCT MASTER ENTRY",
+     "kind": "heading",
+     "tab": "LEG-032",
+     "evidence": [
+      "screenshot"
+     ]
+    },
+    {
+     "label": "Core",
+     "kind": "field",
+     "type": "text",
+     "maxLength": null,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": null,
+     "columnType": null,
+     "tab": "LEG-032",
+     "evidence": [
+      "screenshot"
+     ]
+    },
+    {
+     "label": "Pattern",
+     "kind": "field",
+     "type": "text",
+     "maxLength": 75,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": "PRODUCTMASTER.PATTERN",
+     "columnType": "VARCHAR2(75)",
+     "tab": null,
+     "evidence": [
+      "column PRODUCTMASTER.PATTERN VARCHAR2(75)"
+     ]
+    },
+    {
+     "label": "Sleeve Entry",
+     "kind": "heading",
+     "tab": "LEG-032",
+     "evidence": [
+      "screenshot"
+     ]
+    },
+    {
+     "label": "No Of Core",
+     "kind": "field",
+     "type": "text",
+     "maxLength": null,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": null,
+     "columnType": null,
+     "tab": "LEG-032",
+     "evidence": [
+      "screenshot"
      ]
     }
    ],
@@ -12824,24 +12726,18 @@
      "label": "Daywise Prod(Againest Subwt)",
      "kind": "field",
      "type": "text",
-     "maxLength": 100,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "TEMP.D",
-     "columnType": "VARCHAR2(100)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-038",
      "evidence": [
-      "screenshot",
-      "column TEMP.D VARCHAR2(100)",
-      "legacy item D"
-     ],
-     "item": "D",
-     "databaseItem": false,
-     "x": 208,
-     "y": 110
+      "screenshot"
+     ]
     },
     {
      "label": "P.O. Wise Order Balance As On",
@@ -14868,22 +14764,18 @@
      "label": "Product",
      "kind": "field",
      "type": "text",
-     "maxLength": 50,
+     "maxLength": 10,
      "precision": null,
      "scale": null,
-     "required": false,
-     "requiredEvidence": null,
+     "required": true,
+     "requiredEvidence": "DPMASTER.PRODUCT NOT NULL",
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "DPMASTER.PRODUCT",
+     "columnType": "VARCHAR2(10)",
      "tab": null,
      "evidence": [
-      "legacy item PR"
-     ],
-     "item": "PR",
-     "databaseItem": false,
-     "x": 105,
-     "y": 119
+      "column DPMASTER.PRODUCT VARCHAR2(10)"
+     ]
     },
     {
      "label": "Grade",
@@ -16395,10 +16287,33 @@
      "y": 135
     },
     {
+     "label": "REMARKS ",
+     "kind": "field",
+     "type": "text",
+     "item": "REM",
+     "maxLength": 30,
+     "precision": null,
+     "scale": null,
+     "options": null,
+     "formatMask": null,
+     "required": false,
+     "requiredEvidence": null,
+     "databaseItem": false,
+     "column": "HCHM.REM",
+     "columnType": "VARCHAR2(100)",
+     "x": 232,
+     "y": 293,
+     "tab": "LEG-044",
+     "evidence": [
+      "legacy item REM",
+      "label from prompt"
+     ]
+    },
+    {
      "label": "Minimum",
      "kind": "field",
      "type": "text",
-     "maxLength": 6,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -16408,13 +16323,8 @@
      "columnType": null,
      "tab": "LEG-044",
      "evidence": [
-      "screenshot",
-      "legacy item MIN"
-     ],
-     "item": "MIN",
-     "databaseItem": false,
-     "x": 233,
-     "y": 135
+      "screenshot"
+     ]
     },
     {
      "label": "Actual",
@@ -16437,7 +16347,7 @@
      "label": "Maximum",
      "kind": "field",
      "type": "text",
-     "maxLength": 6,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -16447,35 +16357,7 @@
      "columnType": null,
      "tab": "LEG-044",
      "evidence": [
-      "screenshot",
-      "legacy item MAX"
-     ],
-     "item": "MAX",
-     "databaseItem": false,
-     "x": 385,
-     "y": 135
-    },
-    {
-     "label": "REMARKS ",
-     "kind": "field",
-     "type": "text",
-     "item": "REM",
-     "maxLength": 30,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": false,
-     "column": "HCHM.REM",
-     "columnType": "VARCHAR2(100)",
-     "x": 232,
-     "y": 293,
-     "tab": "LEG-044",
-     "evidence": [
-      "legacy item REM",
-      "label from prompt"
+      "screenshot"
      ]
     }
    ],
@@ -17855,29 +17737,6 @@
      ]
     },
     {
-     "label": "Last Modified",
-     "kind": "field",
-     "type": "text",
-     "item": "LASTMODIFIED",
-     "maxLength": 150,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "GRADMAST.LASTMODIFIED",
-     "columnType": "VARCHAR2(150)",
-     "x": 3303,
-     "y": 54,
-     "tab": null,
-     "evidence": [
-      "legacy item LASTMODIFIED",
-      "label from prompt"
-     ]
-    },
-    {
      "label": "Grade Edit",
      "kind": "heading",
      "tab": "LEG-046",
@@ -18520,7 +18379,7 @@
      "label": "Heat Treatment Entry Help",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -18530,13 +18389,8 @@
      "columnType": null,
      "tab": "LEG-048",
      "evidence": [
-      "screenshot",
-      "legacy item H"
-     ],
-     "item": "H",
-     "databaseItem": false,
-     "x": 11,
-     "y": 284
+      "screenshot"
+     ]
     }
    ],
    "otherLegacyText": [],
@@ -19531,16 +19385,17 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "HEATS.PRODUCT",
+     "columnType": "VARCHAR2(10)",
      "tab": null,
      "evidence": [
-      "legacy item PRODUCT_1"
+      "column HEATS.PRODUCT VARCHAR2(10)",
+      "legacy item PRODUCT"
      ],
-     "item": "PRODUCT_1",
+     "item": "PRODUCT",
      "databaseItem": true,
-     "x": 6,
-     "y": 157
+     "x": 408,
+     "y": 57
     },
     {
      "label": "Qnty",
@@ -21179,53 +21034,6 @@
      "formatMask": "9999.00"
     },
     {
-     "label": "FGL (mm)",
-     "kind": "field",
-     "type": "number",
-     "maxLength": null,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": "MECH.FGL",
-     "columnType": "NUMBER",
-     "tab": null,
-     "evidence": [
-      "format mask (number)",
-      "column MECH.FGL NUMBER",
-      "legacy item FGL"
-     ],
-     "item": "FGL",
-     "databaseItem": false,
-     "x": 464,
-     "y": 105,
-     "formatMask": "999999.00"
-    },
-    {
-     "label": "No standard Found For This Grade",
-     "kind": "field",
-     "type": "text",
-     "maxLength": 20,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": "TENT.STANDARD",
-     "columnType": "VARCHAR2(20)",
-     "tab": "LEG-053",
-     "evidence": [
-      "screenshot",
-      "column TENT.STANDARD VARCHAR2(20)",
-      "legacy item STANDARD"
-     ],
-     "item": "STANDARD",
-     "databaseItem": false,
-     "x": 104,
-     "y": 62
-    },
-    {
      "label": "ID (mm)",
      "kind": "field",
      "type": "number",
@@ -21366,6 +21174,47 @@
       "legacy item FD",
       "label from prompt",
       "format mask 999999.00"
+     ]
+    },
+    {
+     "label": "FGL (mm)",
+     "kind": "field",
+     "type": "number",
+     "maxLength": null,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": "MECH.FGL",
+     "columnType": "NUMBER",
+     "tab": null,
+     "evidence": [
+      "format mask (number)",
+      "column MECH.FGL NUMBER",
+      "legacy item FGL"
+     ],
+     "item": "FGL",
+     "databaseItem": false,
+     "x": 464,
+     "y": 105,
+     "formatMask": "999999.00"
+    },
+    {
+     "label": "No standard Found For This Grade",
+     "kind": "field",
+     "type": "text",
+     "maxLength": null,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": null,
+     "columnType": null,
+     "tab": "LEG-053",
+     "evidence": [
+      "screenshot"
      ]
     },
     {
@@ -21596,25 +21445,19 @@
     {
      "label": "Impact",
      "kind": "field",
-     "type": "number",
+     "type": "text",
      "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "HEATS.IMPACT1",
-     "columnType": "NUMBER(3,0)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-053",
      "evidence": [
-      "screenshot",
-      "column HEATS.IMPACT1 NUMBER(3,0)",
-      "legacy item IMPACT1"
-     ],
-     "item": "IMPACT1",
-     "databaseItem": false,
-     "x": 427,
-     "y": 201
+      "screenshot"
+     ]
     }
    ],
    "otherLegacyText": [
@@ -21734,11 +21577,11 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "RECEIPT.MIRNO",
-     "columnType": "VARCHAR2(25)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column RECEIPT.MIRNO VARCHAR2(25)"
+      "screenshot"
      ]
     },
     {
@@ -23060,7 +22903,7 @@
      "label": "HEAD QA",
      "kind": "field",
      "type": "text",
-     "maxLength": null,
+     "maxLength": 30,
      "precision": null,
      "scale": null,
      "required": false,
@@ -23070,8 +22913,13 @@
      "columnType": null,
      "tab": "LEG-056",
      "evidence": [
-      "screenshot"
-     ]
+      "screenshot",
+      "legacy item HEAD"
+     ],
+     "item": "HEAD",
+     "databaseItem": false,
+     "x": 547,
+     "y": 206
     },
     {
      "label": "Ecode",
@@ -23083,16 +22931,16 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "TCPRINT.CCODE",
-     "columnType": "VARCHAR2(2)",
+     "column": "CONTROL.ECODE",
+     "columnType": "VARCHAR2(4)",
      "tab": null,
      "evidence": [
-      "column TCPRINT.CCODE VARCHAR2(2)",
-      "legacy item CCODE"
+      "column CONTROL.ECODE VARCHAR2(4)",
+      "legacy item ECODE"
      ],
-     "item": "CCODE",
+     "item": "ECODE",
      "databaseItem": false,
-     "x": 310,
+     "x": 343,
      "y": 44
     },
     {
@@ -23139,7 +22987,7 @@
      "label": "Head",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -23149,13 +22997,8 @@
      "columnType": null,
      "tab": "LEG-056",
      "evidence": [
-      "screenshot",
-      "legacy item HEAD"
-     ],
-     "item": "HEAD",
-     "databaseItem": false,
-     "x": 547,
-     "y": 206
+      "screenshot"
+     ]
     },
     {
      "label": "IGCT Practice",
@@ -23217,22 +23060,23 @@
      "label": "Product",
      "kind": "field",
      "type": "text",
-     "maxLength": 100,
+     "maxLength": 10,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "TCPRINT.PRODUCT",
+     "columnType": "VARCHAR2(10)",
      "tab": null,
      "evidence": [
-      "legacy item PR"
+      "column TCPRINT.PRODUCT VARCHAR2(10)",
+      "legacy item PRODUCT"
      ],
-     "item": "PR",
-     "databaseItem": false,
-     "x": 560,
-     "y": 296
+     "item": "PRODUCT",
+     "databaseItem": true,
+     "x": 7,
+     "y": 31
     },
     {
      "label": "Oano",
@@ -23264,16 +23108,12 @@
       "Customer Code Not found",
       "Customer code Not Found"
      ],
-     "column": null,
-     "columnType": null,
+     "column": "CONTROL.CODE",
+     "columnType": "VARCHAR2(2)",
      "tab": null,
      "evidence": [
-      "legacy item CCODE1"
-     ],
-     "item": "CCODE1",
-     "databaseItem": false,
-     "x": 391,
-     "y": 113
+      "column CONTROL.CODE VARCHAR2(2)"
+     ]
     },
     {
      "label": "Remarks",
@@ -23337,24 +23177,18 @@
      "label": "ASCII Text Format for AUDCO Group",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "TEMP.A",
-     "columnType": "VARCHAR2(100)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-056",
      "evidence": [
-      "screenshot",
-      "column TEMP.A VARCHAR2(100)",
-      "legacy item A"
-     ],
-     "item": "A",
-     "databaseItem": false,
-     "x": 263,
-     "y": 67
+      "screenshot"
+     ]
     },
     {
      "label": "Path",
@@ -23390,11 +23224,11 @@
      "validationMessages": [
       "T.C. Date Less than Pouring Date Pl. Verify"
      ],
-     "column": "TCPRINT.TDATE",
-     "columnType": "DATE",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column TCPRINT.TDATE DATE"
+      "screenshot"
      ]
     },
     {
@@ -23519,17 +23353,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "TCDETAILS.SIGN1",
-     "columnType": "VARCHAR2(100)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column TCDETAILS.SIGN1 VARCHAR2(100)",
-      "legacy item SIGN1"
-     ],
-     "item": "SIGN1",
-     "databaseItem": false,
-     "x": 549,
-     "y": 232
+      "screenshot"
+     ]
     },
     {
      "label": "Special Requirment Details",
@@ -24959,11 +24788,11 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "SPLREQUIRMENT.GRADE",
-     "columnType": "VARCHAR2(20)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column SPLREQUIRMENT.GRADE VARCHAR2(20)"
+      "screenshot"
      ]
     },
     {
@@ -24976,18 +24805,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "DCTCDETAILS.TCSTANDARD",
-     "columnType": "VARCHAR2(200)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-059",
      "evidence": [
-      "screenshot",
-      "column DCTCDETAILS.TCSTANDARD VARCHAR2(200)",
-      "legacy item TCSTANDARD"
-     ],
-     "item": "TCSTANDARD",
-     "databaseItem": false,
-     "x": 204,
-     "y": 77
+      "screenshot"
+     ]
     },
     {
      "label": "Product",
@@ -25032,24 +24855,18 @@
      "label": "TC Remarks",
      "kind": "field",
      "type": "text",
-     "maxLength": 200,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "SPLREQUIRMENT.REMARK",
-     "columnType": "VARCHAR2(200)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-059",
      "evidence": [
-      "screenshot",
-      "column SPLREQUIRMENT.REMARK VARCHAR2(200)",
-      "legacy item REMARK"
-     ],
-     "item": "REMARK",
-     "databaseItem": true,
-     "x": 354,
-     "y": 24
+      "screenshot"
+     ]
     },
     {
      "label": "Quality level DIN 1690 Part-2 S3 V4 Satisfactory, Quality level D as per DIN 1690 Part-10",
@@ -25140,18 +24957,24 @@
      "label": "Tensile Test",
      "kind": "field",
      "type": "text",
-     "maxLength": null,
+     "maxLength": 50,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "DCTCDETAILS.TENSILE",
+     "columnType": "VARCHAR2(50)",
      "tab": "LEG-059",
      "evidence": [
-      "screenshot"
-     ]
+      "screenshot",
+      "column DCTCDETAILS.TENSILE VARCHAR2(50)",
+      "legacy item TENSILE"
+     ],
+     "item": "TENSILE",
+     "databaseItem": false,
+     "x": 358,
+     "y": 174
     },
     {
      "label": "Techinical Help",
@@ -25191,7 +25014,7 @@
      "label": "Hardness Insp.",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -25201,13 +25024,8 @@
      "columnType": null,
      "tab": "LEG-059",
      "evidence": [
-      "screenshot",
-      "legacy item HARD"
-     ],
-     "item": "HARD",
-     "databaseItem": false,
-     "x": 202,
-     "y": 132
+      "screenshot"
+     ]
     },
     {
      "label": "Hardness Report",
@@ -25255,7 +25073,7 @@
      "label": "Hardness Rep LF",
      "kind": "field",
      "type": "text",
-     "maxLength": 1,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -25265,13 +25083,8 @@
      "columnType": null,
      "tab": "LEG-059",
      "evidence": [
-      "screenshot",
-      "legacy item REP"
-     ],
-     "item": "REP",
-     "databaseItem": false,
-     "x": 10,
-     "y": 140
+      "screenshot"
+     ]
     },
     {
      "label": "Heat No.",
@@ -25329,7 +25142,7 @@
      "label": "Inspection",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -25339,13 +25152,8 @@
      "columnType": null,
      "tab": "LEG-059",
      "evidence": [
-      "screenshot",
-      "legacy item INSP"
-     ],
-     "item": "INSP",
-     "databaseItem": false,
-     "x": 75,
-     "y": 253
+      "screenshot"
+     ]
     },
     {
      "label": "Inspected By",
@@ -25532,7 +25340,7 @@
      "label": "Max",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -25542,13 +25350,8 @@
      "columnType": null,
      "tab": "LEG-059",
      "evidence": [
-      "screenshot",
-      "legacy item RMAX"
-     ],
-     "item": "RMAX",
-     "databaseItem": false,
-     "x": 515,
-     "y": 132
+      "screenshot"
+     ]
     },
     {
      "label": "Tensile",
@@ -25565,13 +25368,8 @@
      "tab": "LEG-059",
      "evidence": [
       "screenshot",
-      "column DCTCDETAILS.TENSILE VARCHAR2(50)",
-      "legacy item TENSILE"
-     ],
-     "item": "TENSILE",
-     "databaseItem": false,
-     "x": 358,
-     "y": 174
+      "column DCTCDETAILS.TENSILE VARCHAR2(50)"
+     ]
     },
     {
      "label": "Impact",
@@ -25617,22 +25415,23 @@
      "label": "Remarks",
      "kind": "field",
      "type": "text",
-     "maxLength": 32000,
+     "maxLength": 200,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "SPLREQUIRMENT.REMARK",
+     "columnType": "VARCHAR2(200)",
      "tab": null,
      "evidence": [
-      "legacy item OAREMARK"
+      "column SPLREQUIRMENT.REMARK VARCHAR2(200)",
+      "legacy item REMARK"
      ],
-     "item": "OAREMARK",
-     "databaseItem": false,
-     "x": 6,
-     "y": 181
+     "item": "REMARK",
+     "databaseItem": true,
+     "x": 354,
+     "y": 24
     }
    ],
    "otherLegacyText": [
@@ -29286,17 +29085,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "TEMP.DATE1",
-     "columnType": "DATE",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column TEMP.DATE1 DATE",
-      "legacy item DATE1"
-     ],
-     "item": "DATE1",
-     "databaseItem": false,
-     "x": 84,
-     "y": 40
+      "screenshot"
+     ]
     },
     {
      "label": "Selection",
@@ -29746,7 +29540,7 @@
      "label": "Any Date of Month",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -29756,13 +29550,8 @@
      "columnType": null,
      "tab": "LEG-073",
      "evidence": [
-      "screenshot",
-      "legacy item DATE"
-     ],
-     "item": "DATE",
-     "databaseItem": false,
-     "x": 24,
-     "y": 229
+      "screenshot"
+     ]
     },
     {
      "label": "Delivery",
@@ -30400,25 +30189,19 @@
     {
      "label": "Despatch",
      "kind": "field",
-     "type": "number",
+     "type": "text",
      "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "ORDER_ACCEPTANCE.DESPATCH_QNTY",
-     "columnType": "NUMBER(5,0)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-074",
      "evidence": [
-      "screenshot",
-      "column ORDER_ACCEPTANCE.DESPATCH_QNTY NUMBER(5,0)",
-      "legacy item DESPATCH_QNTY"
-     ],
-     "item": "DESPATCH_QNTY",
-     "databaseItem": true,
-     "x": 350,
-     "y": 88
+      "screenshot"
+     ]
     },
     {
      "label": "Srlno",
@@ -31146,29 +30929,6 @@
      "tab": null,
      "evidence": [
       "legacy item INPROCESS",
-      "label from prompt"
-     ]
-    },
-    {
-     "label": "Lastmodified",
-     "kind": "field",
-     "type": "text",
-     "item": "LASTMODIFIED",
-     "maxLength": 100,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "POUR.LASTMODIFIED",
-     "columnType": "VARCHAR2(150)",
-     "x": 786,
-     "y": 15,
-     "tab": null,
-     "evidence": [
-      "legacy item LASTMODIFIED",
       "label from prompt"
      ]
     },
@@ -33214,29 +32974,6 @@
      "y": 25
     },
     {
-     "label": "Lastmodified",
-     "kind": "field",
-     "type": "text",
-     "item": "LASTMODIFIED",
-     "maxLength": 150,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "DESPATCH.LASTMODIFIED",
-     "columnType": "VARCHAR2(150)",
-     "x": 1574,
-     "y": 25,
-     "tab": null,
-     "evidence": [
-      "legacy item LASTMODIFIED",
-      "label from prompt"
-     ]
-    },
-    {
      "label": "Despatch View",
      "kind": "heading",
      "tab": "LEG-078",
@@ -33404,28 +33141,230 @@
      ]
     },
     {
-     "label": " Casting ",
+     "label": "Despatch",
      "kind": "field",
      "type": "number",
-     "item": "CASTWT",
      "maxLength": null,
-     "precision": 10,
-     "scale": null,
-     "options": null,
-     "formatMask": "9999999.99",
+     "precision": 5,
+     "scale": 0,
      "required": false,
      "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "PORT.CASTWT",
+     "validationMessages": [],
+     "column": "PORT.DESPWT",
      "columnType": "NUMBER(11,3)",
-     "x": 284,
-     "y": 33,
      "tab": null,
      "evidence": [
-      "legacy item CASTWT",
-      "label from prompt",
-      "format mask 9999999.99"
+      "column PORT.DESPWT NUMBER(11,3)",
+      "legacy item DESPWT"
+     ],
+     "item": "DESPWT",
+     "databaseItem": true,
+     "x": 359,
+     "y": 33,
+     "formatMask": "9999999.99"
+    },
+    {
+     "label": "Heatno",
+     "kind": "field",
+     "type": "text",
+     "maxLength": 5,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": null,
+     "columnType": null,
+     "tab": null,
+     "evidence": [
+      "legacy item HEATN"
+     ],
+     "item": "HEATN",
+     "databaseItem": true,
+     "x": 10,
+     "y": 39
+    },
+    {
+     "label": "Product",
+     "kind": "field",
+     "type": "text",
+     "maxLength": 7,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": "PORT.PRODUCT",
+     "columnType": "VARCHAR2(20)",
+     "tab": null,
+     "evidence": [
+      "column PORT.PRODUCT VARCHAR2(20)",
+      "legacy item PRODUCT"
+     ],
+     "item": "PRODUCT",
+     "databaseItem": true,
+     "x": 48,
+     "y": 39
+    },
+    {
+     "label": "Pour",
+     "kind": "field",
+     "type": "number",
+     "maxLength": null,
+     "precision": 11,
+     "scale": 3,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": "HEATWEIGHT.POUR",
+     "columnType": "NUMBER(11,3)",
+     "tab": null,
+     "evidence": [
+      "column HEATWEIGHT.POUR NUMBER(11,3)"
      ]
+    },
+    {
+     "label": "Weight",
+     "kind": "field",
+     "type": "number",
+     "maxLength": null,
+     "precision": 11,
+     "scale": 2,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": "PORT.WEIGHT",
+     "columnType": "NUMBER(11,2)",
+     "tab": null,
+     "evidence": [
+      "format mask (number)",
+      "column PORT.WEIGHT NUMBER(11,2)",
+      "legacy item WEIGHT"
+     ],
+     "item": "WEIGHT",
+     "databaseItem": true,
+     "x": 430,
+     "y": 39,
+     "formatMask": "9999999.99"
+    },
+    {
+     "label": "Unit",
+     "kind": "field",
+     "type": "number",
+     "maxLength": null,
+     "precision": 7,
+     "scale": 0,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": "PORT.UNIT",
+     "columnType": "CHAR(1)",
+     "tab": null,
+     "evidence": [
+      "column PORT.UNIT CHAR(1)",
+      "legacy item UNIT"
+     ],
+     "item": "UNIT",
+     "databaseItem": true,
+     "x": 404,
+     "y": 161
+    },
+    {
+     "label": "Date To",
+     "kind": "field",
+     "type": "text",
+     "maxLength": 30,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": null,
+     "columnType": null,
+     "tab": "LEG-079",
+     "evidence": [
+      "screenshot",
+      "legacy item DATETO"
+     ],
+     "item": "DATETO",
+     "databaseItem": false,
+     "x": 81,
+     "y": 298
+    },
+    {
+     "label": "Process Status",
+     "kind": "field",
+     "type": "text",
+     "maxLength": null,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": null,
+     "columnType": null,
+     "tab": "LEG-079",
+     "evidence": [
+      "screenshot"
+     ]
+    },
+    {
+     "label": "Charge Wt Kgs.",
+     "kind": "field",
+     "type": "text",
+     "maxLength": null,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": null,
+     "columnType": null,
+     "tab": "LEG-079",
+     "evidence": [
+      "screenshot"
+     ]
+    },
+    {
+     "label": "Liquid Wt Kgs.",
+     "kind": "field",
+     "type": "text",
+     "maxLength": null,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": null,
+     "columnType": null,
+     "tab": "LEG-079",
+     "evidence": [
+      "screenshot"
+     ]
+    },
+    {
+     "label": "Cast. Wt Kgs.",
+     "kind": "field",
+     "type": "number",
+     "maxLength": null,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": "PORT.CASTWT",
+     "columnType": "NUMBER(11,3)",
+     "tab": "LEG-079",
+     "evidence": [
+      "screenshot",
+      "column PORT.CASTWT NUMBER(11,3)",
+      "legacy item CASTWT"
+     ],
+     "item": "CASTWT",
+     "databaseItem": true,
+     "x": 284,
+     "y": 33,
+     "formatMask": "9999999.99"
     },
     {
      "label": " Reject.",
@@ -33450,29 +33389,6 @@
       "label from prompt",
       "format mask 9999999.99"
      ]
-    },
-    {
-     "label": "Despatch",
-     "kind": "field",
-     "type": "number",
-     "maxLength": null,
-     "precision": 5,
-     "scale": 0,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": "PORT.DESPWT",
-     "columnType": "NUMBER(11,3)",
-     "tab": null,
-     "evidence": [
-      "column PORT.DESPWT NUMBER(11,3)",
-      "legacy item DESPWT"
-     ],
-     "item": "DESPWT",
-     "databaseItem": true,
-     "x": 359,
-     "y": 33,
-     "formatMask": "9999999.99"
     },
     {
      "label": "Desp.Dt",
@@ -33571,47 +33487,27 @@
      ]
     },
     {
-     "label": "Heatno",
+     "label": " Casting ",
      "kind": "field",
-     "type": "text",
-     "maxLength": 5,
-     "precision": null,
+     "type": "number",
+     "item": "REJE",
+     "maxLength": null,
+     "precision": 6,
      "scale": null,
+     "options": null,
+     "formatMask": null,
      "required": false,
      "requiredEvidence": null,
-     "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "databaseItem": true,
+     "column": "PORT.REJE",
+     "columnType": "NUMBER(5,0)",
+     "x": 367,
+     "y": 39,
      "tab": null,
      "evidence": [
-      "legacy item HEATN"
-     ],
-     "item": "HEATN",
-     "databaseItem": true,
-     "x": 10,
-     "y": 39
-    },
-    {
-     "label": "Product",
-     "kind": "field",
-     "type": "text",
-     "maxLength": 7,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": "PORT.PRODUCT",
-     "columnType": "VARCHAR2(20)",
-     "tab": null,
-     "evidence": [
-      "column PORT.PRODUCT VARCHAR2(20)",
-      "legacy item PRODUCT"
-     ],
-     "item": "PRODUCT",
-     "databaseItem": true,
-     "x": 48,
-     "y": 39
+      "legacy item REJE",
+      "label from prompt"
+     ]
     },
     {
      "label": "Desp",
@@ -33635,47 +33531,6 @@
       "legacy item DESPATCH",
       "label from prompt"
      ]
-    },
-    {
-     "label": "Pour",
-     "kind": "field",
-     "type": "number",
-     "maxLength": null,
-     "precision": 11,
-     "scale": 3,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": "HEATWEIGHT.POUR",
-     "columnType": "NUMBER(11,3)",
-     "tab": null,
-     "evidence": [
-      "column HEATWEIGHT.POUR NUMBER(11,3)"
-     ]
-    },
-    {
-     "label": "Weight",
-     "kind": "field",
-     "type": "number",
-     "maxLength": null,
-     "precision": 11,
-     "scale": 2,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": "PORT.WEIGHT",
-     "columnType": "NUMBER(11,2)",
-     "tab": null,
-     "evidence": [
-      "format mask (number)",
-      "column PORT.WEIGHT NUMBER(11,2)",
-      "legacy item WEIGHT"
-     ],
-     "item": "WEIGHT",
-     "databaseItem": true,
-     "x": 430,
-     "y": 39,
-     "formatMask": "9999999.99"
     },
     {
      "label": "SpL",
@@ -33839,28 +33694,6 @@
      ]
     },
     {
-     "label": "Unit",
-     "kind": "field",
-     "type": "number",
-     "maxLength": null,
-     "precision": 7,
-     "scale": 0,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": "PORT.UNIT",
-     "columnType": "CHAR(1)",
-     "tab": null,
-     "evidence": [
-      "column PORT.UNIT CHAR(1)",
-      "legacy item UNIT"
-     ],
-     "item": "UNIT",
-     "databaseItem": true,
-     "x": 404,
-     "y": 161
-    },
-    {
      "label": "Resp",
      "kind": "field",
      "type": "text",
@@ -33881,96 +33714,6 @@
      "evidence": [
       "legacy item ICOD",
       "label from prompt"
-     ]
-    },
-    {
-     "label": "Date To",
-     "kind": "field",
-     "type": "text",
-     "maxLength": 30,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": null,
-     "columnType": null,
-     "tab": "LEG-079",
-     "evidence": [
-      "screenshot",
-      "legacy item DATETO"
-     ],
-     "item": "DATETO",
-     "databaseItem": false,
-     "x": 81,
-     "y": 298
-    },
-    {
-     "label": "Process Status",
-     "kind": "field",
-     "type": "text",
-     "maxLength": null,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": null,
-     "columnType": null,
-     "tab": "LEG-079",
-     "evidence": [
-      "screenshot"
-     ]
-    },
-    {
-     "label": "Charge Wt Kgs.",
-     "kind": "field",
-     "type": "text",
-     "maxLength": null,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": null,
-     "columnType": null,
-     "tab": "LEG-079",
-     "evidence": [
-      "screenshot"
-     ]
-    },
-    {
-     "label": "Liquid Wt Kgs.",
-     "kind": "field",
-     "type": "text",
-     "maxLength": null,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": null,
-     "columnType": null,
-     "tab": "LEG-079",
-     "evidence": [
-      "screenshot"
-     ]
-    },
-    {
-     "label": "Cast. Wt Kgs.",
-     "kind": "field",
-     "type": "text",
-     "maxLength": null,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": null,
-     "columnType": null,
-     "tab": "LEG-079",
-     "evidence": [
-      "screenshot"
      ]
     }
    ],
@@ -34118,16 +33861,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "SUBCONTRACT.DCDATE",
+     "columnType": "DATE",
      "tab": null,
      "evidence": [
-      "legacy item DC"
-     ],
-     "item": "DC",
-     "databaseItem": false,
-     "x": 38,
-     "y": 277
+      "column SUBCONTRACT.DCDATE DATE"
+     ]
     },
     {
      "label": "Alloy",
@@ -34421,29 +34160,6 @@
      ]
     },
     {
-     "label": "LAST MODIFIED",
-     "kind": "field",
-     "type": "text",
-     "item": "LASTMODIFIED",
-     "maxLength": 150,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "SUBCONTRACT.LASTMODIFIED",
-     "columnType": "VARCHAR2(150)",
-     "x": 847,
-     "y": 18,
-     "tab": null,
-     "evidence": [
-      "legacy item LASTMODIFIED",
-      "label from prompt"
-     ]
-    },
-    {
      "label": "Timeout",
      "kind": "field",
      "type": "text",
@@ -34701,29 +34417,6 @@
      "y": 39
     },
     {
-     "label": "Heat #",
-     "kind": "field",
-     "type": "text",
-     "item": "HEATNO",
-     "maxLength": 5,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "MELT.HEATNO",
-     "columnType": "VARCHAR2(5)",
-     "x": 67,
-     "y": 39,
-     "tab": "LEG-081",
-     "evidence": [
-      "legacy item HEATNO",
-      "label from prompt"
-     ]
-    },
-    {
      "label": "Grade",
      "kind": "field",
      "type": "text",
@@ -34792,6 +34485,45 @@
      "y": 39
     },
     {
+     "label": "To Date",
+     "kind": "field",
+     "type": "text",
+     "maxLength": null,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": null,
+     "columnType": null,
+     "tab": "LEG-081",
+     "evidence": [
+      "screenshot"
+     ]
+    },
+    {
+     "label": "Heat #",
+     "kind": "field",
+     "type": "text",
+     "maxLength": 5,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": "MELT.HEATNO",
+     "columnType": "VARCHAR2(5)",
+     "tab": null,
+     "evidence": [
+      "column MELT.HEATNO VARCHAR2(5)",
+      "legacy item HEATNO"
+     ],
+     "item": "HEATNO",
+     "databaseItem": true,
+     "x": 67,
+     "y": 39
+    },
+    {
      "label": "G.R #",
      "kind": "field",
      "type": "text",
@@ -34812,40 +34544,6 @@
      "evidence": [
       "legacy item GRNO",
       "label from prompt"
-     ]
-    },
-    {
-     "label": "To Date",
-     "kind": "field",
-     "type": "text",
-     "maxLength": null,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": null,
-     "columnType": null,
-     "tab": "LEG-081",
-     "evidence": [
-      "screenshot"
-     ]
-    },
-    {
-     "label": "Heat No",
-     "kind": "field",
-     "type": "text",
-     "maxLength": 5,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": "MELT.HEATNO",
-     "columnType": "VARCHAR2(5)",
-     "tab": null,
-     "evidence": [
-      "column MELT.HEATNO VARCHAR2(5)"
      ]
     },
     {
@@ -35130,29 +34828,6 @@
      "tab": null,
      "evidence": [
       "legacy item RATE",
-      "label from prompt"
-     ]
-    },
-    {
-     "label": "Last Modified",
-     "kind": "field",
-     "type": "text",
-     "item": "LASTMODIFIED",
-     "maxLength": 200,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "MPMASTER.LASTMODIFIED",
-     "columnType": "VARCHAR2(200)",
-     "x": 520,
-     "y": 58,
-     "tab": null,
-     "evidence": [
-      "legacy item LASTMODIFIED",
       "label from prompt"
      ]
     }
@@ -35643,21 +35318,26 @@
      "y": 39
     },
     {
-     "label": "Oano",
+     "label": "O.A No",
      "kind": "field",
      "type": "text",
-     "maxLength": 20,
+     "maxLength": 30,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "OAREMARK.OANO",
+     "column": "ORDER_ACCEPTANCE.OANO",
      "columnType": "VARCHAR2(20)",
      "tab": null,
      "evidence": [
-      "column OAREMARK.OANO VARCHAR2(20)"
-     ]
+      "column ORDER_ACCEPTANCE.OANO VARCHAR2(20)",
+      "legacy item OANO"
+     ],
+     "item": "OANO",
+     "databaseItem": true,
+     "x": 2,
+     "y": 39
     },
     {
      "label": "Order Acceptance Edit",
@@ -35947,52 +35627,6 @@
      ]
     },
     {
-     "label": "Last Modified",
-     "kind": "field",
-     "type": "text",
-     "item": "LASTMODIFIED",
-     "maxLength": 200,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "ORDER_ACCEPTANCE.LASTMODIFIED",
-     "columnType": "VARCHAR2(200)",
-     "x": 1419,
-     "y": 16,
-     "tab": null,
-     "evidence": [
-      "legacy item LASTMODIFIED",
-      "label from prompt"
-     ]
-    },
-    {
-     "label": "O.A No",
-     "kind": "field",
-     "type": "text",
-     "item": "OANO",
-     "maxLength": 30,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "ORDER_ACCEPTANCE.OANO",
-     "columnType": "VARCHAR2(20)",
-     "x": 2,
-     "y": 39,
-     "tab": "LEG-083",
-     "evidence": [
-      "legacy item OANO",
-      "label from prompt"
-     ]
-    },
-    {
      "label": "Sr",
      "kind": "field",
      "type": "number",
@@ -36195,24 +35829,18 @@
      "label": "Test Bar",
      "kind": "field",
      "type": "text",
-     "maxLength": 11,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "POUR.T",
-     "columnType": "CHAR(2)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-084",
      "evidence": [
-      "screenshot",
-      "column POUR.T CHAR(2)",
-      "legacy item T"
-     ],
-     "item": "T",
-     "databaseItem": false,
-     "x": 449,
-     "y": 175
+      "screenshot"
+     ]
     },
     {
      "label": "Pourdate",
@@ -36555,29 +36183,6 @@
      "tab": null,
      "evidence": [
       "legacy item CREJ",
-      "label from prompt"
-     ]
-    },
-    {
-     "label": "Lastmodified",
-     "kind": "field",
-     "type": "text",
-     "item": "LASTMODIFIED",
-     "maxLength": 100,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "POUR.LASTMODIFIED",
-     "columnType": "VARCHAR2(150)",
-     "x": 1033,
-     "y": 22,
-     "tab": null,
-     "evidence": [
-      "legacy item LASTMODIFIED",
       "label from prompt"
      ]
     },
@@ -37232,46 +36837,23 @@
      "label": "D.C No",
      "kind": "field",
      "type": "text",
-     "item": "DCNO",
      "maxLength": 15,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": false,
-     "column": "RTMASTER.DCNO",
-     "columnType": "VARCHAR2(15)",
-     "x": 516,
-     "y": 39,
-     "tab": null,
-     "evidence": [
-      "legacy item DCNO",
-      "label from prompt"
-     ]
-    },
-    {
-     "label": "Dcno",
-     "kind": "field",
-     "type": "text",
-     "maxLength": 150,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "RTMASTER.STORED",
-     "columnType": "VARCHAR2(150)",
+     "column": "RTMASTER.DCNO",
+     "columnType": "VARCHAR2(15)",
      "tab": null,
      "evidence": [
-      "column RTMASTER.STORED VARCHAR2(150)",
-      "legacy item STORED"
+      "column RTMASTER.DCNO VARCHAR2(15)",
+      "legacy item DCNO"
      ],
-     "item": "STORED",
-     "databaseItem": true,
-     "x": 229,
-     "y": 277
+     "item": "DCNO",
+     "databaseItem": false,
+     "x": 516,
+     "y": 39
     }
    ],
    "otherLegacyText": [],
@@ -37587,29 +37169,6 @@
      ]
     },
     {
-     "label": "Last Modified",
-     "kind": "field",
-     "type": "text",
-     "item": "LASTMODIFIED",
-     "maxLength": 200,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "UTMASTER.LASTMODIFIED",
-     "columnType": "VARCHAR2(200)",
-     "x": 557,
-     "y": 59,
-     "tab": null,
-     "evidence": [
-      "legacy item LASTMODIFIED",
-      "label from prompt"
-     ]
-    },
-    {
      "label": "Range",
      "kind": "field",
      "type": "text",
@@ -37860,24 +37419,18 @@
      "label": "B. IGCT Despatch",
      "kind": "field",
      "type": "text",
-     "maxLength": 20,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "TEMP.B",
-     "columnType": "VARCHAR2(100)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-090",
      "evidence": [
-      "screenshot",
-      "column TEMP.B VARCHAR2(100)",
-      "legacy item B"
-     ],
-     "item": "B",
-     "databaseItem": true,
-     "x": 213,
-     "y": 42
+      "screenshot"
+     ]
     },
     {
      "label": "I. Product , Grade Wise NCR Analysis",
@@ -38634,21 +38187,26 @@
      "y": 39
     },
     {
-     "label": "Oano",
+     "label": "O.A No",
      "kind": "field",
      "type": "text",
-     "maxLength": 20,
+     "maxLength": 30,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "OAREMARK.OANO",
+     "column": "ORDER_ACCEPTANCE.OANO",
      "columnType": "VARCHAR2(20)",
      "tab": null,
      "evidence": [
-      "column OAREMARK.OANO VARCHAR2(20)"
-     ]
+      "column ORDER_ACCEPTANCE.OANO VARCHAR2(20)",
+      "legacy item OANO"
+     ],
+     "item": "OANO",
+     "databaseItem": true,
+     "x": 2,
+     "y": 39
     },
     {
      "label": "Plandate",
@@ -39075,52 +38633,6 @@
      ]
     },
     {
-     "label": "Last Modified",
-     "kind": "field",
-     "type": "text",
-     "item": "LASTMODIFIED",
-     "maxLength": 200,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "ORDER_ACCEPTANCE.LASTMODIFIED",
-     "columnType": "VARCHAR2(200)",
-     "x": 1446,
-     "y": 16,
-     "tab": null,
-     "evidence": [
-      "legacy item LASTMODIFIED",
-      "label from prompt"
-     ]
-    },
-    {
-     "label": "O.A No",
-     "kind": "field",
-     "type": "text",
-     "item": "OANO",
-     "maxLength": 30,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "ORDER_ACCEPTANCE.OANO",
-     "columnType": "VARCHAR2(20)",
-     "x": 2,
-     "y": 39,
-     "tab": "LEG-091",
-     "evidence": [
-      "legacy item OANO",
-      "label from prompt"
-     ]
-    },
-    {
      "label": "Sr",
      "kind": "field",
      "type": "number",
@@ -39295,6 +38807,30 @@
      "databaseItem": false,
      "x": 47,
      "y": 25
+    },
+    {
+     "label": "O.A Date",
+     "kind": "field",
+     "type": "date",
+     "item": "ODATE",
+     "maxLength": null,
+     "precision": null,
+     "scale": null,
+     "options": null,
+     "formatMask": "dd/mm/RRRR",
+     "required": false,
+     "requiredEvidence": null,
+     "databaseItem": false,
+     "column": "ORDER_ACCEPTANCE.ODATE",
+     "columnType": "DATE",
+     "x": 541,
+     "y": 25,
+     "tab": null,
+     "evidence": [
+      "legacy item ODATE",
+      "label from prompt",
+      "format mask dd/mm/RRRR"
+     ]
     },
     {
      "label": "Po.Recv. Date",
@@ -39716,11 +39252,11 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "POMAS.INSPECTION",
-     "columnType": "VARCHAR2(20)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column POMAS.INSPECTION VARCHAR2(20)"
+      "screenshot"
      ]
     },
     {
@@ -39778,24 +39314,18 @@
      "label": "Terms of Payment",
      "kind": "field",
      "type": "text",
-     "maxLength": 75,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "POMAS.PAYMENT",
-     "columnType": "VARCHAR2(75)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-092",
      "evidence": [
-      "screenshot",
-      "column POMAS.PAYMENT VARCHAR2(75)",
-      "legacy item PAYMENT"
-     ],
-     "item": "PAYMENT",
-     "databaseItem": false,
-     "x": 88,
-     "y": 261
+      "screenshot"
+     ]
     },
     {
      "label": "Destination",
@@ -39852,17 +39382,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "POMAS.FRIGHT",
-     "columnType": "VARCHAR2(20)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column POMAS.FRIGHT VARCHAR2(20)",
-      "legacy item FRIGHT"
-     ],
-     "item": "FRIGHT",
-     "databaseItem": false,
-     "x": 340,
-     "y": 217
+      "screenshot"
+     ]
     },
     {
      "label": "Testing",
@@ -39914,24 +39439,18 @@
      "label": "CT3 Form",
      "kind": "field",
      "type": "text",
-     "maxLength": 100,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "POMAS.FORM",
-     "columnType": "VARCHAR2(100)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-092",
      "evidence": [
-      "screenshot",
-      "column POMAS.FORM VARCHAR2(100)",
-      "legacy item FORM"
-     ],
-     "item": "FORM",
-     "databaseItem": false,
-     "x": 340,
-     "y": 260
+      "screenshot"
+     ]
     },
     {
      "label": "Preparedby",
@@ -39990,37 +39509,39 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "SPLREQUIRMENT.CHARGE",
+     "columnType": "NUMBER(11,2)",
      "tab": null,
      "evidence": [
-      "legacy item CHARGE1"
+      "column SPLREQUIRMENT.CHARGE NUMBER(11,2)",
+      "legacy item CHARGE"
      ],
-     "item": "CHARGE1",
-     "databaseItem": false,
-     "x": 375,
-     "y": 22
+     "item": "CHARGE",
+     "databaseItem": true,
+     "x": 385,
+     "y": 40
     },
     {
      "label": "Charge Per",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": 10,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "SPLREQUIRMENT.CHARGEPER",
+     "columnType": "VARCHAR2(10)",
      "tab": null,
      "evidence": [
-      "legacy item CHARGEPER1"
+      "column SPLREQUIRMENT.CHARGEPER VARCHAR2(10)",
+      "legacy item CHARGEPER"
      ],
-     "item": "CHARGEPER1",
-     "databaseItem": false,
-     "x": 497,
-     "y": 22
+     "item": "CHARGEPER",
+     "databaseItem": true,
+     "x": 471,
+     "y": 40
     },
     {
      "label": "Date",
@@ -40037,13 +39558,8 @@
      "tab": "LEG-092",
      "evidence": [
       "screenshot",
-      "format mask (date)",
-      "legacy item DAT"
-     ],
-     "item": "DAT",
-     "databaseItem": false,
-     "x": 227,
-     "y": 93
+      "format mask (date)"
+     ]
     },
     {
      "label": "Deg",
@@ -40055,40 +39571,17 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "SPLREQUIRMENT.DEG",
+     "columnType": "NUMBER",
      "tab": null,
      "evidence": [
-      "legacy item DEG1"
+      "column SPLREQUIRMENT.DEG NUMBER",
+      "legacy item DEG"
      ],
-     "item": "DEG1",
-     "databaseItem": false,
-     "x": 185,
-     "y": 22
-    },
-    {
-     "label": "O.A Date",
-     "kind": "field",
-     "type": "date",
-     "item": "ODATE",
-     "maxLength": null,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": "dd/mm/RRRR",
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": false,
-     "column": "ORDER_ACCEPTANCE.ODATE",
-     "columnType": "DATE",
-     "x": 541,
-     "y": 25,
-     "tab": null,
-     "evidence": [
-      "legacy item ODATE",
-      "label from prompt",
-      "format mask dd/mm/RRRR"
-     ]
+     "item": "DEG",
+     "databaseItem": true,
+     "x": 165,
+     "y": 40
     },
     {
      "label": "P.O No",
@@ -40698,25 +40191,19 @@
     {
      "label": "With Rate",
      "kind": "field",
-     "type": "number",
+     "type": "text",
      "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "ORDER_ACCEPTANCE.RATE",
-     "columnType": "NUMBER(11,2)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-093",
      "evidence": [
-      "screenshot",
-      "column ORDER_ACCEPTANCE.RATE NUMBER(11,2)",
-      "legacy item RATE"
-     ],
-     "item": "RATE",
-     "databaseItem": false,
-     "x": 502,
-     "y": 74
+      "screenshot"
+     ]
     },
     {
      "label": "OA AMEND",
@@ -40756,7 +40243,7 @@
      "label": "Work Order",
      "kind": "field",
      "type": "text",
-     "maxLength": 1,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -40766,13 +40253,8 @@
      "columnType": null,
      "tab": "LEG-093",
      "evidence": [
-      "screenshot",
-      "legacy item WO"
-     ],
-     "item": "WO",
-     "databaseItem": false,
-     "x": 485,
-     "y": 155
+      "screenshot"
+     ]
     },
     {
      "label": "Copy To",
@@ -41848,22 +41330,18 @@
      "label": "Oano",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": 20,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "ORDER_ACCEPTANCE.OANO",
+     "columnType": "VARCHAR2(20)",
      "tab": null,
      "evidence": [
-      "legacy item OA"
-     ],
-     "item": "OA",
-     "databaseItem": false,
-     "x": 51,
-     "y": 195
+      "column ORDER_ACCEPTANCE.OANO VARCHAR2(20)"
+     ]
     },
     {
      "label": "Grade",
@@ -41995,75 +41473,6 @@
      "tab": null,
      "evidence": [
       "legacy item BED",
-      "label from prompt"
-     ]
-    },
-    {
-     "label": "LIST234",
-     "kind": "field",
-     "type": "text",
-     "item": "TAXNAME",
-     "maxLength": 50,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": false,
-     "column": "PERFORMADETAIL.TAXNAME",
-     "columnType": "VARCHAR2(10)",
-     "x": 111,
-     "y": 62,
-     "tab": null,
-     "evidence": [
-      "legacy item TAXNAME",
-      "label from prompt"
-     ]
-    },
-    {
-     "label": "Percent",
-     "kind": "field",
-     "type": "number",
-     "item": "TAXPER",
-     "maxLength": null,
-     "precision": 5,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": false,
-     "column": "PERFORMADETAIL.TAXPER",
-     "columnType": "NUMBER(5,2)",
-     "x": 210,
-     "y": 62,
-     "tab": null,
-     "evidence": [
-      "legacy item TAXPER",
-      "label from prompt"
-     ]
-    },
-    {
-     "label": "P & F %",
-     "kind": "field",
-     "type": "number",
-     "item": "FORWARD",
-     "maxLength": null,
-     "precision": 5,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": false,
-     "column": "PERFORMADETAIL.FORWARD",
-     "columnType": "NUMBER(5,2)",
-     "x": 307,
-     "y": 64,
-     "tab": null,
-     "evidence": [
-      "legacy item FORWARD",
       "label from prompt"
      ]
     },
@@ -42304,30 +41713,6 @@
      "y": 72
     },
     {
-     "label": "Sq.In",
-     "kind": "field",
-     "type": "text",
-     "item": "SQIN",
-     "maxLength": 15,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": "99999999.99",
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": null,
-     "columnType": null,
-     "x": 488,
-     "y": 72,
-     "tab": null,
-     "evidence": [
-      "legacy item SQIN",
-      "label from prompt",
-      "format mask 99999999.99"
-     ]
-    },
-    {
      "label": "Amount",
      "kind": "field",
      "type": "number",
@@ -42351,30 +41736,6 @@
      "x": 551,
      "y": 72,
      "formatMask": "99999999.99"
-    },
-    {
-     "label": "Weight/Pc",
-     "kind": "field",
-     "type": "number",
-     "item": "WT",
-     "maxLength": null,
-     "precision": 11,
-     "scale": null,
-     "options": null,
-     "formatMask": "999999.99",
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "PERFORMANEW.WT",
-     "columnType": "NUMBER(15,2)",
-     "x": 208,
-     "y": 73,
-     "tab": null,
-     "evidence": [
-      "legacy item WT",
-      "label from prompt",
-      "format mask 999999.99"
-     ]
     },
     {
      "label": "Pro-Forma Invoice",
@@ -42431,6 +41792,122 @@
      "databaseItem": false,
      "x": 110,
      "y": 161
+    },
+    {
+     "label": "LIST234",
+     "kind": "field",
+     "type": "text",
+     "maxLength": 50,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": "PERFORMADETAIL.TAXNAME",
+     "columnType": "VARCHAR2(10)",
+     "tab": null,
+     "evidence": [
+      "column PERFORMADETAIL.TAXNAME VARCHAR2(10)",
+      "legacy item TAXNAME"
+     ],
+     "item": "TAXNAME",
+     "databaseItem": false,
+     "x": 111,
+     "y": 62
+    },
+    {
+     "label": "Percent",
+     "kind": "field",
+     "type": "number",
+     "item": "TAXPER",
+     "maxLength": null,
+     "precision": 5,
+     "scale": null,
+     "options": null,
+     "formatMask": null,
+     "required": false,
+     "requiredEvidence": null,
+     "databaseItem": false,
+     "column": "PERFORMADETAIL.TAXPER",
+     "columnType": "NUMBER(5,2)",
+     "x": 210,
+     "y": 62,
+     "tab": null,
+     "evidence": [
+      "legacy item TAXPER",
+      "label from prompt"
+     ]
+    },
+    {
+     "label": "P & F %",
+     "kind": "field",
+     "type": "number",
+     "item": "FORWARD",
+     "maxLength": null,
+     "precision": 5,
+     "scale": null,
+     "options": null,
+     "formatMask": null,
+     "required": false,
+     "requiredEvidence": null,
+     "databaseItem": false,
+     "column": "PERFORMADETAIL.FORWARD",
+     "columnType": "NUMBER(5,2)",
+     "x": 307,
+     "y": 64,
+     "tab": null,
+     "evidence": [
+      "legacy item FORWARD",
+      "label from prompt"
+     ]
+    },
+    {
+     "label": "Sq.In",
+     "kind": "field",
+     "type": "text",
+     "item": "SQIN",
+     "maxLength": 15,
+     "precision": null,
+     "scale": null,
+     "options": null,
+     "formatMask": "99999999.99",
+     "required": false,
+     "requiredEvidence": null,
+     "databaseItem": true,
+     "column": null,
+     "columnType": null,
+     "x": 488,
+     "y": 72,
+     "tab": null,
+     "evidence": [
+      "legacy item SQIN",
+      "label from prompt",
+      "format mask 99999999.99"
+     ]
+    },
+    {
+     "label": "Weight/Pc",
+     "kind": "field",
+     "type": "number",
+     "item": "WT",
+     "maxLength": null,
+     "precision": 11,
+     "scale": null,
+     "options": null,
+     "formatMask": "999999.99",
+     "required": false,
+     "requiredEvidence": null,
+     "databaseItem": true,
+     "column": "PERFORMANEW.WT",
+     "columnType": "NUMBER(15,2)",
+     "x": 208,
+     "y": 73,
+     "tab": null,
+     "evidence": [
+      "legacy item WT",
+      "label from prompt",
+      "format mask 999999.99"
+     ]
     },
     {
      "label": "Balance(ADD)",
@@ -42499,23 +41976,6 @@
      "evidence": [
       "legacy item SRLNO",
       "label from prompt"
-     ]
-    },
-    {
-     "label": "Tax Name",
-     "kind": "field",
-     "type": "text",
-     "maxLength": 10,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": "PERFORMADETAIL.TAXNAME",
-     "columnType": "VARCHAR2(10)",
-     "tab": null,
-     "evidence": [
-      "column PERFORMADETAIL.TAXNAME VARCHAR2(10)"
      ]
     },
     {
@@ -42803,24 +42263,18 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "HEATS.PRODUCT",
-     "columnType": "VARCHAR2(10)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-097",
      "evidence": [
-      "screenshot",
-      "column HEATS.PRODUCT VARCHAR2(10)",
-      "legacy item PRODUCT"
-     ],
-     "item": "PRODUCT",
-     "databaseItem": false,
-     "x": 227,
-     "y": 59
+      "screenshot"
+     ]
     },
     {
      "label": "Convert",
      "kind": "field",
      "type": "text",
-     "maxLength": 1,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -42830,13 +42284,8 @@
      "columnType": null,
      "tab": "LEG-097",
      "evidence": [
-      "screenshot",
-      "legacy item CON"
-     ],
-     "item": "CON",
-     "databaseItem": false,
-     "x": 25,
-     "y": 50
+      "screenshot"
+     ]
     },
     {
      "label": "Convertion Type",
@@ -43974,7 +43423,7 @@
     {
      "label": "Only Match Plate",
      "kind": "field",
-     "type": "select",
+     "type": "text",
      "maxLength": null,
      "precision": null,
      "scale": null,
@@ -43985,16 +43434,7 @@
      "columnType": null,
      "tab": "LEG-102",
      "evidence": [
-      "screenshot",
-      "legacy item PLATE"
-     ],
-     "item": "PLATE",
-     "databaseItem": false,
-     "x": 474,
-     "y": 263,
-     "options": [
-      "B",
-      "H"
+      "screenshot"
      ]
     },
     {
@@ -44035,7 +43475,7 @@
      "label": "Product",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -44045,13 +43485,8 @@
      "columnType": null,
      "tab": "LEG-102",
      "evidence": [
-      "screenshot",
-      "legacy item PR"
-     ],
-     "item": "PR",
-     "databaseItem": false,
-     "x": 9,
-     "y": 197
+      "screenshot"
+     ]
     },
     {
      "label": "Store",
@@ -45260,41 +44695,29 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "PRODUCTMASTER.RECEIPTDATE",
-     "columnType": "DATE",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "format mask (date)",
-      "column PRODUCTMASTER.RECEIPTDATE DATE",
-      "legacy item RECEIPTDATE"
-     ],
-     "item": "RECEIPTDATE",
-     "databaseItem": false,
-     "x": 537,
-     "y": 239
+      "format mask (date)"
+     ]
     },
     {
      "label": "Random RT Qty",
      "kind": "field",
-     "type": "number",
+     "type": "text",
      "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "PRODUCTMASTER.RANDOM_IQTY",
-     "columnType": "NUMBER",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-104",
      "evidence": [
-      "screenshot",
-      "column PRODUCTMASTER.RANDOM_IQTY NUMBER",
-      "legacy item RANDOM_IQTY"
-     ],
-     "item": "RANDOM_IQTY",
-     "databaseItem": false,
-     "x": 535,
-     "y": 311
+      "screenshot"
+     ]
     },
     {
      "label": "Insp Qty",
@@ -45317,24 +44740,24 @@
      "label": "Remarks",
      "kind": "field",
      "type": "text",
-     "maxLength": 100,
+     "maxLength": 500,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "SLEEVE.REMARK",
-     "columnType": "VARCHAR2(100)",
+     "column": "PRODUCTMASTER.REMARKS",
+     "columnType": "VARCHAR2(500)",
      "tab": "LEG-104",
      "evidence": [
       "screenshot",
-      "column SLEEVE.REMARK VARCHAR2(100)",
-      "legacy item REMARK"
+      "column PRODUCTMASTER.REMARKS VARCHAR2(500)",
+      "legacy item REMARKS"
      ],
-     "item": "REMARK",
-     "databaseItem": true,
-     "x": 277,
-     "y": 146
+     "item": "REMARKS",
+     "databaseItem": false,
+     "x": 295,
+     "y": 297
     },
     {
      "label": "IBR Name",
@@ -45433,17 +44856,18 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "COREMAT.QNTY",
+     "columnType": "NUMBER(4,0)",
      "tab": null,
      "evidence": [
       "format mask (number)",
-      "legacy item QTY"
+      "column COREMAT.QNTY NUMBER(4,0)",
+      "legacy item QNTY"
      ],
-     "item": "QTY",
+     "item": "QNTY",
      "databaseItem": true,
-     "x": 131,
-     "y": 115
+     "x": 374,
+     "y": 146
     },
     {
      "label": "Product",
@@ -45544,6 +44968,127 @@
      "tab": null,
      "evidence": [
       "legacy item PATCOND",
+      "label from prompt"
+     ]
+    },
+    {
+     "label": "Wt Aprx",
+     "kind": "field",
+     "type": "select",
+     "item": "BOXWT_APRX",
+     "maxLength": null,
+     "precision": null,
+     "scale": null,
+     "options": [
+      "Y",
+      "N"
+     ],
+     "formatMask": null,
+     "required": false,
+     "requiredEvidence": null,
+     "databaseItem": false,
+     "column": "PRODUCTMASTER.BOXWT_APRX",
+     "columnType": "CHAR(1)",
+     "x": 139,
+     "y": 195,
+     "tab": null,
+     "evidence": [
+      "legacy item BOXWT_APRX",
+      "label from prompt"
+     ]
+    },
+    {
+     "label": "Storage Location",
+     "kind": "field",
+     "type": "text",
+     "item": "LETTER",
+     "maxLength": 100,
+     "precision": null,
+     "scale": null,
+     "options": null,
+     "formatMask": null,
+     "required": false,
+     "requiredEvidence": null,
+     "databaseItem": false,
+     "column": "PRODUCTMASTER.LETTER",
+     "columnType": "VARCHAR2(100)",
+     "x": 503,
+     "y": 208,
+     "tab": null,
+     "evidence": [
+      "legacy item LETTER",
+      "label from prompt"
+     ]
+    },
+    {
+     "label": "Pattern Alm",
+     "kind": "field",
+     "type": "select",
+     "item": "PATN_ALUMN",
+     "maxLength": null,
+     "precision": null,
+     "scale": null,
+     "options": [
+      "Y",
+      "N"
+     ],
+     "formatMask": null,
+     "required": false,
+     "requiredEvidence": null,
+     "databaseItem": false,
+     "column": "PRODUCTMASTER.PATN_ALUMN",
+     "columnType": "CHAR(1)",
+     "x": 64,
+     "y": 230,
+     "tab": null,
+     "evidence": [
+      "legacy item PATN_ALUMN",
+      "label from prompt"
+     ]
+    },
+    {
+     "label": "Proof Wt For Despatch",
+     "kind": "field",
+     "type": "text",
+     "item": "PF_WT_DESP",
+     "maxLength": 1,
+     "precision": null,
+     "scale": null,
+     "options": null,
+     "formatMask": null,
+     "required": false,
+     "requiredEvidence": null,
+     "databaseItem": false,
+     "column": "PRODUCTMASTER.PF_WT_DESP",
+     "columnType": "CHAR(1)",
+     "x": 468,
+     "y": 230,
+     "tab": null,
+     "evidence": [
+      "legacy item PF_WT_DESP",
+      "label from prompt"
+     ]
+    },
+    {
+     "label": "Proof Machine Wt",
+     "kind": "field",
+     "type": "number",
+     "item": "PF_MACH_WT",
+     "maxLength": null,
+     "precision": 14,
+     "scale": null,
+     "options": null,
+     "formatMask": null,
+     "required": false,
+     "requiredEvidence": null,
+     "databaseItem": false,
+     "column": "PRODUCTMASTER.PF_MACH_WT",
+     "columnType": "NUMBER(11,3)",
+     "x": 304,
+     "y": 232,
+     "tab": null,
+     "evidence": [
+      "legacy item PF_MACH_WT",
       "label from prompt"
      ]
     },
@@ -45670,199 +45215,6 @@
      "y": 244
     },
     {
-     "label": "PRODUCT MASTER ENTRY",
-     "kind": "heading",
-     "tab": "LEG-104",
-     "evidence": [
-      "screenshot"
-     ]
-    },
-    {
-     "label": "Core",
-     "kind": "field",
-     "type": "text",
-     "maxLength": null,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": null,
-     "columnType": null,
-     "tab": "LEG-104",
-     "evidence": [
-      "screenshot"
-     ]
-    },
-    {
-     "label": "Pattern",
-     "kind": "field",
-     "type": "text",
-     "maxLength": 75,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": "PRODUCTMASTER.PATTERN",
-     "columnType": "VARCHAR2(75)",
-     "tab": null,
-     "evidence": [
-      "column PRODUCTMASTER.PATTERN VARCHAR2(75)"
-     ]
-    },
-    {
-     "label": "Sleeve Entry",
-     "kind": "heading",
-     "tab": "LEG-104",
-     "evidence": [
-      "screenshot"
-     ]
-    },
-    {
-     "label": "No Of Core",
-     "kind": "field",
-     "type": "text",
-     "maxLength": 30,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": null,
-     "columnType": null,
-     "tab": "LEG-104",
-     "evidence": [
-      "screenshot",
-      "legacy item NOCORE"
-     ],
-     "item": "NOCORE",
-     "databaseItem": false,
-     "x": 93,
-     "y": 90
-    },
-    {
-     "label": "Wt Aprx",
-     "kind": "field",
-     "type": "select",
-     "item": "BOXWT_APRX",
-     "maxLength": null,
-     "precision": null,
-     "scale": null,
-     "options": [
-      "Y",
-      "N"
-     ],
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": false,
-     "column": "PRODUCTMASTER.BOXWT_APRX",
-     "columnType": "CHAR(1)",
-     "x": 139,
-     "y": 195,
-     "tab": null,
-     "evidence": [
-      "legacy item BOXWT_APRX",
-      "label from prompt"
-     ]
-    },
-    {
-     "label": "Storage Location",
-     "kind": "field",
-     "type": "text",
-     "item": "LETTER",
-     "maxLength": 100,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": false,
-     "column": "PRODUCTMASTER.LETTER",
-     "columnType": "VARCHAR2(100)",
-     "x": 503,
-     "y": 208,
-     "tab": null,
-     "evidence": [
-      "legacy item LETTER",
-      "label from prompt"
-     ]
-    },
-    {
-     "label": "Pattern Alm",
-     "kind": "field",
-     "type": "select",
-     "item": "PATN_ALUMN",
-     "maxLength": null,
-     "precision": null,
-     "scale": null,
-     "options": [
-      "Y",
-      "N"
-     ],
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": false,
-     "column": "PRODUCTMASTER.PATN_ALUMN",
-     "columnType": "CHAR(1)",
-     "x": 64,
-     "y": 230,
-     "tab": null,
-     "evidence": [
-      "legacy item PATN_ALUMN",
-      "label from prompt"
-     ]
-    },
-    {
-     "label": "Proof Wt For Despatch",
-     "kind": "field",
-     "type": "text",
-     "item": "PF_WT_DESP",
-     "maxLength": 1,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": false,
-     "column": "PRODUCTMASTER.PF_WT_DESP",
-     "columnType": "CHAR(1)",
-     "x": 468,
-     "y": 230,
-     "tab": null,
-     "evidence": [
-      "legacy item PF_WT_DESP",
-      "label from prompt"
-     ]
-    },
-    {
-     "label": "Proof Machine Wt",
-     "kind": "field",
-     "type": "number",
-     "item": "PF_MACH_WT",
-     "maxLength": null,
-     "precision": 14,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": false,
-     "column": "PRODUCTMASTER.PF_MACH_WT",
-     "columnType": "NUMBER(11,3)",
-     "x": 304,
-     "y": 232,
-     "tab": null,
-     "evidence": [
-      "legacy item PF_MACH_WT",
-      "label from prompt"
-     ]
-    },
-    {
      "label": "Proof Machine Req",
      "kind": "field",
      "type": "select",
@@ -45932,6 +45284,73 @@
      "evidence": [
       "legacy item PATN_UNDER_DEV",
       "label from prompt"
+     ]
+    },
+    {
+     "label": "PRODUCT MASTER ENTRY",
+     "kind": "heading",
+     "tab": "LEG-104",
+     "evidence": [
+      "screenshot"
+     ]
+    },
+    {
+     "label": "Core",
+     "kind": "field",
+     "type": "text",
+     "maxLength": null,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": null,
+     "columnType": null,
+     "tab": "LEG-104",
+     "evidence": [
+      "screenshot"
+     ]
+    },
+    {
+     "label": "Pattern",
+     "kind": "field",
+     "type": "text",
+     "maxLength": 75,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": "PRODUCTMASTER.PATTERN",
+     "columnType": "VARCHAR2(75)",
+     "tab": null,
+     "evidence": [
+      "column PRODUCTMASTER.PATTERN VARCHAR2(75)"
+     ]
+    },
+    {
+     "label": "Sleeve Entry",
+     "kind": "heading",
+     "tab": "LEG-104",
+     "evidence": [
+      "screenshot"
+     ]
+    },
+    {
+     "label": "No Of Core",
+     "kind": "field",
+     "type": "text",
+     "maxLength": null,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": null,
+     "columnType": null,
+     "tab": "LEG-104",
+     "evidence": [
+      "screenshot"
      ]
     }
    ],
@@ -46871,29 +46290,6 @@
       "legacy item FURNACE",
       "label from prompt"
      ]
-    },
-    {
-     "label": "Last Modified",
-     "kind": "field",
-     "type": "text",
-     "item": "LASTMODIFIED",
-     "maxLength": 200,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "PLAN.LASTMODIFIED",
-     "columnType": "VARCHAR2(200)",
-     "x": 72,
-     "y": 305,
-     "tab": "LEG-107",
-     "evidence": [
-      "legacy item LASTMODIFIED",
-      "label from prompt"
-     ]
     }
    ],
    "otherLegacyText": [
@@ -47031,7 +46427,7 @@
      "y": 22
     },
     {
-     "label": "Meltno",
+     "label": "Melt No.",
      "kind": "field",
      "type": "text",
      "maxLength": 10,
@@ -48268,18 +47664,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "TEMP.DATE1",
-     "columnType": "DATE",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-110",
      "evidence": [
-      "screenshot",
-      "column TEMP.DATE1 DATE",
-      "legacy item DATE1"
-     ],
-     "item": "DATE1",
-     "databaseItem": false,
-     "x": 254,
-     "y": 36
+      "screenshot"
+     ]
     },
     {
      "label": "Pouring Planning Log",
@@ -48671,7 +48061,7 @@
      "label": "Any Date of Month",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -48681,13 +48071,8 @@
      "columnType": null,
      "tab": "LEG-111",
      "evidence": [
-      "screenshot",
-      "legacy item DATE"
-     ],
-     "item": "DATE",
-     "databaseItem": false,
-     "x": 24,
-     "y": 229
+      "screenshot"
+     ]
     },
     {
      "label": "Delivery",
@@ -49755,6 +49140,30 @@
      "y": 94
     },
     {
+     "label": "Wt.Kg",
+     "kind": "field",
+     "type": "number",
+     "item": "WT",
+     "maxLength": null,
+     "precision": 11,
+     "scale": null,
+     "options": null,
+     "formatMask": "99999.00",
+     "required": false,
+     "requiredEvidence": null,
+     "databaseItem": false,
+     "column": null,
+     "columnType": null,
+     "x": 469,
+     "y": 238,
+     "tab": null,
+     "evidence": [
+      "legacy item WT",
+      "label from prompt",
+      "format mask 99999.00"
+     ]
+    },
+    {
      "label": "Mold Production Entry",
      "kind": "heading",
      "tab": "LEG-113",
@@ -49782,7 +49191,7 @@
      "label": "labour Charge",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -49792,19 +49201,14 @@
      "columnType": null,
      "tab": "LEG-113",
      "evidence": [
-      "screenshot",
-      "legacy item LABOUR"
-     ],
-     "item": "LABOUR",
-     "databaseItem": false,
-     "x": 508,
-     "y": 130
+      "screenshot"
+     ]
     },
     {
      "label": "Less Advance",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -49814,36 +49218,7 @@
      "columnType": null,
      "tab": "LEG-113",
      "evidence": [
-      "screenshot",
-      "legacy item ADVANCE"
-     ],
-     "item": "ADVANCE",
-     "databaseItem": false,
-     "x": 509,
-     "y": 146
-    },
-    {
-     "label": "Wt.Kg",
-     "kind": "field",
-     "type": "number",
-     "item": "WT",
-     "maxLength": null,
-     "precision": 11,
-     "scale": null,
-     "options": null,
-     "formatMask": "99999.00",
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": false,
-     "column": null,
-     "columnType": null,
-     "x": 469,
-     "y": 238,
-     "tab": null,
-     "evidence": [
-      "legacy item WT",
-      "label from prompt",
-      "format mask 99999.00"
+      "screenshot"
      ]
     }
    ],
@@ -50250,17 +49625,13 @@
       "Product Code Not Found",
       "OA Not Found or Does Not Match For This Product And Grade"
      ],
-     "column": null,
-     "columnType": null,
+     "column": "LASTRANDOMDIM.PRODUCT",
+     "columnType": "VARCHAR2(10)",
      "tab": "LEG-115",
      "evidence": [
       "screenshot",
-      "legacy item PRODUCT_D"
-     ],
-     "item": "PRODUCT_D",
-     "databaseItem": true,
-     "x": 421,
-     "y": 205
+      "column LASTRANDOMDIM.PRODUCT VARCHAR2(10)"
+     ]
     },
     {
      "label": "Pour",
@@ -50272,16 +49643,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "HEATWEIGHT.POUR",
+     "columnType": "NUMBER(11,3)",
      "tab": null,
      "evidence": [
-      "legacy item P_POUR"
-     ],
-     "item": "P_POUR",
-     "databaseItem": true,
-     "x": 566,
-     "y": 205
+      "column HEATWEIGHT.POUR NUMBER(11,3)"
+     ]
     },
     {
      "label": "Grade",
@@ -50870,7 +50237,7 @@
      "label": "Order Baln",
      "kind": "field",
      "type": "text",
-     "maxLength": 8,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -50880,13 +50247,8 @@
      "columnType": null,
      "tab": "LEG-115",
      "evidence": [
-      "screenshot",
-      "legacy item ORD"
-     ],
-     "item": "ORD",
-     "databaseItem": false,
-     "x": 425,
-     "y": 283
+      "screenshot"
+     ]
     },
     {
      "label": "To Pour",
@@ -51586,24 +50948,18 @@
      "label": "Test Bar",
      "kind": "field",
      "type": "text",
-     "maxLength": 11,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "POUR.T",
-     "columnType": "CHAR(2)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-116",
      "evidence": [
-      "screenshot",
-      "column POUR.T CHAR(2)",
-      "legacy item T"
-     ],
-     "item": "T",
-     "databaseItem": false,
-     "x": 449,
-     "y": 175
+      "screenshot"
+     ]
     },
     {
      "label": "Pourdate",
@@ -51950,29 +51306,6 @@
      ]
     },
     {
-     "label": "Lastmodified",
-     "kind": "field",
-     "type": "text",
-     "item": "LASTMODIFIED",
-     "maxLength": 100,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "POUR.LASTMODIFIED",
-     "columnType": "VARCHAR2(150)",
-     "x": 1033,
-     "y": 22,
-     "tab": null,
-     "evidence": [
-      "legacy item LASTMODIFIED",
-      "label from prompt"
-     ]
-    },
-    {
      "label": "OA No.",
      "kind": "field",
      "type": "text",
@@ -52138,7 +51471,7 @@
      "label": "First Stage",
      "kind": "field",
      "type": "text",
-     "maxLength": 1,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -52148,13 +51481,8 @@
      "columnType": null,
      "tab": "LEG-118",
      "evidence": [
-      "screenshot",
-      "legacy item STAGE"
-     ],
-     "item": "STAGE",
-     "databaseItem": false,
-     "x": 484,
-     "y": 70
+      "screenshot"
+     ]
     },
     {
      "label": "Final Stage",
@@ -52511,25 +51839,19 @@
     {
      "label": "Rejection/Grade Summary",
      "kind": "field",
-     "type": "number",
+     "type": "text",
      "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "ORDER_ACCEPTANCE.REJ",
-     "columnType": "NUMBER",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-119",
      "evidence": [
-      "screenshot",
-      "column ORDER_ACCEPTANCE.REJ NUMBER",
-      "legacy item REJ"
-     ],
-     "item": "REJ",
-     "databaseItem": false,
-     "x": 19,
-     "y": 171
+      "screenshot"
+     ]
     },
     {
      "label": "Clear All Selection",
@@ -52858,17 +52180,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "TEMP.DATE1",
-     "columnType": "DATE",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column TEMP.DATE1 DATE",
-      "legacy item DATE1"
-     ],
-     "item": "DATE1",
-     "databaseItem": false,
-     "x": 84,
-     "y": 31
+      "screenshot"
+     ]
     },
     {
      "label": "Selection",
@@ -54240,7 +53557,7 @@
      "label": "Drawing No",
      "kind": "field",
      "type": "text",
-     "maxLength": 250,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -54250,13 +53567,8 @@
      "columnType": null,
      "tab": "LEG-121",
      "evidence": [
-      "screenshot",
-      "legacy item DRAW"
-     ],
-     "item": "DRAW",
-     "databaseItem": false,
-     "x": 290,
-     "y": 299
+      "screenshot"
+     ]
     },
     {
      "label": "Report No",
@@ -56492,7 +55804,7 @@
      "label": "Drawing No",
      "kind": "field",
      "type": "text",
-     "maxLength": 250,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -56502,13 +55814,8 @@
      "columnType": null,
      "tab": "LEG-125",
      "evidence": [
-      "screenshot",
-      "legacy item DRAW"
-     ],
-     "item": "DRAW",
-     "databaseItem": false,
-     "x": 474,
-     "y": 294
+      "screenshot"
+     ]
     }
    ],
    "otherLegacyText": [
@@ -57686,27 +56993,34 @@
      "y": 286
     },
     {
+     "label": "Magnetic Particle Test Inspection Report",
+     "kind": "heading",
+     "tab": "LEG-126",
+     "evidence": [
+      "screenshot"
+     ]
+    },
+    {
      "label": "LIST58",
      "kind": "field",
      "type": "text",
-     "item": "INCHARGE",
      "maxLength": 50,
      "precision": null,
      "scale": null,
-     "options": null,
-     "formatMask": null,
      "required": false,
      "requiredEvidence": null,
-     "databaseItem": true,
+     "validationMessages": [],
      "column": "MPT.INCHARGE",
      "columnType": "VARCHAR2(50)",
-     "x": 258,
-     "y": 378,
      "tab": null,
      "evidence": [
-      "legacy item INCHARGE",
-      "label from prompt"
-     ]
+      "column MPT.INCHARGE VARCHAR2(50)",
+      "legacy item INCHARGE"
+     ],
+     "item": "INCHARGE",
+     "databaseItem": true,
+     "x": 258,
+     "y": 378
     },
     {
      "label": "Desigination_Opr",
@@ -57752,31 +57066,6 @@
      "evidence": [
       "legacy item DESN2",
       "label from prompt"
-     ]
-    },
-    {
-     "label": "Magnetic Particle Test Inspection Report",
-     "kind": "heading",
-     "tab": "LEG-126",
-     "evidence": [
-      "screenshot"
-     ]
-    },
-    {
-     "label": "Incharge",
-     "kind": "field",
-     "type": "text",
-     "maxLength": 50,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": "MPT.INCHARGE",
-     "columnType": "VARCHAR2(50)",
-     "tab": null,
-     "evidence": [
-      "column MPT.INCHARGE VARCHAR2(50)"
      ]
     }
    ],
@@ -59757,24 +59046,18 @@
      "label": "Thickness (mm)",
      "kind": "field",
      "type": "text",
-     "maxLength": 20,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "RGPYDETAILS.THICK",
-     "columnType": "VARCHAR2(20)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-129",
      "evidence": [
-      "screenshot",
-      "column RGPYDETAILS.THICK VARCHAR2(20)",
-      "legacy item THICK"
-     ],
-     "item": "THICK",
-     "databaseItem": true,
-     "x": 244,
-     "y": 207
+      "screenshot"
+     ]
     },
     {
      "label": "Designation",
@@ -61369,18 +60652,24 @@
      "label": "Responsible Person",
      "kind": "field",
      "type": "text",
-     "maxLength": null,
+     "maxLength": 100,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "RJWT.RESPONSIBLE",
+     "columnType": "VARCHAR2(100)",
      "tab": "LEG-132",
      "evidence": [
-      "screenshot"
-     ]
+      "screenshot",
+      "column RJWT.RESPONSIBLE VARCHAR2(100)",
+      "legacy item RESPONSIBLE"
+     ],
+     "item": "RESPONSIBLE",
+     "databaseItem": false,
+     "x": 465,
+     "y": 85
     }
    ],
    "otherLegacyText": [
@@ -61760,29 +61049,6 @@
      "tab": null,
      "evidence": [
       "legacy item RATE",
-      "label from prompt"
-     ]
-    },
-    {
-     "label": "Last Modified",
-     "kind": "field",
-     "type": "text",
-     "item": "LASTMODIFIED",
-     "maxLength": 200,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "UTMASTER.LASTMODIFIED",
-     "columnType": "VARCHAR2(200)",
-     "x": 557,
-     "y": 59,
-     "tab": null,
-     "evidence": [
-      "legacy item LASTMODIFIED",
       "label from prompt"
      ]
     },
@@ -63102,7 +62368,7 @@
      "label": "Product",
      "kind": "field",
      "type": "text",
-     "maxLength": 5,
+     "maxLength": 10,
      "precision": null,
      "scale": null,
      "required": false,
@@ -63112,18 +62378,18 @@
      "columnType": null,
      "tab": null,
      "evidence": [
-      "legacy item P"
+      "legacy item PRODUC"
      ],
-     "item": "P",
-     "databaseItem": false,
-     "x": 132,
-     "y": 173
+     "item": "PRODUC",
+     "databaseItem": true,
+     "x": 249,
+     "y": 20
     },
     {
      "label": "Grade",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": 100,
      "precision": null,
      "scale": null,
      "required": false,
@@ -63132,17 +62398,13 @@
       "Grade Not Found",
       "Cast-Type or Alloy Code Not Found in Grade Master"
      ],
-     "column": null,
-     "columnType": null,
+     "column": "ADTEMP.GRADE",
+     "columnType": "VARCHAR2(100)",
      "tab": "LEG-137",
      "evidence": [
       "screenshot",
-      "legacy item GR"
-     ],
-     "item": "GR",
-     "databaseItem": false,
-     "x": 64,
-     "y": 36
+      "column ADTEMP.GRADE VARCHAR2(100)"
+     ]
     },
     {
      "label": "Impact",
@@ -63176,16 +62438,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "ORDER_ACCEPTANCE.POUR",
+     "columnType": "NUMBER",
      "tab": null,
      "evidence": [
-      "legacy item PO"
-     ],
-     "item": "PO",
-     "databaseItem": false,
-     "x": 73,
-     "y": 239
+      "column ORDER_ACCEPTANCE.POUR NUMBER"
+     ]
     },
     {
      "label": "Reje",
@@ -63197,16 +62455,17 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "POUR.REJE",
+     "columnType": "NUMBER(5,0)",
      "tab": null,
      "evidence": [
-      "legacy item R_"
+      "column POUR.REJE NUMBER(5,0)",
+      "legacy item REJE"
      ],
-     "item": "R_",
-     "databaseItem": false,
-     "x": 293,
-     "y": 234
+     "item": "REJE",
+     "databaseItem": true,
+     "x": 154,
+     "y": 23
     },
     {
      "label": "Desp",
@@ -63234,7 +62493,7 @@
      "label": "Desp Qty",
      "kind": "field",
      "type": "text",
-     "maxLength": 5,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -63244,13 +62503,8 @@
      "columnType": null,
      "tab": "LEG-137",
      "evidence": [
-      "screenshot",
-      "legacy item DE"
-     ],
-     "item": "DE",
-     "databaseItem": false,
-     "x": 203,
-     "y": 173
+      "screenshot"
+     ]
     },
     {
      "label": "Desp Wt.Kg",
@@ -63274,7 +62528,7 @@
      "label": "Pro forma",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": 50,
      "precision": null,
      "scale": null,
      "required": false,
@@ -63284,12 +62538,8 @@
      "columnType": null,
      "tab": null,
      "evidence": [
-      "legacy item PR"
-     ],
-     "item": "PR",
-     "databaseItem": false,
-     "x": 5,
-     "y": 36
+      "screenshot"
+     ]
     },
     {
      "label": "Spl",
@@ -63312,7 +62562,7 @@
      "label": "Remark",
      "kind": "field",
      "type": "text",
-     "maxLength": 1000,
+     "maxLength": 50,
      "precision": null,
      "scale": null,
      "required": false,
@@ -63322,13 +62572,8 @@
      "columnType": null,
      "tab": "LEG-137",
      "evidence": [
-      "screenshot",
-      "legacy item OAREMARK"
-     ],
-     "item": "OAREMARK",
-     "databaseItem": false,
-     "x": 14,
-     "y": 190
+      "screenshot"
+     ]
     },
     {
      "label": "Rate",
@@ -63375,22 +62620,18 @@
      "label": "Oano",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": 25,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "ADTEMP.OANO",
+     "columnType": "VARCHAR2(25)",
      "tab": null,
      "evidence": [
-      "legacy item OA"
-     ],
-     "item": "OA",
-     "databaseItem": false,
-     "x": 359,
-     "y": 239
+      "column ADTEMP.OANO VARCHAR2(25)"
+     ]
     },
     {
      "label": "Performa",
@@ -63402,16 +62643,17 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "DESPATCH.PERFORMA",
+     "columnType": "VARCHAR2(50)",
      "tab": null,
      "evidence": [
-      "legacy item PERFORM_A"
+      "column DESPATCH.PERFORMA VARCHAR2(50)",
+      "legacy item PERFORMA"
      ],
-     "item": "PERFORM_A",
-     "databaseItem": true,
-     "x": 426,
-     "y": 13
+     "item": "PERFORMA",
+     "databaseItem": false,
+     "x": 446,
+     "y": 23
     },
     {
      "label": "Code",
@@ -63448,16 +62690,17 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "DESPATCHPLANCHARGE.CHARGE",
+     "columnType": "NUMBER(11,3)",
      "tab": null,
      "evidence": [
-      "legacy item CHARG"
+      "column DESPATCHPLANCHARGE.CHARGE NUMBER(11,3)",
+      "legacy item CHARGE"
      ],
-     "item": "CHARG",
+     "item": "CHARGE",
      "databaseItem": true,
-     "x": 440,
-     "y": 20
+     "x": 397,
+     "y": 31
     },
     {
      "label": "Chargeper",
@@ -63485,30 +62728,7 @@
      "label": "Advice New",
      "kind": "field",
      "type": "text",
-     "maxLength": 10,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": "ADVICEREMARK.ADVICENO",
-     "columnType": "VARCHAR2(10)",
-     "tab": "LEG-137",
-     "evidence": [
-      "screenshot",
-      "column ADVICEREMARK.ADVICENO VARCHAR2(10)",
-      "legacy item ADVICENO"
-     ],
-     "item": "ADVICENO",
-     "databaseItem": false,
-     "x": 537,
-     "y": 1
-    },
-    {
-     "label": "Grade Adv",
-     "kind": "field",
-     "type": "text",
-     "maxLength": 100,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -63518,13 +62738,25 @@
      "columnType": null,
      "tab": "LEG-137",
      "evidence": [
-      "screenshot",
-      "legacy item ADV"
-     ],
-     "item": "ADV",
-     "databaseItem": false,
-     "x": 554,
-     "y": 244
+      "screenshot"
+     ]
+    },
+    {
+     "label": "Grade Adv",
+     "kind": "field",
+     "type": "text",
+     "maxLength": null,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": null,
+     "columnType": null,
+     "tab": "LEG-137",
+     "evidence": [
+      "screenshot"
+     ]
     },
     {
      "label": "Grade Abs",
@@ -63553,11 +62785,11 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "ADTEMP.CCODE",
-     "columnType": "VARCHAR2(5)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column ADTEMP.CCODE VARCHAR2(5)"
+      "screenshot"
      ]
     },
     {
@@ -63587,17 +62819,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "DESPATCH.LCDATE",
+     "column": "DESPATCHPLANCHARGE.DCDATE",
      "columnType": "DATE",
      "tab": null,
      "evidence": [
-      "column DESPATCH.LCDATE DATE",
-      "legacy item LCDATE"
-     ],
-     "item": "LCDATE",
-     "databaseItem": false,
-     "x": 662,
-     "y": 23
+      "column DESPATCHPLANCHARGE.DCDATE DATE"
+     ]
     },
     {
      "label": "Ccode",
@@ -64611,29 +63838,6 @@
      "y": 25
     },
     {
-     "label": "Lastmodified",
-     "kind": "field",
-     "type": "text",
-     "item": "LASTMODIFIED",
-     "maxLength": 150,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "DESPATCH.LASTMODIFIED",
-     "columnType": "VARCHAR2(150)",
-     "x": 1574,
-     "y": 25,
-     "tab": null,
-     "evidence": [
-      "legacy item LASTMODIFIED",
-      "label from prompt"
-     ]
-    },
-    {
      "label": "Despatch View",
      "kind": "heading",
      "tab": "LEG-138",
@@ -64729,7 +63933,7 @@
      "label": "Grade",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": 20,
      "precision": null,
      "scale": null,
      "required": false,
@@ -64738,17 +63942,13 @@
       "Grade Not Found",
       "Cast-Type or Alloy Code Not Found in Grade Master"
      ],
-     "column": null,
-     "columnType": null,
+     "column": "DESPATCHPLAN.GRADE",
+     "columnType": "VARCHAR2(20)",
      "tab": "LEG-139",
      "evidence": [
       "screenshot",
-      "legacy item GR"
-     ],
-     "item": "GR",
-     "databaseItem": false,
-     "x": 64,
-     "y": 36
+      "column DESPATCHPLAN.GRADE VARCHAR2(20)"
+     ]
     },
     {
      "label": "Ccod",
@@ -64760,11 +63960,11 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "DESPATCHPLAN.CCODE",
-     "columnType": "VARCHAR2(2)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column DESPATCHPLAN.CCODE VARCHAR2(2)"
+      "screenshot"
      ]
     },
     {
@@ -64799,16 +63999,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "POUR.POUR",
+     "columnType": "NUMBER(5,0)",
      "tab": null,
      "evidence": [
-      "legacy item P"
-     ],
-     "item": "P",
-     "databaseItem": false,
-     "x": 119,
-     "y": 173
+      "column POUR.POUR NUMBER(5,0)"
+     ]
     },
     {
      "label": "Reje",
@@ -64847,12 +64043,12 @@
      "tab": "LEG-139",
      "evidence": [
       "screenshot",
-      "legacy item DE"
+      "legacy item DES_P"
      ],
-     "item": "DE",
-     "databaseItem": false,
-     "x": 164,
-     "y": 173
+     "item": "DES_P",
+     "databaseItem": true,
+     "x": 247,
+     "y": 13
     },
     {
      "label": "Plan",
@@ -64910,7 +64106,7 @@
      "label": "Pro forma",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": 50,
      "precision": null,
      "scale": null,
      "required": false,
@@ -64920,12 +64116,8 @@
      "columnType": null,
      "tab": null,
      "evidence": [
-      "legacy item PR"
-     ],
-     "item": "PR",
-     "databaseItem": false,
-     "x": 5,
-     "y": 36
+      "screenshot"
+     ]
     },
     {
      "label": "Spl",
@@ -64948,24 +64140,18 @@
      "label": "Remark",
      "kind": "field",
      "type": "text",
-     "maxLength": 1000,
+     "maxLength": 500,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "HCHM.REM",
-     "columnType": "VARCHAR2(100)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-139",
      "evidence": [
-      "screenshot",
-      "column HCHM.REM VARCHAR2(100)",
-      "legacy item REM"
-     ],
-     "item": "REM",
-     "databaseItem": false,
-     "x": 498,
-     "y": 313
+      "screenshot"
+     ]
     },
     {
      "label": "Rate",
@@ -65012,22 +64198,18 @@
      "label": "Oano",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": 10,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "DESPATCHPLAN.OANO",
+     "columnType": "VARCHAR2(10)",
      "tab": null,
      "evidence": [
-      "legacy item OA"
-     ],
-     "item": "OA",
-     "databaseItem": false,
-     "x": 359,
-     "y": 239
+      "column DESPATCHPLAN.OANO VARCHAR2(10)"
+     ]
     },
     {
      "label": "Performa",
@@ -65055,7 +64237,7 @@
      "label": "Code",
      "kind": "field",
      "type": "text",
-     "maxLength": 2,
+     "maxLength": 4,
      "precision": null,
      "scale": null,
      "required": false,
@@ -65064,17 +64246,17 @@
       "Cast-Type or Alloy Code Not Found in Grade Master",
       "Tax Code Not Found In Order Acceptance"
      ],
-     "column": "DESPATCHPLANCHARGE.SCODE",
+     "column": "CONTROL.CODE",
      "columnType": "VARCHAR2(2)",
      "tab": null,
      "evidence": [
-      "column DESPATCHPLANCHARGE.SCODE VARCHAR2(2)",
-      "legacy item SCODE"
+      "column CONTROL.CODE VARCHAR2(2)",
+      "legacy item CODE"
      ],
-     "item": "SCODE",
+     "item": "CODE",
      "databaseItem": true,
-     "x": 14,
-     "y": 20
+     "x": 12,
+     "y": 32
     },
     {
      "label": "Charge",
@@ -65147,17 +64329,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "OFFERING.LCDATE",
+     "column": "DESPATCHPLANCHARGE.DCDATE",
      "columnType": "DATE",
      "tab": null,
      "evidence": [
-      "column OFFERING.LCDATE DATE",
-      "legacy item LCDATE"
-     ],
-     "item": "LCDATE",
-     "databaseItem": false,
-     "x": 662,
-     "y": 23
+      "column DESPATCHPLANCHARGE.DCDATE DATE"
+     ]
     },
     {
      "label": "Ccode",
@@ -65248,44 +64425,27 @@
      ]
     },
     {
-     "label": "LIST251",
-     "kind": "field",
-     "type": "text",
-     "item": "TRANS",
-     "maxLength": 1000,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": false,
-     "column": "PERFORMADETAIL.TRANS",
-     "columnType": "VARCHAR2(100)",
-     "x": 367,
-     "y": 313,
-     "tab": null,
-     "evidence": [
-      "legacy item TRANS",
-      "label from prompt"
-     ]
-    },
-    {
      "label": "Transport",
      "kind": "field",
      "type": "text",
-     "maxLength": null,
+     "maxLength": 1000,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "PERFORMADETAIL.TRANS",
+     "columnType": "VARCHAR2(100)",
      "tab": "LEG-139",
      "evidence": [
-      "screenshot"
-     ]
+      "screenshot",
+      "column PERFORMADETAIL.TRANS VARCHAR2(100)",
+      "legacy item TRANS"
+     ],
+     "item": "TRANS",
+     "databaseItem": false,
+     "x": 367,
+     "y": 313
     }
    ],
    "otherLegacyText": [
@@ -66258,23 +65418,18 @@
      "label": "Delivery",
      "kind": "field",
      "type": "text",
-     "maxLength": 500,
+     "maxLength": 100,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "DAMOUNT.DELIVERY_AT",
-     "columnType": "VARCHAR2(100)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column DAMOUNT.DELIVERY_AT VARCHAR2(100)",
-      "legacy item DELIVERY_AT"
-     ],
-     "item": "DELIVERY_AT",
-     "databaseItem": true,
-     "x": 451,
-     "y": 230
+      "screenshot"
+     ]
     },
     {
      "label": "Oano",
@@ -66382,17 +65537,13 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "DESPATCH.DESP",
+     "columnType": "NUMBER(5,0)",
      "tab": "LEG-143",
      "evidence": [
       "screenshot",
-      "legacy item DES"
-     ],
-     "item": "DES",
-     "databaseItem": false,
-     "x": 99,
-     "y": 37
+      "column DESPATCH.DESP NUMBER(5,0)"
+     ]
     },
     {
      "label": "Weight",
@@ -66542,22 +65693,18 @@
      "label": "Dcno",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": 15,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "DAMOUNT.DCNO",
+     "columnType": "VARCHAR2(15)",
      "tab": null,
      "evidence": [
-      "legacy item DC"
-     ],
-     "item": "DC",
-     "databaseItem": false,
-     "x": 324,
-     "y": 125
+      "column DAMOUNT.DCNO VARCHAR2(15)"
+     ]
     },
     {
      "label": "Heat No",
@@ -66605,17 +65752,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "DAMOUNT.FRTAMT",
-     "columnType": "NUMBER(11,2)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column DAMOUNT.FRTAMT NUMBER(11,2)",
-      "legacy item FRTAMT"
-     ],
-     "item": "FRTAMT",
-     "databaseItem": true,
-     "x": 356,
-     "y": 267
+      "screenshot"
+     ]
     },
     {
      "label": "Amertation Val",
@@ -66661,11 +65803,11 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "DESPATCH.IMPACT",
-     "columnType": "NUMBER(11,2)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column DESPATCH.IMPACT NUMBER(11,2)"
+      "screenshot"
      ]
     },
     {
@@ -66807,17 +65949,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "DAMOUNT.MODEOFTRANS",
-     "columnType": "VARCHAR2(100)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column DAMOUNT.MODEOFTRANS VARCHAR2(100)",
-      "legacy item MODEOFTRANS"
-     ],
-     "item": "MODEOFTRANS",
-     "databaseItem": true,
-     "x": 262,
-     "y": 183
+      "screenshot"
+     ]
     },
     {
      "label": "Transport",
@@ -66873,17 +66010,18 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "DAMOUNT.LRDATE",
+     "columnType": "DATE",
      "tab": "LEG-143",
      "evidence": [
       "screenshot",
-      "legacy item DATE"
+      "column DAMOUNT.LRDATE DATE",
+      "legacy item LRDATE"
      ],
-     "item": "DATE",
-     "databaseItem": false,
-     "x": 193,
-     "y": 274
+     "item": "LRDATE",
+     "databaseItem": true,
+     "x": 350,
+     "y": 325
     },
     {
      "label": "Remarks",
@@ -66895,17 +66033,17 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "DAMOUNT.REMA",
-     "columnType": "VARCHAR2(50)",
+     "column": "DAMOUNT.REMARKS",
+     "columnType": "VARCHAR2(4000)",
      "tab": null,
      "evidence": [
-      "column DAMOUNT.REMA VARCHAR2(50)",
-      "legacy item REMA"
+      "column DAMOUNT.REMARKS VARCHAR2(4000)",
+      "legacy item REMARKS"
      ],
-     "item": "REMA",
+     "item": "REMARKS",
      "databaseItem": true,
-     "x": 494,
-     "y": 270
+     "x": 452,
+     "y": 249
     },
     {
      "label": "Payment",
@@ -67023,7 +66161,7 @@
      "label": "Cust Wise",
      "kind": "field",
      "type": "text",
-     "maxLength": 2,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -67033,13 +66171,8 @@
      "columnType": null,
      "tab": "LEG-143",
      "evidence": [
-      "screenshot",
-      "legacy item CUS"
-     ],
-     "item": "CUS",
-     "databaseItem": false,
-     "x": 554,
-     "y": 201
+      "screenshot"
+     ]
     },
     {
      "label": "Dcdate",
@@ -67051,16 +66184,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "DAMOUNTCHARGE.DCDATE",
+     "columnType": "DATE",
      "tab": null,
      "evidence": [
-      "legacy item ADDATE"
-     ],
-     "item": "ADDATE",
-     "databaseItem": false,
-     "x": 62,
-     "y": 275
+      "column DAMOUNTCHARGE.DCDATE DATE"
+     ]
     },
     {
      "label": "Chargefor",
@@ -67140,12 +66269,11 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "DESPATCH.ADVICEDATE",
-     "columnType": "DATE",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-143",
      "evidence": [
-      "screenshot",
-      "column DESPATCH.ADVICEDATE DATE"
+      "screenshot"
      ]
     },
     {
@@ -67225,22 +66353,18 @@
      "label": "Name",
      "kind": "field",
      "type": "text",
-     "maxLength": 500,
+     "maxLength": 100,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "CONTROL.NAME",
+     "columnType": "VARCHAR2(100)",
      "tab": null,
      "evidence": [
-      "legacy item NAM"
-     ],
-     "item": "NAM",
-     "databaseItem": false,
-     "x": 39,
-     "y": 125
+      "column CONTROL.NAME VARCHAR2(100)"
+     ]
     },
     {
      "label": "MP Charge",
@@ -67252,11 +66376,11 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "DAMOUNT.DPCHARGE",
-     "columnType": "NUMBER(12,2)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column DAMOUNT.DPCHARGE NUMBER(12,2)"
+      "screenshot"
      ]
     },
     {
@@ -67682,23 +66806,18 @@
      "label": "Delivery",
      "kind": "field",
      "type": "text",
-     "maxLength": 500,
+     "maxLength": 100,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "DAMOUNT.DELIVERY_AT",
-     "columnType": "VARCHAR2(100)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column DAMOUNT.DELIVERY_AT VARCHAR2(100)",
-      "legacy item DELIVERY_AT"
-     ],
-     "item": "DELIVERY_AT",
-     "databaseItem": true,
-     "x": 451,
-     "y": 230
+      "screenshot"
+     ]
     },
     {
      "label": "Oano",
@@ -67806,17 +66925,13 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "DESPATCH.DESP",
+     "columnType": "NUMBER(5,0)",
      "tab": "LEG-144",
      "evidence": [
       "screenshot",
-      "legacy item DES"
-     ],
-     "item": "DES",
-     "databaseItem": false,
-     "x": 99,
-     "y": 37
+      "column DESPATCH.DESP NUMBER(5,0)"
+     ]
     },
     {
      "label": "Weight",
@@ -67966,22 +67081,18 @@
      "label": "Dcno",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": 15,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "DAMOUNT.DCNO",
+     "columnType": "VARCHAR2(15)",
      "tab": null,
      "evidence": [
-      "legacy item DC"
-     ],
-     "item": "DC",
-     "databaseItem": false,
-     "x": 324,
-     "y": 125
+      "column DAMOUNT.DCNO VARCHAR2(15)"
+     ]
     },
     {
      "label": "Heat No",
@@ -68029,17 +67140,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "DAMOUNT.FRTAMT",
-     "columnType": "NUMBER(11,2)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column DAMOUNT.FRTAMT NUMBER(11,2)",
-      "legacy item FRTAMT"
-     ],
-     "item": "FRTAMT",
-     "databaseItem": true,
-     "x": 356,
-     "y": 267
+      "screenshot"
+     ]
     },
     {
      "label": "Amertation Val",
@@ -68085,11 +67191,11 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "DESPATCH.IMPACT",
-     "columnType": "NUMBER(11,2)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column DESPATCH.IMPACT NUMBER(11,2)"
+      "screenshot"
      ]
     },
     {
@@ -68231,17 +67337,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "DAMOUNT.MODEOFTRANS",
-     "columnType": "VARCHAR2(100)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column DAMOUNT.MODEOFTRANS VARCHAR2(100)",
-      "legacy item MODEOFTRANS"
-     ],
-     "item": "MODEOFTRANS",
-     "databaseItem": true,
-     "x": 262,
-     "y": 183
+      "screenshot"
+     ]
     },
     {
      "label": "Transport",
@@ -68297,17 +67398,18 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "DAMOUNT.LRDATE",
+     "columnType": "DATE",
      "tab": "LEG-144",
      "evidence": [
       "screenshot",
-      "legacy item DATE"
+      "column DAMOUNT.LRDATE DATE",
+      "legacy item LRDATE"
      ],
-     "item": "DATE",
-     "databaseItem": false,
-     "x": 193,
-     "y": 274
+     "item": "LRDATE",
+     "databaseItem": true,
+     "x": 350,
+     "y": 325
     },
     {
      "label": "Remarks",
@@ -68319,17 +67421,17 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "DAMOUNT.REMA",
-     "columnType": "VARCHAR2(50)",
+     "column": "DAMOUNT.REMARKS",
+     "columnType": "VARCHAR2(4000)",
      "tab": null,
      "evidence": [
-      "column DAMOUNT.REMA VARCHAR2(50)",
-      "legacy item REMA"
+      "column DAMOUNT.REMARKS VARCHAR2(4000)",
+      "legacy item REMARKS"
      ],
-     "item": "REMA",
+     "item": "REMARKS",
      "databaseItem": true,
-     "x": 494,
-     "y": 270
+     "x": 452,
+     "y": 249
     },
     {
      "label": "Payment",
@@ -68447,7 +67549,7 @@
      "label": "Cust Wise",
      "kind": "field",
      "type": "text",
-     "maxLength": 2,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -68457,13 +67559,8 @@
      "columnType": null,
      "tab": "LEG-144",
      "evidence": [
-      "screenshot",
-      "legacy item CUS"
-     ],
-     "item": "CUS",
-     "databaseItem": false,
-     "x": 554,
-     "y": 201
+      "screenshot"
+     ]
     },
     {
      "label": "Dcdate",
@@ -68475,16 +67572,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "DAMOUNTCHARGE.DCDATE",
+     "columnType": "DATE",
      "tab": null,
      "evidence": [
-      "legacy item ADDATE"
-     ],
-     "item": "ADDATE",
-     "databaseItem": false,
-     "x": 62,
-     "y": 275
+      "column DAMOUNTCHARGE.DCDATE DATE"
+     ]
     },
     {
      "label": "Chargefor",
@@ -68564,12 +67657,11 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "DESPATCH.ADVICEDATE",
-     "columnType": "DATE",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-144",
      "evidence": [
-      "screenshot",
-      "column DESPATCH.ADVICEDATE DATE"
+      "screenshot"
      ]
     },
     {
@@ -68632,22 +67724,18 @@
      "label": "Name",
      "kind": "field",
      "type": "text",
-     "maxLength": 500,
+     "maxLength": 100,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "CONTROL.NAME",
+     "columnType": "VARCHAR2(100)",
      "tab": null,
      "evidence": [
-      "legacy item NAM"
-     ],
-     "item": "NAM",
-     "databaseItem": false,
-     "x": 39,
-     "y": 125
+      "column CONTROL.NAME VARCHAR2(100)"
+     ]
     },
     {
      "label": "MP Charge",
@@ -68659,11 +67747,11 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "DAMOUNT.DPCHARGE",
-     "columnType": "NUMBER(12,2)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column DAMOUNT.DPCHARGE NUMBER(12,2)"
+      "screenshot"
      ]
     },
     {
@@ -69200,28 +68288,18 @@
     {
      "label": "Cust Addres",
      "kind": "field",
-     "type": "select",
+     "type": "text",
      "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "TEMP.C",
-     "columnType": "VARCHAR2(100)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-145",
      "evidence": [
-      "screenshot",
-      "column TEMP.C VARCHAR2(100)",
-      "legacy item C"
-     ],
-     "item": "C",
-     "databaseItem": false,
-     "x": 202,
-     "y": 216,
-     "options": [
-      "Y",
-      "N"
+      "screenshot"
      ]
     },
     {
@@ -69253,67 +68331,6 @@
      "databaseItem": false,
      "x": 5,
      "y": 24
-    },
-    {
-     "label": "To Date",
-     "kind": "field",
-     "type": "text",
-     "maxLength": null,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": null,
-     "columnType": null,
-     "tab": "LEG-145",
-     "evidence": [
-      "screenshot"
-     ]
-    },
-    {
-     "label": "Customer",
-     "kind": "field",
-     "type": "text",
-     "maxLength": 100,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": null,
-     "columnType": null,
-     "tab": "LEG-145",
-     "evidence": [
-      "screenshot",
-      "legacy item CUST"
-     ],
-     "item": "CUST",
-     "databaseItem": false,
-     "x": 199,
-     "y": 23
-    },
-    {
-     "label": "Copies",
-     "kind": "field",
-     "type": "text",
-     "maxLength": 3,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": null,
-     "columnType": null,
-     "tab": "LEG-145",
-     "evidence": [
-      "screenshot",
-      "legacy item COP"
-     ],
-     "item": "COP",
-     "databaseItem": false,
-     "x": 296,
-     "y": 52
     },
     {
      "label": "D.C No",
@@ -69359,6 +68376,57 @@
      "evidence": [
       "legacy item COPY",
       "label from prompt"
+     ]
+    },
+    {
+     "label": "To Date",
+     "kind": "field",
+     "type": "text",
+     "maxLength": null,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": null,
+     "columnType": null,
+     "tab": "LEG-145",
+     "evidence": [
+      "screenshot"
+     ]
+    },
+    {
+     "label": "Customer",
+     "kind": "field",
+     "type": "text",
+     "maxLength": null,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": null,
+     "columnType": null,
+     "tab": "LEG-145",
+     "evidence": [
+      "screenshot"
+     ]
+    },
+    {
+     "label": "Copies",
+     "kind": "field",
+     "type": "text",
+     "maxLength": null,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": null,
+     "columnType": null,
+     "tab": "LEG-145",
+     "evidence": [
+      "screenshot"
      ]
     }
    ],
@@ -70709,24 +69777,18 @@
      "label": "Alloys Wise",
      "kind": "field",
      "type": "text",
-     "maxLength": 100,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "TEMP.A",
-     "columnType": "VARCHAR2(100)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-147",
      "evidence": [
-      "screenshot",
-      "column TEMP.A VARCHAR2(100)",
-      "legacy item A"
-     ],
-     "item": "A",
-     "databaseItem": true,
-     "x": 307,
-     "y": 91
+      "screenshot"
+     ]
     },
     {
      "label": "Export Sales Report Alloy wise",
@@ -71623,31 +70685,25 @@
     {
      "label": "Despatch Advise",
      "kind": "field",
-     "type": "number",
+     "type": "text",
      "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "DESPATCH.DESP",
-     "columnType": "NUMBER(5,0)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-148",
      "evidence": [
-      "screenshot",
-      "column DESPATCH.DESP NUMBER(5,0)",
-      "legacy item DESP"
-     ],
-     "item": "DESP",
-     "databaseItem": true,
-     "x": 115,
-     "y": 23
+      "screenshot"
+     ]
     },
     {
      "label": "Product",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": 10,
      "precision": null,
      "scale": null,
      "required": false,
@@ -71657,18 +70713,18 @@
      "columnType": null,
      "tab": null,
      "evidence": [
-      "legacy item PR"
+      "legacy item PRODUC"
      ],
-     "item": "PR",
-     "databaseItem": false,
-     "x": 5,
-     "y": 36
+     "item": "PRODUC",
+     "databaseItem": true,
+     "x": 249,
+     "y": 20
     },
     {
      "label": "Grade",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": 20,
      "precision": null,
      "scale": null,
      "required": false,
@@ -71676,16 +70732,12 @@
      "validationMessages": [
       "Grade Not Found"
      ],
-     "column": null,
-     "columnType": null,
+     "column": "CSWT.GRADE",
+     "columnType": "VARCHAR2(20)",
      "tab": null,
      "evidence": [
-      "legacy item GR"
-     ],
-     "item": "GR",
-     "databaseItem": false,
-     "x": 64,
-     "y": 36
+      "column CSWT.GRADE VARCHAR2(20)"
+     ]
     },
     {
      "label": "Ccod",
@@ -71697,11 +70749,11 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "CSWT.CCODE",
-     "columnType": "VARCHAR2(2)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column CSWT.CCODE VARCHAR2(2)"
+      "screenshot"
      ]
     },
     {
@@ -71736,17 +70788,13 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "CSWT.SALVAGE",
+     "columnType": "NUMBER(5,0)",
      "tab": "LEG-148",
      "evidence": [
       "screenshot",
-      "legacy item S"
-     ],
-     "item": "S",
-     "databaseItem": false,
-     "x": 482,
-     "y": 4
+      "column CSWT.SALVAGE NUMBER(5,0)"
+     ]
     },
     {
      "label": "Desp",
@@ -71758,23 +70806,24 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "DESPATCH.DESP",
+     "columnType": "NUMBER(5,0)",
      "tab": "LEG-148",
      "evidence": [
       "screenshot",
-      "legacy item DES_P"
+      "column DESPATCH.DESP NUMBER(5,0)",
+      "legacy item DESP"
      ],
-     "item": "DES_P",
+     "item": "DESP",
      "databaseItem": true,
-     "x": 247,
-     "y": 13
+     "x": 115,
+     "y": 23
     },
     {
      "label": "Desp Qty",
      "kind": "field",
      "type": "text",
-     "maxLength": 5,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -71784,13 +70833,8 @@
      "columnType": null,
      "tab": "LEG-148",
      "evidence": [
-      "screenshot",
-      "legacy item DE"
-     ],
-     "item": "DE",
-     "databaseItem": false,
-     "x": 115,
-     "y": 173
+      "screenshot"
+     ]
     },
     {
      "label": "Desp Wt.Kg",
@@ -71814,7 +70858,7 @@
      "label": "Pro forma",
      "kind": "field",
      "type": "text",
-     "maxLength": 5,
+     "maxLength": 50,
      "precision": null,
      "scale": null,
      "required": false,
@@ -71824,12 +70868,8 @@
      "columnType": null,
      "tab": null,
      "evidence": [
-      "legacy item P"
-     ],
-     "item": "P",
-     "databaseItem": false,
-     "x": 80,
-     "y": 173
+      "screenshot"
+     ]
     },
     {
      "label": "Rate",
@@ -71858,37 +70898,34 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "DESPATCH.WEIGHT",
+     "columnType": "NUMBER(11,2)",
      "tab": null,
      "evidence": [
-      "legacy item WEIGH_T"
+      "column DESPATCH.WEIGHT NUMBER(11,2)",
+      "legacy item WEIGHT"
      ],
-     "item": "WEIGH_T",
-     "databaseItem": true,
-     "x": 285,
-     "y": 13
+     "item": "WEIGHT",
+     "databaseItem": false,
+     "x": 247,
+     "y": 23
     },
     {
      "label": "Oano",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": 20,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "DESPATCH.OANO",
+     "columnType": "VARCHAR2(20)",
      "tab": null,
      "evidence": [
-      "legacy item OA"
-     ],
-     "item": "OA",
-     "databaseItem": false,
-     "x": 359,
-     "y": 239
+      "column DESPATCH.OANO VARCHAR2(20)"
+     ]
     },
     {
      "label": "Performa",
@@ -71902,16 +70939,17 @@
      "validationMessages": [
       "Qnty Greater Than Performa Qnty"
      ],
-     "column": null,
-     "columnType": null,
+     "column": "DESPATCH.PERFORMA",
+     "columnType": "VARCHAR2(50)",
      "tab": null,
      "evidence": [
-      "legacy item PERFORM_A"
+      "column DESPATCH.PERFORMA VARCHAR2(50)",
+      "legacy item PERFORMA"
      ],
-     "item": "PERFORM_A",
-     "databaseItem": true,
-     "x": 426,
-     "y": 13
+     "item": "PERFORMA",
+     "databaseItem": false,
+     "x": 402,
+     "y": 23
     },
     {
      "label": "Code",
@@ -72028,17 +71066,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "DESPATCH.LCDATE",
+     "column": "DESPATCHPLANCHARGE.DCDATE",
      "columnType": "DATE",
      "tab": null,
      "evidence": [
-      "column DESPATCH.LCDATE DATE",
-      "legacy item LCDATE"
-     ],
-     "item": "LCDATE",
-     "databaseItem": false,
-     "x": 618,
-     "y": 23
+      "column DESPATCHPLANCHARGE.DCDATE DATE"
+     ]
     },
     {
      "label": "Ccode",
@@ -75047,8 +74080,13 @@
      "tab": "LEG-160",
      "evidence": [
       "screenshot",
-      "column ITEMMAST.RCODE VARCHAR2(2)"
-     ]
+      "column ITEMMAST.RCODE VARCHAR2(2)",
+      "legacy item RCODE"
+     ],
+     "item": "RCODE",
+     "databaseItem": true,
+     "x": 6,
+     "y": 252
     },
     {
      "label": "Memo",
@@ -76528,24 +75566,23 @@
      "label": "Menu/Delar",
      "kind": "field",
      "type": "text",
-     "item": "DEALER",
      "maxLength": 20,
      "precision": null,
      "scale": null,
-     "options": null,
-     "formatMask": null,
      "required": false,
      "requiredEvidence": null,
-     "databaseItem": false,
+     "validationMessages": [],
      "column": "MASSUPPLIER.DEALER",
      "columnType": "CHAR(1)",
-     "x": 527,
-     "y": 22,
-     "tab": "LEG-165",
+     "tab": null,
      "evidence": [
-      "legacy item DEALER",
-      "label from prompt"
-     ]
+      "column MASSUPPLIER.DEALER CHAR(1)",
+      "legacy item DEALER"
+     ],
+     "item": "DEALER",
+     "databaseItem": false,
+     "x": 527,
+     "y": 22
     },
     {
      "label": "Contact Person",
@@ -76568,23 +75605,6 @@
      "evidence": [
       "legacy item CONTACT",
       "label from prompt"
-     ]
-    },
-    {
-     "label": "Dealer",
-     "kind": "field",
-     "type": "text",
-     "maxLength": 1,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": "MASSUPPLIER.DEALER",
-     "columnType": "CHAR(1)",
-     "tab": null,
-     "evidence": [
-      "column MASSUPPLIER.DEALER CHAR(1)"
      ]
     },
     {
@@ -77818,24 +76838,18 @@
      "label": "Tax type",
      "kind": "field",
      "type": "text",
-     "maxLength": 6,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "MATERIALREJ_DC.TAX",
-     "columnType": "VARCHAR2(6)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-168",
      "evidence": [
-      "screenshot",
-      "column MATERIALREJ_DC.TAX VARCHAR2(6)",
-      "legacy item TAX"
-     ],
-     "item": "TAX",
-     "databaseItem": false,
-     "x": 82,
-     "y": 172
+      "screenshot"
+     ]
     },
     {
      "label": "Payment",
@@ -77864,47 +76878,35 @@
      "label": "Transport",
      "kind": "field",
      "type": "text",
-     "maxLength": 100,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "MATERIALREJ_DC.TRAN",
-     "columnType": "VARCHAR2(100)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-168",
      "evidence": [
-      "screenshot",
-      "column MATERIALREJ_DC.TRAN VARCHAR2(100)",
-      "legacy item TRAN"
-     ],
-     "item": "TRAN",
-     "databaseItem": false,
-     "x": 385,
-     "y": 206
+      "screenshot"
+     ]
     },
     {
      "label": "Doc. Through",
      "kind": "field",
      "type": "text",
-     "maxLength": 100,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "MATERIALREJ_DC.DOC",
-     "columnType": "VARCHAR2(100)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-168",
      "evidence": [
-      "screenshot",
-      "column MATERIALREJ_DC.DOC VARCHAR2(100)",
-      "legacy item DOC"
-     ],
-     "item": "DOC",
-     "databaseItem": false,
-     "x": 81,
-     "y": 222
+      "screenshot"
+     ]
     },
     {
      "label": "Packing",
@@ -78843,29 +77845,6 @@
      ]
     },
     {
-     "label": "Lastmodified",
-     "kind": "field",
-     "type": "text",
-     "item": "LASTMODIFIED",
-     "maxLength": 1000,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "PURCH.LASTMODIFIED",
-     "columnType": "VARCHAR2(1000)",
-     "x": 583,
-     "y": 16,
-     "tab": null,
-     "evidence": [
-      "legacy item LASTMODIFIED",
-      "label from prompt"
-     ]
-    },
-    {
      "label": "P.O No",
      "kind": "field",
      "type": "text",
@@ -79070,25 +78049,19 @@
     {
      "label": "Qty",
      "kind": "field",
-     "type": "number",
+     "type": "text",
      "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "PURCH.QNTY",
-     "columnType": "NUMBER(12,3)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-174",
      "evidence": [
-      "screenshot",
-      "column PURCH.QNTY NUMBER(12,3)",
-      "legacy item QNTY"
-     ],
-     "item": "QNTY",
-     "databaseItem": false,
-     "x": 346,
-     "y": 95
+      "screenshot"
+     ]
     },
     {
      "label": "Pno",
@@ -79676,17 +78649,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "PURCH.TCREM",
-     "columnType": "VARCHAR2(1)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column PURCH.TCREM VARCHAR2(1)",
-      "legacy item TCREM"
-     ],
-     "item": "TCREM",
-     "databaseItem": false,
-     "x": 293,
-     "y": 95
+      "screenshot"
+     ]
     },
     {
      "label": "Shelf Life",
@@ -81408,52 +80376,6 @@
      "y": 19
     },
     {
-     "label": "D.C #",
-     "kind": "field",
-     "type": "text",
-     "item": "SUPDOC",
-     "maxLength": 60,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": false,
-     "column": "GRAMT.SUPDOC",
-     "columnType": "VARCHAR2(20)",
-     "x": 186,
-     "y": 19,
-     "tab": null,
-     "evidence": [
-      "legacy item SUPDOC",
-      "label from prompt"
-     ]
-    },
-    {
-     "label": "Po.Type",
-     "kind": "field",
-     "type": "text",
-     "item": "POTYPE",
-     "maxLength": 15,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": false,
-     "column": "GRAMT.POTYPE",
-     "columnType": "VARCHAR2(15)",
-     "x": 349,
-     "y": 19,
-     "tab": null,
-     "evidence": [
-      "legacy item POTYPE",
-      "label from prompt"
-     ]
-    },
-    {
      "label": "Order",
      "kind": "field",
      "type": "text",
@@ -81498,7 +80420,7 @@
     {
      "label": "Purchase Copy",
      "kind": "field",
-     "type": "select",
+     "type": "text",
      "maxLength": null,
      "precision": null,
      "scale": null,
@@ -81509,44 +80431,13 @@
      "columnType": null,
      "tab": "LEG-179",
      "evidence": [
-      "screenshot",
-      "legacy item PUR"
-     ],
-     "item": "PUR",
-     "databaseItem": false,
-     "x": 456,
-     "y": 266,
-     "options": [
-      "Y",
-      "N"
+      "screenshot"
      ]
     },
     {
      "label": "Lab Copy",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": null,
-     "columnType": null,
-     "tab": "LEG-179",
-     "evidence": [
-      "screenshot",
-      "legacy item LAB"
-     ],
-     "item": "LAB",
-     "databaseItem": false,
-     "x": 456,
-     "y": 309
-    },
-    {
-     "label": "Accounts Copy",
-     "kind": "field",
-     "type": "select",
      "maxLength": null,
      "precision": null,
      "scale": null,
@@ -81557,23 +80448,14 @@
      "columnType": null,
      "tab": "LEG-179",
      "evidence": [
-      "screenshot",
-      "legacy item ACC"
-     ],
-     "item": "ACC",
-     "databaseItem": false,
-     "x": 456,
-     "y": 281,
-     "options": [
-      "Y",
-      "N"
+      "screenshot"
      ]
     },
     {
-     "label": "Extra Copy",
+     "label": "Accounts Copy",
      "kind": "field",
      "type": "text",
-     "maxLength": 30,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
@@ -81583,13 +80465,25 @@
      "columnType": null,
      "tab": "LEG-179",
      "evidence": [
-      "screenshot",
-      "legacy item EXT"
-     ],
-     "item": "EXT",
-     "databaseItem": false,
-     "x": 456,
-     "y": 294
+      "screenshot"
+     ]
+    },
+    {
+     "label": "Extra Copy",
+     "kind": "field",
+     "type": "text",
+     "maxLength": null,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": null,
+     "columnType": null,
+     "tab": "LEG-179",
+     "evidence": [
+      "screenshot"
+     ]
     },
     {
      "label": "GRN Amount",
@@ -81938,17 +80832,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "RECEIPT.INSPECTEDBY",
-     "columnType": "VARCHAR2(50)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column RECEIPT.INSPECTEDBY VARCHAR2(50)",
-      "legacy item INSPECTEDBY"
-     ],
-     "item": "INSPECTEDBY",
-     "databaseItem": false,
-     "x": 48,
-     "y": 208
+      "screenshot"
+     ]
     },
     {
      "label": "Supplied",
@@ -82045,25 +80934,19 @@
     {
      "label": "Cess / SH.Cess Added Bill Amount & Landcost",
      "kind": "field",
-     "type": "number",
+     "type": "text",
      "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "GRAMT.CESS",
-     "columnType": "NUMBER(12,2)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-179",
      "evidence": [
-      "screenshot",
-      "column GRAMT.CESS NUMBER(12,2)",
-      "legacy item CESS"
-     ],
-     "item": "CESS",
-     "databaseItem": false,
-     "x": 397,
-     "y": 169
+      "screenshot"
+     ]
     },
     {
      "label": "SH.Cess %",
@@ -82103,24 +80986,24 @@
      "label": "Tax Type",
      "kind": "field",
      "type": "text",
-     "maxLength": 1,
+     "maxLength": 10,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "GRAMT.TYPE",
-     "columnType": "VARCHAR2(2)",
+     "column": "RECEIPT.TAXTYPE",
+     "columnType": "VARCHAR2(10)",
      "tab": "LEG-179",
      "evidence": [
       "screenshot",
-      "column GRAMT.TYPE VARCHAR2(2)",
-      "legacy item TYPE"
+      "column RECEIPT.TAXTYPE VARCHAR2(10)",
+      "legacy item TAXTYPE"
      ],
-     "item": "TYPE",
+     "item": "TAXTYPE",
      "databaseItem": false,
-     "x": 48,
-     "y": 227
+     "x": 190,
+     "y": 247
     },
     {
      "label": "Round off %",
@@ -82202,17 +81085,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "RECEIPT.TBILLNO",
-     "columnType": "VARCHAR2(25)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "column RECEIPT.TBILLNO VARCHAR2(25)",
-      "legacy item TBILLNO"
-     ],
-     "item": "TBILLNO",
-     "databaseItem": false,
-     "x": 57,
-     "y": 65
+      "screenshot"
+     ]
     },
     {
      "label": "Others",
@@ -82264,18 +81142,12 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "RECEIPT.LANDCOST",
-     "columnType": "NUMBER(12,2)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
-      "format mask (number)",
-      "column RECEIPT.LANDCOST NUMBER(12,2)",
-      "legacy item LANDCOST"
-     ],
-     "item": "LANDCOST",
-     "databaseItem": false,
-     "x": 514,
-     "y": 208
+      "format mask (number)"
+     ]
     },
     {
      "label": "Actuals",
@@ -82329,41 +81201,63 @@
      "validationMessages": [
       "Qty Received greater than PO Balance Qty"
      ],
-     "column": "ITEMMAST.OQTY",
-     "columnType": "NUMBER(11,3)",
+     "column": null,
+     "columnType": null,
      "tab": null,
      "evidence": [
       "format mask (number)",
-      "column ITEMMAST.OQTY NUMBER(11,3)",
-      "legacy item OQTY"
+      "legacy item PO_QTY"
      ],
-     "item": "OQTY",
-     "databaseItem": true,
-     "x": 144,
-     "y": 275
-    },
-    {
-     "label": "PO. Amen. Qty",
-     "kind": "field",
-     "type": "number",
-     "maxLength": null,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": null,
-     "columnType": null,
-     "tab": "LEG-179",
-     "evidence": [
-      "screenshot",
-      "format mask (number)",
-      "legacy item PO_AQTY"
-     ],
-     "item": "PO_AQTY",
+     "item": "PO_QTY",
      "databaseItem": false,
      "x": 92,
-     "y": 28
+     "y": 3
+    },
+    {
+     "label": "D.C #",
+     "kind": "field",
+     "type": "text",
+     "item": "SUPDOC",
+     "maxLength": 60,
+     "precision": null,
+     "scale": null,
+     "options": null,
+     "formatMask": null,
+     "required": false,
+     "requiredEvidence": null,
+     "databaseItem": false,
+     "column": "GRAMT.SUPDOC",
+     "columnType": "VARCHAR2(20)",
+     "x": 186,
+     "y": 19,
+     "tab": null,
+     "evidence": [
+      "legacy item SUPDOC",
+      "label from prompt"
+     ]
+    },
+    {
+     "label": "Po.Type",
+     "kind": "field",
+     "type": "text",
+     "item": "POTYPE",
+     "maxLength": 15,
+     "precision": null,
+     "scale": null,
+     "options": null,
+     "formatMask": null,
+     "required": false,
+     "requiredEvidence": null,
+     "databaseItem": false,
+     "column": "GRAMT.POTYPE",
+     "columnType": "VARCHAR2(15)",
+     "x": 349,
+     "y": 19,
+     "tab": null,
+     "evidence": [
+      "legacy item POTYPE",
+      "label from prompt"
+     ]
     },
     {
      "label": "Item",
@@ -82663,6 +81557,24 @@
      "evidence": [
       "legacy item UNIT_C",
       "label from prompt"
+     ]
+    },
+    {
+     "label": "PO. Amen. Qty",
+     "kind": "field",
+     "type": "number",
+     "maxLength": null,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": null,
+     "columnType": null,
+     "tab": "LEG-179",
+     "evidence": [
+      "screenshot",
+      "format mask (number)"
      ]
     },
     {
@@ -85272,40 +84184,35 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "CONTROL.NAME",
+     "columnType": "VARCHAR2(100)",
      "tab": "LEG-185",
      "evidence": [
       "screenshot",
-      "legacy item PNAME"
+      "column CONTROL.NAME VARCHAR2(100)",
+      "legacy item NAME"
      ],
-     "item": "PNAME",
+     "item": "NAME",
      "databaseItem": false,
-     "x": 34,
-     "y": 315
+     "x": 62,
+     "y": 92
     },
     {
      "label": "Sample Remarks",
      "kind": "field",
      "type": "text",
-     "maxLength": 1000,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "SUBCONTRACT.REMARKS",
-     "columnType": "VARCHAR2(1000)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-185",
      "evidence": [
-      "screenshot",
-      "column SUBCONTRACT.REMARKS VARCHAR2(1000)",
-      "legacy item REMARKS"
-     ],
-     "item": "REMARKS",
-     "databaseItem": false,
-     "x": 115,
-     "y": 171
+      "screenshot"
+     ]
     },
     {
      "label": "Send Qty",
@@ -85389,13 +84296,8 @@
      "tab": "LEG-185",
      "evidence": [
       "screenshot",
-      "format mask (date)",
-      "legacy item DATE"
-     ],
-     "item": "DATE",
-     "databaseItem": false,
-     "x": 35,
-     "y": 23
+      "format mask (date)"
+     ]
     },
     {
      "label": "Dcno",
@@ -85425,18 +84327,18 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "SUBCONTRACT.CDATE",
+     "column": "SUBCONTRACT.DCDATE",
      "columnType": "DATE",
      "tab": "LEG-185",
      "evidence": [
       "screenshot",
-      "column SUBCONTRACT.CDATE DATE",
-      "legacy item CDATE"
+      "column SUBCONTRACT.DCDATE DATE",
+      "legacy item DCDATE"
      ],
-     "item": "CDATE",
-     "databaseItem": false,
-     "x": 463,
-     "y": 92
+     "item": "DCDATE",
+     "databaseItem": true,
+     "x": 255,
+     "y": 315
     },
     {
      "label": "Contract",
@@ -85528,7 +84430,7 @@
      "label": "Code",
      "kind": "field",
      "type": "text",
-     "maxLength": 4,
+     "maxLength": 2,
      "precision": null,
      "scale": null,
      "required": false,
@@ -85538,17 +84440,13 @@
       "Code Not Found",
       "Process Code Not Found"
      ],
-     "column": null,
-     "columnType": null,
+     "column": "CONTROL.CODE",
+     "columnType": "VARCHAR2(2)",
      "tab": "LEG-185",
      "evidence": [
       "screenshot",
-      "legacy item CODE1"
-     ],
-     "item": "CODE1",
-     "databaseItem": true,
-     "x": 300,
-     "y": 209
+      "column CONTROL.CODE VARCHAR2(2)"
+     ]
     },
     {
      "label": "Desc",
@@ -85571,24 +84469,24 @@
      "label": "Remarks",
      "kind": "field",
      "type": "text",
-     "maxLength": 500,
+     "maxLength": 1000,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "SUBCONTRACT.REMARK",
-     "columnType": "VARCHAR2(500)",
+     "column": "SUBCONTRACT.REMARKS",
+     "columnType": "VARCHAR2(1000)",
      "tab": "LEG-185",
      "evidence": [
       "screenshot",
-      "column SUBCONTRACT.REMARK VARCHAR2(500)",
-      "legacy item REMARK"
+      "column SUBCONTRACT.REMARKS VARCHAR2(1000)",
+      "legacy item REMARKS"
      ],
-     "item": "REMARK",
+     "item": "REMARKS",
      "databaseItem": false,
-     "x": 515,
-     "y": 93
+     "x": 115,
+     "y": 171
     },
     {
      "label": "Rtdcno",
@@ -85600,18 +84498,13 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "RTDC.RTNO",
+     "column": "RTDC.RTDCNO",
      "columnType": "VARCHAR2(100)",
      "tab": "LEG-185",
      "evidence": [
       "screenshot",
-      "column RTDC.RTNO VARCHAR2(100)",
-      "legacy item RTNO"
-     ],
-     "item": "RTNO",
-     "databaseItem": true,
-     "x": 6,
-     "y": 212
+      "column RTDC.RTDCNO VARCHAR2(100)"
+     ]
     },
     {
      "label": "Rtheatno",
@@ -85653,24 +84546,18 @@
      "label": "Flag",
      "kind": "field",
      "type": "text",
-     "maxLength": 100,
+     "maxLength": null,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "RTDC.RTFLAG",
-     "columnType": "VARCHAR2(100)",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-185",
      "evidence": [
-      "screenshot",
-      "column RTDC.RTFLAG VARCHAR2(100)",
-      "legacy item RTFLAG"
-     ],
-     "item": "RTFLAG",
-     "databaseItem": true,
-     "x": 134,
-     "y": 212
+      "screenshot"
+     ]
     },
     {
      "label": "Internal Or Sub Contract",
@@ -85744,12 +84631,12 @@
      "tab": "LEG-185",
      "evidence": [
       "screenshot",
-      "legacy item DATE1"
+      "legacy item DATE"
      ],
-     "item": "DATE1",
+     "item": "DATE",
      "databaseItem": false,
-     "x": 14,
-     "y": 1
+     "x": 35,
+     "y": 23
     },
     {
      "label": "Req.Dt & Remark",
@@ -85794,24 +84681,23 @@
      "label": "LIST207",
      "kind": "field",
      "type": "text",
-     "item": "VEHICLE",
      "maxLength": 40,
      "precision": null,
      "scale": null,
-     "options": null,
-     "formatMask": null,
      "required": false,
      "requiredEvidence": null,
-     "databaseItem": false,
+     "validationMessages": [],
      "column": "SUBCONTRACT.VEHICLE",
      "columnType": "VARCHAR2(40)",
-     "x": 115,
-     "y": 68,
      "tab": null,
      "evidence": [
-      "legacy item VEHICLE",
-      "label from prompt"
-     ]
+      "column SUBCONTRACT.VEHICLE VARCHAR2(40)",
+      "legacy item VEHICLE"
+     ],
+     "item": "VEHICLE",
+     "databaseItem": false,
+     "x": 115,
+     "y": 68
     },
     {
      "label": "LIST208",
@@ -85834,23 +84720,6 @@
      "evidence": [
       "legacy item PERSON",
       "label from prompt"
-     ]
-    },
-    {
-     "label": "Vehicle No",
-     "kind": "field",
-     "type": "text",
-     "maxLength": 40,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": "SUBCONTRACT.VEHICLE",
-     "columnType": "VARCHAR2(40)",
-     "tab": null,
-     "evidence": [
-      "column SUBCONTRACT.VEHICLE VARCHAR2(40)"
      ]
     },
     {
@@ -86463,29 +85332,6 @@
      ]
     },
     {
-     "label": "LAST MODIFIED",
-     "kind": "field",
-     "type": "text",
-     "item": "LASTMODIFIED",
-     "maxLength": 150,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "SUBCONTRACT.LASTMODIFIED",
-     "columnType": "VARCHAR2(150)",
-     "x": 940,
-     "y": 18,
-     "tab": null,
-     "evidence": [
-      "legacy item LASTMODIFIED",
-      "label from prompt"
-     ]
-    },
-    {
      "label": "Dcdate",
      "kind": "field",
      "type": "date",
@@ -86495,17 +85341,13 @@
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": null,
-     "columnType": null,
+     "column": "SUBCONTRACT.DCDATE",
+     "columnType": "DATE",
      "tab": "LEG-186",
      "evidence": [
       "screenshot",
-      "legacy item DC"
-     ],
-     "item": "DC",
-     "databaseItem": false,
-     "x": 38,
-     "y": 280
+      "column SUBCONTRACT.DCDATE DATE"
+     ]
     },
     {
      "label": "Timeout",
@@ -88104,7 +86946,7 @@
     {
      "label": "Flag",
      "kind": "field",
-     "type": "select",
+     "type": "text",
      "maxLength": null,
      "precision": null,
      "scale": null,
@@ -88115,40 +86957,30 @@
      "columnType": null,
      "tab": "LEG-190",
      "evidence": [
-      "screenshot",
-      "legacy item FL"
-     ],
-     "item": "FL",
-     "databaseItem": false,
-     "x": 221,
-     "y": 273,
-     "options": [
-      "Y",
-      "N"
+      "screenshot"
      ]
     },
     {
      "label": "Date",
      "kind": "field",
-     "type": "date",
-     "maxLength": null,
+     "type": "text",
+     "maxLength": 30,
      "precision": null,
      "scale": null,
      "required": false,
      "requiredEvidence": null,
      "validationMessages": [],
-     "column": "SUBRECEIVED.GRDATE",
-     "columnType": "DATE",
+     "column": null,
+     "columnType": null,
      "tab": "LEG-190",
      "evidence": [
       "screenshot",
-      "column SUBRECEIVED.GRDATE DATE",
-      "legacy item GRDATE"
+      "legacy item DATE"
      ],
-     "item": "GRDATE",
+     "item": "DATE",
      "databaseItem": false,
-     "x": 370,
-     "y": 62
+     "x": 50,
+     "y": 31
     },
     {
      "label": "Scr .Wt",
@@ -88171,29 +87003,6 @@
      "item": "SCRWT",
      "databaseItem": false,
      "x": 470,
-     "y": 62
-    },
-    {
-     "label": "Min No",
-     "kind": "field",
-     "type": "text",
-     "maxLength": 15,
-     "precision": null,
-     "scale": null,
-     "required": false,
-     "requiredEvidence": null,
-     "validationMessages": [],
-     "column": "SUBRECEIVED.INNO",
-     "columnType": "VARCHAR2(100)",
-     "tab": "LEG-190",
-     "evidence": [
-      "screenshot",
-      "column SUBRECEIVED.INNO VARCHAR2(100)",
-      "legacy item INNO"
-     ],
-     "item": "INNO",
-     "databaseItem": false,
-     "x": 50,
      "y": 62
     },
     {
@@ -88267,6 +87076,23 @@
      "evidence": [
       "legacy item RTNO",
       "label from prompt"
+     ]
+    },
+    {
+     "label": "Min No",
+     "kind": "field",
+     "type": "text",
+     "maxLength": 100,
+     "precision": null,
+     "scale": null,
+     "required": false,
+     "requiredEvidence": null,
+     "validationMessages": [],
+     "column": null,
+     "columnType": null,
+     "tab": "LEG-190",
+     "evidence": [
+      "screenshot"
      ]
     }
    ],
@@ -92369,29 +91195,6 @@
      "y": 25
     },
     {
-     "label": "Lastmodified",
-     "kind": "field",
-     "type": "text",
-     "item": "LASTMODIFIED",
-     "maxLength": 150,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "DESPATCH.LASTMODIFIED",
-     "columnType": "VARCHAR2(150)",
-     "x": 1643,
-     "y": 25,
-     "tab": null,
-     "evidence": [
-      "legacy item LASTMODIFIED",
-      "label from prompt"
-     ]
-    },
-    {
      "label": "Despatch View",
      "kind": "heading",
      "tab": "LEG-199",
@@ -93634,29 +92437,6 @@
       "legacy item PURCH",
       "label from prompt"
      ]
-    },
-    {
-     "label": "Last Modified",
-     "kind": "field",
-     "type": "text",
-     "item": "LASTMODIFIED",
-     "maxLength": 150,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "DAMOUNTCHARGE.LASTMODIFIED",
-     "columnType": "VARCHAR2(150)",
-     "x": 2981,
-     "y": 30,
-     "tab": null,
-     "evidence": [
-      "legacy item LASTMODIFIED",
-      "label from prompt"
-     ]
     }
    ],
    "otherLegacyText": [
@@ -93953,29 +92733,6 @@
      "tab": null,
      "evidence": [
       "legacy item RATE",
-      "label from prompt"
-     ]
-    },
-    {
-     "label": "Last Modified",
-     "kind": "field",
-     "type": "text",
-     "item": "LASTMODIFIED",
-     "maxLength": 200,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "MPMASTER.LASTMODIFIED",
-     "columnType": "VARCHAR2(200)",
-     "x": 520,
-     "y": 58,
-     "tab": null,
-     "evidence": [
-      "legacy item LASTMODIFIED",
       "label from prompt"
      ]
     }
@@ -94337,29 +93094,6 @@
      "tab": null,
      "evidence": [
       "legacy item CREJ",
-      "label from prompt"
-     ]
-    },
-    {
-     "label": "Lastmodified",
-     "kind": "field",
-     "type": "text",
-     "item": "LASTMODIFIED",
-     "maxLength": 100,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "POUR.LASTMODIFIED",
-     "columnType": "VARCHAR2(150)",
-     "x": 837,
-     "y": 22,
-     "tab": null,
-     "evidence": [
-      "legacy item LASTMODIFIED",
       "label from prompt"
      ]
     },
@@ -95044,29 +93778,6 @@
      ]
     },
     {
-     "label": "Last Modified",
-     "kind": "field",
-     "type": "text",
-     "item": "LASTMODIFIED",
-     "maxLength": 200,
-     "precision": null,
-     "scale": null,
-     "options": null,
-     "formatMask": null,
-     "required": false,
-     "requiredEvidence": null,
-     "databaseItem": true,
-     "column": "UTMASTER.LASTMODIFIED",
-     "columnType": "VARCHAR2(200)",
-     "x": 557,
-     "y": 59,
-     "tab": null,
-     "evidence": [
-      "legacy item LASTMODIFIED",
-      "label from prompt"
-     ]
-    },
-    {
      "label": "Range",
      "kind": "field",
      "type": "text",
@@ -95213,5 +93924,5 @@
    "name": "OFFERING CLEARANCE"
   }
  ],
- "itemRecords": "Fields enriched from decoded .fmx item records (prompt, item name, column binding, max length, format mask, value lists, canvas position, database-item flag); buttons from item labels."
+ "itemRecords": "Fields enriched from decoded .fmx item records (prompt, item name, column binding, max length, format mask, value lists, canvas position, database-item flag); buttons from item labels. Fields bind to items only by the item prompt, a label that spells the column or item name, or a long item-name prefix; audit-stamp items are excluded."
 }
