@@ -1,6 +1,6 @@
-# SSA Foundry Modern Legacy Replica
+# Legacy Foundry Applications — Modern Replica
 
-Independent modern UI replica of the SSA Foundry legacy application (Oracle Forms). Menus, screens and fields follow the compiled legacy forms and the live legacy menu table. The original screenshot stays beside each modern screen as evidence.
+Independent modern UI replicas of two legacy foundry ERPs, selectable from the **Application** switcher in the top bar: **SSA Foundry** (Oracle Forms) and **Veeyes ERP**. For SSA Foundry, menus, screens and fields follow the compiled legacy forms and the live legacy menu table. The original screenshot stays beside each modern screen as evidence.
 
 ## Run
 
@@ -39,3 +39,14 @@ npm.cmd run build
 - **Read-only forms** (no table writes) have no Save action.
 - **Reports:** Report and Print actions name the legacy Oracle Reports. They are not executed.
 - **Mock data only:** Save writes a local draft in the browser. Document numbers are simulated with a local counter per legacy `CONTROL` code. No production database is connected.
+
+## Veeyes ERP
+
+- **Sources:** `public/data/veeyes-screens.json` (screens, submodules and field control types from the Veeyes discovery workbook) and `public/veeyes-screens/` (75 screenshots). The screenshot catalogue is `public/data/Veeyes_ERP_Legacy_Application_Screen_Catalog.md`.
+- **Not verified:** Veeyes screens have not been checked against Veeyes legacy source code. Every screen shows a banner saying so.
+- **Field types:** follow the workbook control type (date, numeric, checkbox, otherwise text).
+- **Required markers:** shown only where the workbook marks a field mandatory (currently none).
+- **F9:** no lists are documented, so none are shown.
+- **Pages of one screen:** captures of the same screen (same title) are one screen with tabs. Consolidated captures stay attached to their main screen.
+- **Screens without screenshots:** listed in the workbook, shown with a *Screenshot not supplied* banner and no fields.
+- **Submodules without screens:** shown disabled.
