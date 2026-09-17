@@ -1,9 +1,9 @@
 import { readFile, readdir, stat } from 'node:fs/promises'
 import path from 'node:path'
-import { buildModel, buildVeeyesModel, flattenMenu, parseCatalogue } from '../src/catalog.js'
+import { buildModel, buildYesModel, flattenMenu, parseCatalogue } from '../src/catalog.js'
 
 const root = path.resolve(import.meta.dirname, '..')
-const catalogue = await readFile(path.join(root, 'public/data/SSA_Foundry_Legacy_Application_Screen_Catalog.md'), 'utf8')
+const catalogue = await readFile(path.join(root, 'public/data/SUN_Foundry_Legacy_Application_Screen_Catalog.md'), 'utf8')
 const source = JSON.parse(await readFile(path.join(root, 'public/data/legacy_source.json'), 'utf8'))
 const ids = [...catalogue.matchAll(/^### (LEG-\d{3})/gm)].map((match) => match[1])
 const screenshotRefs = [...catalogue.matchAll(/^- \*\*Screenshot:\*\* `([^`]+)`/gm)].map((match) => match[1])
@@ -75,25 +75,25 @@ console.log(`Legacy forms: ${screenIds.size} (navigation screenshots: ${source.n
 console.log(`Menu options: ${menuTargets.length}, with screens: ${menuTargets.filter(({ option }) => option.screenId).length}`)
 console.log(`Source-backed fields: ${fieldCount}, required with evidence: ${requiredCount}`)
 
-// 4. Veeyes ERP (screenshots + discovery workbook)
-const veeyesItems = JSON.parse(await readFile(path.join(root, 'public/data/veeyes-screens.json'), 'utf8'))
-const veeyesImages = new Set((await readdir(path.join(root, 'public/veeyes-screens'))).filter((name) => /\.png$/i.test(name)))
-const veeyesRefs = new Set(veeyesItems.flatMap((item) => [item.screenshot, ...(item.screenshots ?? [])]).filter(Boolean))
-for (const ref of veeyesRefs) if (!veeyesImages.has(ref)) fail(`Veeyes screenshot missing: ${ref}`)
-for (const image of veeyesImages) if (!veeyesRefs.has(image)) fail(`Veeyes screenshot not referenced by any screen: ${image}`)
-const veeyes = buildVeeyesModel(veeyesItems)
-const veeyesReachable = new Set(veeyes.modules.flatMap((module) => flattenMenu(module.options).map(({ option }) => option.screenId)).filter(Boolean))
-for (const screen of Object.values(veeyes.screens)) {
-  if (!veeyesReachable.has(screen.id)) fail(`Veeyes screen ${screen.id} (${screen.menuLabel}) is not reachable from its menu`)
-  for (const field of screen.fields) if (field.required && !field.requiredEvidence) fail(`Veeyes ${screen.id} field "${field.label}" is required without evidence`)
+// 4. YES’s Foundry (screenshots + discovery workbook)
+const yesItems = JSON.parse(await readFile(path.join(root, 'public/data/yes-screens.json'), 'utf8'))
+const yesImages = new Set((await readdir(path.join(root, 'public/yes-screens'))).filter((name) => /\.png$/i.test(name)))
+const yesRefs = new Set(yesItems.flatMap((item) => [item.screenshot, ...(item.screenshots ?? [])]).filter(Boolean))
+for (const ref of yesRefs) if (!yesImages.has(ref)) fail(`YES’s screenshot missing: ${ref}`)
+for (const image of yesImages) if (!yesRefs.has(image)) fail(`YES’s screenshot not referenced by any screen: ${image}`)
+const isYes = buildYesModel(yesItems)
+const yesReachable = new Set(isYes.modules.flatMap((module) => flattenMenu(module.options).map(({ option }) => option.screenId)).filter(Boolean))
+for (const screen of Object.values(isYes.screens)) {
+  if (!yesReachable.has(screen.id)) fail(`YES’s screen ${screen.id} (${screen.menuLabel}) is not reachable from its menu`)
+  for (const field of screen.fields) if (field.required && !field.requiredEvidence) fail(`YES’s ${screen.id} field "${field.label}" is required without evidence`)
 }
-const veeyesCovered = new Set(Object.values(veeyes.screens).flatMap((screen) => screen.legIds))
-for (const item of veeyesItems) {
+const yesCovered = new Set(Object.values(isYes.screens).flatMap((screen) => screen.legIds))
+for (const item of yesItems) {
   if (item.module === 'Main Screen') continue
-  const covered = veeyesCovered.has(item.id) || (item.consolidatedInto && veeyesCovered.has(item.consolidatedInto))
-  if (!covered) fail(`Veeyes entry ${item.id} (${item.title}) is not represented`)
+  const covered = yesCovered.has(item.id) || (item.consolidatedInto && yesCovered.has(item.consolidatedInto))
+  if (!covered) fail(`YES’s entry ${item.id} (${item.title}) is not represented`)
 }
-console.log(`Veeyes: ${veeyesItems.length} entries, ${Object.keys(veeyes.screens).length} screens, ${veeyesImages.size} screenshots`)
+console.log(`YES’s: ${yesItems.length} entries, ${Object.keys(isYes.screens).length} screens, ${yesImages.size} screenshots`)
 
 if (errors.length) {
   console.error(`\n${errors.length} problem(s):\n- ${errors.join('\n- ')}`)

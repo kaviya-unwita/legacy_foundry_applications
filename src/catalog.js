@@ -1,7 +1,7 @@
 const clean = (value = '') => value.replace(/^`|`$/g, '').trim()
 
 // Screenshot catalogue (OCR). Supplies screenshots and purpose text. It is the field source only for
-// screens whose legacy form is not available in SSA_MSS (sourceStatus === 'missing').
+// screens whose legacy form is not available in SUN legacy source (sourceStatus === 'missing').
 export function parseCatalogue(markdown) {
   const lines = markdown.split(/\r?\n/)
   const screens = []
@@ -49,7 +49,7 @@ export function screenshotUrl(path, basePath = '/legacy-screens') {
 }
 
 const NON_FIELD_TEXT = /^(window\d*|mis|save|exit|back|clear|report|entry|master|list|history|delete)$/i
-const SAMPLE_VALUE_TEXT = /private limited|castings india|gears\s*&\s*drives|agro implements|flow technology|heavy electricals|testing machine|\bgr[_ .-]?\d|\bclass\b.*\d|\bbody\b.*\d/i
+const SAMPLE_VALUE_TEXT = /private limited|gears\s*&\s*drives|agro implements|flow technology|heavy electricals|testing machine|\bgr[_ .-]?\d|\bclass\b.*\d|\bbody\b.*\d/i
 
 // Only used for unverified screens (legacy form missing): filters obvious OCR noise from screenshot text.
 export function isLikelyField(label) {
@@ -119,8 +119,8 @@ export function buildModel(catalogue, source) {
   return { screens, modules: source.modules, legIndex, menuShots, screenshotBase: '/legacy-screens' }
 }
 
-// Veeyes ERP: main-screen modules and submodules as recorded in the Veeyes discovery workbook.
-export const VEEYES_HIERARCHY = {
+// YES’s Foundry: main-screen modules and submodules as recorded in the YES’s discovery workbook.
+export const YES_HIERARCHY = {
   'Foundry Application': ['Masters', 'Marketing Management', 'Order Processing', 'Production Planning', 'Quality Information', 'lab', 'Sales Information', 'Pattern', 'Subcontract', 'On Screen Queries', 'Enquiries', 'Heat History', 'System', 'Utilities', 'Export', 'Methods', 'Radiography - Foundry', 'Temporary Update screens'],
   'Inventory Management': ['Masters', 'Purchase', 'Goods Receipt', 'Issues', 'General', 'Reports'],
   'Customer Complaints': ['Entries & Reports'],
@@ -131,7 +131,7 @@ export const VEEYES_HIERARCHY = {
   NABL: ['Masters', 'Lab'],
 }
 
-function veeyesFieldType(controlType = '') {
+function yesFieldType(controlType = '') {
   const value = controlType.toLowerCase()
   if (value.includes('checkbox')) return 'checkbox'
   if (value.includes('date')) return 'date'
@@ -140,11 +140,11 @@ function veeyesFieldType(controlType = '') {
 }
 
 /**
- * Veeyes screens come from screenshots and the Veeyes discovery workbook only (no compiled legacy source here),
+ * YES’s screens come from screenshots and the YES’s discovery workbook only (no compiled legacy source here),
  * so they are rendered as unverified: workbook control types, no required markers unless the workbook says so,
  * no F9 data. Captures with the same title are pages of one screen.
  */
-export function buildVeeyesModel(items) {
+export function buildYesModel(items) {
   const usable = items.filter((item) => !item.consolidatedInto && item.module !== 'Main Screen')
   const groups = new Map()
   for (const item of usable) {
@@ -165,13 +165,13 @@ export function buildVeeyesModel(items) {
       for (const field of metadata) {
         if (sections.size > 1 && field.section && field.section !== section) {
           section = field.section
-          rows.push({ label: section, kind: 'heading', tab: item.id, evidence: ['Veeyes discovery workbook'] })
+          rows.push({ label: section, kind: 'heading', tab: item.id, evidence: ['YES’s discovery workbook'] })
         }
         const required = String(field.mandatory).toLowerCase() === 'yes'
         rows.push({
-          label: field.name, kind: 'field', type: veeyesFieldType(field.controlType), maxLength: null, required,
-          requiredEvidence: required ? 'Veeyes discovery workbook: mandatory' : null, controlType: field.controlType || null,
-          tab: item.id, evidence: [item.fieldMetadata?.length ? `Veeyes discovery workbook (${field.controlType || 'type not recorded'})` : 'screenshot OCR only (unverified)'],
+          label: field.name, kind: 'field', type: yesFieldType(field.controlType), maxLength: null, required,
+          requiredEvidence: required ? 'YES’s discovery workbook: mandatory' : null, controlType: field.controlType || null,
+          tab: item.id, evidence: [item.fieldMetadata?.length ? `YES’s discovery workbook (${field.controlType || 'type not recorded'})` : 'screenshot OCR only (unverified)'],
         })
       }
       return rows
@@ -179,7 +179,7 @@ export function buildVeeyesModel(items) {
     screens[first.id] = {
       id: first.id, legIds: members.map((item) => item.id), module: first.module, submodule: first.submodule,
       menuCode: first.id, menuLabel: first.title, formName: null, formFile: null,
-      sourceStatus: supplied ? 'workbook' : 'not-supplied', storageKey: `veeyes:${first.id}`,
+      sourceStatus: supplied ? 'workbook' : 'not-supplied', storageKey: `yes:${first.id}`,
       tabs: members.map((item, index) => ({
         legId: item.id, title: members.length > 1 ? `${item.title} (${index + 1})` : item.title, purpose: item.purpose ?? '', resolution: '',
         screenshots: item.screenshots?.length ? item.screenshots : item.screenshot ? [item.screenshot] : [],
@@ -190,7 +190,7 @@ export function buildVeeyesModel(items) {
   }
 
   const byMenu = (module, submodule) => Object.values(screens).filter((screen) => screen.module === module && screen.submodule === submodule)
-  const modules = Object.entries(VEEYES_HIERARCHY).map(([module, submodules]) => ({
+  const modules = Object.entries(YES_HIERARCHY).map(([module, submodules]) => ({
     module, menuLegId: 'VEY-075',
     options: submodules.map((submodule, index) => ({
       code: `${module}/${index}`, label: submodule, formName: null, screenId: null, menuLegId: null,
@@ -202,7 +202,7 @@ export function buildVeeyesModel(items) {
   }))
   const main = items.find((item) => item.module === 'Main Screen')
   const menuShots = main?.screenshot ? { [main.id]: { id: main.id, screenshot: main.screenshot } } : {}
-  return { screens, modules, legIndex: {}, menuShots, screenshotBase: '/veeyes-screens' }
+  return { screens, modules, legIndex: {}, menuShots, screenshotBase: '/yes-screens' }
 }
 
 export function findMenuLevel(module, path) {
