@@ -39,3 +39,7 @@ npm.cmd run build
 - **Read-only forms** (no table writes) have no Save action.
 - **Reports:** Report and Print actions name the legacy Oracle Reports. They are not executed.
 - **Mock data only:** Save writes a local draft in the browser. Document numbers are simulated with a local counter per legacy `CONTROL` code. No production database is connected.
+
+## Veeyes ERP
+
+Use the application selector in the top-right header to switch between **SSA Foundry** and **Veeyes ERP**. Veeyes navigation follows `Veeyes_Application_Discovery_v0.1.xlsx`; supplied forms retain their legacy screenshot evidence, and screens without supplied captures are shown as documented placeholders rather than invented forms.
