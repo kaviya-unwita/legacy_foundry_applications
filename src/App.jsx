@@ -48,10 +48,12 @@ function useLegacyModel(application) {
 
 function Field({ field, value, onChange, onLookup, lookupAvailable }) {
   const id = `field-${field.label}`
-  const type = ['date', 'number', 'password', 'checkbox'].includes(field.type) ? field.type : 'text'
+  const type = ['date', 'number', 'password', 'checkbox', 'select'].includes(field.type) ? field.type : 'text'
   const step = type === 'number' ? (field.scale ? String(10 ** -field.scale) : '1') : undefined
   const hint = [
+    field.item && `Legacy item ${field.item}${field.databaseItem ? ' (database item)' : ''}`,
     field.column && `${field.column} ${field.columnType ?? ''}`.trim(),
+    field.formatMask && `Format mask ${field.formatMask}`,
     field.requiredEvidence && `Required: ${field.requiredEvidence}`,
     ...(field.validationMessages ?? []).map((message) => `Legacy message: ${message}`),
     `Evidence: ${(field.evidence ?? []).join('; ')}`,
@@ -62,6 +64,8 @@ function Field({ field, value, onChange, onLookup, lookupAvailable }) {
       <div className="input-wrap">
         {type === 'checkbox'
           ? <input id={id} type="checkbox" className="checkbox" checked={value === 'Y'} onChange={(event) => onChange(field.label, event.target.checked ? 'Y' : '')} />
+          : type === 'select'
+          ? <select id={id} value={value ?? ''} required={field.required} onChange={(event) => onChange(field.label, event.target.value)}><option value="">—</option>{field.options.map((option) => <option key={option} value={option}>{option}</option>)}</select>
           : <input id={id} type={type} step={step} value={value ?? ''} required={field.required} maxLength={field.maxLength ?? undefined}
           onChange={(event) => onChange(field.label, event.target.value)}
           onKeyDown={(event) => { if (event.key === 'F9' && lookupAvailable) { event.preventDefault(); onLookup(field.label) } }} />}
