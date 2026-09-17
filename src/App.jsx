@@ -6,6 +6,7 @@ import {
   TriangleAlert, Users, Wrench, X,
 } from 'lucide-react'
 import { actionKind, buildModel, buildYesModel, findMenuLevel, flattenMenu, parseCatalogue, screenshotUrl } from './catalog'
+import { parseLocation, toPath } from './routes'
 
 const ICONS = [Factory, Users, ClipboardList, Gauge, Activity, LayoutGrid, Wrench, BarChart3, Package, FileText, Boxes, ShieldCheck, Database, Settings]
 
@@ -253,10 +254,13 @@ export function ScreenPage({ screen, screenshotBase = '/legacy-screens', onBack 
   )
 }
 
+const browser = typeof window !== 'undefined'
+
 export default function App() {
-  const [application, setApplication] = useState('sun')
+  const initial = useMemo(() => parseLocation(browser ? window.location.pathname : '/'), [])
+  const [application, setApplication] = useState(initial.application)
   const { model, error } = useLegacyModel(application)
-  const [route, setRoute] = useState({ type: 'home' })
+  const [route, setRoute] = useState(() => (browser && window.history.state?.route) || initial.route)
   const [query, setQuery] = useState('')
   const [collapsed, setCollapsed] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -278,14 +282,46 @@ export default function App() {
     return [...screenHits, ...menuHits].slice(0, 14)
   }, [query, model])
 
-  const go = (next) => { setRoute(next); setQuery(''); setMobileOpen(false); window.scrollTo(0, 0) }
-  const switchApplication = (next) => { setApplication(next); go({ type: 'home' }) }
-  if (error) return <div className="fatal"><Factory/><h1>Unable to open {APPLICATIONS[application]}</h1><p>{error}</p><button className="tool" onClick={() => switchApplication(application === 'sun' ? 'yes' : 'sun')}>Open {APPLICATIONS[application === 'sun' ? 'yes' : 'sun']}</button></div>
+  // Keep the URL in sync: /sun or /yes, then /menu/<module>/<codes> or /screen/<id>.
+  useEffect(() => {
+    if (!browser) return undefined
+    if (!initial.canonical) window.history.replaceState({ application: initial.application, route: initial.route }, '', toPath(initial.application, initial.route))
+    const onPopState = () => {
+      const parsed = parseLocation(window.location.pathname)
+      setApplication(parsed.application)
+      setRoute(window.history.state?.route ?? parsed.route)
+      setQuery('')
+      setMobileOpen(false)
+    }
+    window.addEventListener('popstate', onPopState)
+    return () => window.removeEventListener('popstate', onPopState)
+  }, [initial])
+
+  const navigate = (nextApplication, next) => {
+    setApplication(nextApplication)
+    setRoute(next)
+    setQuery('')
+    setMobileOpen(false)
+    if (!browser) return
+    window.scrollTo(0, 0)
+    const path = toPath(nextApplication, next)
+    const state = { application: nextApplication, route: next }
+    if (path === window.location.pathname) window.history.replaceState(state, '', path)
+    else window.history.pushState(state, '', path)
+  }
+  const go = (next) => navigate(application, next)
+  const switchApplication = (next) => navigate(next, { type: 'home' })
 
   const selectedScreen = model && route.type === 'screen' ? model.screens[route.id] : null
   const selectedModule = model && route.type === 'module' ? model.modules.find((module) => module.module === route.module) : null
   const isYes = application === 'yes'
   const activeModule = route.module ?? selectedScreen?.module
+  const menuNode = selectedModule ? findMenuLevel(selectedModule, route.path ?? []).node : null
+  const notFound = Boolean(model) && ((route.type === 'screen' && !selectedScreen) || (route.type === 'module' && (!selectedModule || ((route.path ?? []).length > 0 && !menuNode))))
+  const pageTitle = !model ? 'Loading' : notFound ? 'Not found'
+    : selectedScreen ? selectedScreen.menuLabel : selectedModule ? (menuNode?.label ?? moduleLabel(selectedModule.module)) : 'Overview'
+  useEffect(() => { if (browser) document.title = `${pageTitle} · ${APPLICATIONS[application]}` }, [pageTitle, application])
+  if (error) return <div className="fatal"><Factory/><h1>Unable to open {APPLICATIONS[application]}</h1><p>{error}</p><button className="tool" onClick={() => switchApplication(application === 'sun' ? 'yes' : 'sun')}>Open {APPLICATIONS[application === 'sun' ? 'yes' : 'sun']}</button></div>
 
   return (
     <div className={`app ${collapsed ? 'nav-collapsed' : ''}`}>
@@ -318,6 +354,7 @@ export default function App() {
         </header>
         {!model ? <div className="loading"><Factory/><p>Loading legacy menus and forms…</p></div>
           : route.type === 'home' ? <HomePage model={model} modules={modules} onOpenModule={(module) => go({ type: 'module', module, path: [] })} onOpenScreen={(id) => go({ type: 'screen', id })}/>
+          : notFound ? <main className="content"><div className="empty"><BookOpen/><h3>Page not found</h3><p>This link does not match a {APPLICATIONS[application]} menu or screen.</p><button className="tool" onClick={() => go({ type: 'home' })}><Home size={15}/> {APPLICATIONS[application]} overview</button></div></main>
           : selectedModule ? <MenuPage key={`${application}/${selectedModule.module}/${(route.path ?? []).join('/')}`} module={selectedModule} path={route.path ?? []} model={model}
             onOpenScreen={(id) => go({ type: 'screen', id, from: { module: selectedModule.module, path: route.path ?? [] } })}
             onOpenPath={(path) => go({ type: 'module', module: selectedModule.module, path })} onBack={() => go({ type: 'home' })}/>

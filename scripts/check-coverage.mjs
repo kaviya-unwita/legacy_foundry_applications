@@ -1,6 +1,7 @@
 import { readFile, readdir, stat } from 'node:fs/promises'
 import path from 'node:path'
-import { buildModel, buildYesModel, flattenMenu, parseCatalogue } from '../src/catalog.js'
+import { buildModel, buildYesModel, findMenuLevel, flattenMenu, parseCatalogue } from '../src/catalog.js'
+import { parseLocation, toPath } from '../src/routes.js'
 
 const root = path.resolve(import.meta.dirname, '..')
 const catalogue = await readFile(path.join(root, 'public/data/SUN_Foundry_Legacy_Application_Screen_Catalog.md'), 'utf8')
@@ -81,19 +82,44 @@ const yesImages = new Set((await readdir(path.join(root, 'public/yes-screens')))
 const yesRefs = new Set(yesItems.flatMap((item) => [item.screenshot, ...(item.screenshots ?? [])]).filter(Boolean))
 for (const ref of yesRefs) if (!yesImages.has(ref)) fail(`YES’s screenshot missing: ${ref}`)
 for (const image of yesImages) if (!yesRefs.has(image)) fail(`YES’s screenshot not referenced by any screen: ${image}`)
-const isYes = buildYesModel(yesItems)
-const yesReachable = new Set(isYes.modules.flatMap((module) => flattenMenu(module.options).map(({ option }) => option.screenId)).filter(Boolean))
-for (const screen of Object.values(isYes.screens)) {
+const yesModel = buildYesModel(yesItems)
+const yesReachable = new Set(yesModel.modules.flatMap((module) => flattenMenu(module.options).map(({ option }) => option.screenId)).filter(Boolean))
+for (const screen of Object.values(yesModel.screens)) {
   if (!yesReachable.has(screen.id)) fail(`YES’s screen ${screen.id} (${screen.menuLabel}) is not reachable from its menu`)
   for (const field of screen.fields) if (field.required && !field.requiredEvidence) fail(`YES’s ${screen.id} field "${field.label}" is required without evidence`)
 }
-const yesCovered = new Set(Object.values(isYes.screens).flatMap((screen) => screen.legIds))
+const yesCovered = new Set(Object.values(yesModel.screens).flatMap((screen) => screen.legIds))
 for (const item of yesItems) {
   if (item.module === 'Main Screen') continue
   const covered = yesCovered.has(item.id) || (item.consolidatedInto && yesCovered.has(item.consolidatedInto))
   if (!covered) fail(`YES’s entry ${item.id} (${item.title}) is not represented`)
 }
-console.log(`YES’s: ${yesItems.length} entries, ${Object.keys(isYes.screens).length} screens, ${yesImages.size} screenshots`)
+console.log(`YES’s: ${yesItems.length} entries, ${Object.keys(yesModel.screens).length} screens, ${yesImages.size} screenshots`)
+
+// 5. URLs: every screen and menu level of both applications round-trips through its /sun or /yes path
+let routeCount = 0
+const sameRoute = (a, b) => JSON.stringify(a) === JSON.stringify(b)
+for (const [application, appModel] of [['sun', model], ['yes', yesModel]]) {
+  const check = (route, label) => {
+    const path = toPath(application, route)
+    const parsed = parseLocation(path)
+    if (parsed.application !== application || !sameRoute(parsed.route, route) || !parsed.canonical) fail(`URL ${path} does not round-trip for ${label}`)
+    routeCount += 1
+  }
+  check({ type: 'home' }, `${application} home`)
+  for (const id of Object.keys(appModel.screens)) check({ type: 'screen', id }, id)
+  for (const module of appModel.modules) {
+    check({ type: 'module', module: module.module, path: [] }, module.module)
+    for (const { option, trail } of flattenMenu(module.options)) {
+      if (!option.children?.length) continue
+      const path = [...trail, option.code]
+      check({ type: 'module', module: module.module, path }, `${module.module}/${path.join('/')}`)
+      if (findMenuLevel(module, path).node?.code !== option.code) fail(`Menu path ${path.join('/')} in ${module.module} does not resolve`)
+    }
+  }
+}
+if (parseLocation('/').application !== 'sun' || parseLocation('/').canonical) fail('Root URL should redirect to /sun')
+console.log(`URLs: ${routeCount} screen and menu routes round-trip`)
 
 if (errors.length) {
   console.error(`\n${errors.length} problem(s):\n- ${errors.join('\n- ')}`)
