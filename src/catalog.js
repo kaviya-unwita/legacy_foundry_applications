@@ -193,7 +193,7 @@ export function buildYesModel(items) {
   const modules = Object.entries(YES_HIERARCHY).map(([module, submodules]) => ({
     module, menuLegId: 'VEY-075',
     options: submodules.map((submodule, index) => ({
-      code: `${module}/${index}`, label: submodule, formName: null, screenId: null, menuLegId: null,
+      code: submodule, label: submodule, formName: null, screenId: null, menuLegId: null,
       unavailableNote: 'No screens supplied',
       children: byMenu(module, submodule).map((screen) => ({
         code: screen.id, label: screen.menuLabel, formName: null, screenId: screen.id, children: [], menuLegId: null,

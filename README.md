@@ -9,6 +9,20 @@ npm.cmd install
 npm.cmd run dev
 ```
 
+## URLs
+
+Each application has its own path, so pages can be bookmarked and shared, and browser Back/Forward and refresh work.
+
+| URL | Page |
+|---|---|
+| `/` | Redirects to `/sun` |
+| `/sun`, `/yes` | Application dashboard |
+| `/sun/menu/<module>/<option code>…` | Module menu or sub-menu, e.g. `/sun/menu/Stores%20Master/BB` |
+| `/yes/menu/<module>/<submodule>` | e.g. `/yes/menu/Foundry%20Application/Masters` |
+| `/sun/screen/<id>`, `/yes/screen/<id>` | Screen, e.g. `/sun/screen/LEG-086` |
+
+Unknown links show a *Page not found* message. `check:coverage` verifies that every screen and menu URL of both applications round-trips.
+
 ## Verify
 
 ```powershell
