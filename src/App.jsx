@@ -271,7 +271,10 @@ export function ScreenPage({ screen, screenshotBase = '/legacy-screens', onBack 
   const visibleFields = paged ? screen.fields.filter((field) => field.tab === activeTab) : screen.fields
   const tab = screen.tabs.find((item) => tabKey(item) === activeTab) ?? screen.tabs[0]
   const pageNotes = tab.source ? pageSource(screen, tab, visibleFields.length) : []
-  const valueKey = (field) => `${field.tab ?? ''}|${field.label}`
+  // One value per field: fields that share a label on a page (e.g. two "Remarks") must not share a value.
+  const valueKey = (field) => field.item
+    ? `${field.tab ?? ''}|${field.block ?? ''}.${field.item}`
+    : `${field.tab ?? ''}|${field.section ?? ''}|${field.row ?? ''}|${field.col ?? ''}|${field.label}`
   const verified = VERIFIED_STATUSES.includes(screen.sourceStatus)
   const isYes = screen.storageKey.startsWith('yes:')
   const canSave = screen.writesData || !verified
