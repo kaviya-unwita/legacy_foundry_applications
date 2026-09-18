@@ -25,3 +25,10 @@
 .reference-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:16px}.legacy-reference .reference-grid img{width:100%;max-height:700px;object-fit:contain;margin:0}
 .input-wrap input.checkbox{width:18px;height:18px;margin:10px 0;accent-color:#176158}
 .input-wrap select{width:100%;height:38px;border:1px solid #d6dfdb;background:#fafcfb;border-radius:6px;padding:0 9px;font-size:11px;color:var(--ink);outline:0}.input-wrap select:focus{border-color:#39877e;box-shadow:0 0 0 3px #e4f2ef;background:#fff}
+/* Where each tab and field comes from: screenshot, legacy form, or neither */
+.banner.info{background:#eef5fb;border-color:#b9d3ea;color:#23476b}
+.form-tabs button{display:inline-flex;align-items:center;gap:6px}.form-tabs button.legacy-tab{text-transform:none}.form-tabs button.form-only:not(.active){border-style:dashed;color:#5d6f6b}
+.page-source{display:flex;gap:9px;align-items:flex-start;border-radius:8px;padding:9px 12px;margin:-4px 0 14px;font-size:10px;line-height:1.5;border:1px solid var(--line);background:#f6faf8;color:#35524c}.page-source svg{flex:none;margin-top:2px}.page-source p{margin:0}.page-source.form{background:#fbf7ee;border-color:#ecd9ae;color:#6a4d14}
+.source-tag{display:inline-block;margin-left:6px;padding:1px 5px;border-radius:3px;font-size:8px;font-style:normal;font-weight:700;letter-spacing:.3px;vertical-align:1px;white-space:nowrap}
+.source-form-screenshot{background:#e2f1ec;color:#176158}.source-form{background:#f8edd8;color:#8a5c14}.source-screenshot{background:#e6eef8;color:#2f5f96}.source-screenshot-hidden{background:#efe7f7;color:#65408c}.source-form-text{background:#f0f2f1;color:#5f6f6b}
+.source-legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:10px;font-size:9px;color:var(--muted)}.source-legend span{display:inline-flex;align-items:center;gap:5px}.source-legend .source-tag{margin-left:0}
