@@ -69,7 +69,7 @@ function FieldMappingDisclosure({ module, master }) {
   const counts = mappings.reduce((result, item) => ({ ...result, [item.level]: (result[item.level] ?? 0) + 1 }), {})
   return <div className={`field-mapping-disclosure ${open ? 'open' : ''}`}>
     <button className="field-mapping-toggle" type="button" aria-expanded={open} onClick={() => setOpen(!open)}>
-      <span><Database/><span><strong>Field mapping & future use</strong><small>{mappings.length} fields · {counts.confirmed ?? 0} confirmed in both · {counts.partial ?? 0} partial · {counts.proposed ?? 0} proposed</small>{!counts.confirmed && <em className="brand-new-master">Brand-new Phoenix master</em>}</span></span><ChevronDown/>
+      <span><Database/><span><strong>Field mapping & future use</strong><small>{mappings.length} fields · {counts.confirmed ?? 0} confirmed in both · {counts.partial ?? 0} partial · {counts.proposed ?? 0} proposed</small>{!counts.confirmed && !counts.partial && <em className="brand-new-master">Brand-new Phoenix master</em>}</span></span><ChevronDown/>
     </button>
     {open && <section className="field-mapping-panel">
       <div className="mapping-legend"><span className="mapping-status confirmed">Confirmed</span><span>Explicitly confirmed in both SUN’s and YES’s evidence.</span><span className="mapping-status partial">Partial</span><span>Confirmed in one system or supported by related legacy attributes, but not by an equivalent master field in both.</span><span className="mapping-status proposed">Proposed</span><span>Not confirmed for this field in the supplied evidence.</span></div>
