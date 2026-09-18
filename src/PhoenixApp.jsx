@@ -150,7 +150,7 @@ export default function PhoenixApp({ onSwitch }) {
   const [globalQuery, setGlobalQuery] = useState('')
   const [collapsed, setCollapsed] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [expandedPhase, setExpandedPhase] = useState('phase-1')
+  const [expandedPhase, setExpandedPhase] = useState('')
   const [notice, setNotice] = useState('')
   const activeModule = route.module
   const found = route.master ? findPhoenixMaster(route.master) : null
