@@ -523,6 +523,11 @@ const VERIFIED_FIELD_ALIASES = {
     company: ['COMPCODE in SSA transaction/source tables', 'Company Code'],
     address: [null, null], responsibleRole: [null, null], calendar: [null, null], effectiveDate: [null, null], status: [null, null],
   },
+  departments: {
+    code: ['DEPTMAST.CODE — Department Master', 'Department Code — Department Master'],
+    name: ['DEPTMAST.NAME — Department Master', 'Department Name — Department Master'],
+    plant: [null, null], description: [null, null], responsibleRole: [null, null], effectiveDate: [null, null], status: [null, null],
+  },
 }
 
 function futureUseForField(fieldName, moduleId) {
