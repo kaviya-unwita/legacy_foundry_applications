@@ -245,6 +245,195 @@ export const PHOENIX_MODULES = [
   },
 ]
 
+const field = (key, label, type = 'text', required = false, options) => [key, label, type, required, options]
+const master = (id, name, description, fields, records) => ({ id, name, description, fields, records })
+const moduleById = (id) => PHOENIX_MODULES.find((module) => module.id === id)
+const replaceMasters = (moduleId, removeIds, additions) => {
+  const module = moduleById(moduleId)
+  module.masters = [...module.masters.filter((item) => !removeIds.includes(item.id)), ...additions]
+}
+
+Object.assign(moduleById('operations'), { name: 'Operational Locations & Resources', short: 'Locations & Resources' })
+Object.assign(moduleById('partners'), { name: 'Business Partners', short: 'Business Partners' })
+Object.assign(moduleById('items'), { name: 'Item, Material & Grade References', short: 'Items & Grades' })
+Object.assign(moduleById('equipment'), { name: 'Assets & Equipment', short: 'Assets & Equipment' })
+Object.assign(moduleById('processes'), { name: 'Manufacturing & Quality References', short: 'Process & Quality' })
+Object.assign(moduleById('configuration'), { name: 'Enterprise Configuration', short: 'Configuration' })
+Object.assign(moduleById('security'), { name: 'Identity, Access & Data Governance', short: 'Access & Governance' })
+
+// Normalized and missing master registers identified during the Phase 1 application review.
+replaceMasters('organization', [], [
+  master('employees', 'Employees / Responsible Persons', 'People referenced as owners, approvers and responsible persons; this can later be supplied by an HR integration.', [
+    field('code', 'Employee Code', 'text', true), field('name', 'Employee Name', 'text', true), field('department', 'Department', 'select', true, ['Production', 'Quality', 'Stores', 'Administration']),
+    field('designation', 'Designation', 'text', true), field('email', 'Email', 'email'), field('phone', 'Phone'), field('reportsTo', 'Reports To'), field('effectiveDate', 'Effective Date', 'date', true), field('status', 'Status', 'status', true),
+  ], [
+    { id: 'EMP-001', code: 'EMP-001', name: 'Sample Plant Head', department: 'Administration', designation: 'Plant Head', email: 'plant.head@example.com', phone: '+91 90000 30001', reportsTo: 'Managing Director', effectiveDate: '2026-04-01', status: 'Active' },
+    { id: 'EMP-002', code: 'EMP-002', name: 'Sample Quality Head', department: 'Quality', designation: 'Quality Head', email: 'quality.head@example.com', phone: '+91 90000 30002', reportsTo: 'Sample Plant Head', effectiveDate: '2026-04-01', status: 'Active' },
+  ]),
+  master('cost-centres', 'Cost Centres', 'Financial responsibility references used for departmental and operational cost reporting.', [
+    field('code', 'Cost Centre Code', 'text', true), field('name', 'Cost Centre Name', 'text', true), field('company', 'Company', 'select', true, ['PFS']), field('plant', 'Plant', 'select', true, ['PLT-01', 'PLT-02']),
+    field('department', 'Department', 'text', true), field('effectiveFrom', 'Effective From', 'date', true), field('status', 'Status', 'status', true),
+  ], [{ id: 'CC-001', code: 'CC-MELT', name: 'Melting Cost Centre', company: 'PFS', plant: 'PLT-01', department: 'Production', effectiveFrom: '2026-04-01', status: 'Active' }]),
+])
+
+replaceMasters('operations', [], [
+  master('bins-racks', 'Bins & Racks', 'Optional granular locations within a storage location.', [
+    field('code', 'Bin / Rack Code', 'text', true), field('name', 'Bin / Rack Name', 'text', true), field('storageLocation', 'Storage Location', 'select', true, ['RM-A01 — Alloy Storage A01', 'RM-Q01 — Incoming Quarantine']),
+    field('type', 'Location Type', 'select', true, ['Bin', 'Rack', 'Bay', 'Floor']), field('capacity', 'Capacity'), field('capacityUom', 'Capacity UOM', 'select', false, ['KG', 'NOS', 'LTR']), field('status', 'Status', 'status', true),
+  ], [{ id: 'BIN-001', code: 'RACK-A01', name: 'Alloy Rack A01', storageLocation: 'RM-A01 — Alloy Storage A01', type: 'Rack', capacity: '5000', capacityUom: 'KG', status: 'Active' }]),
+  master('resource-groups', 'Resource Groups & Capacity', 'Groups work centres and production resources for planning and capacity checks.', [
+    field('code', 'Resource Group Code', 'text', true), field('name', 'Resource Group Name', 'text', true), field('plant', 'Plant', 'select', true, ['PLT-01', 'PLT-02']), field('department', 'Department', 'text', true),
+    field('workCentres', 'Mapped Work Centres', 'textarea', true), field('dailyCapacity', 'Daily Capacity', 'number'), field('capacityUom', 'Capacity UOM'), field('calendar', 'Calendar', 'select', true, ['CAL-01 — Standard Manufacturing']), field('status', 'Status', 'status', true),
+  ], [{ id: 'RES-001', code: 'RG-MELT', name: 'Melting Resources', plant: 'PLT-01', department: 'Production', workCentres: 'WC-MELT-01', dailyCapacity: '12000', capacityUom: 'KG', calendar: 'CAL-01 — Standard Manufacturing', status: 'Active' }]),
+])
+
+replaceMasters('partners', ['customers', 'suppliers'], [
+  master('business-partners', 'Business Partners', 'One shared identity for customers, suppliers and subcontractors, preventing duplicate names, addresses and tax records.', [
+    field('code', 'Partner Code', 'text', true), field('name', 'Legal / Trading Name', 'text', true), field('roles', 'Partner Roles', 'text', true), field('category', 'Category', 'select', true, ['Domestic', 'Export', 'Inter-company']),
+    field('taxId', 'GST / Tax ID'), field('currency', 'Default Currency', 'select', true, ['INR', 'USD', 'EUR']), field('paymentTerms', 'Payment Terms', 'select', false, ['PT-30 — Net 30 Days', 'PT-45 — Net 45 Days', 'ADV — Advance']),
+    field('approvedSupplier', 'Approved Supplier', 'boolean'), field('creditDays', 'Credit Days', 'number'), field('status', 'Status', 'status', true),
+  ], [
+    { id: 'BP-001', code: 'BP-001', name: 'Aster Process Controls', roles: 'Customer', category: 'Domestic', taxId: '33BBBBB1111B1Z6', currency: 'INR', paymentTerms: 'PT-30 — Net 30 Days', approvedSupplier: false, creditDays: '30', status: 'Active' },
+    { id: 'BP-002', code: 'BP-002', name: 'Vertex Alloy Traders', roles: 'Supplier, Subcontractor', category: 'Domestic', taxId: '33CCCCC2222C1Z7', currency: 'INR', paymentTerms: 'PT-30 — Net 30 Days', approvedSupplier: true, creditDays: '30', status: 'Active' },
+  ]),
+  master('partner-sites', 'Partner Sites & Contacts', 'Multiple billing, delivery, plant, contact and communication records belonging to a business partner.', [
+    field('code', 'Site Code', 'text', true), field('partner', 'Business Partner', 'select', true, ['BP-001 — Aster Process Controls', 'BP-002 — Vertex Alloy Traders']), field('siteType', 'Site Type', 'select', true, ['Registered', 'Billing', 'Delivery', 'Plant', 'Subcontract']),
+    field('address', 'Address', 'textarea', true), field('country', 'Country', 'select', true, ['India', 'United States']), field('state', 'State'), field('contactPerson', 'Contact Person'), field('email', 'Email', 'email'), field('phone', 'Phone'), field('isDefault', 'Default Site', 'boolean'), field('status', 'Status', 'status', true),
+  ], [
+    { id: 'BPS-001', code: 'AST-BILL', partner: 'BP-001 — Aster Process Controls', siteType: 'Billing', address: 'Sample Industrial Estate, Chennai', country: 'India', state: 'Tamil Nadu', contactPerson: 'Sample Buyer 01', email: 'buyer01@example.com', phone: '+91 90000 40001', isDefault: true, status: 'Active' },
+    { id: 'BPS-002', code: 'VTX-PLANT', partner: 'BP-002 — Vertex Alloy Traders', siteType: 'Plant', address: 'Sample Industrial Area, Coimbatore', country: 'India', state: 'Tamil Nadu', contactPerson: 'Sample Supplier Contact', email: 'supplier01@example.com', phone: '+91 90000 40002', isDefault: true, status: 'Active' },
+  ]),
+])
+
+replaceMasters('items', [], [
+  master('item-categories', 'Item Groups & Categories', 'Controlled classification used for planning, procurement, inventory and reporting.', [
+    field('code', 'Category Code', 'text', true), field('name', 'Category Name', 'text', true), field('parentCategory', 'Parent Category'), field('itemType', 'Applicable Item Type', 'select', true, ['Raw Material', 'Consumable', 'Casting', 'Finished Good', 'Tooling']), field('status', 'Status', 'status', true),
+  ], [{ id: 'CAT-001', code: 'RM-ALLOY', name: 'Ferro Alloys', parentCategory: 'Raw Materials', itemType: 'Raw Material', status: 'Active' }]),
+  master('uom-conversions', 'UOM Conversions', 'Item or material-specific conversion between purchasing, stocking and production units.', [
+    field('code', 'Conversion Code', 'text', true), field('itemOrMaterial', 'Item / Material', 'text', true), field('fromUom', 'From UOM', 'select', true, ['KG', 'MT', 'NOS', 'LTR']), field('toUom', 'To UOM', 'select', true, ['KG', 'MT', 'NOS', 'LTR']), field('factor', 'Conversion Factor', 'number', true), field('effectiveFrom', 'Effective From', 'date', true), field('status', 'Status', 'status', true),
+  ], [{ id: 'CNV-001', code: 'MT-KG', itemOrMaterial: 'All weight-based raw materials', fromUom: 'MT', toUom: 'KG', factor: '1000', effectiveFrom: '2026-04-01', status: 'Active' }]),
+  master('tracking-policies', 'Item Tracking Policies', 'Defines whether an item requires heat, batch, serial, shelf-life or inspection traceability.', [
+    field('code', 'Policy Code', 'text', true), field('name', 'Policy Name', 'text', true), field('heatTracking', 'Heat Tracking', 'boolean'), field('batchTracking', 'Batch Tracking', 'boolean'), field('serialTracking', 'Serial Tracking', 'boolean'), field('shelfLifeDays', 'Shelf Life Days', 'number'), field('inspectionRequired', 'Incoming Inspection Required', 'boolean'), field('status', 'Status', 'status', true),
+  ], [{ id: 'TRK-001', code: 'HEAT-BATCH', name: 'Heat and Batch Controlled', heatTracking: true, batchTracking: true, serialTracking: false, shelfLifeDays: '', inspectionRequired: true, status: 'Active' }]),
+])
+
+replaceMasters('equipment', ['machines', 'furnaces', 'inspection-equipment'], [
+  master('assets-equipment', 'Assets & Equipment', 'Shared identity for machines, melting furnaces, heat-treatment furnaces, inspection equipment and gauges.', [
+    field('code', 'Equipment Code', 'text', true), field('name', 'Equipment Name', 'text', true), field('equipmentType', 'Equipment Type', 'select', true, ['Machine', 'Melting Furnace', 'Heat Treatment Furnace', 'Inspection Equipment', 'Gauge']),
+    field('category', 'Category', 'text', true), field('plant', 'Plant', 'select', true, ['PLT-01', 'PLT-02']), field('workCentre', 'Work Centre'), field('manufacturer', 'Manufacturer'), field('model', 'Model'), field('serialNo', 'Serial Number'),
+    field('commissionedOn', 'Commissioned On', 'date'), field('criticality', 'Criticality', 'select', true, ['Low', 'Medium', 'High', 'Critical']), field('maintenanceRequired', 'Maintenance Required', 'boolean'), field('calibrationRequired', 'Calibration Required', 'boolean'), field('status', 'Status', 'status', true),
+  ], [
+    { id: 'AST-001', code: 'IF-01', name: 'Induction Furnace 01', equipmentType: 'Melting Furnace', category: 'Induction', plant: 'PLT-01', workCentre: 'WC-MELT-01', manufacturer: 'Demo Engineering', model: 'IF-2000', serialNo: 'DEMO-IF-2000', commissionedOn: '2022-06-15', criticality: 'Critical', maintenanceRequired: true, calibrationRequired: true, status: 'Active' },
+    { id: 'AST-002', code: 'OES-01', name: 'Optical Emission Spectrometer', equipmentType: 'Inspection Equipment', category: 'Chemical Test', plant: 'PLT-01', workCentre: 'Laboratory', manufacturer: 'Demo Instruments', model: 'OES-X', serialNo: 'OES-DEMO-01', commissionedOn: '2023-02-10', criticality: 'High', maintenanceRequired: true, calibrationRequired: true, status: 'Active' },
+  ]),
+  master('equipment-capabilities', 'Equipment Capabilities', 'Type-specific capacity, range, energy and process capability linked to an equipment record.', [
+    field('code', 'Capability Code', 'text', true), field('equipment', 'Equipment', 'select', true, ['IF-01 — Induction Furnace 01', 'OES-01 — Optical Emission Spectrometer']), field('capabilityType', 'Capability Type', 'select', true, ['Production Capacity', 'Measurement Range', 'Energy Source', 'Process Capability']),
+    field('value', 'Capability Value', 'text', true), field('uom', 'UOM'), field('effectiveFrom', 'Effective From', 'date', true), field('status', 'Status', 'status', true),
+  ], [{ id: 'CAP-001', code: 'IF01-CAP', equipment: 'IF-01 — Induction Furnace 01', capabilityType: 'Production Capacity', value: '2000', uom: 'KG/heat', effectiveFrom: '2026-04-01', status: 'Active' }]),
+  master('calibration-profiles', 'Calibration Profiles', 'Calibration applicability and interval only; calibration schedules and results belong to the Calibration process.', [
+    field('code', 'Profile Code', 'text', true), field('equipment', 'Equipment', 'select', true, ['IF-01 — Induction Furnace 01', 'OES-01 — Optical Emission Spectrometer']), field('frequencyDays', 'Frequency (days)', 'number', true), field('range', 'Calibration Range'),
+    field('acceptanceCriteria', 'Acceptance Criteria', 'textarea'), field('internalExternal', 'Calibration Source', 'select', true, ['Internal', 'External', 'Both']), field('nextDueDate', 'Next Due Date', 'date'), field('status', 'Status', 'status', true),
+  ], [{ id: 'CALP-001', code: 'OES-CAL', equipment: 'OES-01 — Optical Emission Spectrometer', frequencyDays: '180', range: 'Fe/Ni base', acceptanceCriteria: 'As per approved laboratory procedure', internalExternal: 'External', nextDueDate: '2026-12-15', status: 'Active' }]),
+])
+
+replaceMasters('processes', [], [
+  master('reason-codes', 'Reason & Cause Codes', 'Controlled hold, release, rejection, repair, rework and scrap reasons used by Production and Quality.', [
+    field('code', 'Reason Code', 'text', true), field('name', 'Reason Name', 'text', true), field('type', 'Reason Type', 'select', true, ['Defect Cause', 'Hold', 'Release', 'Repair', 'Rework', 'Scrap']), field('department', 'Owning Department', 'text', true), field('approvalRequired', 'Approval Required', 'boolean'), field('status', 'Status', 'status', true),
+  ], [{ id: 'RSN-001', code: 'HOLD-QA', name: 'Awaiting Quality Review', type: 'Hold', department: 'Quality', approvalRequired: true, status: 'Active' }]),
+  master('test-methods', 'Inspection & Test Methods', 'Reusable visual, dimensional, laboratory and NDT method references.', [
+    field('code', 'Method Code', 'text', true), field('name', 'Method Name', 'text', true), field('category', 'Category', 'select', true, ['Visual', 'Dimensional', 'Chemical', 'Mechanical', 'NDT', 'Pressure']), field('standard', 'Applicable Standard'), field('equipmentCategory', 'Equipment Category'), field('qualificationRequired', 'Qualified Personnel Required', 'boolean'), field('status', 'Status', 'status', true),
+  ], [{ id: 'TST-001', code: 'RT-FILM', name: 'Radiographic Testing — Film', category: 'NDT', standard: 'Approved customer / code requirement', equipmentCategory: 'Radiography', qualificationRequired: true, status: 'Active' }]),
+])
+
+replaceMasters('configuration', [], [
+  master('fiscal-periods', 'Fiscal Years & Periods', 'Financial and reporting periods used by numbering, costing and statutory reporting.', [
+    field('code', 'Fiscal Year Code', 'text', true), field('name', 'Fiscal Year Name', 'text', true), field('startDate', 'Start Date', 'date', true), field('endDate', 'End Date', 'date', true), field('periodStatus', 'Period Status', 'select', true, ['Open', 'Closed', 'Future']), field('status', 'Status', 'status', true),
+  ], [{ id: 'FY-001', code: 'FY26-27', name: 'Financial Year 2026–27', startDate: '2026-04-01', endDate: '2027-03-31', periodStatus: 'Open', status: 'Active' }]),
+  master('tax-codes', 'Tax & Statutory Codes', 'Reusable GST/tax classification and HSN/SAC references.', [
+    field('code', 'Tax Code', 'text', true), field('name', 'Tax Name', 'text', true), field('taxType', 'Tax Type', 'select', true, ['GST', 'IGST', 'CGST', 'SGST', 'TDS', 'Other']), field('rate', 'Rate %', 'number'), field('hsnSac', 'HSN / SAC'), field('effectiveFrom', 'Effective From', 'date', true), field('status', 'Status', 'status', true),
+  ], [{ id: 'TAX-001', code: 'GST18', name: 'GST 18%', taxType: 'GST', rate: '18', hsnSac: 'Business-specific', effectiveFrom: '2026-04-01', status: 'Active' }]),
+  master('payment-terms', 'Payment Terms', 'Controlled commercial payment conditions used by partners, quotations, orders and invoices.', [
+    field('code', 'Payment Term Code', 'text', true), field('name', 'Payment Term Name', 'text', true), field('dueDays', 'Due Days', 'number', true), field('advancePercent', 'Advance %', 'number'), field('description', 'Description', 'textarea'), field('status', 'Status', 'status', true),
+  ], [{ id: 'PAY-001', code: 'PT-30', name: 'Net 30 Days', dueDays: '30', advancePercent: '0', description: 'Payment due 30 days from invoice date', status: 'Active' }]),
+  master('delivery-terms', 'Delivery Terms & Transport Modes', 'Commercial delivery responsibility and standard transportation methods.', [
+    field('code', 'Delivery Term Code', 'text', true), field('name', 'Delivery Term Name', 'text', true), field('type', 'Type', 'select', true, ['Delivery Term', 'Incoterm', 'Transport Mode']), field('description', 'Description', 'textarea'), field('status', 'Status', 'status', true),
+  ], [{ id: 'DEL-001', code: 'ROAD', name: 'By Road', type: 'Transport Mode', description: 'Domestic road transportation', status: 'Active' }]),
+  master('document-types', 'Document Types', 'Controlled business document identities referenced by workflows and number series.', [
+    field('code', 'Document Type Code', 'text', true), field('name', 'Document Type Name', 'text', true), field('businessArea', 'Business Area', 'select', true, ['Sales', 'Procurement', 'Inventory', 'Production', 'Quality', 'Dispatch']), field('approvalRequired', 'Approval Required', 'boolean'), field('numberSeries', 'Default Number Series'), field('status', 'Status', 'status', true),
+  ], [{ id: 'DOC-001', code: 'WORK-ORDER', name: 'Work Order', businessArea: 'Production', approvalRequired: true, numberSeries: 'Work Order Series', status: 'Active' }]),
+])
+
+replaceMasters('security', [], [
+  master('user-role-assignments', 'User–Role Assignments', 'Many-to-many role assignment with validity and approval, instead of storing one role directly on a user.', [
+    field('code', 'Assignment Code', 'text', true), field('user', 'User', 'select', true, ['USR-001 — Phoenix Administrator', 'USR-002 — Quality User']), field('role', 'Role', 'select', true, ['Phoenix Administrator', 'Master Data Manager', 'Quality User', 'Production User']), field('validFrom', 'Valid From', 'date', true), field('validTo', 'Valid To', 'date'), field('approvedBy', 'Approved By', 'text', true), field('status', 'Status', 'status', true),
+  ], [{ id: 'URA-001', code: 'URA-001', user: 'USR-002 — Quality User', role: 'Quality User', validFrom: '2026-04-01', validTo: '', approvedBy: 'Plant Head', status: 'Active' }]),
+  master('data-scopes', 'Data Access Scopes', 'Limits a user or role to approved companies, plants, departments and locations.', [
+    field('code', 'Scope Code', 'text', true), field('name', 'Scope Name', 'text', true), field('company', 'Company', 'select', true, ['PFS']), field('plants', 'Plants', 'text', true), field('departments', 'Departments'), field('locations', 'Locations'), field('status', 'Status', 'status', true),
+  ], [{ id: 'SCP-001', code: 'PFS-PLT1-QA', name: 'Plant 1 Quality Scope', company: 'PFS', plants: 'PLT-01', departments: 'Quality', locations: 'All quality locations', status: 'Active' }]),
+  master('approval-matrix', 'Approval Matrix & Delegation', 'Defines who reviews and approves master-data and access requests by type and threshold.', [
+    field('code', 'Rule Code', 'text', true), field('requestType', 'Request Type', 'select', true, ['Master Data', 'User Access', 'Role Assignment', 'Deactivation']), field('businessArea', 'Business Area', 'text', true), field('reviewerRole', 'Reviewer Role', 'text', true), field('approverRole', 'Approver Role', 'text', true), field('delegateRole', 'Delegate Role'), field('effectiveFrom', 'Effective From', 'date', true), field('status', 'Status', 'status', true),
+  ], [{ id: 'APR-001', code: 'APR-MASTER', requestType: 'Master Data', businessArea: 'All core masters', reviewerRole: 'Master Data Manager', approverRole: 'Business Owner', delegateRole: 'Plant Head', effectiveFrom: '2026-04-01', status: 'Active' }]),
+])
+
+export const PHOENIX_MODULE_GUIDANCE = {
+  organization: {
+    purpose: 'Defines the legal, physical and responsibility hierarchy used to scope every Phoenix transaction.',
+    sunEvidence: ['COMPANY', 'DEPARTMENT MASTER', 'EMPLOYEE MASTER'],
+    yesEvidence: ['Company Master', 'Company Unit Master', 'Department Master', 'Department Employee Master', 'Responsible Person', 'Employee Master'],
+    futureUse: ['All areas: company/plant data separation', 'Sales and Procurement document headers', 'Production and Quality responsibility', 'Costing and departmental reporting', 'Identity and approval assignment'],
+    boundary: 'Company Unit maps to Plant. Employee may come from HR later; Phoenix should retain only the reference needed for responsibility and approval.',
+  },
+  operations: {
+    purpose: 'Defines where material is stored, where work is performed and when capacity is available.',
+    sunEvidence: ['UNIT MASTER', 'ITEM MASTER — Storage Area', 'PATTERN LOCATION', 'MACHINE MASTER — Location'],
+    yesEvidence: ['Pattern/Core locations with Plant, Location and Rack', 'Furnace and Department mapping'],
+    futureUse: ['Inventory receipts, issues and transfers', 'Production scheduling and capacity checks', 'WIP movement', 'Pattern and tooling storage', 'Quality quarantine and rejected stock'],
+    boundary: 'Warehouse and work centre are different: one stores stock; the other performs operations. Bin/rack tracking remains configurable.',
+  },
+  partners: {
+    purpose: 'Maintains one organization identity with customer, supplier and subcontractor roles and reusable sites/contacts.',
+    sunEvidence: ['CUSTOMER', 'SUPPLIER MASTER', 'SUBCONTRACT / VENDOR'],
+    yesEvidence: ['Customer Master', 'End Customer Master', 'Delivery Customer Master', 'Vendor/Subcontractor', 'Delivery address of Subcontract (Customer)'],
+    futureUse: ['Enquiry, quotation and sales order', 'Purchase requisition and purchase order', 'Subcontract orders and material movement', 'Dispatch, invoicing and tax documents', 'Supplier approval and performance'],
+    boundary: 'Customer and supplier screens may remain as filtered views, but their common name, tax, address and contact data must come from one Business Partner record.',
+  },
+  items: {
+    purpose: 'Defines shared item, material and grade identities plus classification, UOM and traceability policies.',
+    sunEvidence: ['ITEM MASTER', 'PRODUCTMASTER', 'GRADE', 'GRADE STANDARDS CHEMICAL PROPERTIES'],
+    yesEvidence: ['Product Master', 'Part Master', 'Grade Master', 'Grade Master — Chemical Properties'],
+    futureUse: ['Engineering specifications and BOM', 'Procurement and inventory', 'Production material consumption', 'Heat/batch traceability', 'Quality inspection and certification'],
+    boundary: 'Core Setup holds identity and classification only. Chemical/mechanical limits, casting weights, drawings and revision-controlled specifications belong to Product Engineering.',
+  },
+  equipment: {
+    purpose: 'Provides one asset identity and type-specific capabilities for production, maintenance, calibration and quality.',
+    sunEvidence: ['MACHINE MASTER', 'EQUIPMENT MASTER'],
+    yesEvidence: ['Crucible / Heat Treatment Furnace', 'NDE Master and test details'],
+    futureUse: ['Production capacity and scheduling', 'Melting and heat-treatment execution', 'Preventive maintenance', 'Calibration planning and results', 'Inspection/test equipment traceability'],
+    boundary: 'Maintenance orders and calibration results are transactions in their respective processes; this area stores only the asset and governing profile.',
+  },
+  processes: {
+    purpose: 'Controls standard process/operation references separately from quality defect, cause and disposition references.',
+    sunEvidence: ['CASTING PROCESS MASTER', 'INTERNAL REJECTION TABLE', 'CUSTOMER REJECTION TABLE'],
+    yesEvidence: ['Contractor’s Process Master', 'Sub Process Master', 'Rejection Reasons', 'RT Repair Reason Master', 'Hold Reason / Hold Release'],
+    futureUse: ['Engineering routing', 'Work-centre scheduling', 'Production stage reporting', 'Inspection plans and NCR', 'Rework, repair, salvage and scrap decisions'],
+    boundary: 'Production owns Process/Operation; Quality owns Defect/Cause/Disposition/Test Method. Access and approvals must reflect that separation.',
+  },
+  configuration: {
+    purpose: 'Provides reusable enterprise codes, statutory references, commercial terms and controlled numbering.',
+    sunEvidence: ['UNIT MASTER', 'TAX', 'GENERAL / OTHER MASTERS', 'RUNNING SERIAL NO CONTROL'],
+    yesEvidence: ['Currency Master', 'Tax Master', 'General Masters', 'Priority / Lead Time / RT Type references'],
+    futureUse: ['All documents and integrations', 'Tax and invoice calculation', 'Commercial terms', 'Fiscal reporting and numbering reset', 'Standardized dropdown values'],
+    boundary: 'Separate business-friendly screens can share a generic reference-value table internally. Company/Plant are numbering scopes, not document types.',
+  },
+  security: {
+    purpose: 'Controls identity, role permissions, data scope and governed master-data/access approvals.',
+    sunEvidence: ['USER RIGHT', 'MENUMASTER', 'EMPLOYEE MASTER'],
+    yesEvidence: ['Responsible Person', 'Employee Master', 'Department Employee Master'],
+    futureUse: ['Every screen and transaction', 'Role-based approvals', 'Company/plant/department data separation', 'Audit trail and compliance', 'Master-data change governance'],
+    boundary: 'Passwords must be managed by authentication/SSO and never stored as ordinary master fields. Master Data Request is a workflow record, not a reference master.',
+  },
+}
+
 // Full BRD roadmap used by the Phoenix sidebar. Only Phase 1 is implemented;
 // later phases are deliberately navigation labels until their requirements are validated.
 export const PHOENIX_PHASES = [

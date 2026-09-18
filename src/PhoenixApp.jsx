@@ -5,14 +5,19 @@ import {
   PanelLeftOpen, Plus, Repeat2, RotateCcw, Ruler, Save, Search, Settings, ShieldCheck, ShoppingCart,
   Truck, Users, Warehouse, Wrench, X,
 } from 'lucide-react'
-import { buildPhoenixSeed, findPhoenixMaster, PHOENIX_MODULES, PHOENIX_PHASES } from './phoenixData'
+import { buildPhoenixSeed, findPhoenixMaster, PHOENIX_MODULES, PHOENIX_MODULE_GUIDANCE, PHOENIX_PHASES } from './phoenixData'
 
 const STORAGE_KEY = 'phoenix-erp:phase-1-masters'
 const MODULE_ICONS = [Building2, Layers3, Users, Boxes, Wrench, Gauge, Settings, ShieldCheck]
 const PHASE_ICONS = [Building2, ShoppingCart, Ruler, DollarSign, Warehouse, Hammer, Factory, FlaskConical, Repeat2, Truck, Calculator, BarChart3]
 const clone = (value) => JSON.parse(JSON.stringify(value))
 const loadData = () => {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? buildPhoenixSeed() } catch { return buildPhoenixSeed() }
+  const seed = buildPhoenixSeed()
+  try {
+    const stored = JSON.parse(localStorage.getItem(STORAGE_KEY))
+    if (!stored) return seed
+    return Object.fromEntries(Object.entries(seed).map(([masterId, records]) => [masterId, stored[masterId] ?? records]))
+  } catch { return seed }
 }
 const displayValue = (value) => typeof value === 'boolean' ? (value ? 'Yes' : 'No') : (value || '—')
 
@@ -37,6 +42,21 @@ function PhoenixNavigation({ activeModule, expandedPhase, onExpand, onOpenModule
       </section>
     })}
   </nav>
+}
+
+function ModuleEvidence({ moduleId, compact = false }) {
+  const guidance = PHOENIX_MODULE_GUIDANCE[moduleId]
+  if (!guidance) return null
+  if (compact) return <div className="module-evidence-compact"><Database size={15}/><div><strong>Legacy-informed future-state form</strong><span>SUN’s: {guidance.sunEvidence.join(', ')} · YES’s: {guidance.yesEvidence.join(', ')}</span></div></div>
+  return <section className="module-evidence">
+    <div className="evidence-purpose"><span className="eyebrow">WHY THIS DATA EXISTS</span><p>{guidance.purpose}</p></div>
+    <div className="evidence-grid">
+      <article><header><Database/><strong>SUN’s corresponding data</strong></header><ul>{guidance.sunEvidence.map((item) => <li key={item}>{item}</li>)}</ul></article>
+      <article><header><Database/><strong>YES’s corresponding data</strong></header><ul>{guidance.yesEvidence.map((item) => <li key={item}>{item}</li>)}</ul></article>
+      <article><header><ChevronRight/><strong>Used later in Phoenix</strong></header><ul>{guidance.futureUse.map((item) => <li key={item}>{item}</li>)}</ul></article>
+    </div>
+    <div className="design-boundary"><ShieldCheck size={17}/><div><strong>Future-state design boundary</strong><span>{guidance.boundary}</span></div></div>
+  </section>
 }
 
 function Dashboard({ data, onOpenModule, onOpenMaster }) {
@@ -70,6 +90,8 @@ function ModulePage({ module, data, onBack, onOpenMaster }) {
   return <main className="content phoenix-content">
     <button className="back-link" onClick={onBack}><ArrowLeft size={17}/> Overview</button>
     <div className="page-heading"><div><span className="eyebrow">PHOENIX · CORE SETUP</span><h1>{module.name}</h1><p>{module.description}</p></div><div className="count-badge">{module.masters.length}<small>REGISTERS</small></div></div>
+    <ModuleEvidence moduleId={module.id}/>
+    <div className="section-title"><div><span>MASTER REGISTERS</span><h2>Available setup screens</h2></div><small>{module.masters.length} REGISTERS</small></div>
     <section className="option-grid phoenix-register-grid">{module.masters.map((master, index) => <button key={master.id} onClick={() => onOpenMaster(master.id)}><span>{String(index + 1).padStart(2, '0')}</span><strong>{master.name}<small className="option-note">{master.description} · {data[master.id]?.length ?? 0} records</small></strong><ChevronRight size={19}/></button>)}</section>
   </main>
 }
@@ -111,6 +133,7 @@ function MasterForm({ module, master, record, isNew, onBack, onSave }) {
   return <main className="content phoenix-content screen-page">
     <button className="back-link" onClick={onBack}><ArrowLeft size={17}/> {master.name}</button>
     <header className="form-heading phoenix-form-heading"><div><div className="form-meta"><small>PHOENIX CORE SETUP</small><small>{module.name}</small><small>{isNew ? 'NEW RECORD' : record.id}</small></div><h1>{isNew ? `New ${master.name.replace(/s$/, '')}` : draft.name || draft.code || master.name}</h1><p>{master.description}</p></div><span className="module-tag">{isNew ? 'DRAFT' : (draft.status || draft.approvalStatus || 'RECORD')}</span></header>
+    <ModuleEvidence moduleId={module.id} compact/>
     <div className="demo-banner compact"><ShieldCheck size={16}/><div><strong>Controlled master-data entry</strong><span>Required fields are marked with *. Changes in this prototype are retained locally for review.</span></div></div>
     {errors.length > 0 && <div className="banner danger"><CircleDot size={17}/><div><strong>Complete the required fields.</strong> {errors.join(', ')}</div></div>}
     <form onSubmit={submit}>
