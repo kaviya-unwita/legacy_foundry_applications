@@ -375,6 +375,34 @@ replaceMasters('security', [], [
   ], [{ id: 'APR-001', code: 'APR-MASTER', requestType: 'Master Data', businessArea: 'All core masters', reviewerRole: 'Master Data Manager', approverRole: 'Business Owner', delegateRole: 'Plant Head', effectiveFrom: '2026-04-01', status: 'Active' }]),
 ])
 
+// Agreed Phase 1 scope: later-phase and duplicate registers are not shown as setup masters.
+replaceMasters('organization', ['sections', 'cost-centres'], [])
+replaceMasters('operations', ['bins-racks', 'resource-groups'], [])
+replaceMasters('equipment', ['equipment-capabilities', 'calibration-profiles'], [])
+replaceMasters('configuration', ['reference-types'], [])
+replaceMasters('security', ['user-role-assignments', 'data-scopes', 'approval-matrix'], [])
+
+const storageLocations = moduleById('operations').masters.find((item) => item.id === 'storage-locations')
+storageLocations.description = 'Hierarchical plant storage locations, including areas, racks, bins, bays and shelves.'
+storageLocations.fields = [
+  field('code', 'Location Code', 'text', true), field('name', 'Location Name', 'text', true),
+  field('warehouse', 'Parent Warehouse', 'select', true, ['RM-01 — Raw Material Store', 'FG-01 — Finished Goods Store']),
+  field('parentLocation', 'Parent Location'), field('locationType', 'Location Type', 'select', true, ['Area', 'Rack', 'Bin', 'Bay', 'Shelf']),
+  field('purpose', 'Location Purpose', 'select', true, ['Available', 'Inspection', 'Quarantine', 'Rejected']), field('stockType', 'Permitted Stock Type'),
+  field('capacity', 'Capacity', 'number'), field('capacityUom', 'Capacity UOM', 'select', false, ['KG', 'NOS', 'LTR']), field('status', 'Status', 'status', true),
+]
+storageLocations.records = [
+  { id: 'LOC-001', code: 'RM-A01', name: 'Alloy Storage A01', warehouse: 'RM-01 — Raw Material Store', parentLocation: '', locationType: 'Area', purpose: 'Available', stockType: 'Ferro alloys', capacity: '10000', capacityUom: 'KG', status: 'Active' },
+  { id: 'LOC-002', code: 'RACK-A01', name: 'Alloy Rack A01', warehouse: 'RM-01 — Raw Material Store', parentLocation: 'RM-A01 — Alloy Storage A01', locationType: 'Rack', purpose: 'Available', stockType: 'Ferro alloys', capacity: '5000', capacityUom: 'KG', status: 'Active' },
+  { id: 'LOC-003', code: 'RM-Q01', name: 'Incoming Quarantine', warehouse: 'RM-01 — Raw Material Store', parentLocation: '', locationType: 'Area', purpose: 'Quarantine', stockType: 'Incoming material', capacity: '', capacityUom: 'KG', status: 'Active' },
+]
+
+const equipmentRegister = moduleById('equipment').masters.find((item) => item.id === 'assets-equipment')
+equipmentRegister.fields.splice(-1, 0, field('ratedCapacity', 'Rated Capacity'), field('capacityUom', 'Capacity UOM'), field('measurementRange', 'Measurement Range'), field('energySource', 'Energy Source'), field('calibrationFrequencyDays', 'Calibration Frequency (days)', 'number'))
+equipmentRegister.records = equipmentRegister.records.map((record) => record.code === 'IF-01'
+  ? { ...record, ratedCapacity: '2000', capacityUom: 'KG/heat', measurementRange: 'Up to 1650 °C', energySource: 'Electricity', calibrationFrequencyDays: '' }
+  : { ...record, ratedCapacity: '', capacityUom: '', measurementRange: 'Fe/Ni base', energySource: 'Electricity', calibrationFrequencyDays: '180' })
+
 export const PHOENIX_MODULE_GUIDANCE = {
   organization: {
     purpose: 'Defines the legal, physical and responsibility hierarchy used to scope every Phoenix transaction.',
