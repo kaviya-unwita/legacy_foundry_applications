@@ -1,13 +1,15 @@
 import { useMemo, useState } from 'react'
 import {
-  ArrowLeft, Boxes, Building2, Check, ChevronDown, ChevronRight, CircleDot, Database, Factory, Gauge, Home,
-  Layers3, Menu, PanelLeftClose, PanelLeftOpen, Plus, RotateCcw, Save, Search, Settings, ShieldCheck,
-  Users, Wrench, X,
+  ArrowLeft, BarChart3, Boxes, Building2, Calculator, Check, ChevronDown, ChevronRight, CircleDot,
+  Database, DollarSign, Factory, FlaskConical, Gauge, Hammer, Home, Layers3, Menu, PanelLeftClose,
+  PanelLeftOpen, Plus, Repeat2, RotateCcw, Ruler, Save, Search, Settings, ShieldCheck, ShoppingCart,
+  Truck, Users, Warehouse, Wrench, X,
 } from 'lucide-react'
 import { buildPhoenixSeed, findPhoenixMaster, PHOENIX_MODULES, PHOENIX_PHASES } from './phoenixData'
 
 const STORAGE_KEY = 'phoenix-erp:phase-1-masters'
 const MODULE_ICONS = [Building2, Layers3, Users, Boxes, Wrench, Gauge, Settings, ShieldCheck]
+const PHASE_ICONS = [Building2, ShoppingCart, Ruler, DollarSign, Warehouse, Hammer, Factory, FlaskConical, Repeat2, Truck, Calculator, BarChart3]
 const clone = (value) => JSON.parse(JSON.stringify(value))
 const loadData = () => {
   try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? buildPhoenixSeed() } catch { return buildPhoenixSeed() }
@@ -21,12 +23,13 @@ function ApplicationSelect({ onSwitch }) {
 function PhoenixNavigation({ activeModule, expandedPhase, onExpand, onOpenModule }) {
   return <nav className="phoenix-navigation">
     <p>ERP ROADMAP</p>
-    {PHOENIX_PHASES.map((phase) => {
+    {PHOENIX_PHASES.map((phase, index) => {
       const expanded = expandedPhase === phase.id
       const phaseActive = phase.number === 1 && Boolean(activeModule)
+      const PhaseIcon = PHASE_ICONS[index]
       return <section className={`phase-nav ${expanded ? 'expanded' : ''}`} key={phase.id}>
         <button className={`phase-toggle ${phaseActive ? 'phase-active' : ''}`} onClick={() => onExpand(expanded ? '' : phase.id)} title={phase.name}>
-          <span className="phase-number"><Layers3/></span><span className="phase-label"><strong>{phase.name}</strong><small>{phase.modules.length} modules · {phase.status}</small></span><ChevronDown className="phase-chevron"/>
+          <span className="phase-number"><PhaseIcon/></span><span className="phase-label"><strong>{phase.name}</strong><small>{phase.modules.length} modules · {phase.status}</small></span><ChevronDown className="phase-chevron"/>
         </button>
         {expanded && <div className="phase-modules">{phase.modules.map((module, index) => module.available
           ? <button key={module.id} className={activeModule === module.id ? 'active' : ''} onClick={() => onOpenModule(module.id)}><span>{module.name}</span></button>
