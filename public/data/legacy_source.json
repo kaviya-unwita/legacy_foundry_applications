@@ -47,6 +47,24 @@
      "menuLegId": null
     },
     {
+     "code": "AN03",
+     "label": "GRADE GROUP MASTER",
+     "formName": "GRADEGRPMAST",
+     "formInSource": false,
+     "screenId": null,
+     "children": [],
+     "menuLegId": null
+    },
+    {
+     "code": "AN04",
+     "label": "SUB GRADE GROUP MASTER",
+     "formName": "SUBGRADEGRP",
+     "formInSource": false,
+     "screenId": null,
+     "children": [],
+     "menuLegId": null
+    },
+    {
      "code": "AA06",
      "label": "SUBCONTRACT / VENDOR",
      "formName": "OCSTM",
@@ -144,24 +162,6 @@
      "screenId": "LEG-030",
      "children": [],
      "menuLegId": null
-    },
-    {
-     "code": "AN03",
-     "label": "GRADE GROUP MASTER",
-     "formName": "GRADEGRPMAST",
-     "formInSource": false,
-     "screenId": null,
-     "children": [],
-     "menuLegId": null
-    },
-    {
-     "code": "AN04",
-     "label": "SUB GRADE GROUP MASTER",
-     "formName": "SUBGRADEGRP",
-     "formInSource": false,
-     "screenId": null,
-     "children": [],
-     "menuLegId": null
     }
    ]
   },
@@ -257,15 +257,6 @@
      "menuLegId": null
     },
     {
-     "code": "AB01.",
-     "label": "WEEKLY POURING PLAN",
-     "formName": "WEEKLYPOURPLAN",
-     "formInSource": false,
-     "screenId": null,
-     "children": [],
-     "menuLegId": null
-    },
-    {
      "code": "AB02",
      "label": "ORDER / PO HOLD",
      "formName": "HOLDPO",
@@ -300,6 +291,15 @@
      "screenId": "LEG-072",
      "children": [],
      "menuLegId": null
+    },
+    {
+     "code": "AB01.",
+     "label": "WEEKLY POURING PLAN",
+     "formName": "WEEKLYPOURPLAN",
+     "formInSource": false,
+     "screenId": null,
+     "children": [],
+     "menuLegId": null
     }
    ]
   },
@@ -322,15 +322,6 @@
      "formName": "PERFORMANEW",
      "formInSource": true,
      "screenId": "LEG-096",
-     "children": [],
-     "menuLegId": null
-    },
-    {
-     "code": "AC012",
-     "label": "OA APPROVAL ENTRY",
-     "formName": "OAAPP",
-     "formInSource": false,
-     "screenId": null,
      "children": [],
      "menuLegId": null
     },
@@ -398,20 +389,29 @@
      "menuLegId": null
     },
     {
-     "code": "AC10",
-     "label": "OA CHECKING ENTRY",
-     "formName": "OACHE",
+     "code": "AJ09",
+     "label": "Excel Conversion",
+     "formName": "excon",
+     "formInSource": true,
+     "screenId": "LEG-089",
+     "children": [],
+     "menuLegId": null
+    },
+    {
+     "code": "AC012",
+     "label": "OA APPROVAL ENTRY",
+     "formName": "OAAPP",
      "formInSource": false,
      "screenId": null,
      "children": [],
      "menuLegId": null
     },
     {
-     "code": "AJ09",
-     "label": "Excel Conversion",
-     "formName": "excon",
-     "formInSource": true,
-     "screenId": "LEG-089",
+     "code": "AC10",
+     "label": "OA CHECKING ENTRY",
+     "formName": "OACHE",
+     "formInSource": false,
+     "screenId": null,
      "children": [],
      "menuLegId": null
     }
@@ -713,15 +713,6 @@
    "menuLegId": "LEG-191",
    "options": [
     {
-     "code": "AH21",
-     "label": "SUBCONTRACT BILL ENTRY",
-     "formName": "SUBFINISH",
-     "formInSource": true,
-     "screenId": "LEG-192",
-     "children": [],
-     "menuLegId": null
-    },
-    {
      "code": "AH01",
      "label": "CASTING PROCESS ENTRY/REPORT",
      "formName": "SUBCONTRACT",
@@ -767,24 +758,6 @@
      "menuLegId": null
     },
     {
-     "code": "AH17",
-     "label": "SUBCONT. PENDING",
-     "formName": "SUBCONTPEND",
-     "formInSource": true,
-     "screenId": "LEG-195",
-     "children": [],
-     "menuLegId": null
-    },
-    {
-     "code": "AH18",
-     "label": "SUBCONT. INWARD OUTWARD REPORT",
-     "formName": "SUBCONTRACT_SEND_RECV",
-     "formInSource": true,
-     "screenId": "LEG-193",
-     "children": [],
-     "menuLegId": null
-    },
-    {
      "code": "AH19",
      "label": "CORE SHOP BILL ENTRY",
      "formName": "MPAY",
@@ -803,6 +776,15 @@
      "menuLegId": null
     },
     {
+     "code": "AH21",
+     "label": "SUBCONTRACT BILL ENTRY",
+     "formName": "SUBFINISH",
+     "formInSource": true,
+     "screenId": "LEG-192",
+     "children": [],
+     "menuLegId": null
+    },
+    {
      "code": "AH26",
      "label": "JJ FORM",
      "formName": "JFORM",
@@ -817,6 +799,24 @@
      "formName": "SUBCON_BILL",
      "formInSource": true,
      "screenId": "LEG-196",
+     "children": [],
+     "menuLegId": null
+    },
+    {
+     "code": "AH17",
+     "label": "SUBCONT. PENDING",
+     "formName": "SUBCONTPEND",
+     "formInSource": true,
+     "screenId": "LEG-195",
+     "children": [],
+     "menuLegId": null
+    },
+    {
+     "code": "AH18",
+     "label": "SUBCONT. INWARD OUTWARD REPORT",
+     "formName": "SUBCONTRACT_SEND_RECV",
+     "formInSource": true,
+     "screenId": "LEG-193",
      "children": [],
      "menuLegId": null
     },
@@ -1121,6 +1121,24 @@
      "menuLegId": null
     },
     {
+     "code": "AG27",
+     "label": "INVOICE GENERATION PRODUCT",
+     "formName": "DESPINVOICEPRD",
+     "formInSource": true,
+     "screenId": "LEG-143",
+     "children": [],
+     "menuLegId": null
+    },
+    {
+     "code": "AG29",
+     "label": "INVOICE GENERATION  product",
+     "formName": "DESPINVOICEprd",
+     "formInSource": true,
+     "screenId": "LEG-143",
+     "children": [],
+     "menuLegId": null
+    },
+    {
      "code": "AG06",
      "label": "SUPPLEMENTRY INVOICE GENERAL",
      "formName": "SUPPLEMENTRYGEN",
@@ -1193,24 +1211,6 @@
      "menuLegId": null
     },
     {
-     "code": "AG27",
-     "label": "INVOICE GENERATION PRODUCT",
-     "formName": "DESPINVOICEPRD",
-     "formInSource": true,
-     "screenId": "LEG-143",
-     "children": [],
-     "menuLegId": null
-    },
-    {
-     "code": "AG29",
-     "label": "INVOICE GENERATION  product",
-     "formName": "DESPINVOICEprd",
-     "formInSource": true,
-     "screenId": "LEG-143",
-     "children": [],
-     "menuLegId": null
-    },
-    {
      "code": "AG30",
      "label": "DESPATCH OFFERING CLERANCE ENTRY",
      "formName": "OFFERINGINSP",
@@ -1243,15 +1243,6 @@
    "module": "Onscreen Master",
    "menuLegId": "LEG-087",
    "options": [
-    {
-     "code": "AJ009",
-     "label": "DP VIEW",
-     "formName": "DPEDIT",
-     "formInSource": true,
-     "screenId": "LEG-200",
-     "children": [],
-     "menuLegId": null
-    },
     {
      "code": "AJ01",
      "label": "POURED DETAILS VIEW",
@@ -1343,20 +1334,29 @@
      "menuLegId": null
     },
     {
-     "code": "AJ12",
-     "label": "PRODUCT VIEW1",
-     "formName": "PATNVIEW",
-     "formInSource": true,
-     "screenId": "LEG-085",
-     "children": [],
-     "menuLegId": null
-    },
-    {
      "code": "AJ13",
      "label": "CUSTOMER VIEW",
      "formName": "CUSTOMERVIEW",
      "formInSource": true,
      "screenId": "LEG-077",
+     "children": [],
+     "menuLegId": null
+    },
+    {
+     "code": "AJ009",
+     "label": "DP VIEW",
+     "formName": "DPEDIT",
+     "formInSource": true,
+     "screenId": "LEG-200",
+     "children": [],
+     "menuLegId": null
+    },
+    {
+     "code": "AJ12",
+     "label": "PRODUCT VIEW1",
+     "formName": "PATNVIEW",
+     "formInSource": true,
+     "screenId": "LEG-085",
      "children": [],
      "menuLegId": null
     }
@@ -1369,15 +1369,6 @@
     {
      "code": "AK01",
      "label": "MISREPORT",
-     "formName": "ENQUIRY",
-     "formInSource": true,
-     "screenId": "LEG-038",
-     "children": [],
-     "menuLegId": null
-    },
-    {
-     "code": "AK02",
-     "label": "FOUNDRY STAUTS",
      "formName": "ENQUIRY",
      "formInSource": true,
      "screenId": "LEG-038",
@@ -1399,6 +1390,15 @@
      "formName": "STATUS",
      "formInSource": true,
      "screenId": "LEG-039",
+     "children": [],
+     "menuLegId": null
+    },
+    {
+     "code": "AK02",
+     "label": "FOUNDRY STAUTS",
+     "formName": "ENQUIRY",
+     "formInSource": true,
+     "screenId": "LEG-038",
      "children": [],
      "menuLegId": null
     }
@@ -1438,15 +1438,6 @@
      "formName": "CONTROL",
      "formInSource": true,
      "screenId": "LEG-206",
-     "children": [],
-     "menuLegId": null
-    },
-    {
-     "code": "AL02",
-     "label": "REPORT FORMAT NO'S",
-     "formName": "FORMAT",
-     "formInSource": true,
-     "screenId": "LEG-205",
      "children": [],
      "menuLegId": null
     },
@@ -1532,6 +1523,15 @@
      "menuLegId": null
     },
     {
+     "code": "AL02",
+     "label": "REPORT FORMAT NO'S",
+     "formName": "FORMAT",
+     "formInSource": true,
+     "screenId": "LEG-205",
+     "children": [],
+     "menuLegId": null
+    },
+    {
      "code": "AL13",
      "label": "E-INVOICE CANCEL",
      "formName": "CANEINV",
@@ -1564,6 +1564,106 @@
    "module": "Stores Master",
    "menuLegId": "LEG-151",
    "options": [
+    {
+     "code": "BA",
+     "label": "INVENTORY MASTERS",
+     "formName": null,
+     "formInSource": false,
+     "screenId": null,
+     "children": [
+      {
+       "code": "BA01",
+       "label": "SUPPLIER MASTER",
+       "formName": "MASSUPPLIER",
+       "formInSource": true,
+       "screenId": "LEG-165",
+       "children": [],
+       "menuLegId": null
+      },
+      {
+       "code": "BA02",
+       "label": "ITEM MASTER",
+       "formName": "MASITEM",
+       "formInSource": true,
+       "screenId": "LEG-160",
+       "children": [],
+       "menuLegId": null
+      },
+      {
+       "code": "BA03",
+       "label": "DEPARTMENT MASTER",
+       "formName": "MASDEPARTMENT",
+       "formInSource": true,
+       "screenId": "LEG-157",
+       "children": [],
+       "menuLegId": null
+      },
+      {
+       "code": "BA04",
+       "label": "GROUP MASTER",
+       "formName": "MASGROUP",
+       "formInSource": true,
+       "screenId": "LEG-158",
+       "children": [],
+       "menuLegId": null
+      },
+      {
+       "code": "BA05",
+       "label": "OPENING STOCK",
+       "formName": "MASOPEN",
+       "formInSource": true,
+       "screenId": "LEG-161",
+       "children": [],
+       "menuLegId": null
+      },
+      {
+       "code": "BA06",
+       "label": "REPORTS",
+       "formName": "MASTER_REPORTS",
+       "formInSource": true,
+       "screenId": "LEG-163",
+       "children": [],
+       "menuLegId": null
+      },
+      {
+       "code": "BA07",
+       "label": "YEARLY HOUSE KEEPING",
+       "formName": "HOUSEKEEPING",
+       "formInSource": true,
+       "screenId": "LEG-167",
+       "children": [],
+       "menuLegId": null
+      },
+      {
+       "code": "BA09",
+       "label": "RATE MASTER",
+       "formName": "RATEMASTER",
+       "formInSource": true,
+       "screenId": "LEG-162",
+       "children": [],
+       "menuLegId": null
+      },
+      {
+       "code": "BA10",
+       "label": "UNIT MASTER",
+       "formName": "UNIT",
+       "formInSource": false,
+       "screenId": "LEG-166",
+       "children": [],
+       "menuLegId": null
+      },
+      {
+       "code": "BA11",
+       "label": "ITEM MASTER CODE UPDATE",
+       "formName": "ITEMUPDATE",
+       "formInSource": true,
+       "screenId": null,
+       "children": [],
+       "menuLegId": null
+      }
+     ],
+     "menuLegId": "LEG-164"
+    },
     {
      "code": "BB",
      "label": "PURCHASE",
@@ -1784,106 +1884,6 @@
       }
      ],
      "menuLegId": null
-    },
-    {
-     "code": "BA",
-     "label": "INVENTORY MASTERS",
-     "formName": null,
-     "formInSource": false,
-     "screenId": null,
-     "children": [
-      {
-       "code": "BA01",
-       "label": "SUPPLIER MASTER",
-       "formName": "MASSUPPLIER",
-       "formInSource": true,
-       "screenId": "LEG-165",
-       "children": [],
-       "menuLegId": null
-      },
-      {
-       "code": "BA02",
-       "label": "ITEM MASTER",
-       "formName": "MASITEM",
-       "formInSource": true,
-       "screenId": "LEG-160",
-       "children": [],
-       "menuLegId": null
-      },
-      {
-       "code": "BA03",
-       "label": "DEPARTMENT MASTER",
-       "formName": "MASDEPARTMENT",
-       "formInSource": true,
-       "screenId": "LEG-157",
-       "children": [],
-       "menuLegId": null
-      },
-      {
-       "code": "BA04",
-       "label": "GROUP MASTER",
-       "formName": "MASGROUP",
-       "formInSource": true,
-       "screenId": "LEG-158",
-       "children": [],
-       "menuLegId": null
-      },
-      {
-       "code": "BA05",
-       "label": "OPENING STOCK",
-       "formName": "MASOPEN",
-       "formInSource": true,
-       "screenId": "LEG-161",
-       "children": [],
-       "menuLegId": null
-      },
-      {
-       "code": "BA06",
-       "label": "REPORTS",
-       "formName": "MASTER_REPORTS",
-       "formInSource": true,
-       "screenId": "LEG-163",
-       "children": [],
-       "menuLegId": null
-      },
-      {
-       "code": "BA07",
-       "label": "YEARLY HOUSE KEEPING",
-       "formName": "HOUSEKEEPING",
-       "formInSource": true,
-       "screenId": "LEG-167",
-       "children": [],
-       "menuLegId": null
-      },
-      {
-       "code": "BA09",
-       "label": "RATE MASTER",
-       "formName": "RATEMASTER",
-       "formInSource": true,
-       "screenId": "LEG-162",
-       "children": [],
-       "menuLegId": null
-      },
-      {
-       "code": "BA10",
-       "label": "UNIT MASTER",
-       "formName": "UNIT",
-       "formInSource": false,
-       "screenId": "LEG-166",
-       "children": [],
-       "menuLegId": null
-      },
-      {
-       "code": "BA11",
-       "label": "ITEM MASTER CODE UPDATE",
-       "formName": "ITEMUPDATE",
-       "formInSource": true,
-       "screenId": null,
-       "children": [],
-       "menuLegId": null
-      }
-     ],
-     "menuLegId": "LEG-164"
     }
    ]
   },
@@ -1892,49 +1892,48 @@
    "menuLegId": "LEG-064",
    "options": [
     {
-     "code": "CA",
-     "label": "MAINTANANCE ENTRIES",
-     "formName": null,
+     "code": "CA01",
+     "label": "MACHINE MASTER",
+     "formName": "MACHINEMAST",
      "formInSource": false,
+     "screenId": "LEG-065",
+     "children": [],
+     "menuLegId": null
+    },
+    {
+     "code": "CA02",
+     "label": "BREAKDOWN",
+     "formName": "BREAKDOWN",
+     "formInSource": true,
+     "screenId": "LEG-061",
+     "children": [],
+     "menuLegId": null
+    },
+    {
+     "code": "CA05",
+     "label": "GENERATOR",
+     "formName": "GENERATOR",
+     "formInSource": true,
+     "screenId": "LEG-062",
+     "children": [],
+     "menuLegId": null
+    },
+    {
+     "code": "CA06",
+     "label": "EHISTORY",
+     "formName": "EHISTORY",
+     "formInSource": true,
      "screenId": null,
-     "children": [
-      {
-       "code": "CA01",
-       "label": "MACHINE MASTER",
-       "formName": "MACHINEMAST",
-       "formInSource": false,
-       "screenId": "LEG-065",
-       "children": [],
-       "menuLegId": null
-      },
-      {
-       "code": "CA02",
-       "label": "BREAKDOWN",
-       "formName": "BREAKDOWN",
-       "formInSource": true,
-       "screenId": "LEG-061",
-       "children": [],
-       "menuLegId": null
-      },
-      {
-       "code": "CA05",
-       "label": "GENERATOR",
-       "formName": "GENERATOR",
-       "formInSource": true,
-       "screenId": "LEG-062",
-       "children": [],
-       "menuLegId": null
-      },
-      {
-       "code": "CA06",
-       "label": "EHISTORY",
-       "formName": "EHISTORY",
-       "formInSource": true,
-       "screenId": null,
-       "children": [],
-       "menuLegId": null
-      }
-     ],
+     "children": [],
+     "menuLegId": null
+    },
+    {
+     "code": "CC01",
+     "label": "PREVENTIVE REPORT",
+     "formName": "REPORT",
+     "formInSource": true,
+     "screenId": "LEG-063",
+     "children": [],
      "menuLegId": null
     },
     {
@@ -1944,26 +1943,8 @@
      "formInSource": false,
      "screenId": null,
      "children": [],
-     "menuLegId": null
-    },
-    {
-     "code": "CC",
-     "label": "MAINTANANCE REPORTS",
-     "formName": null,
-     "formInSource": false,
-     "screenId": null,
-     "children": [
-      {
-       "code": "CC01",
-       "label": "PREVENTIVE REPORT",
-       "formName": "REPORT",
-       "formInSource": true,
-       "screenId": "LEG-063",
-       "children": [],
-       "menuLegId": null
-      }
-     ],
-     "menuLegId": null
+     "menuLegId": null,
+     "unavailableNote": "No options in the legacy menu"
     }
    ]
   },
@@ -1972,40 +1953,39 @@
    "menuLegId": "LEG-005",
    "options": [
     {
-     "code": "EA",
-     "label": "CALIBRATION ENTRIES",
-     "formName": null,
-     "formInSource": false,
-     "screenId": null,
-     "children": [
-      {
-       "code": "EA01",
-       "label": "EQUIPMENT MASTER",
-       "formName": "CALIMASTLIST",
-       "formInSource": true,
-       "screenId": "LEG-004",
-       "children": [],
-       "menuLegId": null
-      },
-      {
-       "code": "EA02",
-       "label": "EQUIPMENT ENTRY",
-       "formName": "CALIMAST",
-       "formInSource": true,
-       "screenId": "LEG-003",
-       "children": [],
-       "menuLegId": null
-      },
-      {
-       "code": "EA03",
-       "label": "CALIBRATION ENTRY",
-       "formName": "CALIENT",
-       "formInSource": true,
-       "screenId": "LEG-001",
-       "children": [],
-       "menuLegId": null
-      }
-     ],
+     "code": "EA01",
+     "label": "EQUIPMENT MASTER",
+     "formName": "CALIMASTLIST",
+     "formInSource": true,
+     "screenId": "LEG-004",
+     "children": [],
+     "menuLegId": null
+    },
+    {
+     "code": "EA02",
+     "label": "EQUIPMENT ENTRY",
+     "formName": "CALIMAST",
+     "formInSource": true,
+     "screenId": "LEG-003",
+     "children": [],
+     "menuLegId": null
+    },
+    {
+     "code": "EA03",
+     "label": "CALIBRATION ENTRY",
+     "formName": "CALIENT",
+     "formInSource": true,
+     "screenId": "LEG-001",
+     "children": [],
+     "menuLegId": null
+    },
+    {
+     "code": "EC04",
+     "label": "CALIBRATION REPORT",
+     "formName": "CALIREPORT",
+     "formInSource": true,
+     "screenId": "LEG-002",
+     "children": [],
      "menuLegId": null
     },
     {
@@ -2015,26 +1995,8 @@
      "formInSource": false,
      "screenId": null,
      "children": [],
-     "menuLegId": null
-    },
-    {
-     "code": "EC",
-     "label": "CALIBRATION REPORTS",
-     "formName": null,
-     "formInSource": false,
-     "screenId": null,
-     "children": [
-      {
-       "code": "EC04",
-       "label": "CALIBRATION REPORT",
-       "formName": "CALIREPORT",
-       "formInSource": true,
-       "screenId": "LEG-002",
-       "children": [],
-       "menuLegId": null
-      }
-     ],
-     "menuLegId": null
+     "menuLegId": null,
+     "unavailableNote": "No options in the legacy menu"
     }
    ]
   }
@@ -93924,5 +93886,6 @@
    "name": "OFFERING CLEARANCE"
   }
  ],
- "itemRecords": "Fields enriched from decoded .fmx item records (prompt, item name, column binding, max length, format mask, value lists, canvas position, database-item flag); buttons from item labels. Fields bind to items only by the item prompt, a label that spells the column or item name, or a long item-name prefix; audit-stamp items are excluded."
+ "itemRecords": "Fields enriched from decoded .fmx item records (prompt, item name, column binding, max length, format mask, value lists, canvas position, database-item flag); buttons from item labels. Fields bind to items only by the item prompt, a label that spells the column or item name, or a long item-name prefix; audit-stamp items are excluded.",
+ "menuShape": "Legacy menu groups are flattened into the module when the module's menu screenshot lists the screens instead of the groups. A group with no options in MENUMASTER stays as a disabled card: 'No options in the legacy menu'."
 }
