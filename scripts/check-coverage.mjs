@@ -51,14 +51,42 @@ const reachable = new Set(menuTargets.map(({ option }) => option.screenId).filte
 for (const id of screenIds) if (!reachable.has(id)) fail(`Screen ${id} is not reachable from any legacy menu`)
 
 const TYPES = new Set(['text', 'number', 'date', 'password', 'select'])
+const FIELD_SOURCES = new Set(['form+screenshot', 'form', 'screenshot', 'screenshot-hidden', 'form-text'])
+const TAB_SOURCES = new Set(['screenshot', 'form'])
+const fieldSources = {}
+const tabSources = {}
 let fieldCount = 0
 let requiredCount = 0
 for (const screen of Object.values(model.screens)) {
   if (!['present', 'fallback', 'missing'].includes(screen.sourceStatus)) fail(`${screen.id} has invalid sourceStatus ${screen.sourceStatus}`)
   if (screen.sourceStatus !== 'missing' && !screen.formFile) fail(`${screen.id} is verified but has no legacy form file`)
+  if (!screen.legIds.length && !(screen.noScreenshot && screen.formFile)) fail(`${screen.id} has no screenshot and is not marked as a form-only screen`)
+  // Pages: every screenshot on exactly one page, every page says where it comes from
+  const keys = new Set()
+  const shotsOnPages = []
+  for (const tab of screen.tabs) {
+    if (!tab.key || keys.has(tab.key)) fail(`${screen.id} has a page without a unique key (${tab.title})`)
+    keys.add(tab.key)
+    if (!TAB_SOURCES.has(tab.source)) fail(`${screen.id} page "${tab.title}" has no valid source (${tab.source})`)
+    tabSources[tab.source] = (tabSources[tab.source] ?? 0) + 1
+    const legs = tab.legIds ?? (tab.legId ? [tab.legId] : [])
+    if (tab.source === 'screenshot' && !(legs.length && (tab.screenshots?.length || tab.screenshot))) fail(`${screen.id} page "${tab.title}" is marked as a screenshot page without a screenshot`)
+    if (tab.source === 'form' && legs.length) fail(`${screen.id} page "${tab.title}" is marked form-only but has screenshots`)
+    if (tab.source === 'form' && screen.sourceStatus === 'missing') fail(`${screen.id} page "${tab.title}" is form-only but the form is not in the legacy files`)
+    shotsOnPages.push(...legs)
+  }
+  for (const legId of screen.legIds) {
+    const count = shotsOnPages.filter((id) => id === legId).length
+    if (count !== 1) fail(`${screen.id} screenshot ${legId} is on ${count} pages`)
+  }
+  const tabbed = screen.tabs.some((tab) => tab.formTab)
   for (const field of screen.fields) {
     if (field.kind === 'heading') continue
     fieldCount += 1
+    if (!FIELD_SOURCES.has(field.source)) fail(`${screen.id} field "${field.label}" has no valid source (${field.source})`)
+    fieldSources[field.source] = (fieldSources[field.source] ?? 0) + 1
+    if (!keys.has(field.tab) && !(tabbed && field.tab == null)) fail(`${screen.id} field "${field.label}" is on no page (${field.tab})`)
+    if (screen.sourceStatus === 'missing' && field.source !== 'screenshot') fail(`${screen.id} field "${field.label}" claims a legacy form source on a screen whose form is missing`)
     if (!TYPES.has(field.type)) fail(`${screen.id} field "${field.label}" has invalid type ${field.type}`)
     if (field.type === 'select' && !(field.options?.length >= 2)) fail(`${screen.id} field "${field.label}" is a list without legacy values`)
     if (!field.evidence?.length) fail(`${screen.id} field "${field.label}" has no evidence`)
@@ -75,6 +103,8 @@ console.log(`Screenshot assets: ${images.length}`)
 console.log(`Legacy forms: ${screenIds.size} (navigation screenshots: ${source.navigationLegIds.length})`)
 console.log(`Menu options: ${menuTargets.length}, with screens: ${menuTargets.filter(({ option }) => option.screenId).length}`)
 console.log(`Source-backed fields: ${fieldCount}, required with evidence: ${requiredCount}`)
+console.log(`Field sources: ${Object.entries(fieldSources).map(([source, count]) => `${source} ${count}`).join(', ')}`)
+console.log(`Pages: ${Object.entries(tabSources).map(([source, count]) => `${source} ${count}`).join(', ')}`)
 
 // 4. YES’s Foundry (screenshots + discovery workbook)
 const yesItems = JSON.parse(await readFile(path.join(root, 'public/data/yes-screens.json'), 'utf8'))
