@@ -528,6 +528,13 @@ const VERIFIED_FIELD_ALIASES = {
     name: ['DEPTMAST.NAME — Department Master', 'Department Name — Department Master'],
     plant: [null, null], description: [null, null], responsibleRole: [null, null], effectiveDate: [null, null], status: [null, null],
   },
+  employees: {
+    code: ['RESPONSIBLE.CODE — Employee Master', 'Code — Responsible Person / Employee Master'],
+    name: ['RESPONSIBLE.NAME — Employee Master', 'Name / Employee — Responsible Person / Department Employee Master'],
+    department: [null, 'Department — Department Employee Master'],
+    designation: [null, 'Designation — Responsible Person'],
+    email: [null, null], phone: [null, null], reportsTo: [null, null], effectiveDate: [null, null], status: [null, null],
+  },
 }
 
 function futureUseForField(fieldName, moduleId) {
