@@ -50,13 +50,14 @@ for (const { module, option } of menuTargets) {
 const reachable = new Set(menuTargets.map(({ option }) => option.screenId).filter(Boolean))
 for (const id of screenIds) if (!reachable.has(id)) fail(`Screen ${id} is not reachable from any legacy menu`)
 
-const TYPES = new Set(['text', 'number', 'date', 'password', 'select'])
+const TYPES = new Set(['text', 'number', 'date', 'password', 'select', 'checkbox'])
 const FIELD_SOURCES = new Set(['form+screenshot', 'form', 'screenshot', 'screenshot-hidden', 'form-text'])
 const TAB_SOURCES = new Set(['screenshot', 'form'])
 const fieldSources = {}
 const tabSources = {}
 let fieldCount = 0
 let requiredCount = 0
+let layoutPages = 0
 for (const screen of Object.values(model.screens)) {
   if (!['present', 'fallback', 'missing'].includes(screen.sourceStatus)) fail(`${screen.id} has invalid sourceStatus ${screen.sourceStatus}`)
   if (screen.sourceStatus !== 'missing' && !screen.formFile) fail(`${screen.id} is verified but has no legacy form file`)
@@ -78,6 +79,18 @@ for (const screen of Object.values(model.screens)) {
   for (const legId of screen.legIds) {
     const count = shotsOnPages.filter((id) => id === legId).length
     if (count !== 1) fail(`${screen.id} screenshot ${legId} is on ${count} pages`)
+  }
+  // Sections: on a divided page every field sits in one of the page's legacy sections, with its legacy row and column
+  for (const tab of screen.tabs) {
+    if (!tab.sections) continue
+    const sectionIds = new Set(tab.sections.map((section) => section.id))
+    for (const field of screen.fields.filter((item) => item.tab === tab.key)) {
+      if (!sectionIds.has(field.section)) fail(`${screen.id} page "${tab.title}" field "${field.label}" is in no section`)
+      if (!Number.isInteger(field.row) || !Number.isInteger(field.col)) fail(`${screen.id} field "${field.label}" has no legacy row/column`)
+      const section = tab.sections.find((item) => item.id === field.section)
+      if (section && field.col >= section.columns.length) fail(`${screen.id} field "${field.label}" is outside its section's columns`)
+    }
+    layoutPages += 1
   }
   const tabbed = screen.tabs.some((tab) => tab.formTab)
   for (const field of screen.fields) {
@@ -104,6 +117,7 @@ console.log(`Legacy forms: ${screenIds.size} (navigation screenshots: ${source.n
 console.log(`Menu options: ${menuTargets.length}, with screens: ${menuTargets.filter(({ option }) => option.screenId).length}`)
 console.log(`Source-backed fields: ${fieldCount}, required with evidence: ${requiredCount}`)
 console.log(`Field sources: ${Object.entries(fieldSources).map(([source, count]) => `${source} ${count}`).join(', ')}`)
+console.log(`Pages divided into legacy sections: ${layoutPages}`)
 console.log(`Pages: ${Object.entries(tabSources).map(([source, count]) => `${source} ${count}`).join(', ')}`)
 
 // 4. YES’s Foundry (screenshots + discovery workbook)

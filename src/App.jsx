@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import {
   Activity, ArrowLeft, BarChart3, BookOpen, Boxes, Check, ChevronRight, ClipboardList, Database,
   Factory, FileText, FolderOpen, Gauge, Hash, Home, Image, Info, LayoutGrid, Lock, Menu, Package,
-  PanelLeftClose, PanelLeftOpen, Printer, RotateCcw, Save, Search, Settings, ShieldCheck, Trash2,
+  PanelLeftClose, PanelLeftOpen, Printer, RotateCcw, Save, Search, Settings, ShieldCheck, Tag, Trash2,
   TriangleAlert, Users, Wrench, X,
 } from 'lucide-react'
 import { actionKind, buildModel, buildYesModel, findMenuLevel, flattenMenu, parseCatalogue, screenshotUrl } from './catalog'
@@ -56,12 +56,17 @@ const FIELD_SOURCES = {
   'form-text': ['Form label only', 'A text in the legacy form that names a table column, with no input item behind it'],
 }
 
-function SourceTag({ source }) {
+// A field's source as a tag ("Form + screenshot"), or, in the compact view, as a coloured dot with the text on hover.
+function SourceTag({ source, compact = false }) {
   const [text, description] = FIELD_SOURCES[source] ?? []
-  return text ? <em className={`source-tag source-${source.replace('+', '-')}`} title={description}>{text}</em> : null
+  if (!text) return null
+  const kind = `source-${source.replace('+', '-')}`
+  return compact
+    ? <i className={`source-dot ${kind}`} title={`${text}: ${description}`} aria-label={text}/>
+    : <em className={`source-tag ${kind}`} title={description}>{text}</em>
 }
 
-function Field({ field, valueKey, value, onChange, onLookup, lookupAvailable }) {
+function Field({ field, valueKey, value, onChange, onLookup, lookupAvailable, showSource = true }) {
   const id = `field-${valueKey}`
   const type = ['date', 'number', 'password', 'checkbox', 'select'].includes(field.type) ? field.type : 'text'
   const step = type === 'number' ? (field.scale ? String(10 ** -field.scale) : '1') : undefined
@@ -75,8 +80,8 @@ function Field({ field, valueKey, value, onChange, onLookup, lookupAvailable }) 
     `Evidence: ${(field.evidence ?? []).join('; ')}`,
   ].filter(Boolean).join('\n')
   return (
-    <label className="field" htmlFor={id} title={hint}>
-      <span>{field.label}{field.required && <b className="required"> *</b>}<SourceTag source={field.source}/></span>
+    <label className={field.labelSide ? `field side-${field.labelSide}` : 'field'} htmlFor={id} title={hint}>
+      <span>{!showSource && <SourceTag source={field.source} compact/>}{field.label}{field.required && <b className="required"> *</b>}{showSource && <SourceTag source={field.source}/>}</span>
       <div className="input-wrap">
         {type === 'checkbox'
           ? <input id={id} type="checkbox" className="checkbox" checked={value === 'Y'} onChange={(event) => onChange(valueKey, event.target.checked ? 'Y' : '')} />
@@ -181,6 +186,55 @@ export function MenuPage({ module, path, model, onOpenScreen, onOpenPath, onBack
 
 const tabKey = (tab) => tab.key ?? tab.legId
 
+// Legacy reading order of a page's sections: top to bottom; sections side by side on the legacy screen are read
+// left to right, and sections stacked in one legacy column are read before the next column.
+function orderSections(sections) {
+  const bands = []
+  for (const section of [...sections].sort((a, b) => (a.unplaced - b.unplaced) || (a.group - b.group) || (a.y - b.y) || (a.x - b.x))) {
+    const band = bands.at(-1)
+    if (band && !section.unplaced && !band.unplaced && band.group === section.group && section.y < band.bottom - 4) {
+      band.bottom = Math.max(band.bottom, section.y + section.h)
+      const column = band.columns.find((item) => section.x < item.right - 4 && section.x + section.w > item.x + 4)
+      if (column) {
+        column.sections.push(section)
+        column.x = Math.min(column.x, section.x)
+        column.right = Math.max(column.right, section.x + section.w)
+      } else band.columns.push({ x: section.x, right: section.x + section.w, sections: [section] })
+    } else {
+      bands.push({ group: section.group, unplaced: Boolean(section.unplaced), bottom: section.y + section.h, columns: [{ x: section.x, right: section.x + section.w, sections: [section] }] })
+    }
+  }
+  return bands.flatMap((band) => band.columns.sort((a, b) => a.x - b.x).flatMap((column) => column.sections))
+}
+
+// Legacy reading order inside a section: a form with two or more tall legacy columns (Customer, Company) is read down
+// each column; anything else (a row of check boxes, a MIN/MAX matrix, a single column) is read across each row.
+function orderFields(members) {
+  const rowsPerColumn = {}
+  for (const field of members) (rowsPerColumn[field.col] ??= new Set()).add(field.row)
+  const byColumn = Object.values(rowsPerColumn).filter((rows) => rows.size >= 3).length >= 2
+  return [...members].sort((a, b) => (byColumn ? (a.col - b.col) || (a.row - b.row) : (a.row - b.row) || (a.col - b.col)) || ((a.x ?? 0) - (b.x ?? 0)))
+}
+
+// A page as the legacy form divides it: one card per legacy section, in legacy reading order, with the fields in
+// legacy order in a plain, readable grid.
+function SectionedForm({ sections, fields, renderField }) {
+  return (
+    <div className="form-sections">{orderSections(sections).map((section) => {
+      const members = orderFields(fields.filter((field) => field.section === section.id))
+      if (!members.length) return null
+      return (
+        <section key={section.id} className={section.unplaced ? 'form-section unplaced' : 'form-section'}>
+          {section.title && <h4>{section.title}</h4>}
+          <div className="form-grid">{members.map((field, index) => (
+            <div key={`${field.label}-${index}`} className={field.width >= 300 && field.type !== 'checkbox' ? 'form-cell wide' : 'form-cell'}>{renderField(field, index)}</div>
+          ))}</div>
+        </section>
+      )
+    })}</div>
+  )
+}
+
 // Says where a page of a SUN's screen comes from: a screenshot, the legacy form only, or neither.
 function pageSource(screen, tab, fieldCount) {
   const form = screen.formFile ?? `${screen.formName}.fmx`
@@ -206,6 +260,9 @@ export function ScreenPage({ screen, screenshotBase = '/legacy-screens', onBack 
   const [notice, setNotice] = useState('')
   const [lookup, setLookup] = useState('')
   const [showLegacy, setShowLegacy] = useState(false)
+  // Field sources: a coloured dot per field by default (hover for the text); the full tags on demand
+  const [showSources, setShowSources] = useState(() => readStore('sun-foundry:show-sources', false))
+  const toggleSources = () => setShowSources((current) => { writeStore('sun-foundry:show-sources', !current); return !current })
   const [activeTab, setActiveTab] = useState(tabKey(screen.tabs[0]))
   // Pages are the legacy tab pages (in legacy order), uncaptured canvases, or the screenshots of a form without tabs.
   const paged = screen.tabs.length > 1 || Boolean(screen.tabs[0]?.formTab)
@@ -260,7 +317,7 @@ export function ScreenPage({ screen, screenshotBase = '/legacy-screens', onBack 
   return (
     <main className="content screen-page">
       {notice && <div className="toast" role="status"><Check size={17}/>{notice}</div>}
-      <div className="screen-toolbar"><button className="back-link" onClick={onBack}><ArrowLeft size={17}/> {moduleLabel(screen.module)}</button><div><button className={showLegacy ? 'tool active' : 'tool'} onClick={() => setShowLegacy(!showLegacy)}><Image size={17}/> Legacy reference</button></div></div>
+      <div className="screen-toolbar"><button className="back-link" onClick={onBack}><ArrowLeft size={17}/> {moduleLabel(screen.module)}</button><div>{!isYes && <button className={showSources ? 'tool active' : 'tool'} onClick={toggleSources} title="Show where each field comes from as a tag"><Tag size={17}/> Field sources</button>}<button className={showLegacy ? 'tool active' : 'tool'} onClick={() => setShowLegacy(!showLegacy)}><Image size={17}/> Legacy reference</button></div></div>
       <header className="form-heading">
         <div>
           <div className="form-meta">{isYes ? <small>{screen.submodule ?? 'YES’s'}</small> : <><small>{screen.formName}{screen.formFile ? ` · ${screen.formFile}` : ''}</small><small>Menu {screen.menuCode}</small></>}<small>{screen.legIds.length ? screen.legIds.join(', ') : 'No screenshot'}</small></div>
@@ -280,7 +337,7 @@ export function ScreenPage({ screen, screenshotBase = '/legacy-screens', onBack 
 
       {outsideTabs.length > 0 && <section className="form-panel">
         <div className="panel-title"><div><span>OUTSIDE THE TAB PAGES</span><h3>Shown with every tab</h3></div><small>{outsideTabs.length} FIELDS</small></div>
-        <div className="form-grid">{outsideTabs.map((field, index) => <Field key={`${valueKey(field)}-${index}`} field={field} valueKey={valueKey(field)} value={values[valueKey(field)]} onChange={update} onLookup={setLookup} lookupAvailable={screen.lovs.length > 0}/>)}</div>
+        <div className="form-grid">{outsideTabs.map((field, index) => <Field key={`${valueKey(field)}-${index}`} field={field} valueKey={valueKey(field)} value={values[valueKey(field)]} onChange={update} onLookup={setLookup} lookupAvailable={screen.lovs.length > 0} showSource={showSources || isYes}/>)}</div>
       </section>}
 
       {paged && <nav className="form-tabs" aria-label="Legacy form pages">{screen.tabs.map((item) => <button key={tabKey(item)} className={[tabKey(item) === activeTab && 'active', item.formTab && 'legacy-tab', item.source === 'form' && 'form-only'].filter(Boolean).join(' ')} title={item.source === 'screenshot' ? 'From a screenshot' : item.source === 'form' ? 'No screenshot: from the legacy form only' : undefined} onClick={() => setActiveTab(tabKey(item))}>{item.source === 'screenshot' ? <Image size={12}/> : item.source === 'form' ? <FileText size={12}/> : null}{item.title}</button>)}</nav>}
@@ -289,13 +346,15 @@ export function ScreenPage({ screen, screenshotBase = '/legacy-screens', onBack 
       <section className="form-panel">
         <div className="panel-title"><div><span>{readOnly ? 'QUERY / DISPLAY' : 'ENTRY DETAILS'}</span><h3>{readOnly ? 'Legacy display fields' : 'Record information'}</h3></div><small>{screen.lovs.length ? 'F9 SHOWS LEGACY LISTS' : isYes ? 'F9 LISTS NOT DOCUMENTED' : 'NO F9 LISTS IN LEGACY FORM'}</small></div>
         {docCode && !readOnly && <div className="doc-number"><Hash size={15}/><span>Document no.</span><strong>{values.__documentNo ?? 'Generated on save'}</strong><small>legacy CONTROL code {screen.controlCodes.join(', ')}</small></div>}
-        {visibleFields.length
+        {visibleFields.length && tab.sections?.length
+          ? <SectionedForm sections={tab.sections} fields={visibleFields} renderField={(field) => <Field field={field} valueKey={valueKey(field)} value={values[valueKey(field)]} onChange={update} onLookup={setLookup} lookupAvailable={screen.lovs.length > 0} showSource={showSources || isYes}/>}/>
+          : visibleFields.length
           ? <div className="form-grid">{visibleFields.map((field, index) => field.kind === 'heading'
             ? <h4 className="field-heading" key={`${field.label}-${index}`}>{field.label}</h4>
-            : <Field key={`${valueKey(field)}-${index}`} field={field} valueKey={valueKey(field)} value={values[valueKey(field)]} onChange={update} onLookup={setLookup} lookupAvailable={screen.lovs.length > 0}/>)}</div>
+            : <Field key={`${valueKey(field)}-${index}`} field={field} valueKey={valueKey(field)} value={values[valueKey(field)]} onChange={update} onLookup={setLookup} lookupAvailable={screen.lovs.length > 0} showSource={showSources || isYes}/>)}</div>
           : <div className="empty"><BookOpen/><h3>{tab.source === 'form' || (tab.source && screen.sourceStatus !== 'missing') ? 'No fields on this page in the legacy form file' : 'No source-backed fields on this page'}</h3><p>Use the legacy reference and validate this page during the business walkthrough.</p></div>}
         <div className="required-note"><span>*</span> {isYes ? 'Required only where the discovery workbook marks a field mandatory.' : 'Required only where this form writes a NOT NULL column.'} Hover over a field to see its legacy evidence.{readOnly && <> <Lock size={11}/> Values typed here are query criteria and are not saved.</>}</div>
-        {!isYes && <div className="source-legend">{Object.keys(FIELD_SOURCES).map((source) => <span key={source}><SourceTag source={source}/>{FIELD_SOURCES[source][1]}</span>)}</div>}
+        {!isYes && <div className="source-legend">{Object.keys(FIELD_SOURCES).map((source) => <span key={source}><SourceTag source={source} compact/><SourceTag source={source}/>{FIELD_SOURCES[source][1]}</span>)}</div>}
         {screen.hiddenItems?.length > 0 && <details className="other-text"><summary>Hidden in the legacy form ({screen.hiddenItems.length}): items on no canvas, not shown as fields</summary><p>{screen.hiddenItems.map((item) => `${item.label} (${item.item})`).join(' · ')}</p></details>}
         {screen.unlabelledItems?.length > 0 && <details className="other-text"><summary>Items without a label in the legacy form ({screen.unlabelledItems.length}), not shown as fields</summary><p>{screen.unlabelledItems.join(' · ')}</p></details>}
         {screen.otherLegacyText.length > 0 && <details className="other-text"><summary>Other text in the legacy form ({screen.otherLegacyText.length}), not shown as fields</summary><p>{screen.otherLegacyText.join(' · ')}</p></details>}
