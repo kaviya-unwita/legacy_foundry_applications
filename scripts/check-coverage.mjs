@@ -80,7 +80,7 @@ for (const screen of Object.values(model.screens)) {
     const count = shotsOnPages.filter((id) => id === legId).length
     if (count !== 1) fail(`${screen.id} screenshot ${legId} is on ${count} pages`)
   }
-  // Layout: on a laid-out page every field sits in one of the page's sections, on a legacy row and column
+  // Sections: on a divided page every field sits in one of the page's legacy sections, with its legacy row and column
   for (const tab of screen.tabs) {
     if (!tab.sections) continue
     const sectionIds = new Set(tab.sections.map((section) => section.id))
@@ -117,7 +117,7 @@ console.log(`Legacy forms: ${screenIds.size} (navigation screenshots: ${source.n
 console.log(`Menu options: ${menuTargets.length}, with screens: ${menuTargets.filter(({ option }) => option.screenId).length}`)
 console.log(`Source-backed fields: ${fieldCount}, required with evidence: ${requiredCount}`)
 console.log(`Field sources: ${Object.entries(fieldSources).map(([source, count]) => `${source} ${count}`).join(', ')}`)
-console.log(`Pages laid out like the legacy screen: ${layoutPages}`)
+console.log(`Pages divided into legacy sections: ${layoutPages}`)
 console.log(`Pages: ${Object.entries(tabSources).map(([source, count]) => `${source} ${count}`).join(', ')}`)
 
 // 4. YES’s Foundry (screenshots + discovery workbook)
