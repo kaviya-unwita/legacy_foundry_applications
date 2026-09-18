@@ -482,11 +482,19 @@ const MASTER_LEGACY_EVIDENCE = {
   'approval-matrix': {},
 }
 
-const COMPANY_FIELD_ALIASES = {
-  code: ['Company Code', 'Company Code'], name: ['Company Name', 'Company Name'], tradingName: ['Short Name', 'Short Name'],
-  address: ['Factory Addr1–Address4', 'Factory Addr1–Address4'], country: ['Address country context', 'Company address country'], state: ['State / division', 'State'],
-  taxId: ['GST No / statutory identifiers', 'GST No / PAN / TAN'], email: ['Email1 / Email2', 'Email / Email2'], phone: ['Phone', 'Phone'],
-  currency: ['Not confirmed on COMPANY', 'Not confirmed on Company Master'], timezone: ['Not confirmed', 'Not confirmed'], effectiveDate: ['Not confirmed', 'QD Effect Date'], status: ['Not confirmed', 'Not confirmed'],
+const VERIFIED_FIELD_ALIASES = {
+  companies: {
+    code: ['Company Code', 'Company Code'], name: ['Company Name', 'Company Name'], tradingName: ['Short Name', 'Short Name'],
+    address: ['Factory Addr1–Address4', 'Factory Addr1–Address4'], country: [null, null], state: [null, 'State'],
+    taxId: ['GST No / statutory identifiers', 'GST No / PAN / TAN'], email: ['Email1 / Email2', 'Email / Email2'], phone: ['Phone', 'Phone'],
+    currency: [null, null], timezone: [null, null], effectiveDate: [null, 'QD Effect Date'], status: [null, null],
+  },
+  plants: {
+    code: ['UNITCODE in SSA transaction/source tables', 'Unit Code'],
+    name: ['Name in Unit Master', 'Unit Name'],
+    company: ['COMPCODE in SSA transaction/source tables', 'Company Code'],
+    address: [null, null], responsibleRole: [null, null], calendar: [null, null], effectiveDate: [null, null], status: [null, null],
+  },
 }
 
 function futureUseForField(fieldName, moduleId) {
@@ -513,12 +521,14 @@ function futureUseForField(fieldName, moduleId) {
 export function getPhoenixFieldMapping(moduleId, masterDefinition) {
   const evidence = MASTER_LEGACY_EVIDENCE[masterDefinition.id] ?? {}
   return masterDefinition.fields.map(([key, label]) => {
-    const companyAlias = masterDefinition.id === 'companies' ? COMPANY_FIELD_ALIASES[key] : null
-    const level = companyAlias ? (/not confirmed/i.test(companyAlias.join(' ')) ? 'proposed' : 'confirmed') : (evidence.level ?? 'proposed')
+    const aliases = VERIFIED_FIELD_ALIASES[masterDefinition.id]?.[key] ?? [null, null]
+    const sunConfirmed = Boolean(aliases[0])
+    const yesConfirmed = Boolean(aliases[1])
+    const level = sunConfirmed && yesConfirmed ? 'confirmed' : (sunConfirmed || yesConfirmed ? 'partial' : 'proposed')
     return {
       key, label, level,
-      sun: companyAlias?.[0] ?? (evidence.sun ? `${evidence.sun} — related field; confirm exact mapping` : 'Not confirmed in supplied SUN’s evidence — Phoenix proposed'),
-      yes: companyAlias?.[1] ?? (evidence.yes ? `${evidence.yes} — related field; confirm exact mapping` : 'Not confirmed in supplied YES’s evidence — Phoenix proposed'),
+      sun: aliases[0] ?? (evidence.sun ? `Not confirmed for this field in ${evidence.sun} — Phoenix proposed` : 'Not confirmed in supplied SUN’s evidence — Phoenix proposed'),
+      yes: aliases[1] ?? (evidence.yes ? `Not confirmed for this field in ${evidence.yes} — Phoenix proposed` : 'Not confirmed in supplied YES’s evidence — Phoenix proposed'),
       futureUse: futureUseForField(label, moduleId),
     }
   })
