@@ -25,8 +25,8 @@ function PhoenixNavigation({ activeModule, expandedPhase, onExpand, onOpenModule
       const expanded = expandedPhase === phase.id
       const phaseActive = phase.number === 1 && Boolean(activeModule)
       return <section className={`phase-nav ${expanded ? 'expanded' : ''}`} key={phase.id}>
-        <button className={`phase-toggle ${phaseActive ? 'phase-active' : ''}`} onClick={() => onExpand(expanded ? '' : phase.id)} title={`Phase ${phase.number} — ${phase.name}`}>
-          <span className="phase-number">P{phase.number}</span><span className="phase-label"><strong>Phase {phase.number}</strong><small>{phase.name}</small></span><ChevronDown className="phase-chevron"/>
+        <button className={`phase-toggle ${phaseActive ? 'phase-active' : ''}`} onClick={() => onExpand(expanded ? '' : phase.id)} title={phase.name}>
+          <span className="phase-number"><Layers3/></span><span className="phase-label"><strong>{phase.name}</strong><small>{phase.modules.length} modules · {phase.status}</small></span><ChevronDown className="phase-chevron"/>
         </button>
         {expanded && <div className="phase-modules">{phase.modules.map((module, index) => module.available
           ? <button key={module.id} className={activeModule === module.id ? 'active' : ''} onClick={() => onOpenModule(module.id)}><span>{module.name}</span></button>
@@ -42,15 +42,15 @@ function Dashboard({ data, onOpenModule, onOpenMaster }) {
   const requests = data['master-requests'] ?? []
   const pending = requests.filter((record) => !['Approved', 'Rejected'].includes(record.approvalStatus)).length
   return <main className="content dashboard phoenix-content">
-    <section className="hero phoenix-hero"><div><span className="eyebrow">PHOENIX ERP · FUTURE STATE</span><h1>Phase 1 master-data workspace</h1><p>Configure the organization, operating structure and governed reference data used by every Phoenix business process.</p></div><div className="hero-mark"><Factory/><span>PHOENIX<br/>ERP</span></div></section>
+    <section className="hero phoenix-hero"><div><span className="eyebrow">PHOENIX ERP · FUTURE STATE</span><h1>Enterprise setup & master data</h1><p>Configure the organization, operating structure and governed reference data used by every Phoenix business process.</p></div><div className="hero-mark"><Factory/><span>PHOENIX<br/>ERP</span></div></section>
     <div className="demo-banner"><CircleDot size={16}/><div><strong>Interactive prototype with synthetic data</strong><span>Records are editable and saved only in this browser. No production system or customer database is connected.</span></div></div>
     <section className="stats phoenix-stats">
-      <article><span className="stat-icon teal"><Layers3/></span><div><strong>8</strong><p>Phase 1 modules</p></div></article>
+      <article><span className="stat-icon teal"><Layers3/></span><div><strong>8</strong><p>Core setup modules</p></div></article>
       <article><span className="stat-icon gold"><Database/></span><div><strong>{masterCount}</strong><p>Master registers</p></div></article>
       <article><span className="stat-icon blue"><Boxes/></span><div><strong>{recordCount}</strong><p>Demo records</p></div></article>
       <article><span className="stat-icon green"><ShieldCheck/></span><div><strong>{pending}</strong><p>Requests awaiting decision</p></div></article>
     </section>
-    <div className="section-title"><div><span>PHASE 1</span><h2>Organization Structure & Reference Masters</h2></div><small>FOUNDATION</small></div>
+    <div className="section-title"><div><span>CORE ERP FOUNDATION</span><h2>Organization Structure & Reference Masters</h2></div><small>AVAILABLE</small></div>
     <section className="module-grid phoenix-module-grid">{PHOENIX_MODULES.map((module, index) => {
       const Icon = MODULE_ICONS[index]
       const count = module.masters.reduce((total, master) => total + (data[master.id]?.length ?? 0), 0)
@@ -66,7 +66,7 @@ function Dashboard({ data, onOpenModule, onOpenMaster }) {
 function ModulePage({ module, data, onBack, onOpenMaster }) {
   return <main className="content phoenix-content">
     <button className="back-link" onClick={onBack}><ArrowLeft size={17}/> Overview</button>
-    <div className="page-heading"><div><span className="eyebrow">PHOENIX · PHASE 1</span><h1>{module.name}</h1><p>{module.description}</p></div><div className="count-badge">{module.masters.length}<small>REGISTERS</small></div></div>
+    <div className="page-heading"><div><span className="eyebrow">PHOENIX · CORE SETUP</span><h1>{module.name}</h1><p>{module.description}</p></div><div className="count-badge">{module.masters.length}<small>REGISTERS</small></div></div>
     <section className="option-grid phoenix-register-grid">{module.masters.map((master, index) => <button key={master.id} onClick={() => onOpenMaster(master.id)}><span>{String(index + 1).padStart(2, '0')}</span><strong>{master.name}<small className="option-note">{master.description} · {data[master.id]?.length ?? 0} records</small></strong><ChevronRight size={19}/></button>)}</section>
   </main>
 }
@@ -107,11 +107,11 @@ function MasterForm({ module, master, record, isNew, onBack, onSave }) {
   }
   return <main className="content phoenix-content screen-page">
     <button className="back-link" onClick={onBack}><ArrowLeft size={17}/> {master.name}</button>
-    <header className="form-heading phoenix-form-heading"><div><div className="form-meta"><small>PHOENIX PHASE 1</small><small>{module.name}</small><small>{isNew ? 'NEW RECORD' : record.id}</small></div><h1>{isNew ? `New ${master.name.replace(/s$/, '')}` : draft.name || draft.code || master.name}</h1><p>{master.description}</p></div><span className="module-tag">{isNew ? 'DRAFT' : (draft.status || draft.approvalStatus || 'RECORD')}</span></header>
+    <header className="form-heading phoenix-form-heading"><div><div className="form-meta"><small>PHOENIX CORE SETUP</small><small>{module.name}</small><small>{isNew ? 'NEW RECORD' : record.id}</small></div><h1>{isNew ? `New ${master.name.replace(/s$/, '')}` : draft.name || draft.code || master.name}</h1><p>{master.description}</p></div><span className="module-tag">{isNew ? 'DRAFT' : (draft.status || draft.approvalStatus || 'RECORD')}</span></header>
     <div className="demo-banner compact"><ShieldCheck size={16}/><div><strong>Controlled master-data entry</strong><span>Required fields are marked with *. Changes in this prototype are retained locally for review.</span></div></div>
     {errors.length > 0 && <div className="banner danger"><CircleDot size={17}/><div><strong>Complete the required fields.</strong> {errors.join(', ')}</div></div>}
     <form onSubmit={submit}>
-      <section className="form-panel phoenix-form-panel"><div className="panel-title"><div><span>{isNew ? 'CREATE' : 'MAINTAIN'}</span><h3>Record information</h3></div><small>{master.fields.filter((field) => field[3]).length} REQUIRED FIELDS</small></div><div className="form-grid">{master.fields.map((field) => <FormControl key={field[0]} field={field} value={draft[field[0]]} onChange={update}/>)}</div><div className="required-note"><span>*</span> Required for the Phase 1 prototype. Final mandatory and approval rules remain subject to stakeholder validation.</div></section>
+      <section className="form-panel phoenix-form-panel"><div className="panel-title"><div><span>{isNew ? 'CREATE' : 'MAINTAIN'}</span><h3>Record information</h3></div><small>{master.fields.filter((field) => field[3]).length} REQUIRED FIELDS</small></div><div className="form-grid">{master.fields.map((field) => <FormControl key={field[0]} field={field} value={draft[field[0]]} onChange={update}/>)}</div><div className="required-note"><span>*</span> Required for the core setup prototype. Final mandatory and approval rules remain subject to stakeholder validation.</div></section>
       <div className="action-bar"><button type="submit" className="primary-action"><Save/>Save record</button><button type="button" onClick={() => { setDraft(clone(record)); setErrors([]) }}><RotateCcw/>Reset changes</button><button type="button" onClick={onBack}><ArrowLeft/>Cancel</button></div>
     </form>
   </main>
@@ -160,10 +160,10 @@ export default function PhoenixApp({ onSwitch }) {
       <div className="brand"><span><Factory/></span>{!collapsed && <div><strong>PHOENIX</strong><small>FOUNDRY ERP</small></div>}<button className="mobile-close" onClick={() => setMobileOpen(false)} aria-label="Close menu"><X/></button></div>
       <div className="phoenix-overview-nav"><button className={route.type === 'home' ? 'active' : ''} onClick={() => go({ type: 'home' })}><Home/><span>Overview</span></button></div>
       <PhoenixNavigation activeModule={activeModule} expandedPhase={expandedPhase} onExpand={setExpandedPhase} onOpenModule={(module) => go({ type: 'module', module })}/>
-      <div className="sidebar-foot"><div className="avatar"><ShieldCheck size={15}/></div>{!collapsed && <div><strong>Prototype workspace</strong><small>Synthetic local data only</small></div>}</div>
+      <div className="sidebar-foot"><div className="avatar"><ShieldCheck size={15}/></div>{!collapsed && <div><strong>Phoenix ERP roadmap</strong><small>Core setup available</small></div>}</div>
     </aside>
     <section className="workspace">
-      <header className="topbar"><div><button className="mobile-menu" onClick={() => setMobileOpen(true)} aria-label="Open menu"><Menu/></button><button className="collapse" onClick={() => setCollapsed(!collapsed)} aria-label="Toggle sidebar">{collapsed ? <PanelLeftOpen/> : <PanelLeftClose/>}</button><div className="global-search"><Search/><input value={globalQuery} onChange={(event) => setGlobalQuery(event.target.value)} placeholder="Search Phoenix master records…"/>{globalResults.length > 0 && <div className="search-results">{globalResults.map(({ module, master, record }) => <button key={`${master.id}-${record.id}`} onClick={() => go({ type: 'form', module: module.id, master: master.id, id: record.id })}><div><strong>{record.name || record.code || record.requestedValue}</strong><small>{module.short} · {master.name}</small></div><ChevronRight/></button>)}</div>}</div></div><div className="top-actions"><ApplicationSelect onSwitch={onSwitch}/><div className="plant"><span></span><div><strong>Demo organization</strong><small>Future-state Phase 1</small></div></div><button className="reset-demo" onClick={resetDemo} title="Restore demo data"><RotateCcw size={16}/></button></div></header>
+      <header className="topbar"><div><button className="mobile-menu" onClick={() => setMobileOpen(true)} aria-label="Open menu"><Menu/></button><button className="collapse" onClick={() => setCollapsed(!collapsed)} aria-label="Toggle sidebar">{collapsed ? <PanelLeftOpen/> : <PanelLeftClose/>}</button><div className="global-search"><Search/><input value={globalQuery} onChange={(event) => setGlobalQuery(event.target.value)} placeholder="Search Phoenix master records…"/>{globalResults.length > 0 && <div className="search-results">{globalResults.map(({ module, master, record }) => <button key={`${master.id}-${record.id}`} onClick={() => go({ type: 'form', module: module.id, master: master.id, id: record.id })}><div><strong>{record.name || record.code || record.requestedValue}</strong><small>{module.short} · {master.name}</small></div><ChevronRight/></button>)}</div>}</div></div><div className="top-actions"><ApplicationSelect onSwitch={onSwitch}/><div className="plant"><span></span><div><strong>Demo organization</strong><small>Future-state core setup</small></div></div><button className="reset-demo" onClick={resetDemo} title="Restore demo data"><RotateCcw size={16}/></button></div></header>
       {route.type === 'home' ? <Dashboard data={data} onOpenModule={(module) => go({ type: 'module', module })} onOpenMaster={(module, master) => go({ type: 'master', module, master })}/>
         : route.type === 'module' ? <ModulePage module={PHOENIX_MODULES.find((module) => module.id === route.module)} data={data} onBack={() => go({ type: 'home' })} onOpenMaster={(master) => go({ type: 'master', module: route.module, master })}/>
           : route.type === 'master' && found ? <MasterList module={found.module} master={found.master} records={data[found.master.id] ?? []} query={query} onQuery={setQuery} onBack={() => go({ type: 'module', module: found.module.id })} onEdit={(id) => go({ type: 'form', module: found.module.id, master: found.master.id, id })} onCreate={() => go({ type: 'form', module: found.module.id, master: found.master.id, id: 'new' })}/>

@@ -248,23 +248,23 @@ export const PHOENIX_MODULES = [
 // Full BRD roadmap used by the Phoenix sidebar. Only Phase 1 is implemented;
 // later phases are deliberately navigation labels until their requirements are validated.
 export const PHOENIX_PHASES = [
-  { id: 'phase-1', number: 1, name: 'Organization & Reference Masters', status: 'Available', modules: PHOENIX_MODULES.map((module) => ({ id: module.id, name: module.name, available: true })) },
-  { id: 'phase-2', number: 2, name: 'Customer & Order Management', status: 'Planned', modules: [
+  { id: 'phase-1', number: 1, name: 'Enterprise Setup & Master Data', status: 'Available', modules: PHOENIX_MODULES.map((module) => ({ id: module.id, name: module.name, available: true })) },
+  { id: 'phase-2', number: 2, name: 'Sales, CRM & Order Management', status: 'Planned', modules: [
     'Customer Requirement / Enquiry', 'Evaluation & Quotation', 'Customer Purchase Order & Sales Order', 'Order Acceptance', 'Work Order Initiation',
   ].map((name) => ({ name })) },
-  { id: 'phase-3', number: 3, name: 'Engineering & Product Definition', status: 'Planned', modules: [
+  { id: 'phase-3', number: 3, name: 'Product Engineering & Technical Data', status: 'Planned', modules: [
     'Product Definition & Specification', 'Drawing, Revision & Issue Control', 'Material Grade Specification & Casting Weight', 'BOM & Process Routing', 'Inspection & Test Requirements',
   ].map((name) => ({ name })) },
-  { id: 'phase-4', number: 4, name: 'Costing & Procurement', status: 'Planned', modules: [
+  { id: 'phase-4', number: 4, name: 'Costing, Sourcing & Procurement', status: 'Planned', modules: [
     'Cost Estimation & Profitability', 'Material Requirement & Purchase Requisition', 'Supplier Quotation, Purchase Order & Tracking', 'Vendor Rating & Quality Performance',
   ].map((name) => ({ name })) },
-  { id: 'phase-5', number: 5, name: 'Store & Inventory Management', status: 'Planned', modules: [
+  { id: 'phase-5', number: 5, name: 'Inventory, Stores & Material Control', status: 'Planned', modules: [
     'Goods Receipt & Incoming Inspection', 'Inventory & Material Movement', 'Scrap Management',
   ].map((name) => ({ name })) },
-  { id: 'phase-6', number: 6, name: 'Pattern & Core Management', status: 'Planned', modules: [
+  { id: 'phase-6', number: 6, name: 'Pattern, Tooling & Core Management', status: 'Planned', modules: [
     'Pattern & Core Box Register — Issue & Return', 'Pattern Inspection, Repair & History', 'Sample & Trial Casting', 'Pattern Order & Charging',
   ].map((name) => ({ name })) },
-  { id: 'phase-7', number: 7, name: 'Production & Manufacturing', status: 'Planned', modules: [
+  { id: 'phase-7', number: 7, name: 'Foundry Production & Shop Floor', status: 'Planned', modules: [
     'Production & Pouring Plan', 'Capacity & Material Availability Check', 'Work Order Scheduling & Re-planning',
     'Sand Preparation, Testing & Reclamation', 'Core Production', 'Mould Preparation, Inspection & Closing',
     'Charge Mix, Melting & Furnace Recording', 'Chemical Sampling, Analysis & Heat Approval',
@@ -274,20 +274,20 @@ export const PHOENIX_PHASES = [
     'Acid Pickling, Passivation & Finishing', 'Stage Movement & WIP Tracking', 'Production Completion & Output Recording',
     'Production Rejection & Defect Recording',
   ].map((name) => ({ name })) },
-  { id: 'phase-8', number: 8, name: 'Quality, Testing & Certification', status: 'Planned', modules: [
+  { id: 'phase-8', number: 8, name: 'Quality, Laboratory & Certification', status: 'Planned', modules: [
     'Stage, Dimensional & Final Inspection', 'Chemical, Mechanical & Metallurgical Testing',
     'NDT & Pressure Testing — UT, DPT, MPI, RT, Hydro', 'Non-Conformance, CAPA & Customer Complaints', 'Test & Inspection Certificate',
   ].map((name) => ({ name })) },
-  { id: 'phase-9', number: 9, name: 'Subcontracting', status: 'Planned', modules: [
+  { id: 'phase-9', number: 9, name: 'Subcontracting & External Processing', status: 'Planned', modules: [
     'Subcontract Requirement & Order', 'Material Issue, Receipt & Reconciliation', 'Subcontract Tracking, Costing & Billing',
   ].map((name) => ({ name })) },
-  { id: 'phase-10', number: 10, name: 'Dispatch & Invoicing', status: 'Planned', modules: [
+  { id: 'phase-10', number: 10, name: 'Logistics, Dispatch & Billing', status: 'Planned', modules: [
     'Finished Goods Receipt & Dispatch Allocation', 'Dispatch Planning & Clearance', 'Packing & Marking', 'Delivery Challan & Transportation', 'Sales Invoice & Tax Document',
   ].map((name) => ({ name })) },
-  { id: 'phase-11', number: 11, name: 'Production Costing & Labour', status: 'Planned', modules: [
+  { id: 'phase-11', number: 11, name: 'Production Costing & Workforce', status: 'Planned', modules: [
     'Actual Production Cost Capture', 'Cost, Variance & Margin Analysis', 'Labour Settlement & Pattern Cost Recovery',
   ].map((name) => ({ name })) },
-  { id: 'phase-12', number: 12, name: 'Traceability, Dashboard & Reporting', status: 'Planned', modules: [
+  { id: 'phase-12', number: 12, name: 'Traceability, Analytics & Integration', status: 'Planned', modules: [
     'Forward & Backward Traceability', 'Document Search & Retrieval', 'Role-Based Dashboards & KPI Monitoring',
     'Management & Statutory Reports', 'Ad-hoc Reporting, Data Export & Integration',
   ].map((name) => ({ name })) },
