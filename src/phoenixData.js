@@ -491,16 +491,20 @@ const COMPANY_FIELD_ALIASES = {
 
 function futureUseForField(fieldName, moduleId) {
   const value = fieldName.toLowerCase()
+  if (/time\s*zone/.test(value)) return 'Determines the local date and time used for transaction timestamps, approval history, scheduled activities, shift reporting and audit logs.'
+  if (/^status$|account status|period status/.test(value)) return 'Controls whether this record can be selected in newly created documents. Inactive or closed records remain visible in historical transactions and audit reports.'
+  if (/effective|valid from|valid to|start date|end date/.test(value)) return 'Defines when this configuration is valid for document creation, validations, approvals and reporting while preserving its historical usage.'
+  if (/currency/.test(value)) return 'Defaults the currency in quotations, sales orders, purchase orders, invoices and financial reports; authorized users can change it where permitted.'
   if (/company|plant|department|section|location|warehouse|work centre|scope/.test(value)) return 'Transaction ownership, access scope, approvals and organization-wise reporting across all Phoenix areas.'
   if (/address|country|state|city|pin|contact|email|phone/.test(value)) return 'Partner communication and printed Purchase Order, Invoice, Delivery Challan, Certificate and statutory documents.'
   if (/tax|gst|pan|hsn|sac|statutory/.test(value)) return 'Tax determination, supplier/customer compliance, invoicing and statutory reporting.'
-  if (/currency|payment|credit|delivery term|transport/.test(value)) return 'Quotation, Sales Order, Purchase Order, Invoice, payment follow-up and dispatch planning.'
+  if (/payment|credit|delivery term|transport/.test(value)) return 'Quotation, Sales Order, Purchase Order, Invoice, payment follow-up and dispatch planning.'
   if (/item|material|grade|uom|unit|tracking|batch|heat|serial|shelf/.test(value)) return 'Engineering, procurement, inventory, production consumption, traceability, inspection and certification.'
   if (/machine|equipment|furnace|capacity|range|calibration|maintenance|energy/.test(value)) return 'Capacity planning, shop-floor execution, maintenance, calibration and equipment-linked quality results.'
   if (/process|operation|defect|disposition|reason|method|inspection|test|severity/.test(value)) return 'Routing, production reporting, inspection plans, NCR, rework/repair, rejection and quality analytics.'
   if (/user|role|permission|access|approv|review|request|delegate/.test(value)) return 'Authentication, authorization, approval workflow, segregation of duties and audit trail.'
   if (/number|prefix|suffix|increment|reset|document type/.test(value)) return 'Controlled document generation for orders, receipts, work orders, heats, inspections, certificates and dispatch.'
-  if (/date|effective|status|active|inactive|valid/.test(value)) return 'Record lifecycle, effective dating, audit history and prevention of obsolete values in new transactions.'
+  if (/date|active|inactive|valid/.test(value)) return 'Controls the applicable record lifecycle period while retaining previous usage for operational history and audit reporting.'
   if (/code/.test(value)) return 'Unique lookup, integration key, document reference and reporting dimension.'
   if (/name|description|remarks/.test(value)) return 'User-readable dropdowns, document descriptions, searches and reports.'
   return PHOENIX_MODULE_GUIDANCE[moduleId]?.futureUse.slice(0, 2).join(' ') ?? 'Used by downstream Phoenix transactions and reporting after stakeholder validation.'
