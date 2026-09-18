@@ -42,3 +42,4 @@ body{line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeL
 @media(max-width:760px){.hero p,.page-heading p,.form-heading p{font-size:13px}.module-card h3{font-size:14px}.field>span{font-size:11px}.input-wrap input,.input-wrap textarea,.input-wrap select{font-size:12px}.evidence-grid li{font-size:10.5px}}
 @media(max-width:900px){.mapping-legend{grid-template-columns:auto 1fr}.field-mapping-toggle small{line-height:1.4}}
 .mapping-status.partial{background:#fff1d5;color:#876014}
+.brand-new-master{display:inline-flex;width:max-content;margin-top:6px;padding:3px 7px;border-radius:20px;background:#e9eef5;color:#4d6078;font-size:9px;font-style:normal;font-weight:800;letter-spacing:.2px}

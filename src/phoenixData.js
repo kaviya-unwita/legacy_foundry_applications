@@ -535,6 +535,13 @@ const VERIFIED_FIELD_ALIASES = {
     designation: [null, 'Designation — Responsible Person'],
     email: [null, null], phone: [null, null], reportsTo: [null, null], effectiveDate: [null, null], status: [null, null],
   },
+  'storage-locations': {
+    code: [null, null],
+    name: { sun: 'Storage Area and Pattern Room/Rack/Block values', yes: 'Pattern/Core Location and Rack values', level: 'partial' },
+    warehouse: [null, null], parentLocation: [null, null],
+    locationType: { sun: 'Pattern Room/Rack/Block attributes', yes: 'Pattern/Core Location and Rack attributes', level: 'partial' },
+    purpose: [null, null], stockType: [null, null], capacity: [null, null], capacityUom: [null, null], status: [null, null],
+  },
   'business-partners': {
     code: ['CUSTOMER.CODE / MASSUPPLIER.CODE / OCSTM.CODE', 'Code — Customer Master'],
     name: ['CUSTOMER.NAME / MASSUPPLIER.NAME / OCSTM.NAME', 'Name — Customer Master'],
@@ -608,10 +615,13 @@ function futureUseForField(fieldName, moduleId) {
 export function getPhoenixFieldMapping(moduleId, masterDefinition) {
   const evidence = MASTER_LEGACY_EVIDENCE[masterDefinition.id] ?? {}
   return masterDefinition.fields.map(([key, label]) => {
-    const aliases = VERIFIED_FIELD_ALIASES[masterDefinition.id]?.[key] ?? [null, null]
+    const verified = VERIFIED_FIELD_ALIASES[masterDefinition.id]?.[key]
+    const aliases = Array.isArray(verified) ? verified : [verified?.sun ?? null, verified?.yes ?? null]
     const sunConfirmed = Boolean(aliases[0])
     const yesConfirmed = Boolean(aliases[1])
-    const level = sunConfirmed && yesConfirmed ? 'confirmed' : (sunConfirmed || yesConfirmed ? 'partial' : 'proposed')
+    const level = !Array.isArray(verified) && verified?.level
+      ? verified.level
+      : (sunConfirmed && yesConfirmed ? 'confirmed' : (sunConfirmed || yesConfirmed ? 'partial' : 'proposed'))
     return {
       key, label, level,
       sun: aliases[0] ?? (evidence.sun ? `Not confirmed for this field in ${evidence.sun} — Phoenix proposed` : 'Not confirmed in supplied SUN’s evidence — Phoenix proposed'),
