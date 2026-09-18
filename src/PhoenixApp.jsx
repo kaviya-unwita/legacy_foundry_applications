@@ -1,10 +1,10 @@
 import { useMemo, useState } from 'react'
 import {
-  ArrowLeft, Boxes, Building2, Check, ChevronRight, CircleDot, Database, Factory, Gauge, Home,
+  ArrowLeft, Boxes, Building2, Check, ChevronDown, ChevronRight, CircleDot, Database, Factory, Gauge, Home,
   Layers3, Menu, PanelLeftClose, PanelLeftOpen, Plus, RotateCcw, Save, Search, Settings, ShieldCheck,
   Users, Wrench, X,
 } from 'lucide-react'
-import { buildPhoenixSeed, findPhoenixMaster, PHOENIX_MODULES } from './phoenixData'
+import { buildPhoenixSeed, findPhoenixMaster, PHOENIX_MODULES, PHOENIX_PHASES } from './phoenixData'
 
 const STORAGE_KEY = 'phoenix-erp:phase-1-masters'
 const MODULE_ICONS = [Building2, Layers3, Users, Boxes, Wrench, Gauge, Settings, ShieldCheck]
@@ -16,6 +16,24 @@ const displayValue = (value) => typeof value === 'boolean' ? (value ? 'Yes' : 'N
 
 function ApplicationSelect({ onSwitch }) {
   return <div className="application-context"><span>APPLICATION</span><select className="app-switcher" value="phoenix" onChange={(event) => onSwitch(event.target.value)} aria-label="Application"><option value="sun">SUN’s Foundry</option><option value="yes">YES’s Foundry</option><option value="phoenix">Phoenix ERP</option></select></div>
+}
+
+function PhoenixNavigation({ activeModule, expandedPhase, onExpand, onOpenModule }) {
+  return <nav className="phoenix-navigation">
+    <p>ERP ROADMAP</p>
+    {PHOENIX_PHASES.map((phase) => {
+      const expanded = expandedPhase === phase.id
+      const phaseActive = phase.number === 1 && Boolean(activeModule)
+      return <section className={`phase-nav ${expanded ? 'expanded' : ''}`} key={phase.id}>
+        <button className={`phase-toggle ${phaseActive ? 'phase-active' : ''}`} onClick={() => onExpand(expanded ? '' : phase.id)} title={`Phase ${phase.number} — ${phase.name}`}>
+          <span className="phase-number">P{phase.number}</span><span className="phase-label"><strong>Phase {phase.number}</strong><small>{phase.name}</small></span><ChevronDown className="phase-chevron"/>
+        </button>
+        {expanded && <div className="phase-modules">{phase.modules.map((module, index) => module.available
+          ? <button key={module.id} className={activeModule === module.id ? 'active' : ''} onClick={() => onOpenModule(module.id)}><span>{module.name}</span></button>
+          : <div className="planned-module" key={`${phase.id}-${index}`} title="Planned in the BRD; screen not implemented"><span>{module.name}</span></div>)}</div>}
+      </section>
+    })}
+  </nav>
 }
 
 function Dashboard({ data, onOpenModule, onOpenMaster }) {
@@ -106,6 +124,7 @@ export default function PhoenixApp({ onSwitch }) {
   const [globalQuery, setGlobalQuery] = useState('')
   const [collapsed, setCollapsed] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [expandedPhase, setExpandedPhase] = useState('phase-1')
   const [notice, setNotice] = useState('')
   const activeModule = route.module
   const found = route.master ? findPhoenixMaster(route.master) : null
@@ -139,7 +158,8 @@ export default function PhoenixApp({ onSwitch }) {
     {notice && <div className="toast" role="status"><Check size={17}/>{notice}</div>}
     <aside className={mobileOpen ? 'sidebar mobile-open' : 'sidebar'}>
       <div className="brand"><span><Factory/></span>{!collapsed && <div><strong>PHOENIX</strong><small>FOUNDRY ERP</small></div>}<button className="mobile-close" onClick={() => setMobileOpen(false)} aria-label="Close menu"><X/></button></div>
-      <nav><button className={route.type === 'home' ? 'active' : ''} onClick={() => go({ type: 'home' })}><Home/><span>Overview</span></button><p>PHASE 1 MASTERS</p>{PHOENIX_MODULES.map((module, index) => { const Icon = MODULE_ICONS[index]; return <button key={module.id} className={activeModule === module.id ? 'active' : ''} title={module.name} onClick={() => go({ type: 'module', module: module.id })}><Icon/><span>{module.short}</span><small>{module.masters.length}</small></button> })}</nav>
+      <div className="phoenix-overview-nav"><button className={route.type === 'home' ? 'active' : ''} onClick={() => go({ type: 'home' })}><Home/><span>Overview</span></button></div>
+      <PhoenixNavigation activeModule={activeModule} expandedPhase={expandedPhase} onExpand={setExpandedPhase} onOpenModule={(module) => go({ type: 'module', module })}/>
       <div className="sidebar-foot"><div className="avatar"><ShieldCheck size={15}/></div>{!collapsed && <div><strong>Prototype workspace</strong><small>Synthetic local data only</small></div>}</div>
     </aside>
     <section className="workspace">
