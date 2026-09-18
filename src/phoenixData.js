@@ -434,6 +434,92 @@ export const PHOENIX_MODULE_GUIDANCE = {
   },
 }
 
+const MASTER_LEGACY_EVIDENCE = {
+  companies: { sun: 'COMPANY', yes: 'Company Master', level: 'confirmed' },
+  plants: { sun: 'COMPANY / UNIT MASTER', yes: 'Company Unit Master', level: 'related' },
+  departments: { sun: 'DEPARTMENT MASTER', yes: 'Department Master', level: 'confirmed' },
+  sections: { sun: 'Department/location references', yes: 'Department and division references', level: 'related' },
+  employees: { sun: 'EMPLOYEE MASTER', yes: 'Employee Master / Responsible Person', level: 'confirmed' },
+  'cost-centres': {},
+  warehouses: { sun: 'Stores Master and storage-area references', yes: 'Inventory locations', level: 'related' },
+  'storage-locations': { sun: 'ITEM MASTER — Storage Area / PATTERN LOCATION', yes: 'Pattern/Core Plant, Location and Rack', level: 'related' },
+  'work-centres': { sun: 'MACHINE MASTER — Location / CASTING PROCESS MASTER', yes: 'Department, Furnace and Process references', level: 'related' },
+  calendars: {}, shifts: {},
+  'bins-racks': { sun: 'PATTERN LOCATION', yes: 'Pattern/Core Rack and Location', level: 'related' },
+  'resource-groups': {},
+  'business-partners': { sun: 'CUSTOMER / SUPPLIER MASTER / SUBCONTRACT-VENDOR', yes: 'Customer Master / Vendor-Subcontractor', level: 'related' },
+  'partner-sites': { sun: 'Customer/Supplier addresses and contacts', yes: 'Customer sites and Delivery Customer', level: 'related' },
+  items: { sun: 'ITEM MASTER / PRODUCTMASTER', yes: 'Product Master / Part Master', level: 'related' },
+  materials: { sun: 'ITEM MASTER — Material Type / GRADE', yes: 'Product and Grade material fields', level: 'related' },
+  grades: { sun: 'GRADE', yes: 'Grade Master', level: 'confirmed' },
+  'item-categories': { sun: 'GROUP MASTER / ITEM MASTER', yes: 'General Masters and item grouping', level: 'related' },
+  'uom-conversions': { sun: 'UNIT MASTER', yes: 'Unit fields in Product/Pattern/Core', level: 'related' },
+  'tracking-policies': { sun: 'ITEM MASTER — Test Required / PRODUCTMASTER traceability', yes: 'Product Master — Furnace Track / Traceability', level: 'related' },
+  'assets-equipment': { sun: 'MACHINE MASTER / EQUIPMENT MASTER', yes: 'Crucible / Heat Treatment Furnace / NDE Master', level: 'related' },
+  'equipment-capabilities': { sun: 'MACHINE MASTER — Capacity / EQUIPMENT MASTER — Range', yes: 'Furnace Capacity and test-equipment fields', level: 'related' },
+  'calibration-profiles': { sun: 'EQUIPMENT MASTER — Frequency, Range, Acceptance', yes: 'Equipment/NDE references', level: 'related' },
+  processes: { sun: 'CASTING PROCESS MASTER', yes: 'Casting Process / Contractor’s Process Master', level: 'confirmed' },
+  operations: { sun: 'CASTING PROCESS MASTER', yes: 'Sub Process Master', level: 'related' },
+  defects: { sun: 'INTERNAL/CUSTOMER REJECTION TABLE', yes: 'Rejection Reasons', level: 'confirmed' },
+  dispositions: { sun: 'Rejection and repair transactions', yes: 'Hold Release / repair-reason references', level: 'related' },
+  'reason-codes': { sun: 'Rejection tables', yes: 'Rejection Reasons / Hold Reason / RT Repair Reason', level: 'related' },
+  'test-methods': { sun: 'Quality/Lab test screens', yes: 'NDE Master and Test Details', level: 'related' },
+  geographies: { sun: 'COMPANY/CUSTOMER address fields', yes: 'Company/Customer country and state', level: 'related' },
+  currencies: { sun: 'CUSTOMER — Currency', yes: 'Currency Master', level: 'related' },
+  uoms: { sun: 'UNIT MASTER', yes: 'Unit fields across Product/Pattern/Core', level: 'related' },
+  'reference-types': { sun: 'GENERAL / OTHER MASTERS', yes: 'General Masters', level: 'related' },
+  'number-series': { sun: 'RUNNING SERIAL NO CONTROL', yes: 'Document prefix and numbering fields', level: 'related' },
+  'fiscal-periods': {},
+  'tax-codes': { sun: 'TAX and customer/supplier tax fields', yes: 'Tax Master', level: 'confirmed' },
+  'payment-terms': { sun: 'CUSTOMER/SUPPLIER — Payment Terms', yes: 'Customer Master — Payment Terms', level: 'confirmed' },
+  'delivery-terms': { sun: 'CUSTOMER/SUPPLIER delivery and dispatch fields', yes: 'Customer delivery/transport fields', level: 'related' },
+  'document-types': { sun: 'Menu/document references', yes: 'General Masters and document screens', level: 'related' },
+  users: { sun: 'USER RIGHT / EMPLOYEE MASTER', yes: 'Responsible Person / Employee Master', level: 'related' },
+  roles: { sun: 'USER RIGHT', yes: 'Responsible Person designations', level: 'related' },
+  'master-requests': {},
+  'user-role-assignments': { sun: 'USER RIGHT', yes: 'Responsible Person and employee responsibility', level: 'related' },
+  'data-scopes': { sun: 'USER RIGHT and company/unit scope', yes: 'Company/department responsibility', level: 'related' },
+  'approval-matrix': {},
+}
+
+const COMPANY_FIELD_ALIASES = {
+  code: ['Company Code', 'Company Code'], name: ['Company Name', 'Company Name'], tradingName: ['Short Name', 'Short Name'],
+  address: ['Factory Addr1–Address4', 'Factory Addr1–Address4'], country: ['Address country context', 'Company address country'], state: ['State / division', 'State'],
+  taxId: ['GST No / statutory identifiers', 'GST No / PAN / TAN'], email: ['Email1 / Email2', 'Email / Email2'], phone: ['Phone', 'Phone'],
+  currency: ['Not confirmed on COMPANY', 'Not confirmed on Company Master'], timezone: ['Not confirmed', 'Not confirmed'], effectiveDate: ['Not confirmed', 'QD Effect Date'], status: ['Not confirmed', 'Not confirmed'],
+}
+
+function futureUseForField(fieldName, moduleId) {
+  const value = fieldName.toLowerCase()
+  if (/company|plant|department|section|location|warehouse|work centre|scope/.test(value)) return 'Transaction ownership, access scope, approvals and organization-wise reporting across all Phoenix areas.'
+  if (/address|country|state|city|pin|contact|email|phone/.test(value)) return 'Partner communication and printed Purchase Order, Invoice, Delivery Challan, Certificate and statutory documents.'
+  if (/tax|gst|pan|hsn|sac|statutory/.test(value)) return 'Tax determination, supplier/customer compliance, invoicing and statutory reporting.'
+  if (/currency|payment|credit|delivery term|transport/.test(value)) return 'Quotation, Sales Order, Purchase Order, Invoice, payment follow-up and dispatch planning.'
+  if (/item|material|grade|uom|unit|tracking|batch|heat|serial|shelf/.test(value)) return 'Engineering, procurement, inventory, production consumption, traceability, inspection and certification.'
+  if (/machine|equipment|furnace|capacity|range|calibration|maintenance|energy/.test(value)) return 'Capacity planning, shop-floor execution, maintenance, calibration and equipment-linked quality results.'
+  if (/process|operation|defect|disposition|reason|method|inspection|test|severity/.test(value)) return 'Routing, production reporting, inspection plans, NCR, rework/repair, rejection and quality analytics.'
+  if (/user|role|permission|access|approv|review|request|delegate/.test(value)) return 'Authentication, authorization, approval workflow, segregation of duties and audit trail.'
+  if (/number|prefix|suffix|increment|reset|document type/.test(value)) return 'Controlled document generation for orders, receipts, work orders, heats, inspections, certificates and dispatch.'
+  if (/date|effective|status|active|inactive|valid/.test(value)) return 'Record lifecycle, effective dating, audit history and prevention of obsolete values in new transactions.'
+  if (/code/.test(value)) return 'Unique lookup, integration key, document reference and reporting dimension.'
+  if (/name|description|remarks/.test(value)) return 'User-readable dropdowns, document descriptions, searches and reports.'
+  return PHOENIX_MODULE_GUIDANCE[moduleId]?.futureUse.slice(0, 2).join(' ') ?? 'Used by downstream Phoenix transactions and reporting after stakeholder validation.'
+}
+
+export function getPhoenixFieldMapping(moduleId, masterDefinition) {
+  const evidence = MASTER_LEGACY_EVIDENCE[masterDefinition.id] ?? {}
+  return masterDefinition.fields.map(([key, label]) => {
+    const companyAlias = masterDefinition.id === 'companies' ? COMPANY_FIELD_ALIASES[key] : null
+    const level = companyAlias ? (/not confirmed/i.test(companyAlias.join(' ')) ? 'proposed' : 'confirmed') : (evidence.level ?? 'proposed')
+    return {
+      key, label, level,
+      sun: companyAlias?.[0] ?? (evidence.sun ? `${evidence.sun} — related field; confirm exact mapping` : 'Not confirmed in supplied SUN’s evidence — Phoenix proposed'),
+      yes: companyAlias?.[1] ?? (evidence.yes ? `${evidence.yes} — related field; confirm exact mapping` : 'Not confirmed in supplied YES’s evidence — Phoenix proposed'),
+      futureUse: futureUseForField(label, moduleId),
+    }
+  })
+}
+
 // Full BRD roadmap used by the Phoenix sidebar. Only Phase 1 is implemented;
 // later phases are deliberately navigation labels until their requirements are validated.
 export const PHOENIX_PHASES = [

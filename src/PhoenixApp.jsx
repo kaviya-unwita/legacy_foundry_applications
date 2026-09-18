@@ -5,7 +5,7 @@ import {
   PanelLeftOpen, Plus, Repeat2, RotateCcw, Ruler, Save, Search, Settings, ShieldCheck, ShoppingCart,
   Truck, Users, Warehouse, Wrench, X,
 } from 'lucide-react'
-import { buildPhoenixSeed, findPhoenixMaster, PHOENIX_MODULES, PHOENIX_MODULE_GUIDANCE, PHOENIX_PHASES } from './phoenixData'
+import { buildPhoenixSeed, findPhoenixMaster, getPhoenixFieldMapping, PHOENIX_MODULES, PHOENIX_MODULE_GUIDANCE, PHOENIX_PHASES } from './phoenixData'
 
 const STORAGE_KEY = 'phoenix-erp:phase-1-masters'
 const MODULE_ICONS = [Building2, Layers3, Users, Boxes, Wrench, Gauge, Settings, ShieldCheck]
@@ -63,6 +63,21 @@ function ModuleEvidence({ moduleId, compact = false }) {
   </div>
 }
 
+function FieldMappingDisclosure({ module, master }) {
+  const [open, setOpen] = useState(false)
+  const mappings = useMemo(() => getPhoenixFieldMapping(module.id, master), [module.id, master])
+  const counts = mappings.reduce((result, item) => ({ ...result, [item.level]: (result[item.level] ?? 0) + 1 }), {})
+  return <div className={`field-mapping-disclosure ${open ? 'open' : ''}`}>
+    <button className="field-mapping-toggle" type="button" aria-expanded={open} onClick={() => setOpen(!open)}>
+      <span><Database/><span><strong>Field mapping & future use</strong><small>{mappings.length} fields · {counts.confirmed ?? 0} confirmed · {counts.related ?? 0} related · {counts.proposed ?? 0} proposed</small></span></span><ChevronDown/>
+    </button>
+    {open && <section className="field-mapping-panel">
+      <div className="mapping-legend"><span className="mapping-status confirmed">Confirmed</span><span>Same field is visible in supplied legacy evidence.</span><span className="mapping-status related">Related</span><span>Related legacy screen/data exists; exact field mapping needs validation.</span><span className="mapping-status proposed">Proposed</span><span>Not confirmed in supplied legacy evidence.</span></div>
+      <div className="table-scroll"><table className="field-mapping-table"><thead><tr><th>Phoenix field</th><th>Evidence</th><th>SUN’s mapping</th><th>YES’s mapping</th><th>Future use</th></tr></thead><tbody>{mappings.map((item) => <tr key={item.key}><td><strong>{item.label}</strong><small>{item.key}</small></td><td><span className={`mapping-status ${item.level}`}>{item.level}</span></td><td>{item.sun}</td><td>{item.yes}</td><td>{item.futureUse}</td></tr>)}</tbody></table></div>
+    </section>}
+  </div>
+}
+
 function Dashboard({ data, onOpenModule, onOpenMaster }) {
   const masterCount = PHOENIX_MODULES.reduce((count, module) => count + module.masters.length, 0)
   const recordCount = Object.values(data).reduce((count, records) => count + records.length, 0)
@@ -106,6 +121,7 @@ function MasterList({ module, master, records, query, onQuery, onBack, onEdit, o
   return <main className="content phoenix-content master-list-page">
     <button className="back-link" onClick={onBack}><ArrowLeft size={17}/> {module.name}</button>
     <div className="page-heading"><div><span className="eyebrow">{module.short} · MASTER REGISTER</span><h1>{master.name}</h1><p>{master.description}</p></div><button className="primary-action phoenix-new" onClick={onCreate}><Plus size={17}/> New record</button></div>
+    <FieldMappingDisclosure module={module} master={master}/>
     <section className="master-list-card">
       <div className="master-list-tools"><div className="master-search"><Search size={16}/><input value={query} onChange={(event) => onQuery(event.target.value)} placeholder={`Search ${master.name.toLowerCase()}…`}/></div><span>{filtered.length} of {records.length} records</span></div>
       {filtered.length ? <div className="table-scroll"><table className="master-table"><thead><tr>{visibleFields.map((field) => <th key={field[0]}>{field[1]}</th>)}<th></th></tr></thead><tbody>{filtered.map((record) => <tr key={record.id} onClick={() => onEdit(record.id)}>{visibleFields.map((field) => <td key={field[0]}>{field[2] === 'status' ? <span className={`status-pill ${String(record[field[0]]).toLowerCase().replaceAll(' ', '-')}`}>{displayValue(record[field[0]])}</span> : displayValue(record[field[0]])}</td>)}<td><button className="row-open" aria-label="Edit record"><ChevronRight size={17}/></button></td></tr>)}</tbody></table></div>
@@ -138,6 +154,7 @@ function MasterForm({ module, master, record, isNew, onBack, onSave }) {
     <button className="back-link" onClick={onBack}><ArrowLeft size={17}/> {master.name}</button>
     <header className="form-heading phoenix-form-heading"><div><div className="form-meta"><small>PHOENIX CORE SETUP</small><small>{module.name}</small><small>{isNew ? 'NEW RECORD' : record.id}</small></div><h1>{isNew ? `New ${master.name.replace(/s$/, '')}` : draft.name || draft.code || master.name}</h1><p>{master.description}</p></div><span className="module-tag">{isNew ? 'DRAFT' : (draft.status || draft.approvalStatus || 'RECORD')}</span></header>
     <ModuleEvidence moduleId={module.id} compact/>
+    <FieldMappingDisclosure module={module} master={master}/>
     <div className="demo-banner compact"><ShieldCheck size={16}/><div><strong>Controlled master-data entry</strong><span>Required fields are marked with *. Changes in this prototype are retained locally for review.</span></div></div>
     {errors.length > 0 && <div className="banner danger"><CircleDot size={17}/><div><strong>Complete the required fields.</strong> {errors.join(', ')}</div></div>}
     <form onSubmit={submit}>
