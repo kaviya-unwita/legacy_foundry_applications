@@ -542,6 +542,10 @@ const VERIFIED_FIELD_ALIASES = {
     locationType: { sun: 'Pattern Room/Rack/Block attributes', yes: 'Pattern/Core Location and Rack attributes', level: 'partial' },
     purpose: [null, null], stockType: [null, null], capacity: [null, null], capacityUom: [null, null], status: [null, null],
   },
+  shifts: {
+    code: { sun: 'SHIFT value used in SSA pouring and mould-production transactions', yes: null, level: 'partial' },
+    name: [null, null], scope: [null, null], startTime: [null, null], endTime: [null, null], breakMinutes: [null, null], workingDays: [null, null], status: [null, null],
+  },
   'business-partners': {
     code: ['CUSTOMER.CODE / MASSUPPLIER.CODE / OCSTM.CODE', 'Code — Customer Master'],
     name: ['CUSTOMER.NAME / MASSUPPLIER.NAME / OCSTM.NAME', 'Name — Customer Master'],
