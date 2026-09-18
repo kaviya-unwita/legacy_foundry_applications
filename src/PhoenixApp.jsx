@@ -45,18 +45,22 @@ function PhoenixNavigation({ activeModule, expandedPhase, onExpand, onOpenModule
 }
 
 function ModuleEvidence({ moduleId, compact = false }) {
+  const [open, setOpen] = useState(false)
   const guidance = PHOENIX_MODULE_GUIDANCE[moduleId]
   if (!guidance) return null
   if (compact) return <div className="module-evidence-compact"><Database size={15}/><div><strong>Legacy-informed future-state form</strong><span>SUN’s: {guidance.sunEvidence.join(', ')} · YES’s: {guidance.yesEvidence.join(', ')}</span></div></div>
-  return <section className="module-evidence">
-    <div className="evidence-purpose"><span className="eyebrow">WHY THIS DATA EXISTS</span><p>{guidance.purpose}</p></div>
-    <div className="evidence-grid">
-      <article><header><Database/><strong>SUN’s corresponding data</strong></header><ul>{guidance.sunEvidence.map((item) => <li key={item}>{item}</li>)}</ul></article>
-      <article><header><Database/><strong>YES’s corresponding data</strong></header><ul>{guidance.yesEvidence.map((item) => <li key={item}>{item}</li>)}</ul></article>
-      <article><header><ChevronRight/><strong>Used later in Phoenix</strong></header><ul>{guidance.futureUse.map((item) => <li key={item}>{item}</li>)}</ul></article>
-    </div>
-    <div className="design-boundary"><ShieldCheck size={17}/><div><strong>Future-state design boundary</strong><span>{guidance.boundary}</span></div></div>
-  </section>
+  return <div className={`evidence-disclosure ${open ? 'open' : ''}`}>
+    <button className="evidence-toggle" type="button" aria-expanded={open} onClick={() => setOpen(!open)}><span><Database/><span><strong>Legacy evidence & future use</strong><small>See why this data exists and where SUN’s/YES’s contain corresponding information</small></span></span><ChevronDown/></button>
+    {open && <section className="module-evidence">
+      <div className="evidence-purpose"><span className="eyebrow">WHY THIS DATA EXISTS</span><p>{guidance.purpose}</p></div>
+      <div className="evidence-grid">
+        <article><header><Database/><strong>SUN’s corresponding data</strong></header><ul>{guidance.sunEvidence.map((item) => <li key={item}>{item}</li>)}</ul></article>
+        <article><header><Database/><strong>YES’s corresponding data</strong></header><ul>{guidance.yesEvidence.map((item) => <li key={item}>{item}</li>)}</ul></article>
+        <article><header><ChevronRight/><strong>Used later in Phoenix</strong></header><ul>{guidance.futureUse.map((item) => <li key={item}>{item}</li>)}</ul></article>
+      </div>
+      <div className="design-boundary"><ShieldCheck size={17}/><div><strong>Future-state design boundary</strong><span>{guidance.boundary}</span></div></div>
+    </section>}
+  </div>
 }
 
 function Dashboard({ data, onOpenModule, onOpenMaster }) {
