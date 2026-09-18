@@ -79,10 +79,10 @@ function Dashboard({ data, onOpenModule, onOpenMaster }) {
       const count = module.masters.reduce((total, master) => total + (data[master.id]?.length ?? 0), 0)
       return <button className="module-card" key={module.id} onClick={() => onOpenModule(module.id)}><span className="module-icon"><Icon/></span><div><h3>{module.name}</h3><p>{module.masters.length} registers · {count} records</p></div><ChevronRight/></button>
     })}</section>
-    <section className="recent-panel"><div className="section-title"><div><span>QUICK ACCESS</span><h2>Frequently used masters</h2></div></div><div className="recent-list">{['companies', 'plants', 'customers', 'items', 'number-series', 'users'].map((id) => {
-      const found = findPhoenixMaster(id)
-      return <button key={id} onClick={() => onOpenMaster(found.module.id, id)}><span>{found.module.short}</span><strong>{found.master.name}</strong><small>{data[id]?.length ?? 0} records</small><ChevronRight size={17}/></button>
-    })}</div></section>
+    <section className="recent-panel"><div className="section-title"><div><span>QUICK ACCESS</span><h2>Frequently used masters</h2></div></div><div className="recent-list">{['companies', 'plants', 'business-partners', 'items', 'number-series', 'users']
+      .map((id) => ({ id, found: findPhoenixMaster(id) }))
+      .filter(({ found }) => Boolean(found))
+      .map(({ id, found }) => <button key={id} onClick={() => onOpenMaster(found.module.id, id)}><span>{found.module.short}</span><strong>{found.master.name}</strong><small>{data[id]?.length ?? 0} records</small><ChevronRight size={17}/></button>)}</div></section>
   </main>
 }
 
