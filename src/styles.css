@@ -32,3 +32,17 @@
 .source-tag{display:inline-block;margin-left:6px;padding:1px 5px;border-radius:3px;font-size:8px;font-style:normal;font-weight:700;letter-spacing:.3px;vertical-align:1px;white-space:nowrap}
 .source-form-screenshot{background:#e2f1ec;color:#176158}.source-form{background:#f8edd8;color:#8a5c14}.source-screenshot{background:#e6eef8;color:#2f5f96}.source-screenshot-hidden{background:#efe7f7;color:#65408c}.source-form-text{background:#f0f2f1;color:#5f6f6b}
 .source-legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:10px;font-size:9px;color:var(--muted)}.source-legend span{display:inline-flex;align-items:center;gap:5px}.source-legend .source-tag{margin-left:0}
+/* Legacy layout: sections (the form's boxes) arranged like the legacy screen, fields on the legacy row/column grid */
+.legacy-layout{display:grid;gap:12px}.legacy-band{display:grid;gap:12px;align-items:start}.legacy-band-column{display:grid;gap:12px;min-width:0}
+.legacy-section{border:1px solid var(--line);border-radius:9px;padding:12px 12px 14px;background:#fbfcfb;min-width:0}.legacy-section.untitled{background:transparent;border-style:dashed}.legacy-section.unplaced{border-style:dashed;background:#fbf7ee;border-color:#ecd9ae}
+.legacy-section h4{margin:-2px 0 10px;font:700 11px Manrope;letter-spacing:.6px;color:#176158}.legacy-section.unplaced h4{color:#8a5c14}
+.section-grid{display:grid;gap:10px 12px;align-items:end}.section-cell{min-width:0}.section-cell .field>span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:760px){.legacy-band,.section-grid{display:block}.legacy-band-column{margin-bottom:12px}.section-cell{margin-bottom:10px}}
+/* Label on the side the legacy screen draws it: left of the input, above it (grid columns), or right of a check box */
+.section-cell .field.side-left{display:grid;grid-template-columns:minmax(72px,40%) minmax(0,1fr);align-items:center;column-gap:8px}
+.section-cell .field.side-left>span{margin:0;text-align:right;white-space:normal;line-height:1.25}
+.section-cell .field.side-right{display:flex;flex-direction:row-reverse;justify-content:flex-end;align-items:center;gap:8px}
+.section-cell .field.side-right>span{margin:0}.section-cell .field.side-right .input-wrap{flex:none}
+.input-wrap input.checkbox{width:16px;height:16px;margin:0;accent-color:#176158}
+.section-cell .field .source-tag{display:block;width:max-content;margin:3px 0 0;text-align:left}.section-cell .field.side-left .source-tag{margin-left:auto}
+@media (max-width:760px){.section-cell .field.side-left{display:block}.section-cell .field.side-left>span{text-align:left;margin-bottom:6px}}

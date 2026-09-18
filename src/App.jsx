@@ -75,7 +75,7 @@ function Field({ field, valueKey, value, onChange, onLookup, lookupAvailable }) 
     `Evidence: ${(field.evidence ?? []).join('; ')}`,
   ].filter(Boolean).join('\n')
   return (
-    <label className="field" htmlFor={id} title={hint}>
+    <label className={field.labelSide ? `field side-${field.labelSide}` : 'field'} htmlFor={id} title={hint}>
       <span>{field.label}{field.required && <b className="required"> *</b>}<SourceTag source={field.source}/></span>
       <div className="input-wrap">
         {type === 'checkbox'
@@ -180,6 +180,52 @@ export function MenuPage({ module, path, model, onOpenScreen, onOpenPath, onBack
 }
 
 const tabKey = (tab) => tab.key ?? tab.legId
+
+// Arranges a page like the legacy screen. Sections (the form's boxes) that overlap vertically share a band; inside a
+// band, sections covering the same horizontal span stack in one column. Inside a section each field keeps its legacy
+// row and column, with column widths in legacy proportions.
+function arrangeSections(sections) {
+  const bands = []
+  for (const section of [...sections].sort((a, b) => (a.unplaced - b.unplaced) || (a.group - b.group) || (a.y - b.y) || (a.x - b.x))) {
+    const band = bands.at(-1)
+    if (band && !section.unplaced && !band.unplaced && band.group === section.group && section.y < band.bottom - 4) {
+      band.bottom = Math.max(band.bottom, section.y + section.h)
+      const column = band.columns.find((item) => section.x < item.right - 4 && section.x + section.w > item.x + 4)
+      if (column) {
+        column.sections.push(section)
+        column.x = Math.min(column.x, section.x)
+        column.right = Math.max(column.right, section.x + section.w)
+      } else band.columns.push({ x: section.x, right: section.x + section.w, sections: [section] })
+    } else {
+      bands.push({ group: section.group, unplaced: Boolean(section.unplaced), bottom: section.y + section.h, columns: [{ x: section.x, right: section.x + section.w, sections: [section] }] })
+    }
+  }
+  for (const band of bands) band.columns.sort((a, b) => a.x - b.x)
+  return bands
+}
+
+function LegacyLayout({ sections, fields, renderField }) {
+  return (
+    <div className="legacy-layout">{arrangeSections(sections).map((band, bandIndex) => (
+      <div className="legacy-band" key={bandIndex} style={{ gridTemplateColumns: band.columns.map((column) => `minmax(0, ${Math.max(column.right - column.x, 120)}fr)`).join(' ') }}>
+        {band.columns.map((column, columnIndex) => (
+          <div className="legacy-band-column" key={columnIndex}>{column.sections.map((section) => {
+            const members = fields.filter((field) => field.section === section.id)
+            if (!members.length) return null
+            return (
+              <section key={section.id} className={section.unplaced ? 'legacy-section unplaced' : section.title ? 'legacy-section' : 'legacy-section untitled'}>
+                {section.title && <h4>{section.title}</h4>}
+                <div className="section-grid" style={{ gridTemplateColumns: section.columns.map((width) => `minmax(0, ${Math.max(width, 30)}fr)`).join(' ') }}>
+                  {members.map((field, index) => <div key={`${field.label}-${index}`} className="section-cell" style={{ gridRow: field.row + 1, gridColumn: field.col + 1 }}>{renderField(field, index)}</div>)}
+                </div>
+              </section>
+            )
+          })}</div>
+        ))}
+      </div>
+    ))}</div>
+  )
+}
 
 // Says where a page of a SUN's screen comes from: a screenshot, the legacy form only, or neither.
 function pageSource(screen, tab, fieldCount) {
@@ -289,7 +335,9 @@ export function ScreenPage({ screen, screenshotBase = '/legacy-screens', onBack 
       <section className="form-panel">
         <div className="panel-title"><div><span>{readOnly ? 'QUERY / DISPLAY' : 'ENTRY DETAILS'}</span><h3>{readOnly ? 'Legacy display fields' : 'Record information'}</h3></div><small>{screen.lovs.length ? 'F9 SHOWS LEGACY LISTS' : isYes ? 'F9 LISTS NOT DOCUMENTED' : 'NO F9 LISTS IN LEGACY FORM'}</small></div>
         {docCode && !readOnly && <div className="doc-number"><Hash size={15}/><span>Document no.</span><strong>{values.__documentNo ?? 'Generated on save'}</strong><small>legacy CONTROL code {screen.controlCodes.join(', ')}</small></div>}
-        {visibleFields.length
+        {visibleFields.length && tab.sections?.length
+          ? <LegacyLayout sections={tab.sections} fields={visibleFields} renderField={(field) => <Field field={field} valueKey={valueKey(field)} value={values[valueKey(field)]} onChange={update} onLookup={setLookup} lookupAvailable={screen.lovs.length > 0}/>}/>
+          : visibleFields.length
           ? <div className="form-grid">{visibleFields.map((field, index) => field.kind === 'heading'
             ? <h4 className="field-heading" key={`${field.label}-${index}`}>{field.label}</h4>
             : <Field key={`${valueKey(field)}-${index}`} field={field} valueKey={valueKey(field)} value={values[valueKey(field)]} onChange={update} onLookup={setLookup} lookupAvailable={screen.lovs.length > 0}/>)}</div>
