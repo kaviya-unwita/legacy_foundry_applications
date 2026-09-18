@@ -144,9 +144,15 @@ export function MenuPage({ module, path, model, onOpenScreen, onOpenPath, onBack
         const isMenu = option.children?.length > 0
         const screen = option.screenId ? model.screens[option.screenId] : null
         const disabled = !isMenu && !screen
-        const reason = option.unavailableNote ?? (option.formName ? `legacy form ${option.formName} ${option.formInSource ? 'is in SUN legacy source' : 'is not in SUN legacy source'}` : 'no legacy form')
+        // An option is disabled for one of two reasons, and each says which:
+        //  - the legacy menu group has no options at all (unavailableNote from the source data,
+        //    e.g. "No options in the legacy menu" for MAINTANANCE VIEWS);
+        //  - the option exists in the legacy menu but no screenshot of its screen was supplied.
+        const reason = option.unavailableNote ?? (option.formName
+          ? `No screenshot was captured for this option (legacy form ${option.formName} ${option.formInSource ? 'is in the legacy source' : 'is not in the legacy source'})`
+          : 'No screenshot was captured for this option')
         return (
-          <button key={option.code} disabled={disabled} title={disabled ? `No screenshot was captured for this option (${reason})` : option.formName ?? option.label}
+          <button key={option.code} disabled={disabled} title={disabled ? reason : option.formName ?? option.label}
             onClick={() => (isMenu ? onOpenPath([...path, option.code]) : onOpenScreen(option.screenId))}>
             <span>{String(index + 1).padStart(2, '0')}</span>
             <strong>{option.label}{disabled && <small className="option-note">{option.unavailableNote ?? `Not captured · ${option.formName ?? 'no form'}`}</small>}</strong>
