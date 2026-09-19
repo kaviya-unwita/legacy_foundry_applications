@@ -1,8 +1,8 @@
 // URL scheme (one path per application):
-//   /sun, /yes                                   application dashboard
+//   /sun, /yes, /phoenix                         application dashboard
 //   /sun/menu/<module>[/<option code>...]        module menu or sub-menu
 //   /sun/screen/<screen id>                      legacy screen
-export const APPLICATION_KEYS = ['sun', 'yes']
+export const APPLICATION_KEYS = ['sun', 'yes', 'phoenix']
 export const DEFAULT_APPLICATION = 'sun'
 
 const decode = (segment) => {

@@ -7,6 +7,7 @@ import {
 } from 'lucide-react'
 import { actionKind, buildModel, buildYesModel, findMenuLevel, flattenMenu, parseCatalogue, screenshotUrl } from './catalog'
 import { parseLocation, toPath } from './routes'
+import PhoenixApp from './PhoenixApp'
 
 const ICONS = [Factory, Users, ClipboardList, Gauge, Activity, LayoutGrid, Wrench, BarChart3, Package, FileText, Boxes, ShieldCheck, Database, Settings]
 
@@ -19,7 +20,7 @@ const LEGACY_MODULES = [
 ]
 const MODULE_LABELS = Object.fromEntries(LEGACY_MODULES)
 const moduleLabel = (module) => MODULE_LABELS[module] || String(module)
-const APPLICATIONS = { sun: 'SUN’s Foundry', yes: 'YES’s Foundry' }
+const APPLICATIONS = { sun: 'SUN’s Foundry', yes: 'YES’s Foundry', phoenix: 'Phoenix ERP' }
 // Screens verified against compiled legacy source; everything else is screenshot/workbook evidence only.
 const VERIFIED_STATUSES = ['present', 'fallback']
 const readStore = (key, fallback) => { try { return JSON.parse(localStorage.getItem(key)) ?? fallback } catch { return fallback } }
@@ -35,7 +36,9 @@ function useLegacyModel(application) {
       if (!response.ok) throw new Error(`${url} could not be loaded (${response.status})`)
       return kind === 'json' ? response.json() : response.text()
     })
-    const request = application === 'yes'
+    const request = application === 'phoenix'
+      ? Promise.resolve({ kind: 'phoenix', modules: [], screens: {}, legIndex: {} })
+      : application === 'yes'
       ? load('/data/yes-screens.json', 'json').then((items) => ({ ...buildYesModel(items), kind: 'yes' }))
       : Promise.all([load('/data/SUN_Foundry_Legacy_Application_Screen_Catalog.md', 'text'), load('/data/legacy_source.json', 'json')])
         .then(([markdown, source]) => ({ ...buildModel(parseCatalogue(markdown), source), kind: 'sun' }))
@@ -384,7 +387,7 @@ export default function App() {
 
   const modules = useMemo(() => {
     if (!model) return []
-    if (model.kind === 'yes') return model.modules
+    if (model.kind === 'yes' || model.kind === 'phoenix') return model.modules
     return LEGACY_MODULES.map(([name]) => model.modules.find((module) => module.module === name)).filter(Boolean)
   }, [model])
   const results = useMemo(() => {
@@ -438,6 +441,7 @@ export default function App() {
   const pageTitle = !model ? 'Loading' : notFound ? 'Not found'
     : selectedScreen ? selectedScreen.menuLabel : selectedModule ? (menuNode?.label ?? moduleLabel(selectedModule.module)) : 'Overview'
   useEffect(() => { if (browser) document.title = `${pageTitle} · ${APPLICATIONS[application]}` }, [pageTitle, application])
+  if (application === 'phoenix') return <PhoenixApp onSwitch={switchApplication}/>
   if (error) return <div className="fatal"><Factory/><h1>Unable to open {APPLICATIONS[application]}</h1><p>{error}</p><button className="tool" onClick={() => switchApplication(application === 'sun' ? 'yes' : 'sun')}>Open {APPLICATIONS[application === 'sun' ? 'yes' : 'sun']}</button></div>
 
   return (
