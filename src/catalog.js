@@ -86,12 +86,13 @@ export function buildModel(catalogue, source) {
   const menuShots = {}
 
   for (const item of source.screens) {
-    const tabs = item.tabs.map((tab) => ({ ...tab, resolution: ocr[tab.legId]?.resolution ?? '', purpose: ocr[tab.legId]?.purpose ?? '' }))
+    // A tab is a legacy tab page, an uncaptured canvas, or (for a form without tab pages) a screenshot; `key` identifies it.
+    const tabs = item.tabs.map((tab) => ({ ...tab, key: tab.key ?? tab.legId, resolution: ocr[tab.legId]?.resolution ?? '', purpose: ocr[tab.legId]?.purpose ?? '' }))
     let fields = item.fields
     if (!fields) {
       // Legacy form not available: fall back to screenshot labels, unverified, plain text, never required.
       fields = item.legIds.flatMap((legId) => (ocr[legId]?.fields ?? []).filter(isLikelyField).map((label) => ({
-        label, kind: 'field', type: 'text', maxLength: null, required: false, tab: legId, evidence: ['screenshot OCR only (unverified)'],
+        label, kind: 'field', type: 'text', maxLength: null, required: false, tab: legId, source: 'screenshot', evidence: ['screenshot OCR only (unverified)'],
       })))
       fields = fields.filter((field, index) => fields.findIndex((other) => other.label === field.label) === index)
     }
